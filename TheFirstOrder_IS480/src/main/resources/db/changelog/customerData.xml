@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+<changeSet id="02" author="keithxinyi">
+<insert tableName="customer">
+    <column name="customer_id" value="C001"/>
+    <column name="customer_first_name" value="Xinyi"/>
+    <column name="customer_last_name" value="Tan"/>
+    <column name="customer_password" value="ilovef0od"/>
+    <column name="customer_age" valueNumeric="21"/>
+    <column name="customer_gender" value="F"/>
+    <column name="customer_street" value="100 Tampines St 42, #11-11"/>
+    <column name="customer_city" value="Singapore"/>
+    <column name="customer_postal_code" value="123456"/>
+    <column name="customer_contact" value="1234 1234"/>
+    <column name="customer_email" value="xinyi@hotmail.com"/>
+    <column name="customer_loyalty_points" value="1000"/>
+</insert>
+</changeSet>
+</databaseChangeLog>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <include file="changelog/createSchema.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/customerData.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/seatingTableData.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/restaurantData.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/menuData.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/menuPriceData.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/foodData.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/foodTagData.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

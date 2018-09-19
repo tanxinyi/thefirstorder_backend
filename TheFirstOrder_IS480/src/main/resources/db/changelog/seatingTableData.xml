@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+<changeSet id="03" author="keithxinyi">
+    <insert tableName="seating_table">
+        <column name="table_id" value="T001"/>
+        <column name="restaurant_id" value="R001"/>
+        <column name="capacity" valueNumeric="2"/>
+        <column name="qr_code" value="mjFxMBthDb"/>
+    </insert>
+    <insert tableName="seating_table">
+        <column name="table_id" value="T002"/>
+        <column name="restaurant_id" value="R001"/>
+        <column name="capacity" valueNumeric="2"/>
+        <column name="qr_code" value="JKX5FhXqms"/>
+    </insert>
+    <insert tableName="seating_table">
+        <column name="table_id" value="T003"/>
+        <column name="restaurant_id" value="R001"/>
+        <column name="capacity" valueNumeric="4"/>
+        <column name="qr_code" value="d526tyV6DN"/>
+    </insert>
+    <insert tableName="seating_table">
+        <column name="table_id" value="T004"/>
+        <column name="restaurant_id" value="R001"/>
+        <column name="capacity" valueNumeric="6"/>
+        <column name="qr_code" value="g9ZmS0RL0T"/>
+    </insert>
+    <insert tableName="seating_table">
+        <column name="table_id" value="T001"/>
+        <column name="restaurant_id" value="R002"/>
+        <column name="capacity" valueNumeric="2"/>
+        <column name="qr_code" value="NWfQxL8Xm3"/>
+    </insert>
+    <insert tableName="seating_table">
+        <column name="table_id" value="T002"/>
+        <column name="restaurant_id" value="R002"/>
+        <column name="capacity" valueNumeric="4"/>
+        <column name="qr_code" value="EyoEkfhfyS"/>
+    </insert>
+    <insert tableName="seating_table">
+        <column name="table_id" value="T003"/>
+        <column name="restaurant_id" value="R002"/>
+        <column name="capacity" valueNumeric="6"/>
+        <column name="qr_code" value="8FZl49JH1K"/>
+    </insert>
+</changeSet>
+</databaseChangeLog>
