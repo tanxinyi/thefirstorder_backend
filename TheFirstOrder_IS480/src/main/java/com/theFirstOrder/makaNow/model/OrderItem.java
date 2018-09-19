@@ -1,5 +1,6 @@
-package com.agogo.restaurantpos.model;
+package com.theFirstOrder.makaNow.model;
 
+import com.theFirstOrder.makaNow.model.FoodItem;
 import lombok.Data;
 
 @Data

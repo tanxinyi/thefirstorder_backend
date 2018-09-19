@@ -1,6 +1,6 @@
-package com.agogo.restaurantpos.controller;
+package com.theFirstOrder.makaNow.controller;
 
-import com.agogo.restaurantpos.model.Restaurant;
+import com.theFirstOrder.makaNow.model.Restaurant;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -10,8 +10,8 @@ public class RestaurantController {
 
     //Get all the details of a restaurant
     @RequestMapping(value = "/api/restaurant/getRestaurant/{id}", method = RequestMethod.GET)
-    public Restaurant getRestaurantDetails(@PathVariable int id){
-        return null;
+    public String getRestaurantDetails(@PathVariable int id){
+        return "FUCK";
     }
 
     @RequestMapping(value = "/api/restaurant/addRestaurant", method = RequestMethod.POST)

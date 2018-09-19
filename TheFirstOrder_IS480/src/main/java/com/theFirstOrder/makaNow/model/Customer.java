@@ -1,4 +1,4 @@
-package com.agogo.restaurantpos.model;
+package com.theFirstOrder.makaNow.model;
 
 import lombok.Data;
 

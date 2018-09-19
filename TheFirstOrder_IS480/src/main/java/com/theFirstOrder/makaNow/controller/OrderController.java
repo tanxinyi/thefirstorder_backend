@@ -1,7 +1,7 @@
-package com.agogo.restaurantpos.controller;
+package com.theFirstOrder.makaNow.controller;
 
-import com.agogo.restaurantpos.model.OrderItem;
-import com.agogo.restaurantpos.service.OrderService;
+import com.theFirstOrder.makaNow.model.OrderItem;
+import com.theFirstOrder.makaNow.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
