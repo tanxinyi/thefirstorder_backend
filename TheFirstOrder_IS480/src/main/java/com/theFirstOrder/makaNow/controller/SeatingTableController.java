@@ -1,7 +1,7 @@
 package com.theFirstOrder.makaNow.controller;
 
 
-import com.theFirstOrder.makaNow.model.FoodItem;
+import com.theFirstOrder.makaNow.model.Food;
 import com.theFirstOrder.makaNow.model.MenuPrice;
 import com.theFirstOrder.makaNow.model.Order;
 import com.theFirstOrder.makaNow.model.SeatingTable;
@@ -28,7 +28,7 @@ public class SeatingTableController {
     }
 
         @RequestMapping(value="/api/table/registerTable/{qrCode}", method = RequestMethod.GET)
-    public Order registerTable(@PathVariable String qrCode){
+    public String registerTable(@PathVariable String qrCode){
         //Receives Qr Code and check against database, if Qr Code matches, register table and create empty order
         boolean registered = false;
         String orderId = "";
@@ -44,6 +44,6 @@ public class SeatingTableController {
             order = new Order(orderId, "NOT SENT");
             registered = true;
         }
-        return order;
+        return order.getOrderId();
     }
 }

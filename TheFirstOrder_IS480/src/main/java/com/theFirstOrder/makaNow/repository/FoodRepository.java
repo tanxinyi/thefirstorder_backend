@@ -1,9 +1,9 @@
 package com.theFirstOrder.makaNow.repository;
 
-import com.theFirstOrder.makaNow.model.FoodItem;
+import com.theFirstOrder.makaNow.model.Food;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FoodItemRepository extends CrudRepository<FoodItem, String> {
+public interface FoodRepository extends CrudRepository<Food, String> {
 }
