@@ -23,9 +23,7 @@ public class MenuController {
     }
 
     @RequestMapping(value="/api/table/viewMenu/{restaurantId}", method = RequestMethod.GET)
-    public List<Menu> viewMenu( @PathVariable String restaurantId){
-        List<Menu> menus = menuService.getMenuByRestaurantId(restaurantId);
-        return menus;
+    public Menu viewMenu( @PathVariable String restaurantId) {
+        return menuService.getMenuByRestaurantId(restaurantId);
     }
-
 }

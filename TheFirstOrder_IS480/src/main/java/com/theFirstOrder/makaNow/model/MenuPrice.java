@@ -14,6 +14,6 @@ public class MenuPrice {
 
     @EmbeddedId
     private MenuPricePK menuPricePK;
-    private String price;
+    private double price;
     private boolean outOfStock;
 }

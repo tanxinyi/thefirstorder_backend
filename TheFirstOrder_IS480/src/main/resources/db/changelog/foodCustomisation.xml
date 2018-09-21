@@ -12,7 +12,7 @@
         </insert>
         <insert tableName="food_customisation">
             <column name="food_id" value="F001"/>
-            <column name="customisation_id_!" value="C003"/>
+            <column name="customisation_id_1" value="C003"/>
         </insert>
         <insert tableName="food_customisation">
             <column name="food_id" value="F001"/>

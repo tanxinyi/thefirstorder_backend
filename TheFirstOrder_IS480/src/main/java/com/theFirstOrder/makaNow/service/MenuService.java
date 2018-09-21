@@ -21,7 +21,7 @@ public class MenuService {
         return menus;
     }
 
-    public List<Menu> getMenuByRestaurantId(String restaurantId){
+    public Menu getMenuByRestaurantId(String restaurantId){
         List<Menu> restaurantMenus = new ArrayList<>();
         List<Menu> menus = getAllMenus();
         for (int i = 0; i < menus.size(); i++){
@@ -30,6 +30,6 @@ public class MenuService {
                 restaurantMenus.add(menu);
             }
         }
-        return restaurantMenus;
+        return restaurantMenus.get(restaurantMenus.size()-1);
     }
 }

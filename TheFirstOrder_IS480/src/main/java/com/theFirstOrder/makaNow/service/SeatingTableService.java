@@ -33,6 +33,17 @@ public class SeatingTableService {
         return null;
     }
 
+    public String getRestaurantIdByQrCode(String qrCode){
+        List<SeatingTable> seatingTables = getAllSeatingTables();
+        for (int i = 0; i < seatingTables.size(); i++){
+            SeatingTable seatingTable = seatingTables.get(i);
+            if (seatingTable.getQrCode().equals(qrCode)){
+                return seatingTable.getSeatingTablePK().getRestaurantId();
+            }
+        }
+        return null;
+    }
+
     public void addSeatingTable(SeatingTable seatingTable){
         seatingTableRepository.save(seatingTable);
     }

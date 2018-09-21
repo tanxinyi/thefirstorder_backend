@@ -19,4 +19,15 @@ public class FoodService {
                 .forEach(foodItems::add);
         return foodItems;
     }
+
+    public Food getFoodByFoodId(String foodId){
+        List<Food> foodItems = getAllFoodItems();
+        for (int i = 0; i < foodItems.size(); i++){
+            Food food = foodItems.get(i);
+            if (food.getFoodId().equals(foodId)){
+                return food;
+            }
+        }
+        return null;
+    }
 }
