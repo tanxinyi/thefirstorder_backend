@@ -9,7 +9,7 @@
         <createTable tableName="customer"
                      remarks="A table to contain all customers">
             <column name="customer_id" type="varchar(10)">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
+                <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="customer_first_name" type="varchar(30)">
                 <constraints nullable="false"/>
@@ -59,7 +59,7 @@
         <createTable tableName="restaurant"
                      remarks="A table to contain all restaurants">
             <column name="restaurant_id" type="varchar(10)">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
+                <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="restaurant_name" type="varchar(30)">
                 <constraints nullable="false"/>
@@ -127,18 +127,56 @@
         </createTable>
 
         <createTable tableName="food"
-                     remarks="A table to contain all food">
+                                           remarks="A table to contain all food">
+        <column name="food_id" type="varchar(10)">
+            <constraints nullable="false" primaryKey="true"/>
+        </column>
+        <column name="food_name" type="varchar(30)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="food_desc" type="varchar(200)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="food_category" type="varchar(20)">
+            <constraints nullable="false"/>
+        </column>
+    </createTable>
+
+        <createTable tableName="customisation"
+                     remarks="A table to contain all customisation options">
+            <column name="customisation_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="customisation_desc" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customisation_type" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customisation_option_1" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customisation_option_2" type="varchar(50)">
+            </column>
+            <column name="customisation_option_3" type="varchar(50)">
+            </column>
+            <column name="customisation_option_4" type="varchar(50)">
+            </column>
+            <column name="customisation_option_5" type="varchar(50)">
+            </column>
+        </createTable>
+
+        <createTable tableName="food_customisation"
+                     remarks="A table to contain all customisation options specific to the food">
             <column name="food_id" type="varchar(10)">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
-            </column>
-            <column name="food_name" type="varchar(30)">
                 <constraints nullable="false"/>
             </column>
-            <column name="food_desc" type="varchar(200)">
+            <column name="customisation_id_1" type="varchar(10)">
                 <constraints nullable="false"/>
             </column>
-            <column name="food_category" type="varchar(20)">
-                <constraints nullable="false"/>
+            <column name="customisation_id_2" type="varchar(10)">
+            </column>
+            <column name="customisation_id_3" type="varchar(10)">
             </column>
         </createTable>
 

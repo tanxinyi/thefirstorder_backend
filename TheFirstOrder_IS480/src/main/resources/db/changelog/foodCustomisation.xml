@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="10" author="keithxinyi">
+        <insert tableName="food_customisation">
+            <column name="food_id" value="F001"/>
+            <column name="customisation_id_1" value="C002"/>
+        </insert>
+        <insert tableName="food_customisation">
+            <column name="food_id" value="F001"/>
+            <column name="customisation_id_!" value="C003"/>
+        </insert>
+        <insert tableName="food_customisation">
+            <column name="food_id" value="F001"/>
+            <column name="customisation_id_1" value="C001"/>
+        </insert>
+        <insert tableName="food_customisation">
+            <column name="food_id" value="F003"/>
+            <column name="customisation_id_1" value="C003"/>
+        </insert>
+        <insert tableName="food_customisation">
+            <column name="food_id" value="F003"/>
+            <column name="customisation_id_1" value="C004"/>
+        </insert>
+        <insert tableName="food_customisation">
+            <column name="food_id" value="F003"/>
+            <column name="customisation_id_1" value="C005"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

@@ -13,5 +13,7 @@
     <include file="changelog/menuPriceData.xml" relativeToChangelogFile="true"/>
     <include file="changelog/foodData.xml" relativeToChangelogFile="true"/>
     <include file="changelog/foodTagData.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/customisationData.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/foodCustomisationData.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
