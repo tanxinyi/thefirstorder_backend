@@ -3,6 +3,8 @@ package com.theFirstOrder.makaNow.controller;
 
 import com.theFirstOrder.makaNow.model.*;
 import com.theFirstOrder.makaNow.service.*;
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +14,7 @@ import java.util.*;
 
 @RestController
 public class SeatingTableController {
+    Logger LOG = Logger.getLogger(SeatingTableController.class);
     
     @Autowired
     private SeatingTableService seatingTableService;
@@ -25,6 +28,7 @@ public class SeatingTableController {
     @RequestMapping(value="/api/table/registerTable", params="qrCode", method = RequestMethod.GET)
     public SeatingTable registerTable(@RequestParam("qrCode") String qrCode){
         //Receives Qr Code and check against database, if Qr Code matches, register table and create empty order
+        LOG.info("Entered register table with qrCode " + qrCode);
         SeatingTable seatingTable = seatingTableService.getSeatingTableByQrCode(qrCode);
 
         if (seatingTable == null){
