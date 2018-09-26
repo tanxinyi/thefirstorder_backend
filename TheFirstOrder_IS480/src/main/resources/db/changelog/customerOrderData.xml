@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="12" author="keithxinyi">
+        <insert tableName="customer_order">
+            <column name="order_id" value="O001"/>
+            <column name="customer_id" value="C001"/>
+            <column name="food_id" value="F001"/>
+			<column name="option_desc" value="There is a description here!!"/>
+        </insert>
+        <insert tableName="customer_order">
+            <column name="order_id" value="O002"/>
+            <column name="customer_id" value="C001"/>
+            <column name="food_id" value="F002"/>
+			<column name="option_desc" value="There is a food description here!!"/>
+        </insert>
+        <insert tableName="customer_order">
+            <column name="order_id" value="O003"/>
+            <column name="customer_id" value="C003"/>
+            <column name="food_id" value="F003"/>
+			<column name="option_desc" value="There is a order description here!!"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

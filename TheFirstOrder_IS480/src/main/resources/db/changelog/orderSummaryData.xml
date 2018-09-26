@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="12" author="keithxinyi">
+        <insert tableName="orderSummary">
+            <column name="order_id" value="O001"/>
+            <column name="restaurant_id" value="R001"/>
+            <column name="table_id" value="T001"/>
+			<column name="customer_id" value="C001"/>
+			<column name="order_status" value="Confirmed"/>
+			<column name="total_amount" value="100.00"/>
+			<column name="time" valueDate="2018-01-01 10:10:10"/>
+			<column name="mode_of_payment" value="Cash"/>
+        </insert>
+        <insert tableName="orderSummary">
+            <column name="order_id" value="O002"/>
+            <column name="restaurant_id" value="R001"/>
+            <column name="table_id" value="T001"/>
+			<column name="customer_id" value="C001"/>
+			<column name="order_status" value="Confirmed"/>
+			<column name="total_amount" value="18.00"/>
+			<column name="time" valueDate="2018-01-01 10:15:10"/>
+			<column name="mode_of_payment" value="Cash"/>
+        </insert>
+        <insert tableName="orderSummary">
+            <column name="order_id" value="O003"/>
+            <column name="restaurant_id" value="R002"/>
+            <column name="table_id" value="T002"/>
+			<column name="customer_id" value="C002"/>
+			<column name="order_status" value="Confirmed"/>
+			<column name="total_amount" value="157.00"/>
+			<column name="time" valueDate="2018-01-01 12:13:14"/>
+			<column name="mode_of_payment" value="Credit"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
