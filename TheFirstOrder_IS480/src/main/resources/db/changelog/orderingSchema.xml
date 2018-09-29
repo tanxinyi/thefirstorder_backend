@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="12" author="xinyi">
+    <changeSet id="15" author="xinyi">
 	    <createTable tableName="restaurant"
                      remarks="A table to contain all restaurants">
             <column name="restaurant_id" type="varchar(10)">
