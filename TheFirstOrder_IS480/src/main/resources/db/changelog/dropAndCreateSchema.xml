@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="14" author="xinyi">
+			<dropTable 
+					schemaName="public"
+					tableName="customer"/>
+
+			<dropTable 
+					schemaName="public"
+					tableName="food_tags"/>
+
+			<dropTable 
+					schemaName="public"
+					tableName="restaurant"/>
+
+			<dropTable 
+					schemaName="public"
+					tableName="seating_table"/>
+
+			<dropTable 
+					schemaName="public"
+					tableName="menu_price"/>
+
+			<dropTable 
+					schemaName="public"
+					tableName="menu"/>
+
+			<dropTable 
+					schemaName="public"
+					tableName="food"/>
+
+			<dropTable 
+					schemaName="public"
+					tableName="customisation"/>
+
+			<dropTable 
+					schemaName="public"
+					tableName="food_customisation"/>		
+    </changeSet>
+	<changeSet id="15" author="xinyi">
+				<createTable tableName="customer"
+                     remarks="A table to contain all customer details">
+            <column name="customer_id" type="varchar(10)">
+				<constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="customer_name" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+			<column name="customer_password" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+			<column name="customer_gender" type="varchar(10)">
+				<constraints nullable="false"/>
+            </column>
+			<column name="date_of_birth" type="date">
+                <constraints nullable="false"/>
+            </column>
+			<column name="total_amount" type="double(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="contact_number" type="int(10)">
+                <constraints nullable="false"/>
+            </column>
+			<column name="loyalty_points" type="double(10)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+		
+		<createTable tableName="loyalty_points"
+                     remarks="A table to contain all customer details">
+            <column name="customer_id" type="varchar(10)">
+				<constraints nullable="false" primaryKey="true"/>
+            </column>
+			<column name="redemption_id" type="varchar(10)">
+				<constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="loyalty_point_spent" type="double(10)">
+                <constraints nullable="false" />
+            </column>
+			<column name="loyalty_point_earned" type="double(10)">
+                <constraints nullable="false" />
+            </column>
+            <column name="redemption_type" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+			<column name="date_of_redemption" type="date">
+                <constraints nullable="false"/>
+			</column>
+        </createTable>
+		
+		<addForeignKeyConstraint baseTableName="loyalty_points" baseColumnNames="customer_id" 
+									constraintName="loyalty_points_customer_id_fk" 
+									referencedTableName="customer" referencedColumnNames="customer_id"/>
+									
+		<createTable tableName="credit_card"
+                     remarks="A table to contain all credit card details">
+            <column name="customer_id" type="varchar(10)">
+				<constraints nullable="false" primaryKey="true"/>
+            </column>
+			<column name="card_number" type="int(100)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="card_type" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+			<column name="bank" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+			<column name="date_of_expiry" type="date">
+                <constraints nullable="false"/>
+			</column>
+            <column name="name_as_on_card" type="varchar(10)">
+				<constraints nullable="false"/>
+            </column>
+        </createTable>
+		
+		<addForeignKeyConstraint baseTableName="credit_card" baseColumnNames="customer_id" 
+									constraintName="credit_card_customer_id_fk" 
+									referencedTableName="customer" referencedColumnNames="customer_id"/>
+	
+		<createTable tableName="owner"
+                     remarks="A table to contain all owners">
+            <column name="owner_id" type="varchar(10)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="owner_name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+		
+		<createTable tableName="manager"
+                     remarks="A table to contain all managers">
+            <column name="manager_id" type="varchar(10)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="manager_name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+			<column name="manager_name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+			<column name="manager_password" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+	
+	    <createTable tableName="restaurant"
+                     remarks="A table to contain all restaurants">
+            <column name="restaurant_id" type="varchar(10)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="restaurant_name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant_desc" type="varchar(225)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant_contact" type="int(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant_street" type="varchar(225)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant_postal_code" type="int(10)">
+                <constraints nullable="false"/>
+            </column>
+			<column name="restaurant_cuisine" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+			<column name="owner_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+		
+		<addForeignKeyConstraint baseTableName="restaurant" baseColumnNames="owner_id" 
+									constraintName="restaurant_owner_id_fk" 
+									referencedTableName="owner" referencedColumnNames="owner_id"/>
+									
+		<createTable tableName="manager_rights"
+                     remarks="A table to contain all rights that a manager has">
+            <column name="manager_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="restaurant_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="rights" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <addForeignKeyConstraint baseTableName="manager_rights" baseColumnNames="manager_id" 
+									constraintName="manager_rights_manager_id_fk" 
+									referencedTableName="manager" referencedColumnNames="manager_id"/>
+									
+		<addForeignKeyConstraint baseTableName="manager_rights" baseColumnNames="restaurant_id" 
+									constraintName="manager_rights_restaurant_id_fk" 
+									referencedTableName="restaurant" referencedColumnNames="restaurant_id"/>
+		
+		<createTable tableName="seating_table"
+                     remarks="A table to contain all seating tables">
+            <column name="table_id" type="varchar(10)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="restaurant_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="capacity" type="int(3)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        
+        <addForeignKeyConstraint baseTableName="seating_table" baseColumnNames="restaurant_id" 
+									constraintName="seating_table_restaurant_id_fk" 
+									referencedTableName="restaurant" referencedColumnNames="restaurant_id"/>
+									
+		<createTable tableName="food"
+                     remarks="A table to contain all food items">
+            <column name="food_id" type="varchar(10)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="food_name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="food_desc" type="varchar(225)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="food_category" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+		
+		<createTable tableName="menu"
+                     remarks="A table to contain all menus">
+            <column name="menu_id" type="varchar(10)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="restaurant_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_creation" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+		
+		<addForeignKeyConstraint baseTableName="menu" baseColumnNames="restaurant_id" 
+									constraintName="menu_restaurant_id_fk" 
+									referencedTableName="restaurant" referencedColumnNames="restaurant_id"/>
+									
+		<createTable tableName="food_price"
+                     remarks="A table to contain all food prices that corresponds to their outle">
+            <column name="menu_id" type="varchar(10)">
+			    <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="food_id" type="varchar(10)">
+				<constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="price" type="double(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="availability" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+		
+		<addForeignKeyConstraint baseTableName="food_price" baseColumnNames="menu_id" 
+									constraintName="food_price_menu_id_fk" 
+									referencedTableName="menu" referencedColumnNames="menu_id"/>
+									
+		<addForeignKeyConstraint baseTableName="food_price" baseColumnNames="food_id" 
+									constraintName="food_price_food_id_fk" 
+									referencedTableName="food" referencedColumnNames="food_id"/>
+
+        <createTable tableName="food_tag"
+                     remarks="A table to contain all food tags">
+            <column name="food_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="tag_desc" type="varchar(100)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+		
+		<addForeignKeyConstraint baseTableName="food_tag" baseColumnNames="food_id" 
+									constraintName="food_tag_food_id_fk" 
+									referencedTableName="food" referencedColumnNames="food_id"/>
+									
+		<createTable tableName="food_customisation"
+                     remarks="A table to contain all food customisations">
+			<column name="customisation_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="food_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+			<column name="customisation_name" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+            <column name="customisation_type" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+		
+		<addForeignKeyConstraint baseTableName="food_customisation" baseColumnNames="food_id" 
+									constraintName="food_customisation_food_id_fk" 
+									referencedTableName="food" referencedColumnNames="food_id"/>
+									
+		<createTable tableName="customisation_option"
+                     remarks="A table to contain all options for food customisations">
+            <column name="customisation_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="option_desc" type="varchar(100)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+        </createTable>
+		
+		<addForeignKeyConstraint baseTableName="customisation_option" baseColumnNames="customisation_id" 
+									constraintName="customisation_option_customisation_id_fk" 
+									referencedTableName="food_customisation" referencedColumnNames="customisation_id"/>		
+
+		<createTable tableName="order_summary"
+                     remarks="A table to contain all summary of multiple ordersper table">
+			<column name="order_summary_id" type="varchar(10)">
+				<constraints nullable="false" primaryKey="true"/>
+            </column>
+			<column name="customer_id" type="varchar(10)">
+				<constraints nullable="false" primaryKey="true"/>
+            </column>
+			<column name="payment_status" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total_amount" type="double(100)">
+                <constraints nullable="false" />
+            </column>
+			<column name="date_of_purchase" type="date">
+                <constraints nullable="false"/>
+			</column>
+            <column name="mode_of_payment" type="varchar(10)">
+				<constraints nullable="false"/>
+            </column>
+        </createTable>	
+
+		<addForeignKeyConstraint baseTableName="order_summary" baseColumnNames="customer_id" 
+									constraintName="order_summary_customer_id_fk" 
+									referencedTableName="customer" referencedColumnNames="customer_id"/>		
+		
+		<createTable tableName="order"
+                     remarks="A table to contain all orders">
+			<column name="order_id" type="varchar(10)">
+				<constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="restaurant_id" type="varchar(10)">
+                <constraints nullable="false" />
+            </column>
+			<column name="table_id" type="varchar(10)">
+                <constraints nullable="false" />
+            </column>
+			<column name="amount" type="double(10)">
+                <constraints nullable="false" />
+            </column>
+			<column name="order_status" type="varchar(100)">
+                <constraints nullable="false" />
+            </column>
+			<column name="summary_id" type="varchar(10)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+		
+		<addForeignKeyConstraint baseTableName="order" baseColumnNames="restaurant_id" 
+									constraintName="order_restaurant_id_fk" 
+									referencedTableName="restaurant" referencedColumnNames="restaurant_id"/>
+									
+		<addForeignKeyConstraint baseTableName="order" baseColumnNames="table_id" 
+									constraintName="order_seating_table_id_fk" 
+									referencedTableName="seating_table" referencedColumnNames="table_id"/>
+									
+		<addForeignKeyConstraint baseTableName="order" baseColumnNames="order_summary_id" 
+									constraintName="order_order_summary_id_fk" 
+									referencedTableName="order_summary" referencedColumnNames="order_summary_id"/>
+									
+		<createTable tableName="customer_order"
+                     remarks="A table to contain all customised orders by the customer">
+			<column name="order_id" type="varchar(10)">
+				<constraints nullable="false" primaryKey="true"/>
+            </column>
+			<column name="customisation_id_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="food_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="option_desc" type="varchar(100)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+			<column name="quantity" type="int(3)">
+                <constraints nullable="false" />
+            </column>
+			<column name="sub_total_amount" type="double(10)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+		<addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="order_id" 
+									constraintName="customer_order_order_id_fk" 
+									referencedTableName="order" referencedColumnNames="order_id"/>
+									
+		<addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="food_id" 
+									constraintName="customer_order_food_id_fk" 
+									referencedTableName="food" referencedColumnNames="food_id"/>
+									
+		<addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="option_desc" 
+									constraintName="customer_order_option_desc_fk" 
+									referencedTableName="customisation_option" referencedColumnNames="option_desc"/>
+									
+		<addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="customisation_id" 
+									constraintName="customer_order_customisation_id_fk" 
+
+	</changeSet>
+</databaseChangeLog>
