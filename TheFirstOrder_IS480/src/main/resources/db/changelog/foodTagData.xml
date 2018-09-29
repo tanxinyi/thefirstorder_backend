@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="08" author="keithxinyi">
+    <changeSet id="8" author="keithxinyi">
         <insert tableName="food_tags">
             <column name="tag_id" value="T001"/>
             <column name="food_id" value="F001"/>

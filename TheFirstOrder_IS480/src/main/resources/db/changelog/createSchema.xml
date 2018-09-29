@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="01" author="keithxinyi">
+    <changeSet id="1" author="keithxinyi">
         <createTable tableName="customer"
                      remarks="A table to contain all customers">
             <column name="customer_id" type="varchar(10)">
@@ -127,7 +127,7 @@
         </createTable>
 
         <createTable tableName="food"
-                                           remarks="A table to contain all food">
+                     remarks="A table to contain all food">
         <column name="food_id" type="varchar(10)">
             <constraints nullable="false" primaryKey="true"/>
         </column>
