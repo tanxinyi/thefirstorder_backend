@@ -11,7 +11,7 @@ public class FoodCustomisationPK implements Serializable {
     @Column(name = "food_id")
     private String foodId;
 
-    @Column(name = "customisation_id_1")
+    @Column(name = "customisation_id")
     private String customisationId1;
 
     public FoodCustomisationPK(){}

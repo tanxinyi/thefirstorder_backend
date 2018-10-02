@@ -418,8 +418,8 @@
 									constraintName="customer_order_option_desc_fk" 
 									referencedTableName="customisation_option" referencedColumnNames="option_desc"/>
 									
-		<addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="customisation_id" 
-									constraintName="customer_order_customisation_id_fk" 
+		<addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="customisation_id"
+									constraintName="customer_order_customisation_id_fk"/>
 
 	</changeSet>
 </databaseChangeLog>

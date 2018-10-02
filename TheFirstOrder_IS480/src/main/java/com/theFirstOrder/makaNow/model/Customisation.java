@@ -15,12 +15,13 @@ public class Customisation {
     @Id
     @Column(name = "customisation_id")
     private String customisationId;
-    @Column(name = "customisation_desc")
-    private String customisationDesc;
+    @Column(name = "food_id")
+    private String foodId;
     @Column(name="customisation_type")
     private String customisationType;
-    @Column(name="customisation_option_1")
-    private String customisationOption1;
+    @Column(name="customisation_name")
+    private String customisationName;
+    /*
     @Column(name="customisation_option_2")
     private String customisationOption2;
     @Column(name="customisation_option_3")
@@ -28,7 +29,7 @@ public class Customisation {
     @Column(name="customisation_option_4")
     private String customisationOption4;
     @Column(name="customisation_option_5")
-    private String customisationOption5;
+    private String customisationOption5;*/
 
 //    public Customisation( String customisationId, String customisationDesc, String customisationType){
 //        this.customisationId = customisationId;

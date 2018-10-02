@@ -9,7 +9,7 @@ import java.util.*;
 
 @Entity
 @Data
-public class Order {
+public class OrderItems {
 
     @Id
     private String orderId;
@@ -17,7 +17,7 @@ public class Order {
     HashMap<MenuPrice, Integer> menuPriceAndQuantityList;
     private double totalPrice;
 
-    public Order(String orderId, String orderStatus){
+    public OrderItems(String orderId, String orderStatus){
         this.orderId = orderId;
         this.orderStatus = orderStatus;
         menuPriceAndQuantityList = new HashMap<>();

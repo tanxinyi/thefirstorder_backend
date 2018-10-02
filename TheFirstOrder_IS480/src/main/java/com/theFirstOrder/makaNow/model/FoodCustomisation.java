@@ -14,8 +14,8 @@ public class FoodCustomisation {
 
     @EmbeddedId
     private FoodCustomisationPK foodCustomisationPK;
-    @Column(name = "customisation_id_2")
-    private String customisationId2;
-    @Column(name = "customisation_id_3")
-    private String customisationId3;
+    @Column(name = "customisation_name")
+    private String customisationName;
+    @Column(name = "customisation_type")
+    private String customisationType;
 }
