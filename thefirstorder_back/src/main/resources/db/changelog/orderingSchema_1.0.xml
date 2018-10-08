@@ -158,10 +158,6 @@
             </column>
         </createTable>
 
-<!--        <dropTable
-                schemaName="public"
-                tableName="menu"/>-->
-
         <createTable tableName="menu"
                      remarks="A table to contain all menus">
             <column name="menu_id" type="varchar(10)">
@@ -170,7 +166,7 @@
             <column name="restaurant_id" type="varchar(10)">
                 <constraints nullable="false"/>
             </column>
-            <column name="date_created" type="date">
+            <column name="date_of_creation" type="date">
                 <constraints nullable="false"/>
             </column>
         </createTable>
