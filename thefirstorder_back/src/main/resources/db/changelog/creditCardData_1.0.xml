@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="3" author="keithxinyi">
+        <insert tableName="credit_card">
+            <column name="card_number" value="1759376329657197"/>
+            <column name="customer_id" value="C001"/>
+            <column name="card_type" value="Visa"/>
+			<column name="cardholder_name" value="Tank Xin Yi"/>
+			<column name="cvs" valueNumeric="519"/>
+            <column name="expiry_date" valueDate="2022-12-16"/>
+        </insert>
+        <insert tableName="credit_card">
+            <column name="card_number" value="7699810571959205"/>
+            <column name="customer_id" value="C002"/>
+            <column name="card_type" value="Mastercard"/>
+            <column name="cardholder_name" value="Jessica Yuen Chui Shan"/>
+            <column name="cvs" valueNumeric="126"/>
+            <column name="expiry_date" valueDate="2024-05-23"/>
+        </insert>
+        <insert tableName="credit_card">
+            <column name="card_number" value="1234516826618489"/>
+            <column name="customer_id" value="C002"/>
+            <column name="card_type" value="Visa"/>
+            <column name="cardholder_name" value="Yuen Chui Shan Jessica"/>
+            <column name="cvs" valueNumeric="591"/>
+            <column name="expiry_date" valueDate="2020-06-15"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

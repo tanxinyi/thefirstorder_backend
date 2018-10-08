@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="6" author="keithxinyi">
+		<insert tableName="seating_table">
+			<column name="qr_code" value="T001"/>
+			<column name="restaurant_id" value="R001"/>
+			<column name="capacity" valueNumeric="2"/>
+		</insert>
+		<insert tableName="seating_table">
+			<column name="qr_code" value="T002"/>
+			<column name="restaurant_id" value="R001"/>
+			<column name="capacity" valueNumeric="2"/>
+		</insert>
+		<insert tableName="seating_table">
+			<column name="qr_code" value="T003"/>
+			<column name="restaurant_id" value="R001"/>
+			<column name="capacity" valueNumeric="4"/>
+		</insert>
+		<insert tableName="seating_table">
+			<column name="qr_code" value="T004"/>
+			<column name="restaurant_id" value="R001"/>
+			<column name="capacity" valueNumeric="6"/>
+		</insert>
+		<insert tableName="seating_table">
+			<column name="qr_code" value="T005"/>
+			<column name="restaurant_id" value="R002"/>
+			<column name="capacity" valueNumeric="2"/>
+		</insert>
+		<insert tableName="seating_table">
+			<column name="qr_code" value="T006"/>
+			<column name="restaurant_id" value="R002"/>
+			<column name="capacity" valueNumeric="4"/>
+		</insert>
+		<insert tableName="seating_table">
+			<column name="qr_code" value="T007"/>
+			<column name="restaurant_id" value="R002"/>
+			<column name="capacity" valueNumeric="6"/>
+		</insert>
+	</changeSet>
+</databaseChangeLog>
