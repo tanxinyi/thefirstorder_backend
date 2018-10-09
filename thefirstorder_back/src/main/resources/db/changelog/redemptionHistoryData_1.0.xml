@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="19" author="keithxinyi">
+		<insert tableName="redemption_history">
+			<column name="redemption_history_id" value="RH001"/>
+			<column name="customer_id" value="C001"/>
+			<column name="redemption_id" value="RD001"/>
+			<column name="order_summary_id" value="OS001"/>
+			<column name="points" valueNumeric="7100"/>
+			<column name="redeem_datetime" valueDate="2018-10-10 23:59:00"/>
+			<column name="description" value=""/>
+		</insert>
+		<insert tableName="redemption_history">
+			<column name="redemption_history_id" value="RH002"/>
+			<column name="customer_id" value="C002"/>
+			<column name="redemption_id" value="RD002"/>
+			<column name="order_summary_id" value="OS002"/>
+			<column name="points" valueNumeric="5000"/>
+			<column name="redeem_datetime" valueDate="2018-10-10 23:59:00"/>
+			<column name="description" value="Server Maintenance"/>
+		</insert>
+		<insert tableName="redemption_history">
+			<column name="redemption_history_id" value="RH003"/>
+			<column name="customer_id" value="C002"/>
+			<column name="redemption_id" value="RD003"/>
+			<column name="order_summary_id" value="OS003"/>
+			<column name="points" valueNumeric="-2200"/>
+			<column name="redeem_datetime" valueDate="2018-10-10 23:59:00"/>
+			<column name="description" value="MacDonals"/>
+		</insert>
+	</changeSet>
+</databaseChangeLog>

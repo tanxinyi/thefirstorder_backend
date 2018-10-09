@@ -6,29 +6,29 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="16" author="keithxinyi">
-        <insert tableName="order">
+       <insert tableName="order">
             <column name="order_id" value="O001"/>
-            <column name="restaurant_id" valueNumeric="R001"/>
-            <column name="qr_code" valueDate="T001"/>
-			<column name="order_summary_id" valueNumeric="OS001"/>
+            <column name="restaurant_id" value="R001"/>
+            <column name="qr_code" value="T001"/>
+			<column name="order_summary_id" value="OS001"/>
 			<column name="subtotal" valueNumeric="100.00"/>
-            <column name="status" valueNumeric="Successful"/>
-        </insert>
+            <column name="status" value="Successful"/>
+       </insert>
         <insert tableName="order">
             <column name="order_id" value="O002"/>
-            <column name="restaurant_id" valueNumeric="R002"/>
-            <column name="qr_code" valueDate="T002"/>
-            <column name="order_summary_id" valueNumeric="OS001"/>
+            <column name="restaurant_id" value="R002"/>
+            <column name="qr_code" value="T002"/>
+            <column name="order_summary_id" value="OS001"/>
             <column name="subtotal" valueNumeric="100.00"/>
-            <column name="status" valueNumeric="Pending"/>
+            <column name="status" value="Pending"/>
         </insert>
         <insert tableName="order">
-            <column name="order_id" value="O001"/>
-            <column name="restaurant_id" valueNumeric="R003"/>
-            <column name="qr_code" valueDate="T001"/>
-            <column name="order_summary_id" valueNumeric="OS001"/>
+            <column name="order_id" value="O003"/>
+            <column name="restaurant_id" value="R003"/>
+            <column name="qr_code" value="T001"/>
+            <column name="order_summary_id" value="OS001"/>
             <column name="subtotal" valueNumeric="46.75"/>
-            <column name="status" valueNumeric="Pending"/>
+            <column name="status" value="Pending"/>
         </insert>
     </changeSet>
 

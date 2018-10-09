@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="17" author="keithxinyi">
+        <insert tableName="customer_order">
+            <column name="order_id" value="O001"/>
+            <column name="food_id" value="F001"/>
+            <column name="quantity" valueNumeric="1"/>
+        </insert>
+        <insert tableName="customer_order">
+            <column name="order_id" value="O002"/>
+            <column name="food_id" value="F002"/>
+            <column name="quantity" valueNumeric="4"/>
+        </insert>
+        <insert tableName="customer_order">
+            <column name="order_id" value="O003"/>
+            <column name="food_id" value="F003"/>
+            <column name="quantity" valueNumeric="2"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

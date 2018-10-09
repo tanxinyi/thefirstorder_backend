@@ -379,7 +379,7 @@
 			<column name="point_cap" type="int(10)">
                 <constraints nullable="false"/>
             </column>
-			<column name="description" type="varchar(200)">
+			<column name="description" type="varchar(500)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -405,10 +405,10 @@
 			<column name="points" type="int(10)">
                 <constraints nullable="false"/>
             </column>
-			<column name="redeem_date" type="datetime">
+			<column name="redeem_datetime" type="datetime">
                 <constraints nullable="false"/>
 			</column>
-			<column name="description" type="varchar(45)">
+			<column name="description" type="varchar(500)">
                 <constraints nullable="false"/>
             </column>
         </createTable>

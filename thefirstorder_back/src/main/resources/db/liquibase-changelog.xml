@@ -23,5 +23,8 @@
     <include file="changelog/customisationData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/orderSummaryData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/orderData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/customerOrderData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/redemptionData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/redemptionHistoryData_1.0.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
