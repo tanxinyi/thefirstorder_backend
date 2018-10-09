@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="10" author="keithxinyi">
+        <insert tableName="order">
+            <column name="order_id" value="O001"/>
+            <column name="food_counter" valueNumeric="2"/>
+            <column name="food_id" valueDate="F001"/>
+			<column name="quantity" valueNumeric="2"/>
+			<column name="amount" valueNumeric="20.00"/>
+        </insert>
+        <insert tableName="order">
+            <column name="order_id" value="O002"/>
+            <column name="food_counter" valueNumeric="1"/>
+            <column name="food_id" valueDate="F003"/>
+			<column name="quantity" valueNumeric="4"/>
+			<column name="amount" valueNumeric="48.00"/>
+        </insert>
+        <insert tableName="order">
+            <column name="order_id" value="O003"/>
+            <column name="food_counter" valueNumeric="1"/>
+            <column name="food_id" valueDate="F003"/>
+			<column name="quantity" valueNumeric="1"/>
+			<column name="amount" valueNumeric="12.00"/>
+        </insert>
+        <insert tableName="order">
+            <column name="order_id" value="O004"/>
+            <column name="food_counter" valueNumeric="5"/>
+            <column name="food_id" valueDate="F005"/>
+			<column name="quantity" valueNumeric="1"/>
+			<column name="amount" valueNumeric="15.50"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

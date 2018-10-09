@@ -158,10 +158,6 @@
             </column>
         </createTable>
 
-<!--        <dropTable
-                schemaName="public"
-                tableName="menu"/>-->
-
         <createTable tableName="menu"
                      remarks="A table to contain all menus">
             <column name="menu_id" type="varchar(10)">
@@ -170,7 +166,7 @@
             <column name="restaurant_id" type="varchar(10)">
                 <constraints nullable="false"/>
             </column>
-            <column name="date_created" type="date">
+            <column name="date_of_creation" type="date">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -208,7 +204,7 @@
             <column name="food_tag_id" type="varchar(10)">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
             </column>
-            <column name="description" type="varchar(45)">
+            <column name="description" type="varchar(500)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -249,7 +245,7 @@
 			<column name="customisation_option_id" type="varchar(10)">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-			<column name="description" type="varchar(45)">
+			<column name="description" type="varchar(500)">
                 <constraints nullable="false" />
             </column>
         </createTable>
@@ -268,12 +264,12 @@
                 <constraints nullable="false" unique="true" primaryKey="true"/>
             </column>
 			<column name="food_id" type="varchar(10)">
-                <constraints nullable="false" primaryKey="true"/>
+                <constraints nullable="false" />
             </column>
 			<column name="type" type="varchar(45)">
                 <constraints nullable="false" />
             </column>
-			<column name="description" type="varchar(45)">
+			<column name="description" type="varchar(500)">
                 <constraints nullable="false" />
             </column>
         </createTable>
@@ -335,7 +331,7 @@
 									referencedTableName="restaurant" referencedColumnNames="restaurant_id"/>
 									
 		<addForeignKeyConstraint baseTableName="order" baseColumnNames="qr_code"
-									constraintName="order_seating_table_id_fk"
+									constraintName="order_qr_code_fk"
 									referencedTableName="seating_table" referencedColumnNames="qr_code"/>
 
 		<addForeignKeyConstraint baseTableName="order" baseColumnNames="order_summary_id"

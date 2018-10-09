@@ -15,5 +15,13 @@
     <include file="changelog/seatingTableData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/foodData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/menuData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/foodPriceData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/foodTagData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/foodTagAllocationData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/customisationOptionData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/foodCustomisationData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/customisationData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/orderSummaryData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/orderData_1.0.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="14" author="keithxinyi">
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C001"/>
+            <column name="food_id" value="F001"/>
+            <column name="type" value="checkbox"/>
+            <column name="description" value="Checkbox - Customisation"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C002"/>
+            <column name="food_id" value="F001"/>
+            <column name="type" value="checkbox"/>
+            <column name="description" value="Checkbox - Customisation"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C003"/>
+            <column name="food_id" value="F002"/>
+            <column name="type" value="radio"/>
+            <column name="description" value="Radio - Customisation"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C004"/>
+            <column name="food_id" value="F003"/>
+            <column name="type" value="checkbox"/>
+            <column name="description" value="Checkbox - Customisation"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
