@@ -34,7 +34,7 @@
             </column>
         </createTable>
 									
-		<createTable tableName="credit_card"
+		<!--<createTable tableName="credit_card"
                      remarks="A table to contain all credit card details">
 			<column name="card_number" type="varchar(16)">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
@@ -59,6 +59,7 @@
 		<addForeignKeyConstraint baseTableName="credit_card" baseColumnNames="customer_id" 
 									constraintName="credit_card_customer_id_fk" 
 									referencedTableName="customer" referencedColumnNames="customer_id"/>
+									-->
 		
 		<createTable tableName="manager"
                      remarks="A table to contain all managers">
