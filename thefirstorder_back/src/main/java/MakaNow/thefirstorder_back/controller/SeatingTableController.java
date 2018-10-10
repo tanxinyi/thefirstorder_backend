@@ -1,9 +1,13 @@
 package MakaNow.thefirstorder_back.controller;
 
 import MakaNow.thefirstorder_back.model.SeatingTable;
+import MakaNow.thefirstorder_back.model.View;
 import MakaNow.thefirstorder_back.repository.RestaurantRepository;
 import MakaNow.thefirstorder_back.repository.SeatingTableRepository;
+import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +17,8 @@ import java.util.*;
 @RestController
 @RequestMapping("/api")
 public class SeatingTableController {
+
+    Logger logger = LoggerFactory.getLogger(SeatingTableController.class);
 
     @Autowired
     private SeatingTableRepository seatingTableRepository;
@@ -26,7 +32,9 @@ public class SeatingTableController {
     }
 
     @GetMapping("/seatingTables/{seatingTableId}")
+    @JsonView(View.Public.class)
     public SeatingTable getSeatingTableBySeatingTableId( @PathVariable String seatingTableId ) throws NotFoundException {
+        logger.info("Getting Seating Table by QR Code");
         Optional<SeatingTable> optionalSeatingTable = seatingTableRepository.findById(seatingTableId);
         if(optionalSeatingTable.isPresent()){
             return optionalSeatingTable.get();

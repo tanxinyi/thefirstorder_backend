@@ -8,7 +8,6 @@
     <include file="changelog/orderingSchema_1.0.xml" relativeToChangelogFile="true"/>
 
     <include file="changelog/customerData_1.0.xml" relativeToChangelogFile="true"/>
-    <include file="changelog/creditCardData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/managerData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/restaurantData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/managerAllocationData_1.0.xml" relativeToChangelogFile="true"/>

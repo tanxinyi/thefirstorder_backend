@@ -1,7 +1,9 @@
 package MakaNow.thefirstorder_back.controller;
 
 import MakaNow.thefirstorder_back.model.Restaurant;
+import MakaNow.thefirstorder_back.model.View;
 import MakaNow.thefirstorder_back.repository.RestaurantRepository;
+import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,7 @@ public class RestaurantController {
     }
 
     @GetMapping("/restaurants/{restaurantId}")
+    @JsonView(View.Public.class)
     public Restaurant getRestaurantById( @PathVariable String restaurantId ) throws NotFoundException {
         Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
         if(optionalRestaurant.isPresent()){
