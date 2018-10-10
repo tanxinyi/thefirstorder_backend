@@ -9,18 +9,21 @@ import java.sql.Date;
 
 @Entity
 @Data
-public class Menu {
+public class Menu implements Comparable<Menu> {
 
     @Id
-    @JsonView(View.Public.class)
+    @JsonView(View.MainView.class)
     private String menuId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "restaurant_Id", nullable = false)
-    @JsonIgnore
+    @JsonView(View.ViewA.class)
     private Restaurant restaurant;
 
-    @JsonView(View.Public.class)
+    @JsonView(View.MainView.class)
     private Date dateOfCreation;
 
+    public int compareTo(Menu another){
+        return -1 * this.dateOfCreation.compareTo(another.getDateOfCreation());
+    }
 }

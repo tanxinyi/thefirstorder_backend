@@ -11,14 +11,14 @@ import javax.persistence.*;
 public class SeatingTable {
 
     @Id
-    @JsonView(View.Public.class)
+    @JsonView(View.MainView.class)
     private String qrCode;
 
     @ManyToOne//(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "restaurant_Id", nullable = false)
-    @JsonView(View.Public.class)
+    @JsonView(View.ViewA.class)
     private Restaurant restaurant;
 
-    @JsonView(View.Public.class)
+    @JsonView(View.MainView.class)
     private int capacity;
 }

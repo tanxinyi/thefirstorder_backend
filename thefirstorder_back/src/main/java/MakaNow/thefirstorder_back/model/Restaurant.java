@@ -11,26 +11,26 @@ import java.util.*;
 public class Restaurant {
 
     @Id
-    @JsonView(View.Public.class)
+    @JsonView(View.MainView.class)
     private String restaurantId;
-    @JsonView(View.Public.class)
+    @JsonView(View.MainView.class)
     private String name;
-    @JsonView(View.Public.class)
+    @JsonView(View.MainView.class)
     private String description;
-    @JsonView(View.Public.class)
+    @JsonView(View.MainView.class)
     private String contactNumber;
-    @JsonView(View.Public.class)
+    @JsonView(View.MainView.class)
     private String street;
-    @JsonView(View.Public.class)
+    @JsonView(View.MainView.class)
     private String postalCode;
-    @JsonView(View.Public.class)
+    @JsonView(View.MainView.class)
     private String cuisine;
 
-    @JsonView(View.Internal.class)
+    @JsonView(View.ViewB.class)
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Menu> menus;
 
-    @JsonView(View.Internal.class)
+    @JsonView(View.ViewB.class)
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<SeatingTable> seatingTables;
 

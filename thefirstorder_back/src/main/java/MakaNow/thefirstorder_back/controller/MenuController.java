@@ -1,6 +1,7 @@
 package MakaNow.thefirstorder_back.controller;
 
 import MakaNow.thefirstorder_back.model.Menu;
+import MakaNow.thefirstorder_back.model.Restaurant;
 import MakaNow.thefirstorder_back.repository.MenuRepository;
 import MakaNow.thefirstorder_back.repository.RestaurantRepository;
 import javassist.NotFoundException;
@@ -34,6 +35,19 @@ public class MenuController {
             throw new NotFoundException("Menu ID:" + menuId + " does not exist");
         }
     }
+
+    @GetMapping("/restaurants/{restaurantId}/menu")
+    public Menu getLatestMenuByRestaurant( @PathVariable String restaurantId) throws NotFoundException {
+        Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
+        if(optionalRestaurant.isPresent()){
+            List<Menu> menus = optionalRestaurant.get().getMenus();
+            Collections.sort(menus);
+            return menus.get(0);
+        }else{
+            throw new NotFoundException("Restaurant ID:" + restaurantId + " does not exist");
+        }
+    }
+
 
     @PostMapping("/restaurants/{restaurantId}/menus")
     public Menu addMenu(@PathVariable String restaurantId,

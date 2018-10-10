@@ -32,7 +32,7 @@ public class SeatingTableController {
     }
 
     @GetMapping("/seatingTables/{seatingTableId}")
-    @JsonView(View.Public.class)
+    @JsonView(View.ViewA.class)
     public SeatingTable getSeatingTableBySeatingTableId( @PathVariable String seatingTableId ) throws NotFoundException {
         logger.info("Getting Seating Table by QR Code");
         Optional<SeatingTable> optionalSeatingTable = seatingTableRepository.findById(seatingTableId);

@@ -1,6 +1,7 @@
 package MakaNow.thefirstorder_back.model;
 
 public class View {
-    public static class Public {}
-    public static class Internal extends Public {}
+    public static class MainView {}
+    public static class ViewA extends MainView {}
+    public static class ViewB extends MainView {}
 }

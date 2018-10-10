@@ -24,7 +24,7 @@ public class RestaurantController {
     }
 
     @GetMapping("/restaurants/{restaurantId}")
-    @JsonView(View.Public.class)
+    @JsonView(View.ViewB.class)
     public Restaurant getRestaurantById( @PathVariable String restaurantId ) throws NotFoundException {
         Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
         if(optionalRestaurant.isPresent()){
