@@ -352,8 +352,8 @@
             </column>
         </createTable>
 
-		<addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="order_id" 
-									constraintName="customer_order_order_id_fk" 
+		<addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="order_id"
+									constraintName="customer_order_customer_order_id_fk"
 									referencedTableName="order" referencedColumnNames="order_id"/>
 									
 		<addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="food_id" 

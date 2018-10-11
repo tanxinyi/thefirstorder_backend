@@ -6,105 +6,87 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="1" author="keith">
-        <dropTable cascadeConstraints="true"
-                   schemaName="public"
-                   tableName="food_customisation"/>
+        <insert tableName="food_customisation">
+            <column name="food_customisation_id" value="FC001"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F001"/>
+            <column name="description" value="Soup Base"/>
+        </insert>
+        <insert tableName="food_customisation">
+            <column name="food_customisation_id" value="FC002"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F001"/>
+            <column name="description" value="Noodle Texture"/>
+        </insert>
+        <insert tableName="food_customisation">
+            <column name="food_customisation_id" value="FC003"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F002"/>
+            <column name="description" value="Add Noodle"/>
+        </insert>
     </changeSet>
 
     <changeSet id="2" author="keith">
-        <createTable tableName="food_customisation"
-                     remarks="Example: Noodle Texture, Add Noodle, Soup, Sauces, Garnish">
-            <column name="food_customisation_id" type="varchar(10)">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="food_price_menu_id" type="varchar(10)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="food_price_food_id" type="varchar(10)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="description" type="varchar(500)">
-                <constraints nullable="true" />
-            </column>
-        </createTable>
-        <addForeignKeyConstraint baseTableName="food_customisation" baseColumnNames="food_price_menu_id"
-                                 constraintName="food_customisation_food_price_menu_id_fk"
-                                 referencedTableName="food_price" referencedColumnNames="menu_id"/>
-
-        <addForeignKeyConstraint baseTableName="food_customisation" baseColumnNames="food_price_food_id"
-                                 constraintName="food_customisation_food_price_food_id_fk"
-                                 referencedTableName="food_price" referencedColumnNames="food_id"/>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO001"/>
+            <column name="food_customisation_id" value="FC001"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F001"/>
+            <column name="description" value="Pork Broth"/>
+            <column name="price" value="7.5"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO002"/>
+            <column name="food_customisation_id" value="FC002"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F001"/>
+            <column name="description" value="Hard"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO003"/>
+            <column name="food_customisation_id" value="FC003"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F002"/>
+            <column name="price" value="2.5"/>
+        </insert>
     </changeSet>
 
     <changeSet id="3" author="keith">
-        <dropTable cascadeConstraints="true"
-                   schemaName="public"
-                   tableName="customisation_option"/>
+        <insert tableName="customer_order">
+            <column name="customer_order_id" value="CUSO001"/>
+            <column name="order_id" value="O001"/>
+            <column name="food_id" value="F001"/>
+            <column name="quantity" value="2"/>
+        </insert>
+        <insert tableName="customer_order">
+            <column name="customer_order_id" value="CUSO002"/>
+            <column name="order_id" value="O001"/>
+            <column name="food_id" value="F002"/>
+            <column name="quantity" value="1"/>
+        </insert>
+        <insert tableName="customer_order">
+            <column name="customer_order_id" value="CUSO003"/>
+            <column name="order_id" value="O001"/>
+            <column name="food_id" value="F003"/>
+            <column name="quantity" value="1"/>
+        </insert>
     </changeSet>
 
     <changeSet id="4" author="keith">
-        <createTable tableName="customisation_option"
-                     remarks="Example: (Under Noodle Texture Category) - Hard, Normal, Soft">
-            <column name="customisation_id" type="varchar(10)">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="food_customisation_customisation_id" type="varchar(10)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="food_customisation_food_price_menu_id" type="varchar(10)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="food_customisation_food_price_food_id" type="varchar(10)">
-                <constraints nullable="false" />
-            </column>
-            <column name="description" type="varchar(500)">
-                <constraints nullable="false" />
-            </column>
-            <column name="price" type="double">
-                <constraints nullable="true" />
-            </column>
-        </createTable>
+        <insert tableName="customer_customisation">
+            <column name="food_customisation_id" value="FC001"/>
+            <column name="customer_order_id" value="CUSO001"/>
+            <column name="remarks" value=""/>
+        </insert>
+        <insert tableName="customer_customisation">
+            <column name="food_customisation_id" value="FC002"/>
+            <column name="customer_order_id" value="CUSO002"/>
+            <column name="remarks" value=""/>
+        </insert>
+        <insert tableName="customer_customisation">
+            <column name="food_customisation_id" value="FC003"/>
+            <column name="customer_order_id" value="CUSO003"/>
+        </insert>
     </changeSet>
 
-    <changeSet id="5" author="keith">
-        <dropTable cascadeConstraints="true"
-                   schemaName="public"
-                   tableName="customisation"/>
-    </changeSet>
-
-    <changeSet id="6" author="keith">
-        <createTable tableName="customer_customisation"
-                     remarks="Customer specific food customisation Example: (Noodles) - Soft, (Garnish) - No Spring Onions">
-            <column name="food_customisation_customisation_id" type="varchar(10)">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="food_customisation_food_price_menu_id" type="varchar(10)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="food_customisation_food_price_food_id" type="varchar(10)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="customer_order_order_id" type="varchar(10)">
-                <constraints nullable="false" />
-            </column>
-            <column name="customer_order_food_id" type="varchar(10)">
-                <constraints nullable="false" />
-            </column>
-            <column name="type" type="varchar(45)">
-                <constraints nullable="false" />
-            </column>
-            <column name="description" type="varchar(500)">
-                <constraints nullable="false" />
-            </column>
-        </createTable>
-        <addForeignKeyConstraint baseTableName="customer_customisation" baseColumnNames="food_customisation_customisation_id"
-                                 constraintName="customer_customisation_food_customisation_customisation_id_fk"
-                                 referencedTableName="food_customisation" referencedColumnNames="food_customisation_id"/>
-        <addForeignKeyConstraint baseTableName="customer_customisation" baseColumnNames="food_customisation_food_price_menu_id"
-                                 constraintName="customer_customisation_food_customisation_food_price_menu_id_fk"
-                                 referencedTableName="food_customisation" referencedColumnNames="food_price_menu_id"/>
-        <addForeignKeyConstraint baseTableName="customer_customisation" baseColumnNames="food_customisation_food_price_food_id"
-                                 constraintName="customer_customisation_food_customisation_food_price_food_id_fk"
-                                 referencedTableName="food_customisation" referencedColumnNames="food_price_food_id"/>
-    </changeSet>
 </databaseChangeLog>
