@@ -2,8 +2,11 @@ package MakaNow.thefirstorder_back.controller;
 
 import MakaNow.thefirstorder_back.model.Menu;
 import MakaNow.thefirstorder_back.model.Restaurant;
+import MakaNow.thefirstorder_back.model.View;
 import MakaNow.thefirstorder_back.repository.MenuRepository;
 import MakaNow.thefirstorder_back.repository.RestaurantRepository;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -50,6 +53,7 @@ public class MenuController {
 
 
     @PostMapping("/restaurants/{restaurantId}/menus")
+    @JsonView(View.ViewA.class)
     public Menu addMenu(@PathVariable String restaurantId,
                                         @Valid @RequestBody Menu menu) throws NotFoundException {
         return restaurantRepository.findById(restaurantId)

@@ -8,22 +8,25 @@ import java.util.List;
 @Entity
 @Data
 public class FoodCustomisation {
+
     @Id
     private String foodCustomisationId;
-
 
     @Embedded
     private MenuFoodId menuFoodId;
 
     private String description;
 
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumns({
-            @JoinColumn(name="food_price_menu_id", referencedColumnName = "menu_id"),
-            @JoinColumn(name="food_price_food_id", referencedColumnName = "food_id")
+            @JoinColumn(name="menu_id", referencedColumnName = "menu_id", insertable = false, updatable = false),
+            @JoinColumn(name="food_id", referencedColumnName = "food_id", insertable = false, updatable = false)
     } )
     private FoodPrice foodPrice;
 
+
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "foodCustomisation")
     private List<CustomisationOption> customisationOptions;
+
 }

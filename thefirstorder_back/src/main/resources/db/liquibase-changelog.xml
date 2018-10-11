@@ -25,6 +25,9 @@
     <include file="changelog/customerOrderData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/redemptionData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/redemptionHistoryData_1.0.xml" relativeToChangelogFile="true"/>
+
     <include file="changelog/databaseUpdate_(1-2)_10-10-18.xml" relativeToChangelogFile="true"/>
-    <!--<include file="changelog/databaseUpdate_(2-2)_10-10-18.xml" relativeToChangelogFile="true"/>-->
+
+    <include file="changelog/databaseUpdate_(2-2)_10-10-18.xml" relativeToChangelogFile="true"/>
+
 </databaseChangeLog>

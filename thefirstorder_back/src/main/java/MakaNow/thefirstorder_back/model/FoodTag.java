@@ -1,5 +1,6 @@
 package MakaNow.thefirstorder_back.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 
@@ -22,5 +23,6 @@ public class FoodTag {
                         CascadeType.PERSIST,
                         CascadeType.MERGE
                 }, mappedBy = "tags")
+    @JsonIgnore
     private List<Food> foods;
 }
