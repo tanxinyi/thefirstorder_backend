@@ -134,4 +134,40 @@
                                  constraintName="customer_customisation_customer_order_id_fk"
                                  referencedTableName="customer_order" referencedColumnNames="customer_order_id"/>
     </changeSet>
+
+    <changeSet id="9" author="keith">
+        <dropTable cascadeConstraints="true"
+                   schemaName="public"
+                   tableName="food_price"/>
+    </changeSet>
+
+    <changeSet id="10" author="keith">
+        <createTable tableName="food_price"
+                     remarks="A table to contain all food prices that corresponds to their outle">
+            <column name="menu_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="food_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="price" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="availability" type="tinyint(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="img_path" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="food_price" baseColumnNames="menu_id"
+                                 constraintName="food_price_menu_id_fk"
+                                 referencedTableName="menu" referencedColumnNames="menu_id"/>
+
+        <addForeignKeyConstraint baseTableName="food_price" baseColumnNames="food_id"
+                                 constraintName="food_price_food_id_fk"
+                                 referencedTableName="food" referencedColumnNames="food_id"/>
+    </changeSet>
+
 </databaseChangeLog>
