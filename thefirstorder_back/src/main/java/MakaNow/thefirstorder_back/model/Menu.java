@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,6 +23,10 @@ public class Menu implements Comparable<Menu> {
 
     @JsonView(View.MainView.class)
     private Date dateOfCreation;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "menu")
+    @JsonIgnore
+    private List<FoodPrice> foodPrices;
 
     public int compareTo(Menu another){
         return -1 * this.dateOfCreation.compareTo(another.getDateOfCreation());
