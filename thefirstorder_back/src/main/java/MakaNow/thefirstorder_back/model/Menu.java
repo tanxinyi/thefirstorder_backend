@@ -25,7 +25,7 @@ public class Menu implements Comparable<Menu> {
     private Date dateOfCreation;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "menu")
-    @JsonIgnore
+    @JsonView(View.ViewA.class)
     private List<FoodPrice> foodPrices;
 
     public int compareTo(Menu another){

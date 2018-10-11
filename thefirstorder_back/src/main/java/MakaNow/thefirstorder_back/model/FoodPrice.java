@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 public class FoodPrice {
     @EmbeddedId
-    @JsonView(View.MainView.class)
+    @JsonView(View.ViewB.class)
     private MenuFoodId menuFoodId;
 
     @JsonView(View.MainView.class)

@@ -40,6 +40,7 @@ public class MenuController {
     }
 
     @GetMapping("/restaurants/{restaurantId}/menu")
+    @JsonView(View.ViewA.class)
     public Menu getLatestMenuByRestaurant( @PathVariable String restaurantId) throws NotFoundException {
         Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
         if(optionalRestaurant.isPresent()){
@@ -53,7 +54,6 @@ public class MenuController {
 
 
     @PostMapping("/restaurants/{restaurantId}/menus")
-    @JsonView(View.ViewA.class)
     public Menu addMenu(@PathVariable String restaurantId,
                                         @Valid @RequestBody Menu menu) throws NotFoundException {
         return restaurantRepository.findById(restaurantId)

@@ -1,6 +1,7 @@
 package MakaNow.thefirstorder_back.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Data
 public class CustomisationOption {
     @Id
+    @JsonView(View.MainView.class)
     private String customisationOptionId;;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -26,11 +28,9 @@ public class CustomisationOption {
     } )
     private FoodPrice foodPrice;
 
-
-
-
-
+    @JsonView(View.MainView.class)
     private String description;
+    @JsonView(View.MainView.class)
     private double price;
 
 }
