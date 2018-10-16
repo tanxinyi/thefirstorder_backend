@@ -26,8 +26,14 @@
     <include file="changelog/redemptionData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/redemptionHistoryData_1.0.xml" relativeToChangelogFile="true"/>
 
+    <!-- dropped and updated food_customisation, customisation_option, customer_order, food_price
+        dropped customisation table
+        added customer_customisation table -->
     <include file="changelog/databaseUpdate_(1-2)_10-10-18.xml" relativeToChangelogFile="true"/>
-
+    <!-- added data for edited tables in changelog/databaseUpdate_(1-2)_10-10-18.xml -->
     <include file="changelog/databaseUpdate_(2-2)_10-10-18.xml" relativeToChangelogFile="true"/>
+
+    <!--moved img_path field from food price to food table-->
+    <include file="changelog/databaseUpdate_16-10-18.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
