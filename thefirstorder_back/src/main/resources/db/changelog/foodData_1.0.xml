@@ -9,7 +9,7 @@
         <insert tableName="food">
             <column name="food_id" value="F001"/>
             <column name="name" value="Seafood Ramen"/>
-            <column name="description" value="One mouthful ascertains the sweetness of seafood s..."/>
+            <column name="description" value="One mouthful ascertains the sweetness of seafood"/>
             <column name="category" value="Ramen"/>
         </insert>
         <insert tableName="food">
@@ -38,7 +38,7 @@
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F006"/>
-            <column name="name" value="Mango Sticy Rice"/>
+            <column name="name" value="Mango Sticky Rice"/>
             <column name="description" value="Traditional Thai dessert"/>
             <column name="category" value="Dessert"/>
         </insert>

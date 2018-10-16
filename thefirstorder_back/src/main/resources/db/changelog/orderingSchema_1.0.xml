@@ -280,7 +280,7 @@
 									referencedTableName="food" referencedColumnNames="food_id"/>
 
 		<createTable tableName="order_summary"
-                     remarks="A table to contain all summary of multiple ordersper table">
+                     remarks="A table to contain all summary of multiple orders per table">
 			<column name="order_summary_id" type="varchar(10)">
 				<constraints nullable="false" primaryKey="true"/>
             </column>

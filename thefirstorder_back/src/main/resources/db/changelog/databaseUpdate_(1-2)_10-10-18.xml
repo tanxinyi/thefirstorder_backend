@@ -100,9 +100,8 @@
             </column>
         </createTable>
 
-
         <addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="order_id"
-                                 constraintName="customer_order_customer_order_id_fk"
+                                 constraintName="customer_order_order_id_fk"
                                  referencedTableName="order" referencedColumnNames="order_id"/>
 
         <addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="food_id"
@@ -143,7 +142,7 @@
 
     <changeSet id="10" author="keith">
         <createTable tableName="food_price"
-                     remarks="A table to contain all food prices that corresponds to their outle">
+                     remarks="A table to contain all food prices that corresponds to their outlet">
             <column name="menu_id" type="varchar(10)">
                 <constraints nullable="false" primaryKey="true"/>
             </column>

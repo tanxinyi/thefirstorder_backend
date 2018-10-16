@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="xinyi">
+        <dropColumn columnName="img_path"
+                    schemaName="public"
+                    tableName="food_price"/>
+        <addColumn schemaName="public"
+                   tableName="food">
+            <column name="img_path" type="varchar(500)"/>
+        </addColumn>
+        <addNotNullConstraint columnDataType="varchar(500)"
+                              columnName="img_path"
+                              defaultNullValue="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"
+                              schemaName="public"
+                              tableName="food"/>
+    </changeSet>
+
+    <!--<changeSet id="2" author="xinyi">
+        <update schemaName="public"
+                tableName="food">
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <where>food_id=F001</where>
+        </update>
+        <update schemaName="public"
+                tableName="food">
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <where>food_id=F002</where>
+        </update>
+        <update schemaName="public"
+                tableName="food">
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <where>food_id=F003</where>
+        </update>
+        <update schemaName="public"
+                tableName="food">
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <where>food_id=F004</where>
+        </update>
+        <update schemaName="public"
+                tableName="food">
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <where>food_id=F005</where>
+        </update>
+        <update schemaName="public"
+                tableName="food">
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <where>food_id=F006</where>
+        </update>
+    </changeSet>-->
+
+</databaseChangeLog>
