@@ -10,11 +10,15 @@ import java.io.Serializable;
 @Data
 @Embeddable
 public class MenuFoodId implements Serializable {
-    @Column(name = "menu_id")
+    @Column(name = "menu_id", nullable = false)
     @JsonView(View.MainView.class)
     private String menuId;
-    @Column(name = "food_id")
+    @Column(name = "food_id", nullable = false)
     @JsonView(View.MainView.class)
     private String foodId;
 
+    public MenuFoodId(String menuId, String foodId){
+        this.menuId = menuId;
+        this.foodId = foodId;
+    }
 }

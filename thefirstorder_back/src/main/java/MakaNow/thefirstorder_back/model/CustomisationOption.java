@@ -31,6 +31,6 @@ public class CustomisationOption {
     @JsonView(View.MainView.class)
     private String description;
     @JsonView(View.MainView.class)
-    private double price;
+    private Double price;
 
 }

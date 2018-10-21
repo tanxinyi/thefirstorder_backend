@@ -1,5 +1,6 @@
 package MakaNow.thefirstorder_back.controller;
 
+import MakaNow.thefirstorder_back.model.FoodPrice;
 import MakaNow.thefirstorder_back.model.Menu;
 import MakaNow.thefirstorder_back.model.Restaurant;
 import MakaNow.thefirstorder_back.model.View;
@@ -39,9 +40,19 @@ public class MenuController {
         }
     }
 
-    @GetMapping("/restaurants/{restaurantId}/menu")
+    @GetMapping("/restaurants/{restaurantId}/full_menu")
     @JsonView(View.ViewA.class)
-    public Menu getLatestMenuByRestaurant( @PathVariable String restaurantId) throws NotFoundException {
+    public Menu getLatestFullMenuByRestaurant( @PathVariable String restaurantId) throws NotFoundException {
+        return getLatestFullMenu(restaurantId);
+    }
+
+    @GetMapping("/restaurants/{restaurantId}/menu")
+    @JsonView(View.MainView.class)
+    public Menu getLatestMenuByRestaurant(@PathVariable String restaurantId) throws NotFoundException {
+        return getLatestFullMenu(restaurantId);
+    }
+
+    private Menu getLatestFullMenu(String restaurantId) throws NotFoundException {
         Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
         if(optionalRestaurant.isPresent()){
             List<Menu> menus = optionalRestaurant.get().getMenus();
@@ -52,6 +63,32 @@ public class MenuController {
         }
     }
 
+    @GetMapping("/menu/{menuId}/categories")
+    @JsonView(View.MainView.class)
+    public List<String> getCategoriesByMenu(@PathVariable String menuId) throws NotFoundException{
+        Menu menu = getMenuById(menuId);
+        List<FoodPrice> foodPrices = menu.getFoodPrices();
+        Set<String> categories = new TreeSet<>();
+
+        for(FoodPrice foodPrice: foodPrices){
+            String category = foodPrice.getFood().getCategory();
+            categories.add(category);
+        }
+        return Arrays.asList(categories.toArray(new String[0]));
+    }
+
+    @GetMapping("/menu/{menuId}/category/{category}")
+    public List<FoodPrice> getFoodItemsByCategory(@PathVariable String menuId, @PathVariable String category) throws NotFoundException{
+        Menu menu = getMenuById(menuId);
+        List<FoodPrice> foodPrices = menu.getFoodPrices();
+        List<FoodPrice> output = new ArrayList<>();
+
+        for(FoodPrice foodPrice: foodPrices){
+            if (foodPrice.getFood().getCategory().equals(category)) output.add(foodPrice);
+        }
+        if(output.size()==0) throw new NotFoundException("Category Not Found");
+        return output;
+    }
 
     @PostMapping("/restaurants/{restaurantId}/menus")
     public Menu addMenu(@PathVariable String restaurantId,
