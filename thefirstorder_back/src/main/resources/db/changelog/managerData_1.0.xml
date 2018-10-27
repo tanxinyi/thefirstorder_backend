@@ -7,21 +7,21 @@
 
     <changeSet id="4" author="keithxinyi">
         <insert tableName="manager">
-            <column name="manager_id" value="M001"/>
+            <column name="manager_id" value="MAN001"/>
             <column name="first_name" value="Keith"/>
             <column name="last_name" value="Siew"/>
             <column name="username" value="iceorada"/>
             <column name="password" value="Testing123"/>
         </insert>
         <insert tableName="manager">
-            <column name="manager_id" value="M002"/>
+            <column name="manager_id" value="MAN002"/>
             <column name="first_name" value="Cleave"/>
             <column name="last_name" value="Ching"/>
             <column name="username" value="cleave"/>
             <column name="password" value="cleave123"/>
         </insert>
         <insert tableName="manager">
-            <column name="manager_id" value="M003"/>
+            <column name="manager_id" value="MAN003"/>
             <column name="first_name" value="Gordon"/>
             <column name="last_name" value="Ong"/>
             <column name="username" value="gordon"/>

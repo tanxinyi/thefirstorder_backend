@@ -7,37 +7,37 @@
 
     <changeSet id="6" author="keithxinyi">
         <insert tableName="manager_allocation">
-            <column name="manager_id" value="M001"/>
+            <column name="manager_id" value="MAN001"/>
             <column name="restaurant_id" value="R001"/>
             <column name="rights" value="CRUD"/>
         </insert>
         <insert tableName="manager_allocation">
-            <column name="manager_id" value="M001"/>
+            <column name="manager_id" value="MAN001"/>
             <column name="restaurant_id" value="R002"/>
             <column name="rights" value="CRUD"/>
         </insert>
         <insert tableName="manager_allocation">
-            <column name="manager_id" value="M001"/>
+            <column name="manager_id" value="MAN001"/>
             <column name="restaurant_id" value="R003"/>
             <column name="rights" value="CRUD"/>
         </insert>
         <insert tableName="manager_allocation">
-            <column name="manager_id" value="M002"/>
+            <column name="manager_id" value="MAN002"/>
             <column name="restaurant_id" value="R001"/>
             <column name="rights" value="CRUD"/>
         </insert>
         <insert tableName="manager_allocation">
-            <column name="manager_id" value="M002"/>
+            <column name="manager_id" value="MAN002"/>
             <column name="restaurant_id" value="R002"/>
             <column name="rights" value="CRUD"/>
         </insert>
         <insert tableName="manager_allocation">
-            <column name="manager_id" value="M002"/>
+            <column name="manager_id" value="MAN002"/>
             <column name="restaurant_id" value="R003"/>
             <column name="rights" value="CRUD"/>
         </insert>
         <insert tableName="manager_allocation">
-            <column name="manager_id" value="M003"/>
+            <column name="manager_id" value="MAN003"/>
             <column name="restaurant_id" value="R001"/>
             <column name="rights" value="CRUD"/>
         </insert>
