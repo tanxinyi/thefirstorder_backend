@@ -22,6 +22,9 @@ public class FoodPrice {
     @JsonView(View.MainView.class)
     private boolean availability;
 
+    @JsonView(View.MainView.class)
+    private String img_path;
+
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy="foodPrice")
     @JsonView(View.MainView.class)
     private List<FoodCustomisation> foodCustomisations;
