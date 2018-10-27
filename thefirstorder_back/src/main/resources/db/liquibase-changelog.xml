@@ -35,7 +35,7 @@
     <!--moved img_path field from food price to food table-->
     <include file="changelog/databaseUpdate_16-10-18.xml" relativeToChangelogFile="true"/>
 
-    <!--created category table with category_id and name
+    <!--created category and activity log tables
         removed category column from food-->
     <include file="changelog/databaseUpdate_27-10-18.xml" relativeToChangelogFile="true"/>
 

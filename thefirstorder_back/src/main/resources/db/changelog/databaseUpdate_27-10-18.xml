@@ -39,5 +39,54 @@
         <addForeignKeyConstraint baseTableName="food" baseColumnNames="category_id"
                                  constraintName="food_category_id_fk"
                                  referencedTableName="category" referencedColumnNames="category_id"/>
+
+        <createTable tableName="activity_log"
+                     remarks="A table to contain all activity log from managers">
+            <column name="activity_log_id" type="varchar(10)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="manager_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="menu_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="change_timestamp" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="activity_log">
+            <column name="activity_log_id" value="AL001"/>
+            <column name="manager_id" value="MAN001"/>
+            <column name="menu_id" value="M001"/>
+            <column name="description" value="edited images"/>
+            <column name="change_timestamp" valueDate="2018-01-30 22:59:00"/>
+        </insert>
+        <insert tableName="activity_log">
+            <column name="activity_log_id" value="AL002"/>
+            <column name="manager_id" value="MAN001"/>
+            <column name="menu_id" value="M001"/>
+            <column name="description" value="added new mains item for christmas"/>
+            <column name="change_timestamp" valueDate="2018-02-30 23:46:00"/>
+        </insert>
+        <insert tableName="activity_log">
+            <column name="activity_log_id" value="AL003"/>
+            <column name="manager_id" value="MAN002"/>
+            <column name="menu_id" value="M003"/>
+            <column name="description" value="edited naming conventions"/>
+            <column name="change_timestamp" valueDate="2018-07-30 20:49:00"/>
+        </insert>
+
+        <addForeignKeyConstraint baseTableName="activity_log" baseColumnNames="manager_id"
+                                 constraintName="activity_log_manager_id_fk"
+                                 referencedTableName="manager" referencedColumnNames="manager_id"/>
+
+        <addForeignKeyConstraint baseTableName="activity_log" baseColumnNames="menu_id"
+                                 constraintName="activity_log_menu_id_fk"
+                                 referencedTableName="menu" referencedColumnNames="menu_id"/>
     </changeSet>
 </databaseChangeLog>
