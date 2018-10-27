@@ -22,19 +22,15 @@ public class FoodPrice {
     @JsonView(View.MainView.class)
     private boolean availability;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy="foodPrice")
-    @JsonView(View.MainView.class)
-    private List<FoodCustomisation> foodCustomisations;
-
     @ManyToOne
     @JoinColumn(name="menu_id", insertable = false, updatable = false)
-    @JsonView(View.ViewB.class)
-    //@JsonIgnore
+    //@JsonView(View.ViewB.class)
+    @JsonIgnore
     private Menu menu;
 
     @ManyToOne
     @JoinColumn(name="food_id", insertable = false, updatable = false)
-    @JsonView(View.MainView.class)
+    @JsonView(View.ViewB.class)
     //@JsonIgnore
     private Food food;
 }

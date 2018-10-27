@@ -19,18 +19,20 @@ public class Food {
     @JsonView(View.MainView.class)
     private String description;
     @JsonView(View.MainView.class)
-    private String category;
-    @JsonView(View.MainView.class)
     private String img_Path;
-
-    @ManyToMany
-    @JoinTable(name = "food_tag_allocation",
-                    joinColumns = { @JoinColumn(name = "food_id") },
-                    inverseJoinColumns = { @JoinColumn(name = "food_tag_id") })
-    @JsonView(View.MainView.class)
-    private List<FoodTag> tags;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "food")
     @JsonIgnore
     private List<FoodPrice> foodPrice;
+
+    @ManyToOne
+    @JoinColumn(name="category_id", insertable = false, updatable = false)
+    //@JsonView(View.ViewA.class)
+    @JsonIgnore
+    private Category category;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "food")
+    //@JsonView(View.ViewA.class)
+    @JsonIgnore
+    private List<CustomerOrder> customerOrders;
 }

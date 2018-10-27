@@ -1,9 +1,9 @@
 package MakaNow.thefirstorder_back.repository;
 
-import MakaNow.thefirstorder_back.model.FoodCustomisation;
+import MakaNow.thefirstorder_back.model.Orders;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FoodCustomisationRepository extends CrudRepository<FoodCustomisation, String> {
+public interface OrdersRepository extends CrudRepository<Orders, String> {
 }

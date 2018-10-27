@@ -1,9 +1,6 @@
 package MakaNow.thefirstorder_back.controller;
 
-import MakaNow.thefirstorder_back.model.FoodPrice;
-import MakaNow.thefirstorder_back.model.Menu;
-import MakaNow.thefirstorder_back.model.Restaurant;
-import MakaNow.thefirstorder_back.model.View;
+import MakaNow.thefirstorder_back.model.*;
 import MakaNow.thefirstorder_back.repository.MenuRepository;
 import MakaNow.thefirstorder_back.repository.RestaurantRepository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -65,26 +62,28 @@ public class MenuController {
 
     @GetMapping("/menu/{menuId}/categories")
     @JsonView(View.MainView.class)
-    public List<String> getCategoriesByMenu(@PathVariable String menuId) throws NotFoundException{
+    public List<Category> getCategoriesByMenu(@PathVariable String menuId) throws NotFoundException{
         Menu menu = getMenuById(menuId);
         List<FoodPrice> foodPrices = menu.getFoodPrices();
-        Set<String> categories = new TreeSet<>();
+        List<Category> categories = new ArrayList<>();
 
         for(FoodPrice foodPrice: foodPrices){
-            String category = foodPrice.getFood().getCategory();
-            categories.add(category);
+            Category category = foodPrice.getFood().getCategory();
+            if(!categories.contains(category)){
+                categories.add(category);
+            }
         }
-        return Arrays.asList(categories.toArray(new String[0]));
+        return categories;
     }
 
-    @GetMapping("/menu/{menuId}/category/{category}")
-    public List<FoodPrice> getFoodItemsByCategory(@PathVariable String menuId, @PathVariable String category) throws NotFoundException{
+    @GetMapping("/menu/{menuId}/category/{categoryId}")
+    public List<FoodPrice> getFoodItemsByCategory(@PathVariable String menuId, @PathVariable String categoryId) throws NotFoundException{
         Menu menu = getMenuById(menuId);
         List<FoodPrice> foodPrices = menu.getFoodPrices();
         List<FoodPrice> output = new ArrayList<>();
 
         for(FoodPrice foodPrice: foodPrices){
-            if (foodPrice.getFood().getCategory().equals(category)) output.add(foodPrice);
+            if (foodPrice.getFood().getCategory().getCategoryId().equals(categoryId)) output.add(foodPrice);
         }
         if(output.size()==0) throw new NotFoundException("Category Not Found");
         return output;

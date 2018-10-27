@@ -303,7 +303,7 @@
                                  constraintName="order_summary_email_fk"
                                  referencedTableName="customer" referencedColumnNames="email"/>
 
-        <createTable tableName="order"
+        <createTable tableName="orders"
                      remarks="A table to contain all orders">
             <column name="order_id" type="varchar(10)">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
@@ -325,15 +325,15 @@
             </column>
         </createTable>
 
-        <addForeignKeyConstraint baseTableName="order" baseColumnNames="restaurant_id"
+        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="restaurant_id"
                                  constraintName="order_restaurant_id_fk"
                                  referencedTableName="restaurant" referencedColumnNames="restaurant_id"/>
 
-        <addForeignKeyConstraint baseTableName="order" baseColumnNames="qr_code"
+        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="qr_code"
                                  constraintName="order_qr_code_fk"
                                  referencedTableName="seating_table" referencedColumnNames="qr_code"/>
 
-        <addForeignKeyConstraint baseTableName="order" baseColumnNames="order_summary_id"
+        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="order_summary_id"
                                  constraintName="order_order_summary_id_fk"
                                  referencedTableName="order_summary" referencedColumnNames="order_summary_id"/>
 
@@ -352,7 +352,7 @@
 
         <addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="order_id"
                                  constraintName="customer_order_customer_order_id_fk"
-                                 referencedTableName="order" referencedColumnNames="order_id"/>
+                                 referencedTableName="orders" referencedColumnNames="order_id"/>
 
         <addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="food_id"
                                  constraintName="customer_order_food_id_fk"

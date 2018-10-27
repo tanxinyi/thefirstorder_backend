@@ -19,8 +19,6 @@
                               schemaName="public"
                               tableName="food"/>
     </changeSet>
-<<<<<<< HEAD
-=======
 
     <!--<changeSet id="2" author="xinyi">
         <update schemaName="public"
@@ -55,5 +53,4 @@
         </update>
     </changeSet>-->
 
->>>>>>> database
 </databaseChangeLog>

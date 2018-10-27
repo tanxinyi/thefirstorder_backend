@@ -27,24 +27,16 @@
     <include file="changelog/redemptionHistoryData_1.0.xml" relativeToChangelogFile="true"/>
 
     <!-- dropped and updated food_customisation, customisation_option, customer_order, food_price
-        dropped customisation table
-<<<<<<< HEAD
-        added customer_customisation table -->
-=======
-        (removed)added customer_customisation table -->
->>>>>>> database
+        dropped customisation table-->
     <include file="changelog/databaseUpdate_(1-2)_10-10-18.xml" relativeToChangelogFile="true"/>
-    <!-- added data for edited tables in changelog/databaseUpdate_(1-2)_10-10-18.xml -->
+    <!--added data for edited tables in changelog/databaseUpdate_(1-2)_10-10-18.xml -->
     <include file="changelog/databaseUpdate_(2-2)_10-10-18.xml" relativeToChangelogFile="true"/>
 
     <!--moved img_path field from food price to food table-->
     <include file="changelog/databaseUpdate_16-10-18.xml" relativeToChangelogFile="true"/>
 
-<<<<<<< HEAD
-=======
     <!--created category table with category_id and name
         removed category column from food-->
     <include file="changelog/databaseUpdate_27-10-18.xml" relativeToChangelogFile="true"/>
 
->>>>>>> database
 </databaseChangeLog>
