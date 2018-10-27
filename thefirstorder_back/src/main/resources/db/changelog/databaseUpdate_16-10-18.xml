@@ -19,4 +19,41 @@
                               schemaName="public"
                               tableName="food"/>
     </changeSet>
+<<<<<<< HEAD
+=======
+
+    <!--<changeSet id="2" author="xinyi">
+        <update schemaName="public"
+                tableName="food">
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <where>food_id=F001</where>
+        </update>
+        <update schemaName="public"
+                tableName="food">
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <where>food_id=F002</where>
+        </update>
+        <update schemaName="public"
+                tableName="food">
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <where>food_id=F003</where>
+        </update>
+        <update schemaName="public"
+                tableName="food">
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <where>food_id=F004</where>
+        </update>
+        <update schemaName="public"
+                tableName="food">
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <where>food_id=F005</where>
+        </update>
+        <update schemaName="public"
+                tableName="food">
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <where>food_id=F006</where>
+        </update>
+    </changeSet>-->
+
+>>>>>>> database
 </databaseChangeLog>
