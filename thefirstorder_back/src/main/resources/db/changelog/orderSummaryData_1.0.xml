@@ -8,7 +8,7 @@
     <changeSet id="15" author="keithxinyi">
         <insert tableName="order_summary">
             <column name="order_summary_id" value="OS001"/>
-			<column name="customer_id" value="C001"/>
+			<column name="email" value="CUS001@makanow.com"/>
 			<column name="payment_status" value="Confirmed"/>
 			<column name="total_amount" value="100.00"/>
 			<column name="summary_date" valueDate="2018-01-01 10:10:10"/>
@@ -16,7 +16,7 @@
         </insert>
         <insert tableName="order_summary">
             <column name="order_summary_id" value="OS002"/>
-            <column name="customer_id" value="C002"/>
+            <column name="email" value="CUS002@makanow.com"/>
             <column name="payment_status" value="Confirmed"/>
             <column name="total_amount" value="69.90"/>
             <column name="summary_date" valueDate="2018-01-01 10:10:10"/>
@@ -24,7 +24,7 @@
         </insert>
         <insert tableName="order_summary">
             <column name="order_summary_id" value="OS003"/>
-            <column name="customer_id" value="C003"/>
+            <column name="email" value="CUS003@makanow.com"/>
             <column name="payment_status" value="Pending"/>
             <column name="total_amount" value="45.00"/>
             <column name="summary_date" valueDate="2018-01-01 10:10:10"/>

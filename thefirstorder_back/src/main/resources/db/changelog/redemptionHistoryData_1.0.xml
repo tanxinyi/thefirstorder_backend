@@ -8,7 +8,7 @@
 	<changeSet id="19" author="keithxinyi">
 		<insert tableName="redemption_history">
 			<column name="redemption_history_id" value="RH001"/>
-			<column name="customer_id" value="C001"/>
+			<column name="email" value="CUS001@makanow.com"/>
 			<column name="redemption_id" value="RD001"/>
 			<column name="order_summary_id" value="OS001"/>
 			<column name="points" valueNumeric="7100"/>
@@ -17,7 +17,7 @@
 		</insert>
 		<insert tableName="redemption_history">
 			<column name="redemption_history_id" value="RH002"/>
-			<column name="customer_id" value="C002"/>
+			<column name="email" value="CUS002@makanow.com"/>
 			<column name="redemption_id" value="RD002"/>
 			<column name="order_summary_id" value="OS002"/>
 			<column name="points" valueNumeric="5000"/>
@@ -26,7 +26,7 @@
 		</insert>
 		<insert tableName="redemption_history">
 			<column name="redemption_history_id" value="RH003"/>
-			<column name="customer_id" value="C002"/>
+			<column name="email" value="CUS002@makanow.com"/>
 			<column name="redemption_id" value="RD003"/>
 			<column name="order_summary_id" value="OS003"/>
 			<column name="points" valueNumeric="-2200"/>
