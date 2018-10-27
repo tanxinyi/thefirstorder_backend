@@ -21,7 +21,7 @@ public class Food {
     @JsonView(View.MainView.class)
     private String category;
     @JsonView(View.MainView.class)
-    private String imgPath;
+    private String img_Path;
 
     @ManyToMany
     @JoinTable(name = "food_tag_allocation",
