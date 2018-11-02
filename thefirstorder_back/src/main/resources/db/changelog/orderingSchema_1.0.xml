@@ -21,11 +21,13 @@
                 <constraints nullable="false"/>
             </column>
             <column name="gender" type="char(1)">
+                <constraints nullable="true"/>
             </column>
             <column name="dob" type="date">
+                <constraints nullable="true"/>
             </column>
             <column name="phone_num" type="varchar(45)">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
             <column name="loyalty_point" type="int(10)">
                 <constraints nullable="false"/>

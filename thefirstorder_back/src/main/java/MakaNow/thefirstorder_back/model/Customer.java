@@ -2,6 +2,7 @@ package MakaNow.thefirstorder_back.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -23,16 +24,20 @@ public class Customer {
     @JsonView(View.MainView.class)
     private String password;
 
+    @Nullable
     @JsonView(View.MainView.class)
     private char gender;
 
+    @Nullable
     @JsonView(View.MainView.class)
     @Temporal(TemporalType.DATE)
     private Date dob;
 
+    @Nullable
     @JsonView(View.MainView.class)
     private String phoneNum;
 
+    @Nullable
     @JsonView(View.MainView.class)
     private int loyaltyPoint;
 
