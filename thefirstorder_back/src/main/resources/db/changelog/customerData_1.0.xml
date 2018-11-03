@@ -36,5 +36,25 @@
             <column name="phone_num" value="91758191"/>
             <column name="loyalty_point" valueNumeric="10667"/>
         </insert>
+        <insert tableName="customer">
+            <column name="email" value="CUS004@makanow.com"/>
+            <column name="first_name" value="Cleave"/>
+            <column name="last_name" value="Ching"/>
+            <column name="password" value="talldude"/>
+            <column name="gender" value="M"/>
+            <column name="dob" valueDate="1904-03-19"/>
+            <column name="phone_num" value="92194387"/>
+            <column name="loyalty_point" valueNumeric="3000"/>
+        </insert>
+        <insert tableName="customer">
+            <column name="email" value="CUS005@makanow.com"/>
+            <column name="first_name" value="Gordon"/>
+            <column name="last_name" value="Wong"/>
+            <column name="password" value="yoyoyoyoboy"/>
+            <column name="gender" value="M"/>
+            <column name="dob" valueDate="1989-01-11"/>
+            <column name="phone_num" value="93289932"/>
+            <column name="loyalty_point" valueNumeric="3500"/>
+        </insert>
     </changeSet>
 </databaseChangeLog>

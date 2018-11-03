@@ -21,6 +21,16 @@
             <column name="food_id" value="F003"/>
             <column name="quantity" valueNumeric="2"/>
         </insert>
+        <insert tableName="customer_order">
+            <column name="order_id" value="O004"/>
+            <column name="food_id" value="F002"/>
+            <column name="quantity" valueNumeric="3"/>
+        </insert>
+        <insert tableName="customer_order">
+            <column name="order_id" value="O005"/>
+            <column name="food_id" value="F001"/>
+            <column name="quantity" valueNumeric="5"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>

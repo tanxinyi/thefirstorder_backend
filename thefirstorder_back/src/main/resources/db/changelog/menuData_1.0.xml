@@ -17,14 +17,24 @@
             <column name="date_of_creation" valueDate="2018-09-01"/>
         </insert>
         <insert tableName="menu">
+            <column name="menu_id" value="M004"/>
+            <column name="restaurant_id" value="R003"/>
+            <column name="date_of_creation" valueDate="2017-01-01"/>
+        </insert>
+        <insert tableName="menu">
             <column name="menu_id" value="M002"/>
             <column name="restaurant_id" value="R002"/>
             <column name="date_of_creation" valueDate="2018-01-01"/>
         </insert>
         <insert tableName="menu">
+            <column name="menu_id" value="M002"/>
+            <column name="restaurant_id" value="R003"/>
+            <column name="date_of_creation" valueDate="2017-04-09"/>
+        </insert>
+        <insert tableName="menu">
             <column name="menu_id" value="M003"/>
             <column name="restaurant_id" value="R003"/>
-            <column name="date_of_creation" valueDate="2018-01-01"/>
+            <column name="date_of_creation" valueDate="2018-03-05"/>
         </insert>
     </changeSet>
 

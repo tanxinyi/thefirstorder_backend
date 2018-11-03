@@ -42,6 +42,12 @@
             <column name="description" value="Traditional Thai dessert"/>
             <column name="category_id" value="CAT003"/>
         </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F007"/>
+            <column name="name" value="Thai Pineapple Rice"/>
+            <column name="description" value="Flavorful Thai Pineapple rice"/>
+            <column name="category_id" value="CAT002"/>
+        </insert>
     </changeSet>
-
+101 96 67 334
 </databaseChangeLog>
