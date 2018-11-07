@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="12" author="keithxinyi">
+        <insert tableName="restaurant">
+            <column name="restaurant_id" value="R001"/>
+            <column name="restaurant_name" value="Ajisen Ramen"/>
+            <column name="restaurant_desc" value="Authentic ramen restaurant"/>
+            <column name="restaurant_contact" valueNumeric="12345678"/>
+            <column name="restaurant_street" value="200 Victoria St, #01-01"/>
+            <column name="restaurant_postal_code" valueNumeric="188021"/>
+            <column name="restaurant_cuisine" value="Asian"/>
+        </insert>
+        <insert tableName="restaurant">
+            <column name="restaurant_id" value="R002"/>
+            <column name="restaurant_name" value="NamNam Noodle Bar"/>
+            <column name="restaurant_desc" value="Authentic Vietnamese food"/>
+            <column name="restaurant_contact" valueNumeric="87654321"/>
+            <column name="restaurant_street" value="252 North Bridge Road, #B1-46/47"/>
+            <column name="restaurant_postal_code" valueNumeric="201021"/>
+            <column name="restaurant_cuisine" value="Asian"/>
+        </insert>
+        <insert tableName="restaurant">
+            <column name="restaurant_id" value="R003"/>
+            <column name="restaurant_name" value="Nakhon Kitchen"/>
+            <column name="restaurant_desc" value="Authentic Thai food"/>
+            <column name="restaurant_contact" valueNumeric="62868785"/>
+            <column name="restaurant_street" value="212 Hougang Street 21, #01-341"/>
+            <column name="restaurant_postal_code" valueNumeric="727272"/>
+            <column name="restaurant_cuisine" value="Asian"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

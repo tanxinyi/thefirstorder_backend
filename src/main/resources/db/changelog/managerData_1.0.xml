@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="4" author="keithxinyi">
+        <insert tableName="manager">
+            <column name="manager_id" value="MA001"/>
+            <column name="first_name" value="Keith"/>
+            <column name="last_name" value="Siew"/>
+            <column name="username" value="iceorada"/>
+            <column name="password" value="Testing123"/>
+        </insert>
+        <insert tableName="manager">
+            <column name="manager_id" value="MA002"/>
+            <column name="first_name" value="Cleave"/>
+            <column name="last_name" value="Ching"/>
+            <column name="username" value="cleave"/>
+            <column name="password" value="cleave123"/>
+        </insert>
+        <insert tableName="manager">
+            <column name="manager_id" value="MA003"/>
+            <column name="first_name" value="Gordon"/>
+            <column name="last_name" value="Ong"/>
+            <column name="username" value="gordon"/>
+            <column name="password" value="gordon123"/>
+        </insert>
+        <insert tableName="manager">
+            <column name="manager_id" value="MA004"/>
+            <column name="first_name" value="Amanda"/>
+            <column name="last_name" value="Lim"/>
+            <column name="username" value="amanda"/>
+            <column name="password" value="amanda123"/>
+        </insert>
+        <insert tableName="manager">
+            <column name="manager_id" value="MA005"/>
+            <column name="first_name" value="Xinyi"/>
+            <column name="last_name" value="Tay"/>
+            <column name="username" value="xinyi"/>
+            <column name="password" value="xinyi123"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

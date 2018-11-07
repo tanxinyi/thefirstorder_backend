@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="keithxinyi">
+        <createTable tableName="customer"
+                     remarks="A table to contain all customers">
+            <column name="customer_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="customer_first_name" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_last_name" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_password" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_age" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_gender" type="char(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_street" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_city" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_postal_code" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_contact" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_email" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customer_loyalty_points" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="food_tags"
+                     remarks="A table to contain all food tag">
+            <column name="food_id" type="varchar(10)">
+                <constraints nullable="false" />
+            </column>
+            <column name="tag_desc" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="restaurant"
+                     remarks="A table to contain all restaurants">
+            <column name="restaurant_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="restaurant_name" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant_desc" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant_contact" type="int(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant_street" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant_city" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant_postal_code" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="seating_table"
+                     remarks="A table to contain all seating table">
+            <column name="table_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="restaurant_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="capacity" type="int(11)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="qr_code" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="menu_price"
+                     remarks="A table to contain all menu prices">
+            <column name="menu_id" type="varchar(10)">
+                <constraints nullable="false" />
+            </column>
+            <column name="food_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="int(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="out_of_stock" type="int(1)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="menu"
+                     remarks="A table to contain all menu">
+            <column name="menu_id" type="varchar(10)">
+                <constraints nullable="false" />
+            </column>
+            <column name="restaurant_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_of_creation" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="food"
+                     remarks="A table to contain all food">
+        <column name="food_id" type="varchar(10)">
+            <constraints nullable="false" primaryKey="true"/>
+        </column>
+        <column name="food_name" type="varchar(30)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="food_desc" type="varchar(200)">
+            <constraints nullable="false"/>
+        </column>
+        <column name="food_category" type="varchar(20)">
+            <constraints nullable="false"/>
+        </column>
+    </createTable>
+
+        <createTable tableName="customisation"
+                     remarks="A table to contain all customisation options">
+            <column name="customisation_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="customisation_desc" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customisation_type" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customisation_option_1" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customisation_option_2" type="varchar(50)">
+            </column>
+            <column name="customisation_option_3" type="varchar(50)">
+            </column>
+            <column name="customisation_option_4" type="varchar(50)">
+            </column>
+            <column name="customisation_option_5" type="varchar(50)">
+            </column>
+        </createTable>
+
+        <createTable tableName="food_customisation"
+                     remarks="A table to contain all customisation options specific to the food">
+            <column name="food_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customisation_id_1" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="customisation_id_2" type="varchar(10)">
+            </column>
+            <column name="customisation_id_3" type="varchar(10)">
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>

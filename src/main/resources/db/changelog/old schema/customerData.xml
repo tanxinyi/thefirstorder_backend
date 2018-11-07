@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="2" author="keithxinyi">
+		<insert tableName="customer">
+			<column name="customer_id" value="C001"/>
+			<column name="customer_name" value="Xinyi"/>
+			<column name="customer_password" value="ilovef0od"/>
+			<column name="customer_gender" value="F"/>
+			<column name="date_of_birth" valueNumeric="2018-12-12"/>
+			<column name="total_amount" valueNumeric="10.10"/>
+			<column name="contact_number" valueNumeric="91758191"/>
+			<column name="loyalty_points" value="1000"/>
+		</insert>
+	</changeSet>
+</databaseChangeLog>
