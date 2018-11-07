@@ -278,7 +278,7 @@
                                  <!--referencedTableName="food" referencedColumnNames="food_id"/>-->
 
         <createTable tableName="order_summary"
-                     remarks="A table to contain all summary of multiple ordersper table">
+                     remarks="A table to contain all summary of multiple orders per table">
             <column name="order_summary_id" type="varchar(10)">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
@@ -308,9 +308,6 @@
             <column name="order_id" type="varchar(10)">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
             </column>
-            <column name="restaurant_id" type="varchar(10)">
-                <constraints nullable="false" />
-            </column>
             <column name="qr_code" type="varchar(10)">
                 <constraints nullable="false" />
             </column>
@@ -324,10 +321,6 @@
                 <constraints nullable="false" />
             </column>
         </createTable>
-
-        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="restaurant_id"
-                                 constraintName="order_restaurant_id_fk"
-                                 referencedTableName="restaurant" referencedColumnNames="restaurant_id"/>
 
         <addForeignKeyConstraint baseTableName="orders" baseColumnNames="qr_code"
                                  constraintName="order_qr_code_fk"

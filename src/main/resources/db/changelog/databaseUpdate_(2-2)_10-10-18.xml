@@ -72,6 +72,24 @@
             <column name="food_id" value="F003"/>
             <column name="quantity" value="3"/>
         </insert>
+        <insert tableName="customer_order">
+            <column name="customer_order_id" value="CUSO004"/>
+            <column name="order_id" value="O002"/>
+            <column name="food_id" value="F003"/>
+            <column name="quantity" value="1"/>
+        </insert>
+        <insert tableName="customer_order">
+            <column name="customer_order_id" value="CUSO005"/>
+            <column name="order_id" value="O002"/>
+            <column name="food_id" value="F004"/>
+            <column name="quantity" value="2"/>
+        </insert>
+        <insert tableName="customer_order">
+            <column name="customer_order_id" value="CUSO006"/>
+            <column name="order_id" value="O002"/>
+            <column name="food_id" value="F002"/>
+            <column name="quantity" value="3"/>
+        </insert>
     </changeSet>
 
     <!--<changeSet id="4" author="keith">-->
@@ -93,21 +111,21 @@
 
     <changeSet id="5" author="keith">
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M002"/>
             <column name="food_id" value="F001"/>
             <column name="price" valueNumeric="21.5"/>
             <column name="availability" valueBoolean="true"/>
             <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M002"/>
             <column name="food_id" value="F002"/>
             <column name="price" valueNumeric="17.5"/>
             <column name="availability" valueBoolean="true"/>
             <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M002"/>
             <column name="food_id" value="F003"/>
             <column name="price" valueNumeric="19.5"/>
             <column name="availability" valueBoolean="true"/>
@@ -115,15 +133,43 @@
         </insert>
         <insert tableName="food_price">
             <column name="menu_id" value="M002"/>
-            <column name="food_id" value="F001"/>
+            <column name="food_id" value="F004"/>
             <column name="price" valueNumeric="21.5"/>
             <column name="availability" valueBoolean="False"/>
             <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
         </insert>
         <insert tableName="food_price">
             <column name="menu_id" value="M002"/>
-            <column name="food_id" value="F004"/>
-            <column name="price" valueNumeric="20.50"/>
+            <column name="food_id" value="F005"/>
+            <column name="price" valueNumeric="20.99"/>
+            <column name="availability" valueBoolean="true"/>
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M002"/>
+            <column name="food_id" value="F006"/>
+            <column name="price" valueNumeric="20.30"/>
+            <column name="availability" valueBoolean="true"/>
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M002"/>
+            <column name="food_id" value="F007"/>
+            <column name="price" valueNumeric="10.50"/>
+            <column name="availability" valueBoolean="true"/>
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M002"/>
+            <column name="food_id" value="F008"/>
+            <column name="price" valueNumeric="8.50"/>
+            <column name="availability" valueBoolean="true"/>
+            <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M002"/>
+            <column name="food_id" value="F009"/>
+            <column name="price" valueNumeric="29.50"/>
             <column name="availability" valueBoolean="true"/>
             <column name="img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
         </insert>

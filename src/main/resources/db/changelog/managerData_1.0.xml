@@ -27,6 +27,20 @@
             <column name="username" value="gordon"/>
             <column name="password" value="gordon123"/>
         </insert>
+        <insert tableName="manager">
+            <column name="manager_id" value="MAN004"/>
+            <column name="first_name" value="Amanda"/>
+            <column name="last_name" value="Lim"/>
+            <column name="username" value="amanda"/>
+            <column name="password" value="amanda123"/>
+        </insert>
+        <insert tableName="manager">
+            <column name="manager_id" value="MAN005"/>
+            <column name="first_name" value="Xinyi"/>
+            <column name="last_name" value="Tay"/>
+            <column name="username" value="xinyi"/>
+            <column name="password" value="xinyi123"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>

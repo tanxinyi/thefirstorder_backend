@@ -1,7 +1,9 @@
 package MakaNow.thefirstorder_back.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
+import org.hibernate.criterion.Order;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -15,7 +17,7 @@ public class OrderSummary {
     private String orderSummaryId;
 
     @JsonView(View.MainView.class)
-    private String paymentStatus = "Pending";
+    private String paymentStatus;
 
     @JsonView(View.MainView.class)
     private double totalAmount;
@@ -26,12 +28,25 @@ public class OrderSummary {
     @JsonView(View.MainView.class)
     private String modeOfPayment;
 
+    @JsonIgnore
+    private String email;
+
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "orderSummary")
-    @JsonView(View.ViewB.class)
+    @JsonIgnore
     private List<Orders> orders;
 
     @ManyToOne
     @JoinColumn(name="email", insertable = false, updatable = false)
-    @JsonView(View.ViewB.class)
+    @JsonIgnore
     private Customer customer;
+
+    public OrderSummary(String orderSummaryId, Customer customer, String paymentStatus, double totalAmount, Date summaryDate, String modeOfPayment){
+        this.orderSummaryId = orderSummaryId;
+        this.customer = customer;
+        this.email = customer.getEmail();
+        this.paymentStatus = paymentStatus;
+        this.totalAmount = totalAmount;
+        this.summaryDate = summaryDate;
+        this.modeOfPayment = modeOfPayment;
+    }
 }

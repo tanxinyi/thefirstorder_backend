@@ -50,7 +50,7 @@
         </insert>
         <insert tableName="food_price">
             <column name="menu_id" value="M002"/>
-            <column name="food_id" value="F005"/>
+            <column name="food_id" value="F003"/>
             <column name="price" valueNumeric="18.50"/>
             <column name="availability" valueBoolean="true"/>
         </insert>

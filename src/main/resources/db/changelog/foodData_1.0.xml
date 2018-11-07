@@ -32,9 +32,9 @@
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F005"/>
-            <column name="name" value="Thai Basil Chicken"/>
-            <column name="description" value="Chicken meat stir fried with Thai holy basil."/>
-            <column name="category_id" value="CAT001"/>
+            <column name="name" value="Coke"/>
+            <column name="description" value=" Carbonated Drink"/>
+            <column name="category_id" value="CAT002"/>
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F006"/>
@@ -44,10 +44,21 @@
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F007"/>
-            <column name="name" value="Thai Pineapple Rice"/>
-            <column name="description" value="Flavorful Thai Pineapple rice"/>
+            <column name="name" value="Green Tea"/>
+            <column name="description" value="Ayataka"/>
             <column name="category_id" value="CAT002"/>
         </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F008"/>
+            <column name="name" value="Lemon Tea"/>
+            <column name="description" value=" Pokka"/>
+            <column name="category_id" value="CAT002"/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F009"/>
+            <column name="name" value="Rice Ball"/>
+            <column name="description" value="Rice Ball"/>
+            <column name="category_id" value="CAT003"/>
+        </insert>
     </changeSet>
-101 96 67 334
 </databaseChangeLog>

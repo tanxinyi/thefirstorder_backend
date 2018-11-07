@@ -1,5 +1,6 @@
 package MakaNow.thefirstorder_back.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 
@@ -17,19 +18,37 @@ public class Orders {
     private double subtotal;
 
     @JsonView(View.MainView.class)
-    private String status = "Pending";
+    private String status;
+
+    @JsonIgnore
+    @Column(name="qr_code")
+    private String qrCode;
+
+    @JsonIgnore
+    @Column(name="order_summary_id")
+    private String orderSummaryId;
 
     @ManyToOne
     @JoinColumn(name="qr_code", insertable = false, updatable = false)
-    @JsonView(View.ViewA.class)
+    @JsonIgnore
     private SeatingTable seatingTable;
 
     @ManyToOne
     @JoinColumn(name="order_summary_id", insertable = false, updatable = false)
-    @JsonView(View.ViewA.class)
+    @JsonIgnore
     private OrderSummary orderSummary;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "order")
-    @JsonView(View.ViewA.class)
+    @JsonIgnore
     private List<CustomerOrder> customerOrders;
+
+    public Orders(String orderId, SeatingTable seatingTable, OrderSummary orderSummary, double subtotal, String status){
+        this.orderId = orderId;
+        this.seatingTable = seatingTable;
+        this.qrCode = seatingTable.getQrCode();
+        this.orderSummary = orderSummary;
+        this.orderSummaryId = orderSummary.getOrderSummaryId();
+        this.subtotal = subtotal;
+        this.status = status;
+    }
 }

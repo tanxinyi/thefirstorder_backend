@@ -8,7 +8,6 @@
     <changeSet id="16" author="keithxinyi">
        <insert tableName="orders">
             <column name="order_id" value="O001"/>
-            <column name="restaurant_id" value="R001"/>
             <column name="qr_code" value="T001"/>
 			<column name="order_summary_id" value="OS001"/>
 			<column name="subtotal" valueNumeric="100.00"/>
@@ -16,7 +15,6 @@
        </insert>
         <insert tableName="orders">
             <column name="order_id" value="O002"/>
-            <column name="restaurant_id" value="R002"/>
             <column name="qr_code" value="T002"/>
             <column name="order_summary_id" value="OS001"/>
             <column name="subtotal" valueNumeric="100.00"/>
@@ -24,7 +22,6 @@
         </insert>
         <insert tableName="orders">
             <column name="order_id" value="O003"/>
-            <column name="restaurant_id" value="R003"/>
             <column name="qr_code" value="T001"/>
             <column name="order_summary_id" value="OS001"/>
             <column name="subtotal" valueNumeric="46.75"/>

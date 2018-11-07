@@ -46,5 +46,15 @@
 			<column name="restaurant_id" value="R002"/>
 			<column name="capacity" valueNumeric="1"/>
 		</insert>
+		<insert tableName="seating_table">
+			<column name="qr_code" value="T009"/>
+			<column name="restaurant_id" value="R003"/>
+			<column name="capacity" valueNumeric="4"/>
+		</insert>
+		<insert tableName="seating_table">
+			<column name="qr_code" value="T010"/>
+			<column name="restaurant_id" value="R003"/>
+			<column name="capacity" valueNumeric="7"/>
+		</insert>
 	</changeSet>
 </databaseChangeLog>

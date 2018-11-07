@@ -6,6 +6,8 @@ import MakaNow.thefirstorder_back.repository.RestaurantRepository;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,6 +17,8 @@ import java.util.*;
 @RestController
 @RequestMapping("/api")
 public class MenuController {
+
+    Logger logger = LoggerFactory.getLogger(MenuController.class);
 
     @Autowired
     private MenuRepository menuRepository;
@@ -46,6 +50,7 @@ public class MenuController {
     @GetMapping("/restaurants/{restaurantId}/menu")
     @JsonView(View.MainView.class)
     public Menu getLatestMenuByRestaurant(@PathVariable String restaurantId) throws NotFoundException {
+        logger.info("Getting Latest Menu by RestaurantID");
         return getLatestFullMenu(restaurantId);
     }
 
@@ -63,6 +68,8 @@ public class MenuController {
     @GetMapping("/menu/{menuId}/categories")
     @JsonView(View.MainView.class)
     public List<Category> getCategoriesByMenu(@PathVariable String menuId) throws NotFoundException{
+        logger.info("Getting List of Categories by MenuID");
+
         Menu menu = getMenuById(menuId);
         List<FoodPrice> foodPrices = menu.getFoodPrices();
         List<Category> categories = new ArrayList<>();
@@ -78,6 +85,8 @@ public class MenuController {
 
     @GetMapping("/menu/{menuId}/category/{categoryId}")
     public List<FoodPrice> getFoodItemsByCategory(@PathVariable String menuId, @PathVariable String categoryId) throws NotFoundException{
+        logger.info("Getting List of FoodPrices by MenuID and Category");
+
         Menu menu = getMenuById(menuId);
         List<FoodPrice> foodPrices = menu.getFoodPrices();
         List<FoodPrice> output = new ArrayList<>();

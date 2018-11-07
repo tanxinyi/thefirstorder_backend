@@ -80,6 +80,20 @@
             <column name="description" value="edited naming conventions"/>
             <column name="change_timestamp" valueDate="2018-07-30 20:49:00"/>
         </insert>
+        <insert tableName="activity_log">
+            <column name="activity_log_id" value="AL004"/>
+            <column name="manager_id" value="MAN003"/>
+            <column name="menu_id" value="M002"/>
+            <column name="description" value="delete food item"/>
+            <column name="change_timestamp" valueDate="2018-10-29 17:39:17"/>
+        </insert>
+        <insert tableName="activity_log">
+            <column name="activity_log_id" value="AL005"/>
+            <column name="manager_id" value="MAN004"/>
+            <column name="menu_id" value="M001"/>
+            <column name="description" value="edited food menu"/>
+            <column name="change_timestamp" valueDate="2018-04-16 07:53:33"/>
+        </insert>
 
         <addForeignKeyConstraint baseTableName="activity_log" baseColumnNames="manager_id"
                                  constraintName="activity_log_manager_id_fk"
