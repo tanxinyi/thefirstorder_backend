@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="15" author="keithxinyi">
+       <insert tableName="orders">
+            <column name="order_id" value="O001"/>
+            <column name="restaurant_id" value="R001"/>
+            <column name="qr_code" value="T001"/>
+			<column name="order_summary_id" value="OS001"/>
+			<column name="subtotal" valueNumeric="100.00"/>
+       </insert>
+        <insert tableName="orders">
+            <column name="order_id" value="O002"/>
+            <column name="restaurant_id" value="R002"/>
+            <column name="qr_code" value="T002"/>
+            <column name="order_summary_id" value="OS001"/>
+            <column name="subtotal" valueNumeric="100.00"/>
+        </insert>
+        <insert tableName="orders">
+            <column name="order_id" value="O003"/>
+            <column name="restaurant_id" value="R003"/>
+            <column name="qr_code" value="T001"/>
+            <column name="order_summary_id" value="OS001"/>
+            <column name="subtotal" valueNumeric="46.75"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

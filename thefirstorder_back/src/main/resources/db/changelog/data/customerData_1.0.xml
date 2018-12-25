@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="2" author="keithxinyi">
+        <insert tableName="customer">
+            <column name="email" value="CUS001@makanow.com"/>
+            <column name="first_name" value="Xinyi"/>
+            <column name="last_name" value="Tan"/>
+            <column name="customer_password" value="ilovef0od"/>
+            <column name="customer_contact_number" value="91758191"/>
+            <column name="loyalty_point" valueNumeric="1000"/>
+        </insert>
+        <insert tableName="customer">
+            <column name="email" value="CUS002@makanow.com"/>
+            <column name="first_name" value="Jessica"/>
+            <column name="last_name" value="Yuen"/>
+            <column name="customer_password" value="foodloveme"/>
+            <column name="customer_contact_number" value="91758191"/>
+            <column name="loyalty_point" valueNumeric="1000"/>
+        </insert>
+        <insert tableName="customer">
+            <column name="email" value="CUS003@makanow.com"/>
+            <column name="first_name" value="Amanda"/>
+            <column name="last_name" value="Tan"/>
+            <column name="customer_password" value="Wealllovefoodluh"/>
+            <column name="customer_contact_number" value="91758191"/>
+            <column name="loyalty_point" valueNumeric="1000"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

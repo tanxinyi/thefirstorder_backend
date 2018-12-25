@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="17" author="keithxinyi">
+		<insert tableName="rewards">
+			<column name="rewards_id" value="RD001"/>
+			<column name="restaurant_id" value="R001"/>
+			<column name="start_datetime" valueDate="2018-01-30 23:59:00"/>
+			<column name="end_datetime" valueDate="2018-12-31 23:59:00"/>
+			<column name="allocated_points" valueDate="100"/>
+			<column name="rewards_description" value="Year round discount for members."/>
+		</insert>
+		<insert tableName="rewards">
+			<column name="rewards_id" value="RD002"/>
+			<column name="restaurant_id" value="R002"/>
+			<column name="start_datetime" valueDate="2018-01-30 23:59:00"/>
+			<column name="end_datetime" valueDate="2018-12-31 23:59:00"/>
+			<column name="allocated_points" valueDate="100"/>
+			<column name="rewards_description" value="Year round discount for exclusive members."/>
+		</insert>
+		<insert tableName="rewards">
+			<column name="rewards_id" value="RD003"/>
+			<column name="restaurant_id" value="R003"/>
+			<column name="start_datetime" valueDate="2018-01-30 23:59:00"/>
+			<column name="end_datetime" valueDate="2018-12-31 23:59:00"/>
+			<column name="allocated_points" valueDate="50"/>
+			<column name="rewards_description" value="Discount for new sign ups."/>
+		</insert>
+		<insert tableName="rewards">
+			<column name="rewards_id" value="RD004"/>
+			<column name="restaurant_id" value="R001"/>
+			<column name="start_datetime" valueDate="2018-01-30 23:59:00"/>
+			<column name="end_datetime" valueDate="2018-06-31 23:59:00"/>
+			<column name="allocated_points" valueDate="40"/>
+			<column name="rewards_description" value="Free Sides."/>
+		</insert>
+		<insert tableName="rewards">
+			<column name="rewards_id" value="RD005"/>
+			<column name="restaurant_id" value="R002"/>
+			<column name="start_datetime" valueDate="2018-01-30 23:59:00"/>
+			<column name="end_datetime" valueDate="2018-09-31 23:59:00"/>
+			<column name="allocated_points" valueDate="100"/>
+			<column name="rewards_description" value="1 for 1 Mains."/>
+		</insert>
+		<insert tableName="rewards">
+			<column name="rewards_id" value="RD006"/>
+			<column name="restaurant_id" value="R003"/>
+			<column name="start_datetime" valueDate="2018-12-01 23:59:00"/>
+			<column name="end_datetime" valueDate="2018-12-31 23:59:00"/>
+			<column name="allocated_points" valueDate="200"/>
+			<column name="rewards_description" value="Discount for festive season."/>
+		</insert>
+		<insert tableName="rewards">
+			<column name="rewards_id" value="RD007"/>
+			<column name="restaurant_id" value="R001"/>
+			<column name="start_datetime" valueDate="2018-01-30 23:59:00"/>
+			<column name="end_datetime" valueDate="2018-12-31 23:59:00"/>
+			<column name="allocated_points" valueDate="50"/>
+			<column name="rewards_description" value="Free Birthday Cake."/>
+		</insert>
+		<insert tableName="rewards">
+			<column name="rewards_id" value="RD008"/>
+			<column name="restaurant_id" value="R002"/>
+			<column name="start_datetime" valueDate="2018-01-30 23:59:00"/>
+			<column name="end_datetime" valueDate="2018-12-31 23:59:00"/>
+			<column name="allocated_points" valueDate="100"/>
+			<column name="rewards_description" value="50% off set meals."/>
+		</insert>
+		<insert tableName="rewards">
+			<column name="rewards_id" value="RD009"/>
+			<column name="restaurant_id" value="R003"/>
+			<column name="start_datetime" valueDate="2018-01-30 23:59:00"/>
+			<column name="end_datetime" valueDate="2018-12-31 23:59:00"/>
+			<column name="allocated_points" valueDate="100"/>
+			<column name="rewards_description" value="Discount for ala carte menu."/>
+		</insert>
+	</changeSet>
+</databaseChangeLog>
