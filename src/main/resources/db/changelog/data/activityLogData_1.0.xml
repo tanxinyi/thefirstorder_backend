@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="9" author="keithxinyi">
+        <insert tableName="activity_log">
+            <column name="activity_log_id" value="AL001"/>
+            <column name="manager_id" value="MA001"/>
+            <column name="menu_id" value="M001"/>
+            <column name="log_description" value="edited images"/>
+            <column name="log_change_timestamp" valueDate="2018-01-30 22:59:00"/>
+        </insert>
+        <insert tableName="activity_log">
+            <column name="activity_log_id" value="AL002"/>
+            <column name="manager_id" value="MA001"/>
+            <column name="menu_id" value="M004"/>
+            <column name="log_description" value="added new mains item for christmas"/>
+            <column name="log_change_timestamp" valueDate="2018-02-30 23:46:00"/>
+        </insert>
+        <insert tableName="activity_log">
+            <column name="activity_log_id" value="AL003"/>
+            <column name="manager_id" value="MA002"/>
+            <column name="menu_id" value="M003"/>
+            <column name="log_description" value="edited naming conventions"/>
+            <column name="log_change_timestamp" valueDate="2018-07-30 20:49:00"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

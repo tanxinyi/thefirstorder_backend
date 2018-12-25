@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="3" author="keithxinyi">
+        <insert tableName="manager">
+            <column name="manager_id" value="MA001"/>
+            <column name="manager_username" value="iceorada"/>
+            <column name="manager_password" value="Testing123"/>
+        </insert>
+        <insert tableName="manager">
+            <column name="manager_id" value="MA002"/>
+            <column name="manager_username" value="cleave"/>
+            <column name="manager_password" value="cleave123"/>
+        </insert>
+        <insert tableName="manager">
+            <column name="manager_id" value="MA003"/>
+            <column name="manager_username" value="gordon"/>
+            <column name="manager_password" value="gordon123"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

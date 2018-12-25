@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="18" author="keithxinyi">
+		<insert tableName="rewards_history">
+			<column name="rewards_history_id" value="RH001"/>
+			<column name="email" value="CUS001@makanow.com"/>
+			<column name="rewards_id" value="RD001"/>
+			<column name="current_loyalty_points" valueNumeric="900"/>
+			<column name="redeem_rewards_date" valueDate="2018-10-10 23:50:11"/>
+		</insert>
+		<insert tableName="rewards_history">
+			<column name="rewards_history_id" value="RH002"/>
+			<column name="email" value="CUS002@makanow.com"/>
+			<column name="rewards_id" value="RD002"/>
+			<column name="current_loyalty_points" valueNumeric="900"/>
+			<column name="redeem_rewards_date" valueDate="2018-06-10 20:59:01"/>
+		</insert>
+		<insert tableName="rewards_history">
+			<column name="rewards_history_id" value="RH003"/>
+			<column name="email" value="CUS003@makanow.com"/>
+			<column name="rewards_id" value="RD003"/>
+			<column name="current_loyalty_points" valueNumeric="950"/>
+			<column name="redeem_rewards_date" valueDate="2018-05-22 18:48:22"/>
+		</insert>
+		<insert tableName="rewards_history">
+			<column name="rewards_history_id" value="RH004"/>
+			<column name="email" value="CUS001@makanow.com"/>
+			<column name="rewards_id" value="RD004"/>
+			<column name="current_loyalty_points" valueNumeric="860"/>
+			<column name="redeem_rewards_date" valueDate="2018-11-10 13:50:11"/>
+		</insert>
+		<insert tableName="rewards_history">
+			<column name="rewards_history_id" value="RH005"/>
+			<column name="email" value="CUS002@makanow.com"/>
+			<column name="rewards_id" value="RD005"/>
+			<column name="current_loyalty_points" valueNumeric="800"/>
+			<column name="redeem_rewards_date" valueDate="2018-08-15 21:59:01"/>
+		</insert>
+		<insert tableName="rewards_history">
+			<column name="rewards_history_id" value="RH006"/>
+			<column name="email" value="CUS003@makanow.com"/>
+			<column name="rewards_id" value="RD006"/>
+			<column name="current_loyalty_points" valueNumeric="750"/>
+			<column name="redeem_rewards_date" valueDate="2018-09-03 16:03:21"/>
+		</insert>
+
+	</changeSet>
+</databaseChangeLog>

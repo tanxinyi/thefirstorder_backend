@@ -5,11 +5,11 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="6" author="keithxinyi">
+    <changeSet id="5" author="keithxinyi">
         <insert tableName="manager_allocation">
             <column name="manager_id" value="MA001"/>
             <column name="restaurant_id" value="R001"/>
-            <column name="rights" value="CRUD"/>
+            <column name="rights" value="CRD"/>
         </insert>
         <insert tableName="manager_allocation">
             <column name="manager_id" value="MA001"/>
@@ -17,28 +17,28 @@
             <column name="rights" value="CRUD"/>
         </insert>
         <insert tableName="manager_allocation">
-            <column name="manager_id" value="MA001"/>
-            <column name="restaurant_id" value="R003"/>
-            <column name="rights" value="CRUD"/>
-        </insert>
-        <insert tableName="manager_allocation">
             <column name="manager_id" value="MA002"/>
             <column name="restaurant_id" value="R001"/>
-            <column name="rights" value="CRUD"/>
+            <column name="rights" value="CRU"/>
         </insert>
         <insert tableName="manager_allocation">
             <column name="manager_id" value="MA002"/>
             <column name="restaurant_id" value="R002"/>
-            <column name="rights" value="CRUD"/>
-        </insert>
-        <insert tableName="manager_allocation">
-            <column name="manager_id" value="MA002"/>
-            <column name="restaurant_id" value="R003"/>
             <column name="rights" value="CRUD"/>
         </insert>
         <insert tableName="manager_allocation">
             <column name="manager_id" value="MA003"/>
             <column name="restaurant_id" value="R001"/>
+            <column name="rights" value="CRUD"/>
+        </insert>
+        <insert tableName="manager_allocation">
+            <column name="manager_id" value="MA003"/>
+            <column name="restaurant_id" value="R002"/>
+            <column name="rights" value="RUD"/>
+        </insert>
+        <insert tableName="manager_allocation">
+            <column name="manager_id" value="MA003"/>
+            <column name="restaurant_id" value="R003"/>
             <column name="rights" value="CRUD"/>
         </insert>
     </changeSet>

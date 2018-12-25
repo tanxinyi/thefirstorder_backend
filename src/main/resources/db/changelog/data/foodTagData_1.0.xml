@@ -5,26 +5,26 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="10" author="keithxinyi">
+    <changeSet id="12" author="keithxinyi">
         <insert tableName="food_tag">
             <column name="food_tag_id" value="FT001"/>
-            <column name="description" value="Cockles"/>
+            <column name="food_tag_description" value="Halal"/>
         </insert>
         <insert tableName="food_tag">
             <column name="food_tag_id" value="FT002"/>
-            <column name="description" value="More Soup"/>
+            <column name="food_tag_description" value="Beef"/>
         </insert>
         <insert tableName="food_tag">
             <column name="food_tag_id" value="FT003"/>
-            <column name="description" value="Less Soup"/>
+            <column name="food_tag_description" value="Vegan"/>
         </insert>
         <insert tableName="food_tag">
             <column name="food_tag_id" value="FT004"/>
-            <column name="description" value="More Chili"/>
+            <column name="food_tag_description" value="Vegetarian"/>
         </insert>
         <insert tableName="food_tag">
             <column name="food_tag_id" value="FT005"/>
-            <column name="description" value="Less Chili"/>
+            <column name="food_tag_description" value="Spicy"/>
         </insert>
     </changeSet>
 

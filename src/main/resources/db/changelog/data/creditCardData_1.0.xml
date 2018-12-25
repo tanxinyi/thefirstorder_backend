@@ -26,26 +26,10 @@
             <column name="card_number" value="1234516826618489"/>
             <column name="customer_id" value="C002"/>
             <column name="card_type" value="Visa"/>
-            <column name="cardholder_name" value="Keith Siew Guo Dong"/>
+            <column name="cardholder_name" value="Yuen Chui Shan Jessica"/>
             <column name="cvs" valueNumeric="591"/>
             <column name="expiry_date" valueDate="2020-06-15"/>
         </insert>
-        <insert tableName="credit_card">
-            <column name="card_number" value="1234516826618432"/>
-            <column name="customer_id" value="C003"/>
-            <column name="card_type" value="Mastercard"/>
-            <column name="cardholder_name" value="Gordon Wong Kuan Wai"/>
-            <column name="cvs" valueNumeric="222"/>
-            <column name="expiry_date" valueDate="2023-02-12"/>
-        </insert>	
-        <insert tableName="credit_card">
-            <column name="card_number" value="1355516826618432"/>
-            <column name="customer_id" value="C002"/>
-            <column name="card_type" value="Visa"/>
-            <column name="cardholder_name" value="Cleave Ching Wen Qi"/>
-            <column name="cvs" valueNumeric="543"/>
-            <column name="expiry_date" valueDate="2022-04-13"/>
-        </insert>			
     </changeSet>
 
 </databaseChangeLog>
