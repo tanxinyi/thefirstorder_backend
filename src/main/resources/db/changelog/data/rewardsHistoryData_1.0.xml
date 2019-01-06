@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-	<changeSet id="18" author="keithxinyi">
+	<changeSet id="10" author="keithxinyi">
 		<insert tableName="rewards_history">
 			<column name="rewards_history_id" value="RH001"/>
 			<column name="email" value="CUS001@makanow.com"/>

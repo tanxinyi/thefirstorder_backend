@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="19" author="xinyi">
+
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C001"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F001"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Noodles"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C002"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F001"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Soup"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C003"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F001"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Egg"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C004"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F007"/>
+            <column name="food_category_id" value="FC003"/>
+            <column name="customisation_name" value="Flavour"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C005"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F008"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Ice"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C006"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F009"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Ice"/>
+        </insert>
+
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C007"/>
+            <column name="menu_id" value="M002"/>
+            <column name="food_id" value="F003"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Beef"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C008"/>
+            <column name="menu_id" value="M002"/>
+            <column name="food_id" value="F003"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Soup"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C009"/>
+            <column name="menu_id" value="M002"/>
+            <column name="food_id" value="F004"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Chicken"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C010"/>
+            <column name="menu_id" value="M002"/>
+            <column name="food_id" value="F004"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Soup"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C011"/>
+            <column name="menu_id" value="M002"/>
+            <column name="food_id" value="F007"/>
+            <column name="food_category_id" value="FC003"/>
+            <column name="customisation_name" value="Flavour"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C012"/>
+            <column name="menu_id" value="M002"/>
+            <column name="food_id" value="F011"/>
+            <column name="food_category_id" value="FC003"/>
+            <column name="customisation_name" value="Sweet Thai Sauce"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C013"/>
+            <column name="menu_id" value="M002"/>
+            <column name="food_id" value="F008"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Ice"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C014"/>
+            <column name="menu_id" value="M002"/>
+            <column name="food_id" value="F009"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Ice"/>
+        </insert>
+
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C015"/>
+            <column name="menu_id" value="M003"/>
+            <column name="food_id" value="F003"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Beef"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C016"/>
+            <column name="menu_id" value="M003"/>
+            <column name="food_id" value="F003"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Soup"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C017"/>
+            <column name="menu_id" value="M003"/>
+            <column name="food_id" value="F004"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Chicken"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C018"/>
+            <column name="menu_id" value="M003"/>
+            <column name="food_id" value="F004"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Soup"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C019"/>
+            <column name="menu_id" value="M003"/>
+            <column name="food_id" value="F007"/>
+            <column name="food_category_id" value="FC003"/>
+            <column name="customisation_name" value="Flavour"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C020"/>
+            <column name="menu_id" value="M003"/>
+            <column name="food_id" value="F011"/>
+            <column name="food_category_id" value="FC003"/>
+            <column name="customisation_name" value="Sweet Thai Sauce"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C021"/>
+            <column name="menu_id" value="M003"/>
+            <column name="food_id" value="F008"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Ice"/>
+        </insert>
+
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C022"/>
+            <column name="menu_id" value="M004"/>
+            <column name="food_id" value="F001"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Soup"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C023"/>
+            <column name="menu_id" value="M004"/>
+            <column name="food_id" value="F001"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Noodles"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C024"/>
+            <column name="menu_id" value="M004"/>
+            <column name="food_id" value="F001"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Egg"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C025"/>
+            <column name="menu_id" value="M004"/>
+            <column name="food_id" value="F007"/>
+            <column name="food_category_id" value="FC003"/>
+            <column name="customisation_name" value="Flavour"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C026"/>
+            <column name="menu_id" value="M004"/>
+            <column name="food_id" value="F008"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Ice"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C027"/>
+            <column name="menu_id" value="M004"/>
+            <column name="food_id" value="F009"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Ice"/>
+        </insert>
+
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C028"/>
+            <column name="menu_id" value="M005"/>
+            <column name="food_id" value="F006"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Sweet Sauce"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C029"/>
+            <column name="menu_id" value="M005"/>
+            <column name="food_id" value="F007"/>
+            <column name="food_category_id" value="FC003"/>
+            <column name="customisation_name" value="Flavour"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C030"/>
+            <column name="menu_id" value="M005"/>
+            <column name="food_id" value="F008"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Ice"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C031"/>
+            <column name="menu_id" value="M005"/>
+            <column name="food_id" value="F009"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Ice"/>
+        </insert>
+
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C032"/>
+            <column name="menu_id" value="M006"/>
+            <column name="food_id" value="F006"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="customisation_name" value="Sweet Sauce"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C033"/>
+            <column name="menu_id" value="M006"/>
+            <column name="food_id" value="F007"/>
+            <column name="food_category_id" value="FC003"/>
+            <column name="customisation_name" value="Flavour"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C034"/>
+            <column name="menu_id" value="M006"/>
+            <column name="food_id" value="F008"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Ice"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

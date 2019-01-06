@@ -14,37 +14,19 @@ public class Food {
 
     @Id
     @JsonView(View.MainView.class)
-    @Column(name="food_id")
     private String foodId;
 
     @JsonView(View.MainView.class)
-    @Column(name="name")
-    private String name;
+    private String foodName;
 
     @JsonView(View.MainView.class)
-    @Column(name="description")
-    private String description;
+    private String foodDescription;
 
     @JsonView(View.MainView.class)
-    @Column(name="img_path")
-    private String imgPath;
+    private String foodImgPath;
 
-    @JsonView(View.MainView.class)
-    @Column(name="category_id")
-    private String categoryId;
-
-    @JsonView(View.ViewA.class)
+    @JsonView(View.FoodView.class)
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "food")
     private List<FoodPrice> foodPrices;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="category_id", insertable = false, updatable = false)
-    //@JsonView(View.ViewA.class)
-    @JsonIgnore
-    private Category category;
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "food")
-    //@JsonView(View.ViewA.class)
-    @JsonIgnore
-    private List<CustomerOrder> customerOrders;
 }

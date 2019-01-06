@@ -22,18 +22,22 @@ public class Menu implements Comparable<Menu> {
     private String restaurantId;
 
     @JsonView(View.MainView.class)
-    private Date dateOfCreation;
+    @Column(name="menu_name")
+    private String menuName;
 
-    @JsonView(View.ViewA.class)
+    @JsonView(View.MainView.class)
+    private Date menuCreationDate;
+
+    @JsonView(View.MenuView.class)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", insertable = false, updatable = false)
     private Restaurant restaurant;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "menu")
-    @JsonView(View.ViewA.class)
+    @JsonView(View.MenuView.class)
     private List<FoodPrice> foodPrices;
 
     public int compareTo(Menu another){
-        return -1 * this.dateOfCreation.compareTo(another.getDateOfCreation());
+        return -1 * this.menuCreationDate.compareTo(another.getMenuCreationDate());
     }
 }

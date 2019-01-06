@@ -21,22 +21,20 @@ public class Customer {
     private String lastName;
 
     @JsonView(View.MainView.class)
-    private String password;
+    private String customerPassword;
 
     @JsonView(View.MainView.class)
-    private char gender;
-
-    @JsonView(View.MainView.class)
-    @Temporal(TemporalType.DATE)
-    private Date dob;
-
-    @JsonView(View.MainView.class)
-    private String phoneNum;
+    private String customerContactNumber;
 
     @JsonView(View.MainView.class)
     private int loyaltyPoint;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "customer")
-    @JsonView(View.ViewA.class)
+    @JsonView(View.CustomerView.class)
     private List<OrderSummary> orderSummaries;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "customer")
+    @JsonView(View.CustomerView.class)
+    private List<RewardsHistory> rewardsHistoryList;
 }
+

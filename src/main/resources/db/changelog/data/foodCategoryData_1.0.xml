@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="10" author="xinyi">
+    <changeSet id="14" author="xinyi">
 
         <insert tableName="food_category">
             <column name="food_category_id" value="FC001"/>
@@ -21,26 +21,6 @@
             <column name="food_category_id" value="FC003"/>
             <column name="food_category_name" value="Desserts"/>
             <column name="food_category_img_path" value="img3"/>
-        </insert>
-        <insert tableName="food_category">
-            <column name="food_category_id" value="FC004"/>
-            <column name="food_category_name" value="Alcoholic"/>
-            <column name="food_category_img_path" value="img4"/>
-        </insert>
-        <insert tableName="food_category">
-            <column name="food_category_id" value="FC005"/>
-            <column name="food_category_name" value="Non-Alcoholic"/>
-            <column name="food_category_img_path" value="img5"/>
-        </insert>
-        <insert tableName="food_category">
-            <column name="food_category_id" value="FC006"/>
-            <column name="food_category_name" value="Ramen"/>
-            <column name="food_category_img_path" value="img6"/>
-        </insert>
-        <insert tableName="food_category">
-            <column name="food_category_id" value="FC007"/>
-            <column name="food_category_name" value="Rice"/>
-            <column name="food_category_img_path" value="img7"/>
         </insert>
 
     </changeSet>

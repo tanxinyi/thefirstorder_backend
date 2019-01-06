@@ -23,7 +23,7 @@ import java.util.Optional;
 public class OrdersController {
 
     private final String PREFIX = "O";
-    private final String FIRST_ID = "O001";
+    private final String FIRST_ID = "O000";
 
     Logger logger = LoggerFactory.getLogger(OrdersController.class);
 
@@ -58,6 +58,7 @@ public class OrdersController {
     }
 
     @GetMapping("/orders/{orderId}")
+    @JsonView(View.OrdersView.class)
     public Orders getOrdersById(@PathVariable String orderId) throws NotFoundException{
         Optional<Orders> optionalOrders = ordersRepository.findById(orderId);
         if(optionalOrders.isPresent()){
@@ -67,12 +68,10 @@ public class OrdersController {
         }
     }
 
-    @GetMapping("/orders/new/orderSummary/{orderSummaryId}/seatingTable/{seatingTableId}")
-    @JsonView(View.ViewA.class)
-    public Orders getNewOrders(@PathVariable String orderSummaryId,
-                               @PathVariable String seatingTableId) throws NotFoundException{
+    @GetMapping("/orders/new/orderSummary/{orderSummaryId}")
+    @JsonView(View.OrdersView.class)
+    public Orders getNewOrders(@PathVariable String orderSummaryId) throws NotFoundException{
         logger.info("OrderSumaryId:" + orderSummaryId);
-        logger.info("SeatingTableID:" + seatingTableId);
         String latestOID = getLatestOID();
         String newCount = "" + (Integer.parseInt(latestOID.substring(PREFIX.length())) + 1);
         latestOID = PREFIX;
@@ -81,8 +80,8 @@ public class OrdersController {
         }
         latestOID += newCount;
         OrderSummary orderSummary = orderSummaryController.getOrderSummaryById(orderSummaryId);
-        SeatingTable seatingTable = seatingTableController.getSeatingTableBySeatingTableId(seatingTableId);
-        Orders order = new Orders(latestOID, seatingTable, orderSummary, 0.0, "Pending");
+        Orders order = new Orders(latestOID, orderSummary, 0.0);
         return ordersRepository.save(order);
     }
 }
+

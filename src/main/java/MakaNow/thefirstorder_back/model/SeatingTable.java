@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -14,11 +15,20 @@ public class SeatingTable {
     @JsonView(View.MainView.class)
     private String qrCode;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "restaurant_Id", nullable = false)
-    @JsonView(View.ViewA.class)
-    private Restaurant restaurant;
+    @JsonIgnore
+    @Column(name="restaurant_id")
+    private String restaurantId;
 
     @JsonView(View.MainView.class)
-    private int capacity;
+    private int tableCapacity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "restaurant_id", insertable=false, updatable = false, nullable = false)
+    @JsonView(View.SeatingTableView.class)
+    private Restaurant restaurant;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "seatingTable")
+    @JsonView(View.SeatingTableView.class)
+    private List<OrderSummary> orderSummaries;
 }
+

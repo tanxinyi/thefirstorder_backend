@@ -2,6 +2,7 @@ package MakaNow.thefirstorder_back.controller;
 
 import MakaNow.thefirstorder_back.model.*;
 import MakaNow.thefirstorder_back.repository.ActivityLogRepository;
+import MakaNow.thefirstorder_back.repository.FoodPriceRepository;
 import MakaNow.thefirstorder_back.repository.MenuRepository;
 import MakaNow.thefirstorder_back.repository.RestaurantRepository;
 import MakaNow.thefirstorder_back.service.ActivityLogService;
@@ -33,6 +34,9 @@ public class MenuController {
     private MenuRepository menuRepository;
 
     @Autowired
+    private FoodPriceRepository foodPriceRepository;
+
+    @Autowired
     private RestaurantRepository restaurantRepository;
 
     @Autowired
@@ -45,11 +49,13 @@ public class MenuController {
     private ActivityLogService activityLogService;
 
     @GetMapping("/menus")
+    @JsonView(View.MenuView.class)
     public List<Menu> getAllMenus(){
         return (List<Menu>) menuRepository.findAll();
     }
 
     @GetMapping("/menus/{menuId}")
+    @JsonView(View.MenuView.class)
     public Menu getMenuById( @PathVariable String menuId ) throws NotFoundException {
         Optional<Menu> optionalMenu = menuRepository.findById(menuId);
         if(optionalMenu.isPresent()){
@@ -60,7 +66,7 @@ public class MenuController {
     }
 
     @GetMapping("/restaurants/{restaurantId}/full_menu")
-    @JsonView(View.ViewA.class)
+    @JsonView(View.MenuView.class)
     public Menu getLatestFullMenuByRestaurant( @PathVariable String restaurantId) throws NotFoundException {
         return getLatestFullMenu(restaurantId);
     }
@@ -84,16 +90,16 @@ public class MenuController {
     }
 
     @GetMapping("/menu/{menuId}/categories")
-    @JsonView(View.MainView.class)
-    public List<Category> getCategoriesByMenu(@PathVariable String menuId) throws NotFoundException{
+    @JsonView(View.CategoryView.class)
+    public List<FoodCategory> getCategoriesByMenu(@PathVariable String menuId) throws NotFoundException{
         logger.info("Getting List of Categories by MenuID");
 
         Menu menu = getMenuById(menuId);
         List<FoodPrice> foodPrices = menu.getFoodPrices();
-        List<Category> categories = new ArrayList<>();
+        List<FoodCategory> categories = new ArrayList<>();
 
         for(FoodPrice foodPrice: foodPrices){
-            Category category = foodPrice.getFood().getCategory();
+            FoodCategory category = foodPrice.getFoodCategory();
             if(!categories.contains(category)){
                 categories.add(category);
             }
@@ -101,9 +107,10 @@ public class MenuController {
         return categories;
     }
 
-    @GetMapping("/menu/{menuId}/category/{categoryId}")
-    @JsonView(View.ViewB.class)
-    public List<FoodPrice> getFoodItemsByCategory(@PathVariable String menuId, @PathVariable String categoryId) throws NotFoundException{
+
+    @GetMapping("/foodPrices/menu/{menuId}/category/{categoryId}")
+    @JsonView(View.FoodPriceView.class)
+    public List<FoodPrice> getFoodPriceByCategory(@PathVariable String menuId, @PathVariable String categoryId) throws NotFoundException{
         logger.info("Getting List of FoodPrices by MenuID and Category");
 
         Menu menu = getMenuById(menuId);
@@ -111,14 +118,49 @@ public class MenuController {
         List<FoodPrice> output = new ArrayList<>();
 
         for(FoodPrice foodPrice: foodPrices){
-            if (foodPrice.getFood().getCategory().getCategoryId().equals(categoryId)) output.add(foodPrice);
+            if(foodPrice.getSubFoodCategory() == null){
+
+                if (foodPrice.getFoodCategory().getFoodCategoryId().equals(categoryId)){
+
+                    output.add(foodPrice);
+                }
+            }else if(foodPrice.getSubFoodCategory().getSubCategoryId().equals(categoryId)){
+                output.add(foodPrice);
+            }
         }
+
+
         if(output.size()==0) throw new NotFoundException("Category Not Found");
+
         return output;
     }
 
+    @GetMapping("/subCategories/menu/{menuId}/category/{categoryId}")
+    @JsonView(View.SubCategoryView.class)
+    public List<SubCategory> getSubCategoriesByCategory(@PathVariable String menuId, @PathVariable String categoryId) throws NotFoundException{
+        logger.info("Getting List of SubCategories by MenuID and Category");
+
+        Menu menu = getMenuById(menuId);
+        List<FoodPrice> foodPrices = menu.getFoodPrices();
+        List<SubCategory> output = new ArrayList<>();
+        boolean exist = false;
+
+        for(FoodPrice foodPrice: foodPrices){
+            if (foodPrice.getFoodCategory().getFoodCategoryId().equals(categoryId)){
+                exist = true;
+                if(foodPrice.getSubFoodCategory() != null){
+                    output.add(foodPrice.getSubFoodCategory());
+                }
+            }
+        }
+
+        if(!exist) throw new NotFoundException("Category Not Found");
+        return output;
+    }
+
+
     @PostMapping("/restaurants/{restaurantId}/menus")
-    @JsonView({View.ViewA.class})
+    @JsonView({View.MenuView.class})
     public Menu addMenu(@PathVariable String restaurantId,
                                         @Valid @RequestBody Menu menu) throws NotFoundException {
         return restaurantRepository.findById(restaurantId)
@@ -139,7 +181,7 @@ public class MenuController {
 
         return menuRepository.findById(menuId)
                 .map(menu -> {
-                    menu.setDateOfCreation(menuUpdated.getDateOfCreation());
+                    menu.setMenuCreationDate(menuUpdated.getMenuCreationDate());
                     return menuRepository.save(menu);
                 }).orElseThrow(()-> new NotFoundException("Update Unsuccessful."));
     }
@@ -150,15 +192,15 @@ public class MenuController {
     }
 
     @GetMapping("/menus/getMenusByRestaurantId/{restaurantId}")
-    @JsonView(View.ViewB.class)
+    @JsonView(View.MenuView.class)
     public ResponseEntity<?> getMenusByRestaurantId( @PathVariable("restaurantId") String restaurantId ){
         List<Menu> result;
         result = menuService.getMenusByRestaurantId(restaurantId);
         return new ResponseEntity(result, HttpStatus.OK);
     }
 
-    @PostMapping("/menus/addMenu/{managerId}/{restaurantId}")
-    public ResponseEntity<?> addMenu(@PathVariable("managerId") String managerId, @PathVariable("restaurantId") String restaurantId) throws ParseException {
+    @PostMapping("/menus/addMenu/{managerId}/{restaurantId}/{newMenuName}")
+    public ResponseEntity<?> addMenu(@PathVariable("managerId") String managerId, @PathVariable("restaurantId") String restaurantId, @PathVariable("newMenuName") String newMenuName) throws ParseException {
         String newMenuId = menuService.getNewMenuId();
 
         String dateNow = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
@@ -170,7 +212,8 @@ public class MenuController {
 
         newMenu.setMenuId(newMenuId);
         newMenu.setRestaurantId(restaurantId);
-        newMenu.setDateOfCreation(sqlDateNow);
+        newMenu.setMenuName(newMenuName);
+        newMenu.setMenuCreationDate(sqlDateNow);
 
         menuRepository.save(newMenu);
 
@@ -181,7 +224,10 @@ public class MenuController {
         activityLog.setManagerId(managerId);
         activityLog.setRestaurantId(restaurantId);
 
-        String description = "Added Menu '" + newMenuId + "' to Restaurant '" + restaurantId + "'";
+        Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
+        Restaurant restaurant1 = optionalRestaurant.get();
+
+        String description = "Added '" + newMenuName + "' menu to '" + restaurant1.getRestaurantName() + "'";
         activityLog.setDescription(description);
 
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -194,6 +240,16 @@ public class MenuController {
 
     @DeleteMapping("/menus")
     public ResponseEntity<?> deleteMenuByMenuId(@RequestParam("menuId") String menuId, @RequestParam("restaurantId") String restaurantId, @RequestParam("managerId") String managerId){
+        List<FoodPrice> foodPrices = (List<FoodPrice>) foodPriceRepository.findAll();
+
+        for(int i = 0; i<foodPrices.size(); i++){
+            FoodPrice foodPrice = foodPrices.get(i);
+            if(foodPrice.getMenuFoodCatId().getMenuId().equals(menuId)){
+                foodPriceRepository.deleteById(foodPrice.getMenuFoodCatId());
+            }
+        }
+
+        String menuName = menuRepository.findById(menuId).get().getMenuName();
         menuRepository.deleteById(menuId);
 
         ActivityLog activityLog = new ActivityLog();
@@ -203,7 +259,10 @@ public class MenuController {
         activityLog.setManagerId(managerId);
         activityLog.setRestaurantId(restaurantId);
 
-        String description = "Deleted Menu '" + menuId + "' from Restaurant '" + restaurantId + "'";
+        Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
+        Restaurant restaurant1 = optionalRestaurant.get();
+
+        String description = "Deleted '" + menuName + "' menu from '" + restaurant1.getRestaurantName() + "'";
         activityLog.setDescription(description);
 
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -212,5 +271,31 @@ public class MenuController {
         activityLogRepository.save(activityLog);
 
         return new ResponseEntity("Menu Deleted Successfully", HttpStatus.OK);
+    }
+
+    @PostMapping("/menus/changeMenuName/{managerId}/{restaurantId}/{menuId}/{newMenuName}")
+    public ResponseEntity<?> changeMenuName(@PathVariable("managerId") String managerId, @PathVariable("restaurantId") String restaurantId, @PathVariable("menuId") String menuId, @PathVariable("newMenuName") String newMenuName) throws ParseException {
+        String oldMenuName = menuRepository.findById(menuId).get().getMenuName();
+        menuRepository.findById(menuId).get().setMenuName(newMenuName);
+
+        ActivityLog activityLog = new ActivityLog();
+
+        String newActivityLogId = activityLogService.getNewActivityLogId();
+        activityLog.setActivityLogId(newActivityLogId);
+        activityLog.setManagerId(managerId);
+        activityLog.setRestaurantId(restaurantId);
+
+        Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
+        Restaurant restaurant1 = optionalRestaurant.get();
+
+        String description = "Changed menu name '" + oldMenuName + "' to '" + newMenuName + " of '" + restaurant1.getRestaurantName() + "'";
+        activityLog.setDescription(description);
+
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        activityLog.setChangeTimeStamp(timestamp);
+
+        activityLogRepository.save(activityLog);
+
+        return new ResponseEntity("Menu Name Changed to '" + newMenuName + "'", HttpStatus.OK);
     }
 }

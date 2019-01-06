@@ -17,42 +17,43 @@ public class Restaurant {
     private String restaurantId;
 
     @JsonView(View.MainView.class)
-    @Column(name="name")
-    private String name;
+    private String restaurantName;
 
     @JsonView(View.MainView.class)
-    @Column(name="description")
-    private String description;
+    private String restaurantDescription;
 
     @JsonView(View.MainView.class)
-    @Column(name="contact_number")
-    private String contactNumber;
+    private String restaurantContactNumber;
 
     @JsonView(View.MainView.class)
-    @Column(name="street")
     private String street;
 
     @JsonView(View.MainView.class)
-    @Column(name="postal_code")
     private String postalCode;
 
     @JsonView(View.MainView.class)
-    @Column(name="cuisine")
     private String cuisine;
 
-    @JsonView(View.ViewB.class)
+    @JsonView(View.MainView.class)
+    private String restaurantPriceRange;
+
+    @JsonView(View.RestaurantView.class)
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Menu> menus;
 
-    @JsonView(View.ViewB.class)
+    @JsonView(View.RestaurantView.class)
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<SeatingTable> seatingTables;
 
-    @JsonView(View.ViewB.class)
+    @JsonView(View.RestaurantView.class)
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL},mappedBy = "restaurant")
     private List<ManagerAllocation> managerAllocations;
 
-    @JsonView(View.ViewB.class)
+    @JsonView(View.RestaurantView.class)
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL},mappedBy = "restaurant")
     private List<ActivityLog> activityLogs;
+
+    @JsonView(View.RestaurantView.class)
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "restaurant")
+    private List<Rewards> rewardsList;
 }

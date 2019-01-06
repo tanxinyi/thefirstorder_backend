@@ -6,6 +6,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -15,15 +18,20 @@ public class CustomerOrder {
     private String customerOrderId;
 
     @JsonView(View.MainView.class)
-    private int quantity;
+    private MenuFoodCatId menuFoodCatId;
 
     @JsonView(View.MainView.class)
     @Column(name="order_id")
     private String orderId;
 
     @JsonView(View.MainView.class)
-    @Column(name="food_id")
-    private String foodId;
+    private int customerOrderQuantity;
+
+    @JsonView(View.MainView.class)
+    private double customerOrderPrice;
+
+    @JsonView(View.MainView.class)
+    private String customerOrderRemarks;
 
     @ManyToOne
     @JoinColumn(name="order_id", insertable = false, updatable = false)
@@ -31,20 +39,37 @@ public class CustomerOrder {
     private Orders order;
 
     @ManyToOne
-    @JoinColumn(name="food_id", insertable = false, updatable = false)
+    @JoinColumns({
+            @JoinColumn(name="food_id", referencedColumnName = "food_id", insertable = false, updatable = false),
+            @JoinColumn(name="menu_id", referencedColumnName = "menu_id", insertable = false, updatable = false),
+            @JoinColumn(name="food_category_id", referencedColumnName = "food_category_id", insertable = false, updatable = false)
+    })
     @JsonIgnore
-    private Food food;
+    private FoodPrice foodPrice;
 
-    @JsonView(View.MainView.class)
-    private String remarks;
+    @ManyToMany (cascade = CascadeType.ALL)
+    @JoinTable(
+            name="customisation_selected",
+            inverseJoinColumns = {@JoinColumn(name="customisation_option_id")},
+            joinColumns = {@JoinColumn(name="customer_order_id")}
+    )
+    @JsonView(View.CustomerOrderView.class)
+    private List<CustomisationOption> customisationOptions;
 
-    public CustomerOrder(String customerOrderId, int quantity, Orders order, Food food, String remarks){
+    public CustomerOrder(String customerOrderId,
+                         int quantity,
+                         String customerOrderRemarks,
+                         Orders order,
+                         FoodPrice foodPrice,
+                         List<CustomisationOption> customisationOptions){
         this.customerOrderId = customerOrderId;
-        this.quantity = quantity;
+        this.customerOrderQuantity = quantity;
         this.orderId = order.getOrderId();
         this.order = order;
-        this.foodId = food.getFoodId();
-        this.food = food;
-        this.remarks = remarks;
+        this.menuFoodCatId = foodPrice.getMenuFoodCatId();
+        this.foodPrice = foodPrice;
+        this.customisationOptions = customisationOptions;
+        this.customerOrderRemarks = customerOrderRemarks;
     }
 }
+

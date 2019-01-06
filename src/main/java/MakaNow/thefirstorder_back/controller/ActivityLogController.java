@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -31,9 +32,11 @@ public class ActivityLogController {
     }
 
     @PostMapping("/activityLogs/{restaurantId}")
-    @JsonView(View.ViewC.class)
+    @JsonView(View.ActivityLogView.class)
     public List<ActivityLog> getActivityLogsByRestaurantId(@PathVariable("restaurantId") String restaurantId){
-        return activityLogService.getActivityLogsByRestaurantId(restaurantId);
+        List<ActivityLog> toReturn = activityLogService.getActivityLogsByRestaurantId(restaurantId);
+        Collections.reverse(toReturn);
+        return toReturn;
     }
 }
 

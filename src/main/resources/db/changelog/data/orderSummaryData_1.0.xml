@@ -5,11 +5,11 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="14" author="keithxinyi">
+    <changeSet id="21" author="keithxinyi">
         <insert tableName="order_summary">
             <column name="order_summary_id" value="OS001"/>
 			<column name="email" value="CUS001@makanow.com"/>
-			<column name="payment_status" value="Confirmed"/>
+			<column name="payment_status" value="Paid"/>
 			<column name="total_amount" value="100.00"/>
 			<column name="order_summary_date" valueDate="2018-01-01 10:10:10"/>
 			<column name="mode_of_payment" value="Cash"/>
@@ -17,7 +17,7 @@
         <insert tableName="order_summary">
             <column name="order_summary_id" value="OS002"/>
             <column name="email" value="CUS002@makanow.com"/>
-            <column name="payment_status" value="Confirmed"/>
+            <column name="payment_status" value="Paid"/>
             <column name="total_amount" value="69.90"/>
             <column name="order_summary_date" valueDate="2018-01-01 10:10:10"/>
             <column name="mode_of_payment" value="Mastercard"/>

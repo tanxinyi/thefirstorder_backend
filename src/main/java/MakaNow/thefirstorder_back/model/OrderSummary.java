@@ -16,6 +16,13 @@ public class OrderSummary {
     @JsonView(View.MainView.class)
     private String orderSummaryId;
 
+    @JsonIgnore
+    private String email;
+
+    @JsonIgnore
+    @Column(name="qr_code")
+    private String qrCode;
+
     @JsonView(View.MainView.class)
     private String paymentStatus;
 
@@ -23,30 +30,34 @@ public class OrderSummary {
     private double totalAmount;
 
     @JsonView(View.MainView.class)
-    private Date summaryDate;
+    private Date orderSummaryDate;
 
     @JsonView(View.MainView.class)
     private String modeOfPayment;
 
-    @JsonIgnore
-    private String email;
-
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "orderSummary")
-    @JsonIgnore
+    @JsonView(View.OrderSummaryView.class)
     private List<Orders> orders;
 
     @ManyToOne
     @JoinColumn(name="email", insertable = false, updatable = false)
-    @JsonIgnore
+    @JsonView(View.OrderSummaryView.class)
     private Customer customer;
 
-    public OrderSummary(String orderSummaryId, Customer customer, String paymentStatus, double totalAmount, Date summaryDate, String modeOfPayment){
+    @ManyToOne
+    @JoinColumn(name="qr_code", insertable = false, updatable = false)
+    @JsonView(View.OrderSummaryView.class)
+    private SeatingTable seatingTable;
+
+    public OrderSummary(String orderSummaryId, Customer customer, String paymentStatus, double totalAmount, Date summaryDate, String modeOfPayment, SeatingTable seatingTable){
         this.orderSummaryId = orderSummaryId;
         this.customer = customer;
         this.email = customer.getEmail();
         this.paymentStatus = paymentStatus;
         this.totalAmount = totalAmount;
-        this.summaryDate = summaryDate;
+        this.orderSummaryDate = summaryDate;
         this.modeOfPayment = modeOfPayment;
+        this.qrCode = seatingTable.getQrCode();
+        this.seatingTable = seatingTable;
     }
 }

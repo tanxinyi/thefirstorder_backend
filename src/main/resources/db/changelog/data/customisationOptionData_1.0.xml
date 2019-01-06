@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20" author="xinyi">
+
+        <insert tableName="customisation_option">
+        <column name="customisation_option_id" value="CO001"/>
+        <column name="customisation_id" value="C001"/>
+        <column name="option_description" value="Normal"/>
+        <column name="option_price" valueNumeric="0.0"/>
+    </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO002"/>
+            <column name="customisation_id" value="C001"/>
+            <column name="option_description" value="Hard"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO003"/>
+            <column name="customisation_id" value="C001"/>
+            <column name="option_description" value="Soft"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO004"/>
+            <column name="customisation_id" value="C023"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO005"/>
+            <column name="customisation_id" value="C023"/>
+            <column name="option_description" value="Hard"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO006"/>
+            <column name="customisation_id" value="C023"/>
+            <column name="option_description" value="Soft"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO007"/>
+            <column name="customisation_id" value="C002"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO008"/>
+            <column name="customisation_id" value="C002"/>
+            <column name="option_description" value="Lighter"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO009"/>
+            <column name="customisation_id" value="C002"/>
+            <column name="option_description" value="Saltier"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO010"/>
+            <column name="customisation_id" value="C008"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO011"/>
+            <column name="customisation_id" value="C008"/>
+            <column name="option_description" value="Lighter"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO012"/>
+            <column name="customisation_id" value="C008"/>
+            <column name="option_description" value="Saltier"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO013"/>
+            <column name="customisation_id" value="C010"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO014"/>
+            <column name="customisation_id" value="C010"/>
+            <column name="option_description" value="Lighter"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO015"/>
+            <column name="customisation_id" value="C010"/>
+            <column name="option_description" value="Saltier"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO016"/>
+            <column name="customisation_id" value="C016"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO017"/>
+            <column name="customisation_id" value="C016"/>
+            <column name="option_description" value="Lighter"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO018"/>
+            <column name="customisation_id" value="C016"/>
+            <column name="option_description" value="Saltier"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO019"/>
+            <column name="customisation_id" value="C018"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO020"/>
+            <column name="customisation_id" value="C018"/>
+            <column name="option_description" value="Lighter"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO021"/>
+            <column name="customisation_id" value="C018"/>
+            <column name="option_description" value="Saltier"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO022"/>
+            <column name="customisation_id" value="C022"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO023"/>
+            <column name="customisation_id" value="C022"/>
+            <column name="option_description" value="Lighter"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO024"/>
+            <column name="customisation_id" value="C022"/>
+            <column name="option_description" value="Saltier"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO025"/>
+            <column name="customisation_id" value="C003"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO026"/>
+            <column name="customisation_id" value="C003"/>
+            <column name="option_description" value="Add Egg"/>
+            <column name="option_price" valueNumeric="1.2"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO027"/>
+            <column name="customisation_id" value="C024"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO028"/>
+            <column name="customisation_id" value="C024"/>
+            <column name="option_description" value="Add Egg"/>
+            <column name="option_price" valueNumeric="1.2"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+        <column name="customisation_option_id" value="CO029"/>
+        <column name="customisation_id" value="C004"/>
+        <column name="option_description" value="Vanilla"/>
+        <column name="option_price" valueNumeric="0.0"/>
+    </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO030"/>
+            <column name="customisation_id" value="C004"/>
+            <column name="option_description" value="Chocolate"/>
+            <column name="option_price" valueNumeric="1.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO031"/>
+            <column name="customisation_id" value="C004"/>
+            <column name="option_description" value="Strawberry"/>
+            <column name="option_price" valueNumeric="1.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO032"/>
+            <column name="customisation_id" value="C011"/>
+            <column name="option_description" value="Vanilla"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO033"/>
+            <column name="customisation_id" value="C011"/>
+            <column name="option_description" value="Chocolate"/>
+            <column name="option_price" valueNumeric="1.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO034"/>
+            <column name="customisation_id" value="C011"/>
+            <column name="option_description" value="Strawberry"/>
+            <column name="option_price" valueNumeric="1.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO035"/>
+            <column name="customisation_id" value="C019"/>
+            <column name="option_description" value="Vanilla"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO036"/>
+            <column name="customisation_id" value="C019"/>
+            <column name="option_description" value="Chocolate"/>
+            <column name="option_price" valueNumeric="1.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO037"/>
+            <column name="customisation_id" value="C019"/>
+            <column name="option_description" value="Strawberry"/>
+            <column name="option_price" valueNumeric="1.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO038"/>
+            <column name="customisation_id" value="C025"/>
+            <column name="option_description" value="Vanilla"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO039"/>
+            <column name="customisation_id" value="C025"/>
+            <column name="option_description" value="Chocolate"/>
+            <column name="option_price" valueNumeric="1.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO040"/>
+            <column name="customisation_id" value="C025"/>
+            <column name="option_description" value="Strawberry"/>
+            <column name="option_price" valueNumeric="1.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO041"/>
+            <column name="customisation_id" value="C029"/>
+            <column name="option_description" value="Vanilla"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO042"/>
+            <column name="customisation_id" value="C029"/>
+            <column name="option_description" value="Chocolate"/>
+            <column name="option_price" valueNumeric="1.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO043"/>
+            <column name="customisation_id" value="C029"/>
+            <column name="option_description" value="Strawberry"/>
+            <column name="option_price" valueNumeric="1.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO062"/>
+            <column name="customisation_id" value="C033"/>
+            <column name="option_description" value="Vanilla"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO063"/>
+            <column name="customisation_id" value="C033"/>
+            <column name="option_description" value="Chocolate"/>
+            <column name="option_price" valueNumeric="1.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO064"/>
+            <column name="customisation_id" value="C033"/>
+            <column name="option_description" value="Strawberry"/>
+            <column name="option_price" valueNumeric="1.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO044"/>
+            <column name="customisation_id" value="C031"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO045"/>
+            <column name="customisation_id" value="C031"/>
+            <column name="option_description" value="More Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO046"/>
+            <column name="customisation_id" value="C031"/>
+            <column name="option_description" value="Less Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO047"/>
+            <column name="customisation_id" value="C005"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO048"/>
+            <column name="customisation_id" value="C005"/>
+            <column name="option_description" value="Less Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO049"/>
+            <column name="customisation_id" value="C005"/>
+            <column name="option_description" value="More Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO050"/>
+            <column name="customisation_id" value="C013"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO051"/>
+            <column name="customisation_id" value="C013"/>
+            <column name="option_description" value="Less Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO052"/>
+            <column name="customisation_id" value="C013"/>
+            <column name="option_description" value="More Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO053"/>
+            <column name="customisation_id" value="C021"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO054"/>
+            <column name="customisation_id" value="C021"/>
+            <column name="option_description" value="Less Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO055"/>
+            <column name="customisation_id" value="C021"/>
+            <column name="option_description" value="More Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO056"/>
+            <column name="customisation_id" value="C026"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO057"/>
+            <column name="customisation_id" value="C026"/>
+            <column name="option_description" value="Less Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO058"/>
+            <column name="customisation_id" value="C026"/>
+            <column name="option_description" value="More Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO059"/>
+            <column name="customisation_id" value="C030"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO060"/>
+            <column name="customisation_id" value="C030"/>
+            <column name="option_description" value="Less Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO061"/>
+            <column name="customisation_id" value="C030"/>
+            <column name="option_description" value="More Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO065"/>
+            <column name="customisation_id" value="C006"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO066"/>
+            <column name="customisation_id" value="C006"/>
+            <column name="option_description" value="Less Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO067"/>
+            <column name="customisation_id" value="C006"/>
+            <column name="option_description" value="More Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO068"/>
+            <column name="customisation_id" value="C014"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO069"/>
+            <column name="customisation_id" value="C014"/>
+            <column name="option_description" value="Less Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO070"/>
+            <column name="customisation_id" value="C014"/>
+            <column name="option_description" value="More Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO071"/>
+            <column name="customisation_id" value="C027"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO072"/>
+            <column name="customisation_id" value="C027"/>
+            <column name="option_description" value="Less Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO073"/>
+            <column name="customisation_id" value="C027"/>
+            <column name="option_description" value="More Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO074"/>
+            <column name="customisation_id" value="C034"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO075"/>
+            <column name="customisation_id" value="C034"/>
+            <column name="option_description" value="Less Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO076"/>
+            <column name="customisation_id" value="C034"/>
+            <column name="option_description" value="More Ice"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO077"/>
+            <column name="customisation_id" value="C007"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO078"/>
+            <column name="customisation_id" value="C007"/>
+            <column name="option_description" value="More Beef"/>
+            <column name="option_price" valueNumeric="3.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO079"/>
+            <column name="customisation_id" value="C007"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO080"/>
+            <column name="customisation_id" value="C007"/>
+            <column name="option_description" value="More Beef"/>
+            <column name="option_price" valueNumeric="3.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO081"/>
+            <column name="customisation_id" value="C009"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO082"/>
+            <column name="customisation_id" value="C009"/>
+            <column name="option_description" value="More Chicken"/>
+            <column name="option_price" valueNumeric="2.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO083"/>
+            <column name="customisation_id" value="C017"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO084"/>
+            <column name="customisation_id" value="C017"/>
+            <column name="option_description" value="More Chicken"/>
+            <column name="option_price" valueNumeric="2.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO085"/>
+            <column name="customisation_id" value="C012"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO086"/>
+            <column name="customisation_id" value="C012"/>
+            <column name="option_description" value="More Sauce"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO087"/>
+            <column name="customisation_id" value="C020"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO088"/>
+            <column name="customisation_id" value="C020"/>
+            <column name="option_description" value="More Sauce"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO089"/>
+            <column name="customisation_id" value="C028"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO090"/>
+            <column name="customisation_id" value="C028"/>
+            <column name="option_description" value="More Sauce"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO091"/>
+            <column name="customisation_id" value="C032"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO092"/>
+            <column name="customisation_id" value="C032"/>
+            <column name="option_description" value="More Sauce"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO093"/>
+            <column name="customisation_id" value="C015"/>
+            <column name="option_description" value="Normal"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO094"/>
+            <column name="customisation_id" value="C015"/>
+            <column name="option_description" value="More Beef"/>
+            <column name="option_price" valueNumeric="3.0"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

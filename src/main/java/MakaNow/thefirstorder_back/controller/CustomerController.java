@@ -55,7 +55,7 @@ public class CustomerController {
             Optional<Customer> customerOptional = customerRepository.findById(email);
             if (customerOptional.isPresent()) {
                 Customer customer = customerOptional.get();
-                if (customer.getPassword().equals(password)) {
+                if (customer.getCustomerPassword().equals(password)) {
                     return customer;
                 }
             }
@@ -95,10 +95,10 @@ public class CustomerController {
         customer.setEmail(email);
         customer.setFirstName(firstName);
         customer.setLastName(lastName);
-        customer.setPassword(password);
-        customer.setDob(dob);
-        customer.setGender(gender);
-        customer.setPhoneNum(phoneNum);
+        customer.setCustomerPassword(password);
+//        customer.setDob(dob);
+//        customer.setGender(gender);
+        customer.setCustomerContactNumber(phoneNum);
         customer.setLoyaltyPoint(loyaltyPoints);
         customerRepository.save(customer);
         return true;
@@ -133,3 +133,4 @@ public class CustomerController {
         return false;
     }
 }
+

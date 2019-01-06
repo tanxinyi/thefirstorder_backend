@@ -51,25 +51,39 @@
         </insert>
 
         <createTable tableName="customisation"
-            remarks="A table to contain all customisations
-                        example: single or multi select">
-                <column name="customisation_id" type="varchar(10)">
-                    <constraints nullable="false" unique="true" primaryKey="true"/>
-                </column>
-            <column name="customisation_category_id" type="varchar(10)">
-                <constraints nullable="false" />
+                remarks="A table to contain all customisations">
+            <column name="menu_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="customisation_name" type="varchar(100)">
-                <constraints nullable="false" />
+            <column name="food_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="customisation_type" type="varchar(100)">
+            <column name="food_category_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="customisation_option_id" type="varchar(10)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="customisation_name" type="varchar(45)">
                 <constraints nullable="false" />
             </column>
         </createTable>
 
-        <addForeignKeyConstraint baseTableName="customisation" baseColumnNames="customisation_category_id"
-                            constraintName="customisation_customisation_category_id_fk"
-                            referencedTableName="customisation_category" referencedColumnNames="customisation_category_id"/>
+        <addForeignKeyConstraint baseTableName="customisation" baseColumnNames="menu_id"
+                                 constraintName="customisation_menu_id_fk"
+                                 referencedTableName="menu" referencedColumnNames="menu_id"/>
+
+        <addForeignKeyConstraint baseTableName="customisation" baseColumnNames="food_id"
+                                 constraintName="customisation_food_id_fk"
+                                 referencedTableName="food" referencedColumnNames="food_id"/>
+
+        <addForeignKeyConstraint baseTableName="customisation" baseColumnNames="food_category_id"
+                                 constraintName="customisation_food_category_id_fk"
+                                 referencedTableName="food_category" referencedColumnNames="food_category_id"/>
+
+        <addForeignKeyConstraint baseTableName="customisation" baseColumnNames="customisation_option_id"
+                                 constraintName="customisation_customisation_option_id_fk"
+                                 referencedTableName="customisation_option" referencedColumnNames="customisation_option_id"/>
 
         <!--<insert tableName="customisation">
             <column name="customisation_id" value="C001"/>
@@ -101,9 +115,6 @@
             <column name="customisation_option_id" type="varchar(10)">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
             </column>
-            <column name="customisation_id" type="varchar(10)">
-                <constraints nullable="false"/>
-            </column>
             <column name="option_description" type="varchar(500)">
                 <constraints nullable="true" />
             </column>
@@ -111,10 +122,6 @@
                 <constraints nullable="true" />
             </column>
         </createTable>
-
-        <addForeignKeyConstraint baseTableName="customisation_option" baseColumnNames="customisation_id"
-                                 constraintName="customisation_option_customisation_id_fk"
-                                 referencedTableName="customisation" referencedColumnNames="customisation_id"/>
 
        <!-- <insert tableName="customisation_option">
             <column name="customisation_option_id" value="CO001"/>

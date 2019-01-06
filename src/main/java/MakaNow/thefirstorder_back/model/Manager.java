@@ -26,18 +26,18 @@ public class Manager implements Serializable {
     private String lastName;
 
     @JsonView(View.MainView.class)
-    @Column(name = "username")
+    @Column(name = "manager_username")
     private String username;
 
     @JsonView(View.MainView.class)
-    @Column(name = "password")
+    @Column(name = "manager_password")
     private String password;
 
-    @JsonView(View.ViewC.class)
+    @JsonView(View.ManagerView.class)
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL},mappedBy = "manager")
     private List<ManagerAllocation> managerAllocations;
 
-    @JsonView(View.ViewC.class)
+    @JsonView(View.ManagerView.class)
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL},mappedBy = "manager")
     private List<ActivityLog> activityLogs;
 

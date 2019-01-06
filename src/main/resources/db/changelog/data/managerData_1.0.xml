@@ -5,19 +5,25 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="3" author="keithxinyi">
+    <changeSet id="6" author="keithxinyi">
         <insert tableName="manager">
             <column name="manager_id" value="MA001"/>
+            <column name="first_name" value="Keith"/>
+            <column name="last_name" value="Siew"/>
             <column name="manager_username" value="iceorada"/>
             <column name="manager_password" value="Testing123"/>
         </insert>
         <insert tableName="manager">
             <column name="manager_id" value="MA002"/>
+            <column name="first_name" value="Cleave"/>
+            <column name="last_name" value="Ching"/>
             <column name="manager_username" value="cleave"/>
             <column name="manager_password" value="cleave123"/>
         </insert>
         <insert tableName="manager">
             <column name="manager_id" value="MA003"/>
+            <column name="first_name" value="Gordon"/>
+            <column name="last_name" value="Wong"/>
             <column name="manager_username" value="gordon"/>
             <column name="manager_password" value="gordon123"/>
         </insert>

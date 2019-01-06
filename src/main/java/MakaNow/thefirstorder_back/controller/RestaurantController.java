@@ -31,7 +31,7 @@ public class RestaurantController {
     }
 
     @GetMapping("/restaurants/{restaurantId}")
-    //@JsonView(View.ViewB.class)
+    @JsonView(View.RestaurantView.class)
     public Restaurant getRestaurantById( @PathVariable String restaurantId ) throws NotFoundException {
         Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
         if(optionalRestaurant.isPresent()){
@@ -51,9 +51,9 @@ public class RestaurantController {
                                        @Valid @RequestBody Restaurant restaurantUpdated) throws NotFoundException {
         return restaurantRepository.findById(restaurantId)
             .map(restaurant -> {
-                restaurant.setName(restaurantUpdated.getName());
-                restaurant.setDescription(restaurantUpdated.getDescription());
-                restaurant.setContactNumber(restaurantUpdated.getContactNumber());
+                restaurant.setRestaurantName(restaurantUpdated.getRestaurantName());
+                restaurant.setRestaurantDescription(restaurantUpdated.getRestaurantDescription());
+                restaurant.setRestaurantContactNumber(restaurantUpdated.getRestaurantContactNumber());
                 restaurant.setStreet(restaurantUpdated.getStreet());
                 restaurant.setPostalCode(restaurantUpdated.getPostalCode());
                 restaurant.setCuisine(restaurantUpdated.getCuisine());
@@ -71,7 +71,7 @@ public class RestaurantController {
     }
 
     @GetMapping("/restaurants/getRestaurantsByManagerId/{managerId}")
-    @JsonView(View.ViewB.class)
+    @JsonView(View.RestaurantView.class)
     public ResponseEntity<?> getRestaurantsAllocatedByManagerId( @PathVariable("managerId") String managerId ){
         List<Restaurant> result;
         result = restaurantService.getRestaurantsAllocatedByManagerId(managerId);

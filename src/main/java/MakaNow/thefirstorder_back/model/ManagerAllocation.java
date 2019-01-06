@@ -22,12 +22,12 @@ public class ManagerAllocation {
     @Column(name="rights")
     private String rights;
 
-    @JsonView(View.ViewD.class)
+    @JsonView(View.ManagerAllocationView.class)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id", insertable = false, updatable = false)
     private Manager manager;
 
-    @JsonView(View.ViewD.class)
+    @JsonView(View.ManagerAllocationView.class)
     @ManyToOne
     @JoinColumn(name = "restaurant_id", insertable = false, updatable = false)
     private Restaurant restaurant;

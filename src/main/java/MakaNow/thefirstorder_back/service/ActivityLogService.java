@@ -30,7 +30,7 @@ public class ActivityLogService {
         }
         Collections.sort(activityLogIds);
         String lastActivityLogId = activityLogIds.get(activityLogIds.size()-1);
-        int activityLogIdNumber = Integer.parseInt(lastActivityLogId.substring(3));
+        int activityLogIdNumber = Integer.parseInt(lastActivityLogId.substring(2));
         int newActivityLogIdNumber = activityLogIdNumber + 1;
         int length = String.valueOf(newActivityLogIdNumber).length();
 

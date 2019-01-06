@@ -22,13 +22,13 @@ public class ManagerController {
     private ManagerRepository managerRepository;
 
     @PostMapping("/managers")
-    @JsonView(View.ViewA.class)
+    @JsonView(View.ManagerView.class)
     public List<Manager> getAllManagers(){
         return (List<Manager>) managerRepository.findAll();
     }
 
     @RequestMapping(value = "/managers/authenticate", method = RequestMethod.POST, produces = "application/json")
-    @JsonView(View.ViewA.class)
+    @JsonView(View.ManagerView.class)
     public @ResponseBody Manager authenticateManager( @RequestBody @Valid AuthenticationDetails authenticationDetails ) throws NotFoundException{
         String managerId = authenticationDetails.getManagerId().toUpperCase();
         String password = authenticationDetails.getPassword();

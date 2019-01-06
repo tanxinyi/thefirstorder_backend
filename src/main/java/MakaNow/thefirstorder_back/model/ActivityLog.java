@@ -26,19 +26,19 @@ public class ActivityLog {
     private String restaurantId;
 
     @JsonView(View.MainView.class)
-    @Column(name="description")
+    @Column(name="log_description")
     private String description;
 
     @JsonView(View.MainView.class)
-    @Column(name="change_timestamp")
+    @Column(name="log_change_timestamp")
     private Timestamp changeTimeStamp;
 
-    @JsonView(View.ViewD.class)
+    @JsonView(View.ActivityLogView.class)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id", insertable = false, updatable = false)
     private Manager manager;
 
-    @JsonView(View.ViewD.class)
+    @JsonView(View.ActivityLogView.class)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", insertable = false, updatable = false)
     private Restaurant restaurant;

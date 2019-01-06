@@ -63,7 +63,7 @@ public class MenuService {
         }
         Collections.sort(menuIds);
         String lastMenuId = menuIds.get(menuIds.size()-1);
-        int menuIdNumber = Integer.parseInt(lastMenuId.substring(2));
+        int menuIdNumber = Integer.parseInt(lastMenuId.substring(1));
         int newMenuIdNumber = menuIdNumber + 1;
         int length = String.valueOf(newMenuIdNumber).length();
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="18" author="xinyi">
+
+        <insert tableName="set_meal_option">
+            <column name="set_meal_id" value="SM001"/>
+            <column name="menu_id" value="FC001"/>
+            <column name="food_id" value="FC001"/>
+            <column name="food_category_id" value="Mains"/>
+            <column name="set_meal_category" value="img1"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

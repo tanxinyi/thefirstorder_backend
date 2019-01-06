@@ -23,7 +23,7 @@ public class FoodService {
             foodPrices = food.getFoodPrices();
             for(int j = 0; j < foodPrices.size(); j++){
                 FoodPrice foodPrice = foodPrices.get(j);
-                if (foodPrice.getMenuFoodId().getMenuId().equals(menuId)){
+                if (foodPrice.getMenuFoodCatId().getMenuId().equals(menuId)){
                     results.add(food);
                 }
             }

@@ -1,37 +1,42 @@
 package MakaNow.thefirstorder_back.controller;
 
-import MakaNow.thefirstorder_back.model.Customer;
-import MakaNow.thefirstorder_back.model.CustomerOrder;
-import MakaNow.thefirstorder_back.model.View;
-import MakaNow.thefirstorder_back.repository.CustomerOrderRepository;
-import MakaNow.thefirstorder_back.repository.FoodRepository;
-import MakaNow.thefirstorder_back.repository.OrdersRepository;
+import MakaNow.thefirstorder_back.model.*;
+import MakaNow.thefirstorder_back.repository.*;
 import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
+import org.omg.CosNaming.NamingContextPackage.NotFound;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
 public class CustomerOrderController {
 
     private final String PREFIX = "CUSO";
-    private final String FIRST_ID = "CUSO001";
+    private final String FIRST_ID = "CUSO000";
 
     @Autowired
     private FoodController foodController;
+
+    @Autowired
+    private FoodPriceController foodPriceController;
 
     @Autowired
     private OrdersController ordersController;
 
     @Autowired
     private CustomerOrderRepository customerOrderRepository;
+
+    @Autowired
+    private CustomisationOptionController customisationOptionController;
+
+    @Autowired
+    private FoodPriceRepository foodPriceRepository;
 
     private Logger logger = LoggerFactory.getLogger(CustomerOrderController.class);
 
@@ -54,7 +59,7 @@ public class CustomerOrderController {
     }
 
     @PostMapping("/customerOrder")
-    @JsonView(View.ViewA.class)
+    @JsonView(View.CustomerOrderView.class)
     public CustomerOrder save(@Valid @RequestBody CustomerOrder customerOrder) throws NotFoundException {
         logger.info("Saving Customer Order");
         String latestCUSOID = getLatestCUSOID();
@@ -64,17 +69,52 @@ public class CustomerOrderController {
             latestCUSOID += "0";
         }
         latestCUSOID += newCount;
-        String foodId = customerOrder.getFoodId();
+
+        MenuFoodCatId menuFoodCatId = customerOrder.getMenuFoodCatId();
+
         String orderId = customerOrder.getOrderId();
-        customerOrder.setCustomerOrderId(latestCUSOID);
-        customerOrder.setOrderId(orderId);
-        customerOrder.setFoodId(foodId);
-        customerOrder.setFood(foodController.getFoodById(foodId));
-        customerOrder.setOrder(ordersController.getOrdersById(orderId));
-        return customerOrderRepository.save(customerOrder);
+
+        String remarks = customerOrder.getCustomerOrderRemarks();
+        if(remarks == null) remarks = "";
+
+        Orders order = ordersController.getOrdersById(orderId);
+        FoodPrice foodPrice = foodPriceController
+                .getFoodPriceByMenuFoodCatId(
+                        menuFoodCatId.getMenuId(),
+                        menuFoodCatId.getFoodId(),
+                        menuFoodCatId.getFoodCategoryId());
+
+        CustomerOrder newCustomerOrder = new CustomerOrder(latestCUSOID,
+                customerOrder.getCustomerOrderQuantity(),
+                remarks,
+                order,
+                foodPrice,
+                new ArrayList<>());
+
+        setCustomisationOptions(newCustomerOrder, customerOrder);
+
+        logger.info("Saving to Repository");
+        return customerOrderRepository.save(newCustomerOrder);
+    }
+
+    private void setCustomisationOptions(CustomerOrder newCustomerOrder,
+                                         CustomerOrder customerOrder) throws NotFoundException {
+
+        logger.info("Setting customisationOptions in CustomerOrder");
+        List<CustomisationOption> customisationOptions = customerOrder.getCustomisationOptions();
+
+        if(customisationOptions == null) {
+            return;
+        }
+
+        for(CustomisationOption customisationOption: customisationOptions){
+            CustomisationOption newCustomisationOption = customisationOptionController.getCustomisationOptionById(customisationOption.getCustomisationOptionId());
+            newCustomerOrder.getCustomisationOptions().add(newCustomisationOption);
+        }
     }
 
     @PostMapping("/customerOrders")
+    @JsonView(View.CustomerOrderView.class)
     public List<CustomerOrder> save(@Valid @RequestBody List<CustomerOrder> customerOrders) throws NotFoundException{
         logger.info("Saving Customer Orders");
         List<CustomerOrder> output = new ArrayList<>();
