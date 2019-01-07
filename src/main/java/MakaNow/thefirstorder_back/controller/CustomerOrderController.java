@@ -38,6 +38,9 @@ public class CustomerOrderController {
     @Autowired
     private FoodPriceRepository foodPriceRepository;
 
+    @Autowired
+    private OrdersRepository ordersRepository;
+
     private Logger logger = LoggerFactory.getLogger(CustomerOrderController.class);
 
     @GetMapping("/customer_orders")
@@ -77,7 +80,13 @@ public class CustomerOrderController {
         String remarks = customerOrder.getCustomerOrderRemarks();
         if(remarks == null) remarks = "";
 
+        double price = customerOrder.getCustomerOrderPrice();
+
         Orders order = ordersController.getOrdersById(orderId);
+
+        order.setSubtotal(order.getSubtotal() + price);
+        ordersRepository.save(order);
+
         FoodPrice foodPrice = foodPriceController
                 .getFoodPriceByMenuFoodCatId(
                         menuFoodCatId.getMenuId(),
@@ -85,6 +94,7 @@ public class CustomerOrderController {
                         menuFoodCatId.getFoodCategoryId());
 
         CustomerOrder newCustomerOrder = new CustomerOrder(latestCUSOID,
+                price,
                 customerOrder.getCustomerOrderQuantity(),
                 remarks,
                 order,

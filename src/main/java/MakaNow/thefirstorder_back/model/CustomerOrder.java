@@ -57,12 +57,14 @@ public class CustomerOrder {
     private List<CustomisationOption> customisationOptions;
 
     public CustomerOrder(String customerOrderId,
+                         double customerOrderPrice,
                          int quantity,
                          String customerOrderRemarks,
                          Orders order,
                          FoodPrice foodPrice,
                          List<CustomisationOption> customisationOptions){
         this.customerOrderId = customerOrderId;
+        this.customerOrderPrice = customerOrderPrice;
         this.customerOrderQuantity = quantity;
         this.orderId = order.getOrderId();
         this.order = order;

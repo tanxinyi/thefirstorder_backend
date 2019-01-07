@@ -40,11 +40,12 @@ public class OrdersController {
     private OrderSummaryController orderSummaryController;
 
     @GetMapping("/orders")
+    @JsonView(View.OrdersView.class)
     public Iterable<Orders> getAllOrders(){
         return ordersService.list();
     }
 
-    private String getLatestOID(){
+    protected String getLatestOID(){
         Iterable<Orders> orderSummaries = ordersRepository.findAll();
 
         String latestOID = FIRST_ID;
