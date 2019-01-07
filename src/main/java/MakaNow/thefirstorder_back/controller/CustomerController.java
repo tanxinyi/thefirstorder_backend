@@ -1,7 +1,9 @@
 package MakaNow.thefirstorder_back.controller;
 
 import MakaNow.thefirstorder_back.model.Customer;
+import MakaNow.thefirstorder_back.model.View;
 import MakaNow.thefirstorder_back.repository.CustomerRepository;
+import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,23 +22,16 @@ public class CustomerController {
     @Autowired
     private CustomerRepository customerRepository;
 
-    @GetMapping("/customer/{customerId}")
-    public Customer getCustomerById(@PathVariable String customerId) throws NotFoundException {
-        Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
-        if(optionalCustomer.isPresent()){
-            return optionalCustomer.get();
-        }else{
-            throw new NotFoundException("Seating Table ID " + customerId + " does not exist");
-        }
-    }
 
     @GetMapping("/customers")
+    @JsonView(View.CustomerView.class)
     public List<Customer> getAllCustomers(){
         return (List<Customer>) customerRepository.findAll();
     }
 
     @GetMapping("/customers/{email}")
-    public Customer getCustomer(@PathVariable String email) throws NotFoundException{
+    @JsonView(View.CustomerView.class)
+    public Customer getCustomerById(@PathVariable String email) throws NotFoundException{
         Optional<Customer> customerOptional = customerRepository.findById(email);
         if (customerOptional.isPresent()){
             Customer customer = customerOptional.get();
@@ -46,6 +41,7 @@ public class CustomerController {
     }
 
     @GetMapping("/authenticate")
+    @JsonView(View.CustomerView.class)
     public Customer authenticate (@RequestParam String email,
                                   @RequestParam String password) throws NotFoundException {
 

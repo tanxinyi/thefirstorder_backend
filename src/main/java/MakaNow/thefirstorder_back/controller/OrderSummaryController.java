@@ -1,12 +1,12 @@
 package MakaNow.thefirstorder_back.controller;
 
-import MakaNow.thefirstorder_back.model.Customer;
-import MakaNow.thefirstorder_back.model.OrderSummary;
-import MakaNow.thefirstorder_back.model.SeatingTable;
-import MakaNow.thefirstorder_back.model.View;
+import MakaNow.thefirstorder_back.model.*;
+import MakaNow.thefirstorder_back.repository.CustomerRepository;
 import MakaNow.thefirstorder_back.repository.OrderSummaryRepository;
+import MakaNow.thefirstorder_back.repository.OrdersRepository;
 import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
+import org.hibernate.criterion.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +31,15 @@ public class OrderSummaryController {
 
     @Autowired
     private SeatingTableController seatingTableController;
+
+    @Autowired
+    private OrdersController ordersController;
+
+    @Autowired
+    private OrdersRepository ordersRepository;
+
+    @Autowired
+    private CustomerRepository customerRepository;
 
     private String getLatestOSID(){
         Iterable<OrderSummary> orderSummaries = orderSummaryRepository.findAll();
@@ -62,14 +71,37 @@ public class OrderSummaryController {
         return orderSummaryRepository.save(orderSummary);
     }
 
-    @PutMapping("/orderSummary/{orderSummaryId}/paymentStatus/{paymentStatus}")
+    @PutMapping("/orderSummary/{orderSummaryId}")
     @JsonView(View.OrderSummaryView.class)
     public OrderSummary updateOrderSummaryPaymentStatus(@PathVariable String orderSummaryId,
-                                                        @PathVariable String paymentStatus) throws NotFoundException {
+                                                        @RequestParam("status") String paymentStatus,
+                                                        @RequestParam("amount") int amount) throws NotFoundException {
         logger.info("Update Payment Status");
         logger.info("OrderSummaryId: " + orderSummaryId);
         OrderSummary orderSummary = getOrderSummaryById(orderSummaryId);
         orderSummary.setPaymentStatus(paymentStatus);
+        orderSummary.setTotalAmount(amount/100.0);
+        String latestOrder = ordersController.getLatestOID();
+        Orders order = ordersController.getOrdersById(latestOrder);
+
+        logger.info("Updating Customer Loyalty Points");
+        Customer customer = orderSummary.getCustomer();
+        int currentLoyaltyPoints = customer.getLoyaltyPoint();
+        logger.info("Old: " + currentLoyaltyPoints);
+        customer.setLoyaltyPoint(currentLoyaltyPoints + amount/100);
+        logger.info("New: " + customer.getLoyaltyPoint());
+        customerRepository.save(customer);
+        logger.info("Customer loyalty point updated");
+
+        if(order.getSubtotal() == 0.0) {
+            logger.info("Removing blank order from summary");
+            List<Orders> orders = orderSummary.getOrders();
+            orders.remove(order);
+            orderSummary.setOrders(orders);
+            ordersRepository.deleteById(latestOrder);
+            logger.info("Removed");
+        }
+
         return orderSummaryRepository.save(orderSummary);
     }
 
@@ -82,5 +114,11 @@ public class OrderSummaryController {
         }else{
             throw new NotFoundException("Order Summary ID " + orderSummaryId + " does not exist");
         }
+    }
+
+    @GetMapping("/orderSummaries")
+    @JsonView(View.OrderSummaryView.class)
+    public List<OrderSummary> getAllOrderSummaries() throws NotFoundException{
+        return (List) orderSummaryRepository.findAll();
     }
 }
