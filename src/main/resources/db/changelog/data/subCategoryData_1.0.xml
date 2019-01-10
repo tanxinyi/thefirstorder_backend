@@ -11,25 +11,25 @@
             <column name="sub_category_id" value="SC001"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_name" value="Alcoholic"/>
-            <column name="sub_category_img_path" value="img1"/>
+            <column name="sub_category_img_path" value=""/>
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC002"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_name" value="Non-Alcoholic"/>
-            <column name="sub_category_img_path" value="img1"/>
+            <column name="sub_category_img_path" value=""/>
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC003"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="Ramen"/>
-            <column name="sub_category_img_path" value="img1"/>
+            <column name="sub_category_img_path" value=""/>
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC004"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="Rice"/>
-            <column name="sub_category_img_path" value="img1"/>
+            <column name="sub_category_img_path" value=""/>
         </insert>
 
     </changeSet>

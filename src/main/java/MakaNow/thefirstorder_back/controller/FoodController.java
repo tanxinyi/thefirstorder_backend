@@ -1,7 +1,9 @@
 package MakaNow.thefirstorder_back.controller;
 
 import MakaNow.thefirstorder_back.model.*;
+import MakaNow.thefirstorder_back.repository.FoodCategoryRepository;
 import MakaNow.thefirstorder_back.repository.FoodRepository;
+import MakaNow.thefirstorder_back.repository.SubCategoryRepository;
 import MakaNow.thefirstorder_back.service.FoodService;
 import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
@@ -25,7 +27,10 @@ public class FoodController {
     private FoodService foodService;
 
     @Autowired
-    private CustomisationController customisationController;
+    private FoodCategoryRepository foodCategoryRepository;
+
+    @Autowired
+    private SubCategoryRepository subCategoryRepository;
 
     @GetMapping("/foodItems")
     @JsonView(View.FoodView.class)
@@ -66,10 +71,21 @@ public class FoodController {
                     foodItemInMenu.setFoodId(food.getFoodId());
                     foodItemInMenu.setFoodName(food.getFoodName());
                     foodItemInMenu.setFoodDescription(food.getFoodDescription());
+                    byte[] foodImgBytes = food.getFoodImgPath();
+                    String foodImg = new String(foodImgBytes);
+//                    String foodImg = Base64.getEncoder().encodeToString(foodImgBytes);
+
                     foodItemInMenu.setFoodCategory(foodPrice.getFoodCategory().getFoodCategoryId());
+                    foodItemInMenu.setFoodCategoryName(foodCategoryRepository.findById(foodPrice.getFoodCategory().getFoodCategoryId()).get().getFoodCategoryName());
                     foodItemInMenu.setFoodSubCategory(foodPrice.getSubCategoryId());
+                    if(foodPrice.getSubCategoryId() != null){
+                        foodItemInMenu.setSubCategoryName(subCategoryRepository.findById(foodPrice.getSubCategoryId()).get().getSubCategoryName());
+                    }else{
+                        foodItemInMenu.setSubCategoryName("No Sub Category");
+                    }
                     foodItemInMenu.setFoodPrice(foodPrice.getFoodPrice());
                     foodItemInMenu.setFoodAvailability(foodPrice.isAvailability());
+                    foodItemInMenu.setFoodImg(foodImg);
 
 //                    List<Customisation> foodCustomisations = customisationController.getCustomisationByMenuFoodCatId(menuId, food.getFoodId(), foodPrice.getFoodCategory().getFoodCategoryId());
 //                    for(int k = 0; k < foodCustomisations.size(); k++){
@@ -108,10 +124,20 @@ public class FoodController {
                     foodItemInMenu.setFoodId(food.getFoodId());
                     foodItemInMenu.setFoodName(food.getFoodName());
                     foodItemInMenu.setFoodDescription(food.getFoodDescription());
+                    byte[] foodImgBytes = food.getFoodImgPath();
+                    String foodImg = new String(foodImgBytes);
+
                     foodItemInMenu.setFoodCategory(foodPrice.getFoodCategory().getFoodCategoryId());
+                    foodItemInMenu.setFoodCategoryName(foodCategoryRepository.findById(foodPrice.getFoodCategory().getFoodCategoryId()).get().getFoodCategoryName());
                     foodItemInMenu.setFoodSubCategory(foodPrice.getSubCategoryId());
+                    if(foodPrice.getSubCategoryId() != null){
+                        foodItemInMenu.setSubCategoryName(subCategoryRepository.findById(foodPrice.getSubCategoryId()).get().getSubCategoryName());
+                    }else{
+                        foodItemInMenu.setSubCategoryName("No Sub Category");
+                    }
                     foodItemInMenu.setFoodPrice(foodPrice.getFoodPrice());
                     foodItemInMenu.setFoodAvailability(foodPrice.isAvailability());
+                    foodItemInMenu.setFoodImg(foodImg);
                     result.add(foodItemInMenu);
                 }
             }
@@ -136,10 +162,20 @@ public class FoodController {
                         foodItemInMenu.setFoodId(food.getFoodId());
                         foodItemInMenu.setFoodName(food.getFoodName());
                         foodItemInMenu.setFoodDescription(food.getFoodDescription());
+                        byte[] foodImgBytes = food.getFoodImgPath();
+                        String foodImg = new String(foodImgBytes);
+
                         foodItemInMenu.setFoodCategory(foodPrice.getFoodCategory().getFoodCategoryId());
+                        foodItemInMenu.setFoodCategoryName(foodCategoryRepository.findById(foodPrice.getFoodCategory().getFoodCategoryId()).get().getFoodCategoryName());
                         foodItemInMenu.setFoodSubCategory(foodPrice.getSubCategoryId());
+                        if(foodPrice.getSubCategoryId() != null){
+                            foodItemInMenu.setSubCategoryName(subCategoryRepository.findById(foodPrice.getSubCategoryId()).get().getSubCategoryName());
+                        }else{
+                            foodItemInMenu.setSubCategoryName("No Sub Category");
+                        }
                         foodItemInMenu.setFoodPrice(foodPrice.getFoodPrice());
                         foodItemInMenu.setFoodAvailability(foodPrice.isAvailability());
+                        foodItemInMenu.setFoodImg(foodImg);
                         result.add(foodItemInMenu);
                     }
                 }
@@ -161,9 +197,10 @@ class FoodItemInMenu{
     private String foodName;
     private String foodDescription;
     private String foodCategory;
+    private String foodCategoryName;
     private String foodSubCategory;
+    private String subCategoryName;
     private double foodPrice;
     private boolean foodAvailability;
-//    private Map<String, List<String>> foodCustomisations;
-
+    private String foodImg;
 }

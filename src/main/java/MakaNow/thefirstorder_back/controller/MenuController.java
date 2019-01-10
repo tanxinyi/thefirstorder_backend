@@ -1,13 +1,9 @@
 package MakaNow.thefirstorder_back.controller;
 
 import MakaNow.thefirstorder_back.model.*;
-import MakaNow.thefirstorder_back.repository.ActivityLogRepository;
-import MakaNow.thefirstorder_back.repository.FoodPriceRepository;
-import MakaNow.thefirstorder_back.repository.MenuRepository;
-import MakaNow.thefirstorder_back.repository.RestaurantRepository;
+import MakaNow.thefirstorder_back.repository.*;
 import MakaNow.thefirstorder_back.service.ActivityLogService;
 import MakaNow.thefirstorder_back.service.MenuService;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
 import org.slf4j.Logger;
@@ -241,15 +237,38 @@ public class MenuController {
     @DeleteMapping("/menus")
     public ResponseEntity<?> deleteMenuByMenuId(@RequestParam("menuId") String menuId, @RequestParam("restaurantId") String restaurantId, @RequestParam("managerId") String managerId){
         List<FoodPrice> foodPrices = (List<FoodPrice>) foodPriceRepository.findAll();
+////
+//        for(int i = 0; i<foodPrices.size(); i++){
+//            FoodPrice foodPrice = foodPrices.get(i);
+//            MenuFoodCatId foodPricePK = foodPrice.getMenuFoodCatId();
+//            if(foodPrice.getMenuFoodCatId().getMenuId().equals(menuId)){
+//                List<Customisation> customisations = foodPrice.getCustomisations();
+//                for(int k = 0; k < customisations.size(); k++){
+//                    Customisation customisation = customisations.get(k);
+//                    String customisationId = customisation.getCustomisationId();
+//                    List<CustomisationOption> customisationOptions = customisation.getCustomisationOptions();
+//                    for(int j = 0; j < customisationOptions.size(); j++){
+//                        CustomisationOption customisationOption = customisationOptions.get(j);
+//                        String customisationOptionId = customisationOption.getCustomisationOptionId();
+//                        customisationOptionRepository.deleteById(customisationOptionId);
+//                    }
+//                    customisationRepository.deleteById(customisationId);
+//                }
+//                foodPriceRepository.deleteById(foodPricePK);
+//            }
+//        }
 
-        for(int i = 0; i<foodPrices.size(); i++){
-            FoodPrice foodPrice = foodPrices.get(i);
-            if(foodPrice.getMenuFoodCatId().getMenuId().equals(menuId)){
-                foodPriceRepository.deleteById(foodPrice.getMenuFoodCatId());
-            }
-        }
+//        for(int i = 0; i < foodPrices.size(); i++){
+//            FoodPrice foodPrice = foodPrices.get(i);
+//            if(foodPrice.getMenuFoodCatId().getMenuId().equals(menuId)){
+//                String foodCategoryId = foodPrice.getMenuFoodCatId().getFoodCategoryId();
+//                foodCategoryRepository.deleteById(foodCategoryId);
+//            }
+//        }
 
-        String menuName = menuRepository.findById(menuId).get().getMenuName();
+        Menu menu = menuRepository.findById(menuId).get();
+        String menuName = menu.getMenuName();
+
         menuRepository.deleteById(menuId);
 
         ActivityLog activityLog = new ActivityLog();

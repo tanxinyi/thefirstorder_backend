@@ -22,11 +22,12 @@ public class Food {
     @JsonView(View.MainView.class)
     private String foodDescription;
 
+    @Lob
     @JsonView(View.MainView.class)
-    private String foodImgPath;
+    private byte[] foodImgPath;
 
     @JsonView(View.FoodView.class)
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "food")
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "food", orphanRemoval = true)
     private List<FoodPrice> foodPrices;
 
 }

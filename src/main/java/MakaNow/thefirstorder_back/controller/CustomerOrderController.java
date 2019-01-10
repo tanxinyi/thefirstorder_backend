@@ -48,6 +48,17 @@ public class CustomerOrderController {
         return customerOrderRepository.findAll();
     }
 
+    @GetMapping("/customerOrder/{customerOrderId}")
+    @JsonView(View.CustomerOrderView.class)
+    public CustomerOrder getCustomerOrderById(@PathVariable String customerOrderId) throws NotFoundException {
+        Optional<CustomerOrder> customerOrder = customerOrderRepository.findById(customerOrderId);
+        if(customerOrder.isPresent()){
+            return customerOrder.get();
+        }else{
+            throw new NotFoundException("Customer Order Id " + customerOrderId + " does not exist!");
+        }
+    }
+
     private String getLatestCUSOID(){
         Iterable<CustomerOrder> customerOrders = customerOrderRepository.findAll();
 

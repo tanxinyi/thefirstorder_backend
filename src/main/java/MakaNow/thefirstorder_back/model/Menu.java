@@ -33,7 +33,7 @@ public class Menu implements Comparable<Menu> {
     @JoinColumn(name = "restaurant_id", insertable = false, updatable = false)
     private Restaurant restaurant;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "menu")
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "menu", orphanRemoval = true)
     @JsonView(View.MenuView.class)
     private List<FoodPrice> foodPrices;
 

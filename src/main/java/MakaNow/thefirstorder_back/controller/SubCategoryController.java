@@ -71,11 +71,15 @@ public class SubCategoryController {
 
         String subCategoryName = newSubCategory.getSubCategoryName();
 
+        String subCategoryImage = newSubCategory.getSubCategoryImg();
+
+        byte[] subCategoryImgByte = subCategoryImage.getBytes();
+
         SubCategory subCategory = new SubCategory();
         subCategory.setSubCategoryId(subCategoryId);
         subCategory.setCategoryId(categoryId);
         subCategory.setSubCategoryName(subCategoryName);
-        subCategory.setSubCategoryImage("");
+        subCategory.setSubCategoryImage(subCategoryImgByte);
 
         subCategoryRepository.save(subCategory);
 
@@ -86,6 +90,6 @@ public class SubCategoryController {
 @Data
 class NewSubCategory{
     private String subCategoryName;
-//    private String subCategoryImage;
+    private String subCategoryImg;
 }
 

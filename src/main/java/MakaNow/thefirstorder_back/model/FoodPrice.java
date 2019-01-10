@@ -47,7 +47,7 @@ public class FoodPrice {
     @JsonView(View.FoodPriceView.class)
     private SubCategory subFoodCategory;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL},mappedBy = "foodPrice")
+    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true , cascade = {CascadeType.ALL},mappedBy = "foodPrice")
     @JsonView(View.FoodPriceView.class)
     private List<Customisation> customisations;
 

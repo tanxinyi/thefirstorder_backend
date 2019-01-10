@@ -5,6 +5,8 @@ import MakaNow.thefirstorder_back.model.View;
 import MakaNow.thefirstorder_back.repository.CustomerRepository;
 import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,6 +24,7 @@ public class CustomerController {
     @Autowired
     private CustomerRepository customerRepository;
 
+    Logger logger = LoggerFactory.getLogger(CustomerController.class);
 
     @GetMapping("/customers")
     @JsonView(View.CustomerView.class)
@@ -32,12 +35,13 @@ public class CustomerController {
     @GetMapping("/customers/{email}")
     @JsonView(View.CustomerView.class)
     public Customer getCustomerById(@PathVariable String email) throws NotFoundException{
+        logger.info("Getting Customer by ID: " + email);
         Optional<Customer> customerOptional = customerRepository.findById(email);
         if (customerOptional.isPresent()){
             Customer customer = customerOptional.get();
             return customer;
         }
-        return null;
+        throw new NotFoundException("Customer ID " + email + " does not exist");
     }
 
     @GetMapping("/authenticate")
@@ -61,7 +65,8 @@ public class CustomerController {
 
 
     @PostMapping("/customers/add")
-    public boolean addNewCustomer(@RequestParam String email,
+    @JsonView(View.CustomerView.class)
+    public Customer addNewCustomer(@RequestParam String email,
                                   @RequestParam String firstName,
                                   @RequestParam String lastName,
                                   @RequestParam String password,
@@ -96,8 +101,7 @@ public class CustomerController {
 //        customer.setGender(gender);
         customer.setCustomerContactNumber(phoneNum);
         customer.setLoyaltyPoint(loyaltyPoints);
-        customerRepository.save(customer);
-        return true;
+        return customerRepository.save(customer);
     }
 
     private boolean isValidPassword(String password){

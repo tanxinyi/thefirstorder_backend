@@ -49,7 +49,14 @@ public class OrderSummary {
     @JsonView(View.OrderSummaryView.class)
     private SeatingTable seatingTable;
 
-    public OrderSummary(String orderSummaryId, Customer customer, String paymentStatus, double totalAmount, Date summaryDate, String modeOfPayment, SeatingTable seatingTable){
+    public OrderSummary(
+            String orderSummaryId,
+            Customer customer,
+            String paymentStatus,
+            double totalAmount,
+            Date summaryDate,
+            String modeOfPayment,
+            SeatingTable seatingTable){
         this.orderSummaryId = orderSummaryId;
         this.customer = customer;
         this.email = customer.getEmail();

@@ -10,73 +10,73 @@
             <column name="food_id" value="F001"/>
             <column name="food_name" value="Seafood Ramen"/>
             <column name="food_description" value="One mouthful ascertains the sweetness of seafood s..."/>
-            <column name="food_img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <column name="food_img_path" value=""/>
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F002"/>
             <column name="food_name" value="Fried Rice"/>
             <column name="food_description" value="Savour the spiciness."/>
-            <column name="food_img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <column name="food_img_path" value=""/>
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F003"/>
             <column name="food_name" value="Beef Pho"/>
             <column name="food_description" value="Rich broth served with premium australian beef."/>
-            <column name="food_img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <column name="food_img_path" value=""/>
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F004"/>
             <column name="food_name" value="Chicken Pho"/>
             <column name="food_description" value="Rich broth served with tender chicken thighs."/>
-            <column name="food_img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <column name="food_img_path" value=""/>
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F005"/>
             <column name="food_name" value="Thai Basil Chicken"/>
             <column name="food_description" value="Chicken meat stir fried with Thai basil."/>
-            <column name="food_img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <column name="food_img_path" value=""/>
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F006"/>
             <column name="food_name" value="Mango Sticky Rice"/>
             <column name="food_description" value="Traditional Thai dessert"/>
-            <column name="food_img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <column name="food_img_path" value=""/>
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F007"/>
             <column name="food_name" value="Ice Cream"/>
             <column name="food_description" value="I scream for ice cream anytime"/>
-            <column name="food_img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <column name="food_img_path" value=""/>
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F008"/>
             <column name="food_name" value="Ice Lemon Tea"/>
             <column name="food_description" value="Refreshing Beverage."/>
-            <column name="food_img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <column name="food_img_path" value=""/>
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F009"/>
             <column name="food_name" value="Beer"/>
             <column name="food_description" value="Accompany any meal."/>
-            <column name="food_img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <column name="food_img_path" value=""/>
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F010"/>
             <column name="food_name" value="Cheese Cake"/>
             <column name="food_description" value="Classic Dessert."/>
-            <column name="food_img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <column name="food_img_path" value=""/>
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F011"/>
             <column name="food_name" value="Thai Spring Roll"/>
             <column name="food_description" value="Chicken meat wrapped in crispy goodness."/>
-            <column name="food_img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <column name="food_img_path" value=""/>
         </insert>
         <insert tableName="food">
             <column name="food_id" value="F012"/>
             <column name="food_name" value="Coconut pudding"/>
             <column name="food_description" value="Thai dessert"/>
-            <column name="food_img_path" value="C:\IntelliJ\thefirstorder_back\thefirstorder_back\src\main\resources\db"/>
+            <column name="food_img_path" value=""/>
         </insert>
     </changeSet>
 

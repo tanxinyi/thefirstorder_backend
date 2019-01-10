@@ -3,7 +3,6 @@ package MakaNow.thefirstorder_back.controller;
 import MakaNow.thefirstorder_back.model.*;
 import MakaNow.thefirstorder_back.repository.*;
 import MakaNow.thefirstorder_back.service.ActivityLogService;
-import MakaNow.thefirstorder_back.service.FoodPriceService;
 import MakaNow.thefirstorder_back.service.FoodService;
 import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
@@ -39,13 +38,7 @@ public class FoodPriceController {
     private MenuRepository menuRepository;
 
     @Autowired
-    private CustomisationRepository customisationRepository;
-
-    @Autowired
     private FoodService foodService;
-
-    @Autowired
-    private FoodPriceService foodPriceService;
 
     @Autowired
     private ActivityLogService activityLogService;
@@ -53,8 +46,8 @@ public class FoodPriceController {
     @GetMapping("/foodPrice/menuId/{menuId}/foodId/{foodId}/categoryId/{catId}")
     @JsonView(View.FoodPriceView.class)
     public FoodPrice getFoodPriceByMenuFoodCatId( @PathVariable String menuId,
-                                                         @PathVariable String foodId,
-                                                         @PathVariable String catId) throws NotFoundException {
+                                                  @PathVariable String foodId,
+                                                  @PathVariable String catId) throws NotFoundException {
         logger.info("Getting FoodPrice by MenuFoodCatId");
         Optional<FoodPrice> optionalFoodPrice = foodPriceRepository.findById(new MenuFoodCatId(menuId, foodId, catId));
         if(optionalFoodPrice.isPresent()){
@@ -81,12 +74,15 @@ public class FoodPriceController {
         String subCategoryId = foodItem.getSubCategoryId();
         double foodPrice = foodItem.getFoodPrice();
         boolean foodAvailability = Boolean.parseBoolean(foodItem.getFoodAvailability());
+        String foodImg = foodItem.getFoodImg();
+
+        byte[] foodImgByte = foodImg.getBytes();
 
         Food newFood = new Food();
         newFood.setFoodId(foodId);
         newFood.setFoodName(foodName);
         newFood.setFoodDescription(foodDescription);
-        newFood.setFoodImgPath("");
+        newFood.setFoodImgPath(foodImgByte);
         foodRepository.save(newFood);
 
         FoodPrice newFoodPrice = new FoodPrice();
@@ -117,7 +113,7 @@ public class FoodPriceController {
 
         activityLogRepository.save(activityLog);
 
-        return new ResponseEntity("Food Item added succcessfully", HttpStatus.OK);
+        return new ResponseEntity("Food Item added successfully", HttpStatus.OK);
     }
 
     @PostMapping("/foodPrices/updateFoodPrice/{menuId}/{foodId}")
@@ -126,22 +122,40 @@ public class FoodPriceController {
 
         String foodName = foodItem.getFoodName();
         String foodDescription = foodItem.getFoodDescription();
-        String foodCategoryId = foodItem.getFoodCategoryId();
+        String oldFoodCategoryId = foodItem.getOldFoodCategoryId();
+        String subCategoryId = foodItem.getSubCategoryId();
         double foodPrice = foodItem.getFoodPrice();
         boolean foodAvailability = Boolean.parseBoolean(foodItem.getFoodAvailability());
+        String foodImg = foodItem.getFoodImg();
+
+        byte[] foodImgByte = foodImg.getBytes();
+
+        String foodCategoryId = foodItem.getFoodCategoryId();
 
         Food food = foodService.getFoodByFoodId(foodId);
-        FoodPrice foodPriceItem = foodPriceService.getFoodPriceByMenuIdAndFoodId(menuId, foodId, foodCategoryId);
+//        FoodPrice foodPriceItem = foodPriceService.getFoodPriceByMenuIdAndFoodId(menuId, foodId, oldFoodCategoryId);
 
         food.setFoodName(foodName);
         food.setFoodDescription(foodDescription);
 //        food.setCategoryId("CAT001");
-        food.setFoodImgPath("");
+        food.setFoodImgPath(foodImgByte);
         foodRepository.save(food);
 
-        foodPriceItem.setFoodPrice(foodPrice);
-        foodPriceItem.setAvailability(foodAvailability);
-        foodPriceRepository.save(foodPriceItem);
+        MenuFoodCatId foodPricePK = new MenuFoodCatId(menuId, foodId, oldFoodCategoryId);
+        FoodPrice updatefoodPrice = foodPriceRepository.findById(foodPricePK).get();
+//        MenuFoodCatId newFoodPricePK = new MenuFoodCatId(menuId, foodId, foodCategoryId);
+
+//        List<Customisation> customisations = foodPriceRepository.findById(foodPricePK).get().getCustomisations();
+//        for(int i = 0; i < customisations.size(); i++){
+//            Customisation customisation = customisations.get(i);
+//            customisation.setMenuFoodCatId(newFoodPricePK);
+//        }
+//        foodPriceRepository.deleteById(foodPricePK);
+
+        updatefoodPrice.setFoodPrice(foodPrice);
+        updatefoodPrice.setAvailability(foodAvailability);
+//        foodPriceItem.setSubCategoryId(subCategoryId);
+//        foodPriceItem.setCustomisations(customisations);
 
         ActivityLog activityLog = new ActivityLog();
 
@@ -158,7 +172,7 @@ public class FoodPriceController {
 
         activityLogRepository.save(activityLog);
 
-        return new ResponseEntity("Food Item updated succcessfully", HttpStatus.OK);
+        return new ResponseEntity("Food Item updated successfully", HttpStatus.OK);
     }
 
     @DeleteMapping("/foodPrices/deleteFoodPrice")
@@ -166,13 +180,20 @@ public class FoodPriceController {
     public ResponseEntity<?> deleteFoodPriceByMenuIdAndFoodId( @RequestParam("menuId") String menuId, @RequestParam("foodId") String foodId, @RequestParam("foodCategoryId") String foodCategoryId, @RequestParam("managerId") String managerId, @RequestParam("restaurantId") String restaurantId){
         MenuFoodCatId foodPricePK = new MenuFoodCatId(menuId, foodId, foodCategoryId);
 
-        List<Customisation> customisations = (List<Customisation>) customisationRepository.findAll();
-        for(int i = 0; i < customisations.size(); i++){
-            Customisation customisation = customisations.get(i);
-            if(customisation.getMenuFoodCatId().getMenuId().equals(menuId)){
-                customisationRepository.deleteById(customisation.getCustomisationId());
-            }
-        }
+//        List<Customisation> customisations = (List<Customisation>) customisationRepository.findAll();
+
+//        for(int i = 0; i < customisations.size(); i++){
+//            Customisation customisation = customisations.get(i);
+//            if(customisation.getMenuFoodCatId().getMenuId().equals(menuId) && customisation.getMenuFoodCatId().getFoodId().equals(foodId) && customisation.getMenuFoodCatId().getFoodCategoryId().equals(foodCategoryId)){
+//                String customisationId = customisation.getCustomisationId();
+//                List<CustomisationOption> customisationOptions = customisationRepository.findById(customisationId).get().getCustomisationOptions();
+//                for(int j = 0; j < customisationOptions.size(); j++){
+//                    String customisationOptionId = customisationOptions.get(j).getCustomisationOptionId();
+//                    customisationOptionRepository.deleteById(customisationOptionId);
+//                }
+//                customisationRepository.deleteById(customisation.getCustomisationId());
+//            }
+//        }
 
         foodPriceRepository.deleteById(foodPricePK);
 
@@ -196,12 +217,37 @@ public class FoodPriceController {
 
         return new ResponseEntity("Deleted Food Item Successfully", HttpStatus.OK);
     }
+
+    @DeleteMapping("/foodPrices/deleteFoodPrice/{menuId}/{foodId}/{categoryId}")
+    @JsonView(View.FoodPriceView.class)
+    public ResponseEntity<?> deleteFoodPriceByMenuIdAndFoodId1(@PathVariable("menuId") String menuId, @PathVariable("foodId") String foodId, @PathVariable("categoryId") String categoryId){
+        MenuFoodCatId menuFoodCatId = new MenuFoodCatId(menuId, foodId, categoryId);
+//        FoodPrice foodPrice = foodPriceRepository.findById(menuFoodCatId).get();
+//
+////        foodPriceRepository.findById(menuFoodCatId).get().setCustomisations(null);
+//        List<Customisation> customisations = (List<Customisation>) customisationRepository.findAll();
+//
+//        for(int i = 0; i < customisations.size(); i++){
+//            Customisation customisation = customisations.get(i);
+//            if (customisation.getMenuFoodCatId().getMenuId().equals(menuId) && customisation.getMenuFoodCatId().getFoodId().equals(foodId)){
+////                foodPrice.removeCustomisation(customisation);
+//                customisationRepository.deleteById(customisation.getCustomisationId());
+//            }
+//        }
+
+//        foodPriceRepository.findById(menuFoodCatId).get().setCustomisations(null);
+
+        foodPriceRepository.deleteById(menuFoodCatId);
+
+        return new ResponseEntity("SUCCESS", HttpStatus.OK);
+    }
 }
 
 @Data
 class FoodItem{
     private String foodName;
     private String foodDescription;
+    private String oldFoodCategoryId;
     private String foodCategoryId;
     private String subCategoryId;
     private double foodPrice;
@@ -209,4 +255,5 @@ class FoodItem{
     private String restaurantId;
     private String menuId;
     private String managerId;
+    private String foodImg;
 }

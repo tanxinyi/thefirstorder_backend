@@ -17,10 +17,11 @@ public class FoodCategory {
     @JsonView(View.MainView.class)
     private String foodCategoryName;
 
+    @Lob
     @JsonView(View.MainView.class)
-    private String foodCategoryImgPath;
+    private byte[] foodCategoryImgPath;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy="foodCategory")
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy="foodCategory", orphanRemoval = true)
     @JsonView(View.CategoryView.class)
     private List<FoodPrice> foodPrices;
 

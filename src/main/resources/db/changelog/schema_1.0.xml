@@ -250,7 +250,7 @@
             <column name="food_description" type="varchar(500)">
                 <constraints nullable="false"/>
             </column>
-            <column name="food_img_path" type="varchar(500)">
+            <column name="food_img_path" type="BLOB">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -291,7 +291,7 @@
             <column name="food_category_name" type="varchar(45)">
                 <constraints nullable="false"/>
             </column>
-            <column name="food_category_img_path" type="varchar(500)">
+            <column name="food_category_img_path" type="BLOB">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -307,7 +307,7 @@
             <column name="sub_category_name" type="varchar(45)">
                 <constraints nullable="false"/>
             </column>
-            <column name="sub_category_img_path" type="varchar(500)">
+            <column name="sub_category_img_path" type="BLOB">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -419,15 +419,15 @@
 
         <addForeignKeyConstraint baseTableName="customisation" baseColumnNames="menu_id"
                                  constraintName="customisation_menu_id_fk"
-                                 referencedTableName="food_price" referencedColumnNames="menu_id"/>
+                                 referencedTableName="menu" referencedColumnNames="menu_id"/>
 
         <addForeignKeyConstraint baseTableName="customisation" baseColumnNames="food_id"
                                  constraintName="customisation_food_id_fk"
-                                 referencedTableName="food_price" referencedColumnNames="food_id"/>
+                                 referencedTableName="food" referencedColumnNames="food_id"/>
 
         <addForeignKeyConstraint baseTableName="customisation" baseColumnNames="food_category_id"
                                  constraintName="customisation_food_category_id_fk"
-                                 referencedTableName="food_price" referencedColumnNames="food_category_id"/>
+                                 referencedTableName="food_category" referencedColumnNames="food_category_id"/>
 
         <createTable tableName="customisation_option"
                      remarks="A table to contain all options of a customisations">

@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.*;
 
 @RestController
@@ -56,7 +57,8 @@ public class OrderSummaryController {
 
     @GetMapping("/orderSummary/new/customer/{customerId}/seatingTable/{qrCode}")
     @JsonView(View.OrderSummaryView.class)
-    public OrderSummary getNewOrderSummary(@PathVariable String customerId, @PathVariable String qrCode) throws NotFoundException {
+    public OrderSummary getNewOrderSummary(@PathVariable String customerId,
+                                           @PathVariable String qrCode) throws NotFoundException {
         logger.info("SeatingTableID:" + qrCode);
         String latestOSID = getLatestOSID();
         String newCount = "" + (Integer.parseInt(latestOSID.substring(PREFIX.length())) + 1);
@@ -67,7 +69,14 @@ public class OrderSummaryController {
         latestOSID += newCount;
         Customer customer = customerController.getCustomerById(customerId);
         SeatingTable seatingTable = seatingTableController.getSeatingTableBySeatingTableId(qrCode);
-        OrderSummary orderSummary = new OrderSummary(latestOSID, customer,"Pending", 0.0, new Date(), "Card", seatingTable);
+        OrderSummary orderSummary = new OrderSummary(
+                latestOSID,
+                customer,
+                "Pending",
+                0.0,
+                new Date(),
+                "Card",
+                seatingTable);
         return orderSummaryRepository.save(orderSummary);
     }
 
@@ -120,5 +129,16 @@ public class OrderSummaryController {
     @JsonView(View.OrderSummaryView.class)
     public List<OrderSummary> getAllOrderSummaries() throws NotFoundException{
         return (List) orderSummaryRepository.findAll();
+    }
+
+    @PostMapping("/orderSummary/getRestaurantName")
+    public List<String> getRestaurantName(@Valid @RequestBody List<OrderSummary> osids) throws NotFoundException{
+        logger.info("Getting Restaurant name");
+        List<String> output = new ArrayList<>();
+        for(OrderSummary osid : osids){
+            output.add(this.getOrderSummaryById(osid.getOrderSummaryId()).getSeatingTable().getRestaurant().getRestaurantName());
+        }
+
+        return output;
     }
 }

@@ -35,7 +35,7 @@ public class CustomerOrder {
 
     @ManyToOne
     @JoinColumn(name="order_id", insertable = false, updatable = false)
-    @JsonIgnore
+    @JsonView(View.CustomerOrderView.class)
     private Orders order;
 
     @ManyToOne
@@ -44,7 +44,7 @@ public class CustomerOrder {
             @JoinColumn(name="menu_id", referencedColumnName = "menu_id", insertable = false, updatable = false),
             @JoinColumn(name="food_category_id", referencedColumnName = "food_category_id", insertable = false, updatable = false)
     })
-    @JsonIgnore
+    @JsonView(View.CustomerOrderView.class)
     private FoodPrice foodPrice;
 
     @ManyToMany (cascade = CascadeType.ALL)

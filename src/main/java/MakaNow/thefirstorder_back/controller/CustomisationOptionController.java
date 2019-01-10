@@ -2,13 +2,11 @@ package MakaNow.thefirstorder_back.controller;
 
 import MakaNow.thefirstorder_back.model.ActivityLog;
 import MakaNow.thefirstorder_back.model.CustomisationOption;
-import MakaNow.thefirstorder_back.model.View;
 import MakaNow.thefirstorder_back.repository.ActivityLogRepository;
 import MakaNow.thefirstorder_back.repository.CustomisationOptionRepository;
 import MakaNow.thefirstorder_back.repository.CustomisationRepository;
-import MakaNow.thefirstorder_back.repository.MenuRepository;
 import MakaNow.thefirstorder_back.service.ActivityLogService;
-import com.fasterxml.jackson.annotation.JsonView;
+import MakaNow.thefirstorder_back.service.CustomisationOptionService;
 import javassist.NotFoundException;
 import lombok.Data;
 import org.slf4j.Logger;
@@ -36,6 +34,9 @@ public class CustomisationOptionController {
     private CustomisationOptionRepository customisationOptionRepository;
 
     @Autowired
+    private CustomisationOptionService customisationOptionService;
+
+    @Autowired
     private ActivityLogService activityLogService;
 
     @Autowired
@@ -56,8 +57,43 @@ public class CustomisationOptionController {
         throw new NotFoundException("Customisation Option ID: " + customisationOptionId + " does not exist!");
     }
 
+    @PostMapping("/customisationOption/addCustomisationOption")
+    public ResponseEntity<?> addCustomisationOption(@RequestBody UpdatedCustomisationOption updatedCustomisationOption) {
+
+        String customisationOptionId = customisationOptionService.getNewCustomisationOptionId();
+        String customisationId = updatedCustomisationOption.getCustomisationId();
+        String optionDescription = updatedCustomisationOption.getOptionDescription();
+        double optionPrice = updatedCustomisationOption.getOptionPrice();
+        String menuId = updatedCustomisationOption.getMenuId();
+        String managerId = updatedCustomisationOption.getManagerId();
+        String restaurantId = updatedCustomisationOption.getRestaurantId();
+
+        CustomisationOption newCustomisationOption = new CustomisationOption();
+        newCustomisationOption.setCustomisationOptionId(customisationOptionId);
+        newCustomisationOption.setCustomisationId(customisationId);
+        newCustomisationOption.setOptionDescription(optionDescription);
+        newCustomisationOption.setOptionPrice(optionPrice);
+        customisationOptionRepository.save(newCustomisationOption);
+
+        ActivityLog activityLog = new ActivityLog();
+
+        String newActivityLogId = activityLogService.getNewActivityLogId();
+        activityLog.setActivityLogId(newActivityLogId);
+        activityLog.setManagerId(managerId);
+        activityLog.setRestaurantId(restaurantId);
+
+        String description = "Added '" + optionDescription + "' to '" + customisationRepository.findById(customisationId).get().getCustomisationName() + "'";
+        activityLog.setDescription(description);
+
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        activityLog.setChangeTimeStamp(timestamp);
+
+        activityLogRepository.save(activityLog);
+
+        return new ResponseEntity("Customisation option added successfully", HttpStatus.OK);
+    }
+
     @PostMapping("/customisationOption/updateCustomisationOption")
-    @JsonView(View.FoodPriceView.class)
     public ResponseEntity<?> updateCustomisationOption(@RequestBody UpdatedCustomisationOption updatedCustomisationOption) {
 
         String customisationOptionId = updatedCustomisationOption.getCustomisationOptionId();
@@ -86,7 +122,7 @@ public class CustomisationOptionController {
 
         activityLogRepository.save(activityLog);
 
-        return new ResponseEntity("Food Item updated succcessfully", HttpStatus.OK);
+        return new ResponseEntity("Customisation option updated successfully", HttpStatus.OK);
     }
 
     @DeleteMapping("/customisationOption/deleteCustomisationOption")
@@ -103,7 +139,7 @@ public class CustomisationOptionController {
         activityLog.setManagerId(managerId);
         activityLog.setRestaurantId(restaurantId);
 
-        String description = "Deleted '" + customisationOptionName + "' from '" + customisationName + "'";
+        String description = "Deleted customisation option '" + customisationOptionName + "' from '" + customisationName + "'";
         activityLog.setDescription(description);
 
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -113,14 +149,19 @@ public class CustomisationOptionController {
 
         return new ResponseEntity("Deleted Customisation Option Successfully", HttpStatus.OK);
     }
+
+    @PostMapping("/getNewOptionId")
+    public String getNewOptionID(){
+        return customisationOptionService.getNewCustomisationOptionId();
+    }
 }
 @Data
 class UpdatedCustomisationOption{
     private String customisationOptionId;
+    private String customisationId;
     private String optionDescription;
     private double optionPrice;
     private String restaurantId;
     private String menuId;
     private String managerId;
-//    private String customisationImage;
 }
