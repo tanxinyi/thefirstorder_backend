@@ -529,15 +529,15 @@
 
         <addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="menu_id"
                                  constraintName="customer_order_menu_id_fk"
-                                 referencedTableName="food_price" referencedColumnNames="menu_id"/>
+                                 referencedTableName="menu" referencedColumnNames="menu_id"/>
 
         <addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="food_id"
                                  constraintName="customer_order_food_id_fk"
-                                 referencedTableName="food_price" referencedColumnNames="food_id"/>
+                                 referencedTableName="food" referencedColumnNames="food_id"/>
 
         <addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="food_category_id"
                                  constraintName="customer_order_food_category_id_fk"
-                                 referencedTableName="food_price" referencedColumnNames="food_category_id"/>
+                                 referencedTableName="food_category" referencedColumnNames="food_category_id"/>
 
         <addForeignKeyConstraint baseTableName="customer_order" baseColumnNames="order_id"
                                  constraintName="customer_order_order_id_fk"
