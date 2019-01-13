@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.*;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
 public class ManagerController {
