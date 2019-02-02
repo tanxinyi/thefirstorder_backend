@@ -9,7 +9,8 @@
     <include file="changelog/schema_1.0.xml" relativeToChangelogFile="true"/>
 
     <!--data files for tables created-->
-    <include file="changelog/data/customerData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/adminData_1.0.xml" relativeToChangelogFile="true"/>
+	<include file="changelog/data/customerData_1.0.xml" relativeToChangelogFile="true"/>
 
     <include file="changelog/data/restaurantData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/menuData_1.0.xml" relativeToChangelogFile="true"/>
@@ -19,9 +20,6 @@
     <include file="changelog/data/managerAllocationData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/activityLogData_1.0.xml" relativeToChangelogFile="true"/>
 
-    <include file="changelog/data/rewardsData_1.0.xml" relativeToChangelogFile="true"/>
-    <include file="changelog/data/rewardsHistoryData_1.0.xml" relativeToChangelogFile="true"/>
-
     <include file="changelog/data/foodData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/foodTagData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/foodTagAllocationData_1.0.xml" relativeToChangelogFile="true"/>
@@ -29,19 +27,12 @@
     <include file="changelog/data/subCategoryData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/foodPriceData_1.0.xml" relativeToChangelogFile="true"/>
 
-<!--    <include file="changelog/data/setMealData_1.0.xml" relativeToChangelogFile="true"/>
-    <include file="changelog/data/setMealOptionData_1.0.xml" relativeToChangelogFile="true"/>-->
-
     <include file="changelog/data/customisationData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/customisationOptionData_1.0.xml" relativeToChangelogFile="true"/>
-
-<!--    <include file="changelog/data/orderSummaryData_1.0.xml" relativeToChangelogFile="true"/>
+  
+	<include file="changelog/data/orderSummaryData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/orderData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/customerOrderData_1.0.xml" relativeToChangelogFile="true"/>
-    <include file="changelog/data/customisationSelected_1.0.xml" relativeToChangelogFile="true"/>-->
-
-<!--     added customisation_category, customisation, customisation option and
-    customer_customisation tables with data
-    <include file="changelog/databaseUpdate_10-10-18.xml" relativeToChangelogFile="true"/>-->
+    <include file="changelog/data/customisationSelected_1.0.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

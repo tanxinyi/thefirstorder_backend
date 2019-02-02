@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="15" author="xinyi">
+    <changeSet id="14" author="xinyi">
 
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC001"/>

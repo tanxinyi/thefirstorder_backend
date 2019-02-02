@@ -76,6 +76,7 @@ public class CustomerOrderController {
     @JsonView(View.CustomerOrderView.class)
     public CustomerOrder save(@Valid @RequestBody CustomerOrder customerOrder) throws NotFoundException {
         logger.info("Saving Customer Order");
+        //logger.info(customerOrder.toString());
         String latestCUSOID = getLatestCUSOID();
         String newCount = "" + (Integer.parseInt(latestCUSOID.substring(PREFIX.length())) + 1);
         latestCUSOID = PREFIX;
@@ -85,6 +86,7 @@ public class CustomerOrderController {
         latestCUSOID += newCount;
 
         MenuFoodCatId menuFoodCatId = customerOrder.getMenuFoodCatId();
+        logger.info(menuFoodCatId.toString());
 
         String orderId = customerOrder.getOrderId();
 

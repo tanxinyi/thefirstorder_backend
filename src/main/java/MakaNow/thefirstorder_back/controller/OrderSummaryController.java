@@ -55,6 +55,24 @@ public class OrderSummaryController {
         return latestOSID;
     }
 
+    @GetMapping("/orderSummary/restaurant/{restaurantId}")
+    @JsonView(View.OrderSummaryView.class)
+    public List<OrderSummary> getOrderSummaryByRestaurant(@PathVariable String restaurantId) throws NotFoundException {
+        logger.info("RestaurantID: " + restaurantId);
+
+        List<OrderSummary> output = new ArrayList<>();
+        List<OrderSummary> orderSummaryList = getAllOrderSummaries();
+        for(OrderSummary orderSummary: orderSummaryList){
+            SeatingTable seatingTable = orderSummary.getSeatingTable();
+            Restaurant restaurant = seatingTable.getRestaurant();
+
+            if(restaurantId.equals(restaurant.getRestaurantId())){
+                output.add(orderSummary);
+            }
+        }
+        return output;
+    }
+
     @GetMapping("/orderSummary/new/customer/{customerId}/seatingTable/{qrCode}")
     @JsonView(View.OrderSummaryView.class)
     public OrderSummary getNewOrderSummary(@PathVariable String customerId,

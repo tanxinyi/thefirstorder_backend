@@ -5,15 +5,36 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="23" author="keithxinyi">
+    <changeSet id="20" author="keithxinyi">
         <insert tableName="customer_order">
-            <column name="menu_id" value="CUSO001"/>
+            <column name="customer_order_id" value="CUSO001"/>
             <column name="menu_id" value="M001"/>
             <column name="food_id" value="F001"/>
-            <column name="food_category_id" value="O001"/>
+            <column name="food_category_id" value="FC001"/>
             <column name="order_id" value="O001"/>
-            <column name="customisation_option_id" value="2"/>
-            <column name="customer_order_quantity" value="2"/>
+            <column name="customer_order_quantity" valueNumeric="2"/>
+			<column name="customer_order_price" valueNumeric="4"/>
+			<column name="customer_order_remarks" value="additional set of chopsticks"/>
+        </insert>
+		<insert tableName="customer_order">
+            <column name="customer_order_id" value="CUSO002"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F001"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="order_id" value="O001"/>
+            <column name="customer_order_quantity" valueNumeric="1"/>
+			<column name="customer_order_price" valueNumeric="2.0"/>
+			<column name="customer_order_remarks" value=""/>
+        </insert>
+		<insert tableName="customer_order">
+            <column name="customer_order_id" value="CUSO003"/>
+            <column name="menu_id" value="M001"/>
+            <column name="food_id" value="F001"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="order_id" value="O002"/>
+            <column name="customer_order_quantity" valueNumeric="2"/>
+			<column name="customer_order_price" valueNumeric="4"/>
+			<column name="customer_order_remarks" value="Extra crispy"/>
         </insert>
     </changeSet>
 

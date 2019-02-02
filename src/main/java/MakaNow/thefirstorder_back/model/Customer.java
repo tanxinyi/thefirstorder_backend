@@ -33,8 +33,8 @@ public class Customer {
     @JsonView(View.CustomerView.class)
     private List<OrderSummary> orderSummaries;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "customer")
-    @JsonView(View.CustomerView.class)
-    private List<RewardsHistory> rewardsHistoryList;
+//    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "customer")
+//    @JsonView(View.CustomerView.class)
+//    private List<RewardsHistory> rewardsHistoryList;
 }
 

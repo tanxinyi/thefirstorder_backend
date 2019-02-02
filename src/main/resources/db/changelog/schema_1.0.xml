@@ -6,7 +6,26 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="1" author="xinyi">
-        <createTable tableName="customer"
+        <createTable tableName="admin"
+                     remarks="A table to contain all admin details">
+            <column name="admin_id" type="varchar(100)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="admin_password" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="convert_to_points" type="int(10)">
+                <constraints nullable="false"/>
+            </column>
+			<column name="convert_from_points" type="int(10)">
+                <constraints nullable="false"/>
+            </column>
+			<column name="stripe_token" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+		
+		<createTable tableName="customer"
                      remarks="A table to contain all customer details">
             <column name="email" type="varchar(100)">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
@@ -17,7 +36,7 @@
             <column name="last_name" type="varchar(45)">
                 <constraints nullable="false" />
             </column>
-            <column name="customer_password" type="varchar(50)">
+            <column name="customer_password" type="varchar(64)">
                 <constraints nullable="false"/>
             </column>
             <column name="customer_contact_number" type="varchar(45)">
@@ -28,37 +47,13 @@
             </column>
         </createTable>
 
-        <!--<createTable tableName="credit_card"
-                     remarks="A table to contain all credit card details">
-            <column name="card_number" type="varchar(16)">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
-            </column>
-            <column name="customer_id" type="varchar(10)">
-                <constraints nullable="false" />
-            </column>
-            <column name="card_type" type="varchar(10)">
-                <constraints nullable="false" />
-            </column>
-            <column name="cardholder_name" type="varchar(45)">
-                <constraints nullable="false" />
-            </column>
-            <column name="cvs" type="int(3)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="expiry_date" type="date">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addForeignKeyConstraint baseTableName="credit_card" baseColumnNames="customer_id"
-                                    constraintName="credit_card_customer_id_fk"
-                                    referencedTableName="customer" referencedColumnNames="customer_id"/>
-                                    -->
-
         <createTable tableName="restaurant"
                      remarks="A table to contain all restaurants">
             <column name="restaurant_id" type="varchar(10)">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+			<column name="admin_id" type="varchar(10)">
+                <constraints nullable="false" />
             </column>
             <column name="restaurant_name" type="varchar(45)">
                 <constraints nullable="false"/>
@@ -82,6 +77,10 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+		
+		<addForeignKeyConstraint baseTableName="restaurant" baseColumnNames="admin_id"
+                                 constraintName="restaurant_admin_id_fk"
+                                 referencedTableName="admin" referencedColumnNames="admin_id"/>
 
         <createTable tableName="menu"
                      remarks="A table to contain all menus">
@@ -186,58 +185,6 @@
         <addForeignKeyConstraint baseTableName="activity_log" baseColumnNames="restaurant_id"
                                  constraintName="activity_log_restaurant_id_fk"
                                  referencedTableName="restaurant" referencedColumnNames="restaurant_id"/>
-
-        <createTable tableName="rewards"
-                     remarks="A table to contain all customer's redemption history">
-            <column name="rewards_id" type="varchar(10)">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
-            </column>
-            <column name="restaurant_id" type="varchar(10)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="start_datetime" type="datetime">
-                <constraints nullable="false"/>
-            </column>
-            <column name="end_datetime" type="datetime">
-                <constraints nullable="false"/>
-            </column>
-            <column name="allocated_points" type="int(10)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="rewards_description" type="varchar(500)">
-            </column>
-        </createTable>
-
-        <addForeignKeyConstraint baseTableName="rewards" baseColumnNames="restaurant_id"
-                                 constraintName="rewards_restaurant_id_fk"
-                                 referencedTableName="restaurant" referencedColumnNames="restaurant_id"/>
-
-        <createTable tableName="rewards_history"
-                     remarks="A table to contain all customer's redemption history">
-            <column name="rewards_history_id" type="varchar(10)">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
-            </column>
-            <column name="email" type="varchar(100)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="rewards_id" type="varchar(10)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="current_loyalty_points" type="int(10)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="redeem_rewards_date" type="datetime">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addForeignKeyConstraint baseTableName="rewards_history" baseColumnNames="email"
-                                 constraintName="rewards_history_email_fk"
-                                 referencedTableName="customer" referencedColumnNames="email"/>
-
-        <addForeignKeyConstraint baseTableName="rewards_history" baseColumnNames="rewards_id"
-                                 constraintName="rewards_history_rewards_id_fk"
-                                 referencedTableName="rewards" referencedColumnNames="rewards_id"/>
 
         <createTable tableName="food"
                      remarks="A table to contain all food items">
@@ -353,51 +300,6 @@
                                  constraintName="food_price_sub_category_id_fk"
                                  referencedTableName="sub_category" referencedColumnNames="sub_category_id"/>
 
-       <!-- <createTable tableName="set_meal"
-                     remarks="A table to contain all set meals">
-            <column name="set_meal_id" type="varchar(10)">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
-            </column>
-            <column name="set_meal_price" type="double">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <createTable tableName="set_meal_option"
-                     remarks="A table to contain all set meal options(food item)">
-            <column name="set_meal_id" type="varchar(10)">
-                <constraints nullable="false" unique="true"/>
-            </column>
-            <column name="menu_id" type="varchar(10)">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="food_id" type="varchar(10)">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="food_category_id" type="varchar(10)">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="set_meal_category" type="varchar(45)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-
-        <addForeignKeyConstraint baseTableName="set_meal_option" baseColumnNames="set_meal_id"
-                                 constraintName="set_meal_option_set_meal_id_fk"
-                                 referencedTableName="set_meal" referencedColumnNames="set_meal_id"/>
-
-        <addForeignKeyConstraint baseTableName="set_meal_option" baseColumnNames="menu_id"
-                                 constraintName="set_meal_option_menu_id_fk"
-                                 referencedTableName="menu" referencedColumnNames="menu_id"/>
-
-        <addForeignKeyConstraint baseTableName="set_meal_option" baseColumnNames="food_id"
-                                 constraintName="set_meal_option_food_id_fk"
-                                 referencedTableName="food" referencedColumnNames="food_id"/>
-
-        <addForeignKeyConstraint baseTableName="set_meal_option" baseColumnNames="food_category_id"
-                                 constraintName="set_meal_option_food_category_id_fk"
-                                 referencedTableName="food_category" referencedColumnNames="food_category_id"/>-->
-
         <createTable tableName="customisation"
                      remarks="A table to contain all customisations">
             <column name="customisation_id" type="varchar(10)">
@@ -493,6 +395,9 @@
             <column name="subtotal" type="double">
                 <constraints nullable="false" />
             </column>
+			<column name="order_status" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
 
         <addForeignKeyConstraint baseTableName="orders" baseColumnNames="order_summary_id"
@@ -566,3 +471,82 @@
 
     </changeSet>
 </databaseChangeLog>
+
+        <!--<createTable tableName="credit_card"
+                     remarks="A table to contain all credit card details">
+            <column name="card_number" type="varchar(16)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="customer_id" type="varchar(10)">
+                <constraints nullable="false" />
+            </column>
+            <column name="card_type" type="varchar(10)">
+                <constraints nullable="false" />
+            </column>
+            <column name="cardholder_name" type="varchar(45)">
+                <constraints nullable="false" />
+            </column>
+            <column name="cvs" type="int(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expiry_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="credit_card" baseColumnNames="customer_id"
+                                    constraintName="credit_card_customer_id_fk"
+                                    referencedTableName="customer" referencedColumnNames="customer_id"/>
+									
+		<createTable tableName="rewards"
+                     remarks="A table to contain all customer's redemption history">
+            <column name="rewards_id" type="varchar(10)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="restaurant_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="start_datetime" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_datetime" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+            <column name="allocated_points" type="int(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rewards_description" type="varchar(500)">
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="rewards" baseColumnNames="restaurant_id"
+                                 constraintName="rewards_restaurant_id_fk"
+                                 referencedTableName="restaurant" referencedColumnNames="restaurant_id"/>
+
+        <createTable tableName="rewards_history"
+                     remarks="A table to contain all customer's redemption history">
+            <column name="rewards_history_id" type="varchar(10)">
+                <constraints nullable="false" unique="true" primaryKey="true"/>
+            </column>
+            <column name="email" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rewards_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="current_loyalty_points" type="int(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="redeem_rewards_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="rewards_history" baseColumnNames="email"
+                                 constraintName="rewards_history_email_fk"
+                                 referencedTableName="customer" referencedColumnNames="email"/>
+
+        <addForeignKeyConstraint baseTableName="rewards_history" baseColumnNames="rewards_id"
+                                 constraintName="rewards_history_rewards_id_fk"
+                                 referencedTableName="rewards" referencedColumnNames="rewards_id"/>
+                                    -->

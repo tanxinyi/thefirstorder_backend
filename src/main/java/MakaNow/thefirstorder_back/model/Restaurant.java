@@ -17,6 +17,10 @@ public class Restaurant {
     private String restaurantId;
 
     @JsonView(View.MainView.class)
+    @Column(name="admin_id")
+    private String adminId;
+
+    @JsonView(View.MainView.class)
     private String restaurantName;
 
     @JsonView(View.MainView.class)
@@ -53,7 +57,12 @@ public class Restaurant {
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL},mappedBy = "restaurant")
     private List<ActivityLog> activityLogs;
 
-    @JsonView(View.RestaurantView.class)
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "restaurant")
-    private List<Rewards> rewardsList;
+    @JsonView(View.AdminView.class)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "admin_id", insertable = false, updatable = false)
+    private Admin admin;
+
+//    @JsonView(View.RestaurantView.class)
+//    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "restaurant")
+//    private List<Rewards> rewardsList;
 }

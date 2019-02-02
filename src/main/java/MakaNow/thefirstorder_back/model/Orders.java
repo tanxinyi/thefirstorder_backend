@@ -9,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Table(name="orders")
 public class Orders {
     @Id
     @JsonView(View.MainView.class)
@@ -21,6 +22,9 @@ public class Orders {
     @JsonView(View.MainView.class)
     private double subtotal;
 
+    @JsonView(View.MainView.class)
+    private String orderStatus;
+
     @ManyToOne
     @JoinColumn(name="order_summary_id", insertable = false, updatable = false)
     @JsonView(View.OrdersView.class)
@@ -30,11 +34,12 @@ public class Orders {
     @JsonView(View.OrdersView.class)
     private List<CustomerOrder> customerOrders;
 
-    public Orders(String orderId, OrderSummary orderSummary, double subtotal){
+    public Orders(String orderId, OrderSummary orderSummary, double subtotal, String orderStatus){
         this.orderId = orderId;
         this.orderSummary = orderSummary;
         this.orderSummaryId = orderSummary.getOrderSummaryId();
         this.subtotal = subtotal;
+        this.orderStatus = orderStatus;
     }
 }
 

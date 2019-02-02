@@ -5,14 +5,18 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-    <changeSet id="24" author="keithxinyi">
+    <changeSet id="21" author="keithxinyi">
         <insert tableName="customisation_selected">
-            <column name="menu_id" value="CUSO001"/>
-            <column name="food_id" value="F001"/>
-            <column name="food_category_id" value="O001"/>
-            <column name="order_id" value="O001"/>
-            <column name="customisation_option_id" value="2"/>
-            <column name="customer_order_quantity" value="2"/>
+            <column name="customisation_option_id" value="CO001"/>
+            <column name="customer_order_id" value="CUSO001"/>
+        </insert>
+		<insert tableName="customisation_selected">
+            <column name="customisation_option_id" value="CO002"/>
+            <column name="customer_order_id" value="CUSO001"/>
+        </insert>
+		<insert tableName="customisation_selected">
+            <column name="customisation_option_id" value="CO003"/>
+            <column name="customer_order_id" value="CUSO002"/>
         </insert>
     </changeSet>
 

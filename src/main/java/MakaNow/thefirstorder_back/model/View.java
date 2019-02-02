@@ -27,6 +27,8 @@ public class View {
     public static class ManagerView extends MainView {}
     public static class ManagerAllocationView extends MainView {}
 
-    public static class RewardsView extends MainView {}
-    public static class RewardsHistoryView extends MainView {}
+    public static class AdminView extends MainView {}
+
+//    public static class RewardsView extends MainView {}
+//    public static class RewardsHistoryView extends MainView {}
 }

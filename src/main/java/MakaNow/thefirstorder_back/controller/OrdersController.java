@@ -1,10 +1,7 @@
 package MakaNow.thefirstorder_back.controller;
 
 
-import MakaNow.thefirstorder_back.model.OrderSummary;
-import MakaNow.thefirstorder_back.model.Orders;
-import MakaNow.thefirstorder_back.model.SeatingTable;
-import MakaNow.thefirstorder_back.model.View;
+import MakaNow.thefirstorder_back.model.*;
 import MakaNow.thefirstorder_back.repository.OrdersRepository;
 import MakaNow.thefirstorder_back.repository.SeatingTableRepository;
 import MakaNow.thefirstorder_back.service.OrdersService;
@@ -16,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -38,6 +37,9 @@ public class OrdersController {
 
     @Autowired
     private OrderSummaryController orderSummaryController;
+
+    @Autowired
+    private RestaurantController restaurantController;
 
     @GetMapping("/orders")
     @JsonView(View.OrdersView.class)
@@ -72,7 +74,7 @@ public class OrdersController {
     @GetMapping("/orders/new/orderSummary/{orderSummaryId}")
     @JsonView(View.OrdersView.class)
     public Orders getNewOrders(@PathVariable String orderSummaryId) throws NotFoundException{
-        logger.info("OrderSumaryId:" + orderSummaryId);
+        logger.info("OrderSummaryId:" + orderSummaryId);
         String latestOID = getLatestOID();
         String newCount = "" + (Integer.parseInt(latestOID.substring(PREFIX.length())) + 1);
         latestOID = PREFIX;
@@ -81,8 +83,27 @@ public class OrdersController {
         }
         latestOID += newCount;
         OrderSummary orderSummary = orderSummaryController.getOrderSummaryById(orderSummaryId);
-        Orders order = new Orders(latestOID, orderSummary, 0.0);
+        Orders order = new Orders(latestOID, orderSummary, 0.0, "PENDING");
         return ordersRepository.save(order);
+    }
+
+    @GetMapping("/orders/restaurant/{restaurantId}/retrieve_new_orders/")
+    @JsonView(View.OrdersView.class)
+    public List<Orders> retrieveNewOrders(@PathVariable String restaurantId) throws NotFoundException{
+        logger.info("Retrieving unsent orders by restaurant: " + restaurantId);
+        List<Orders> orders = (List) ordersRepository.findAll();
+        List<Orders> output = new ArrayList<>();
+        for(Orders order: orders){
+            if(order.getOrderStatus().equals("PENDING") && order.getCustomerOrders() != null) {
+                Restaurant restaurant = order.getOrderSummary().getSeatingTable().getRestaurant();
+                if(restaurant.getRestaurantId().equals(restaurantId)){
+                    order.setOrderStatus("SENT");
+                    output.add(order);
+                }
+            }
+        }
+
+        return (List) ordersRepository.saveAll((Iterable<Orders>)output);
     }
 }
 

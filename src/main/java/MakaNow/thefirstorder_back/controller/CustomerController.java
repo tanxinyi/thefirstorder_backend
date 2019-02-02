@@ -104,6 +104,15 @@ public class CustomerController {
         return customerRepository.save(customer);
     }
 
+    @PostMapping("/customers/{customerId}/updatePoint/{points}")
+    @JsonView(View.CustomerView.class)
+    public Customer updateLoyaltyPoint(@PathVariable String customerId,
+                                       @PathVariable int points) throws NotFoundException {
+        Customer customer = getCustomerById(customerId);
+        customer.setLoyaltyPoint(points);
+        return customerRepository.save(customer);
+    }
+
     private boolean isValidPassword(String password){
         Pattern p = Pattern.compile("\\w{8,}");
         Matcher m = p.matcher(password);
