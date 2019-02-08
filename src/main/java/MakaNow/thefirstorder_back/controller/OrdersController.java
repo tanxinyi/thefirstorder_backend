@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
 public class OrdersController {
@@ -103,6 +104,23 @@ public class OrdersController {
             }
         }
 
+        return (List) ordersRepository.saveAll((Iterable<Orders>)output);
+    }
+
+    @GetMapping("/orders/restaurant/{restaurantId}/retrieve_sent_orders/")
+    @JsonView(View.OrdersView.class)
+    public List<Orders> retrieveSentOrders(@PathVariable String restaurantId) throws NotFoundException{
+        logger.info("Retrieving sent orders by restaurant: " + restaurantId);
+        List<Orders> orders = (List) ordersRepository.findAll();
+        List<Orders> output = new ArrayList<>();
+        for(Orders order: orders){
+            if(order.getOrderStatus().equals("SENT") && order.getCustomerOrders() != null) {
+                Restaurant restaurant = order.getOrderSummary().getSeatingTable().getRestaurant();
+                if(restaurant.getRestaurantId().equals(restaurantId)){
+                    output.add(order);
+                }
+            }
+        }
         return (List) ordersRepository.saveAll((Iterable<Orders>)output);
     }
 }

@@ -4,6 +4,7 @@ import MakaNow.thefirstorder_back.model.*;
 import MakaNow.thefirstorder_back.repository.*;
 import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
+import lombok.Data;
 import org.omg.CosNaming.NamingContextPackage.NotFound;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.*;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
 public class CustomerOrderController {
@@ -31,6 +33,12 @@ public class CustomerOrderController {
 
     @Autowired
     private CustomerOrderRepository customerOrderRepository;
+
+    @Autowired
+    private CustomisationRepository customisationRepository;
+
+    @Autowired
+    private FoodRepository foodRepository;
 
     @Autowired
     private CustomisationOptionController customisationOptionController;
@@ -146,4 +154,42 @@ public class CustomerOrderController {
         }
         return output;
     }
+
+    @GetMapping("/customerOrder/getCustomerOrderByOrderId/{orderId}")
+    public List<SpecificFoodOrdered> getCustomerOrderByOrderId(@PathVariable String orderId) {
+        List<CustomerOrder> customerOrders = (List) customerOrderRepository.findAll();
+        List<SpecificFoodOrdered> toReturn = new ArrayList<>();
+        for(int i = 0; i < customerOrders.size(); i++){
+            CustomerOrder customerOrder = customerOrders.get(i);
+            if(customerOrder.getOrderId().equals(orderId)){
+                SpecificFoodOrdered specificFoodOrdered = new SpecificFoodOrdered();
+                specificFoodOrdered.setFoodName(foodRepository.findById(customerOrder.getMenuFoodCatId().getFoodId()).get().getFoodName());
+                specificFoodOrdered.setCustomerOrderQuantity(customerOrder.getCustomerOrderQuantity());
+                specificFoodOrdered.setCustomerOrderPrice(customerOrder.getCustomerOrderPrice());
+                specificFoodOrdered.setRemarks(customerOrder.getCustomerOrderRemarks());
+
+                List<CustomisationOption> customisationOptions = customerOrder.getCustomisationOptions();
+                List<String> customisationDecriptions = new ArrayList<>();
+                for(int k = 0; k < customisationOptions.size(); k++){
+                    CustomisationOption customisationOption = customisationOptions.get(k);
+                    String customisationName = customisationRepository.findById(customisationOption.getCustomisationId()).get().getCustomisationName();
+                    String customisationOptionName = customisationOption.getOptionDescription();
+                    String customisationDescription = customisationName + ": " + customisationOptionName;
+                    customisationDecriptions.add(customisationDescription);
+                }
+                specificFoodOrdered.setCustomisations(customisationDecriptions);
+                toReturn.add(specificFoodOrdered);
+            }
+        }
+        return toReturn;
+    }
+}
+
+@Data
+class SpecificFoodOrdered{
+    private String foodName;
+    private int customerOrderQuantity;
+    private double customerOrderPrice;
+    private String remarks;
+    private List<String> customisations;
 }

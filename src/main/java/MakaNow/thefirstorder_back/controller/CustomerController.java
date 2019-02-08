@@ -28,16 +28,19 @@ public class CustomerController {
 
     @GetMapping("/customers")
     @JsonView(View.CustomerView.class)
-    public List<Customer> getAllCustomers(){
+    public List<Customer> getAllCustomers() {
         return (List<Customer>) customerRepository.findAll();
     }
 
-    @GetMapping("/customers/{email}")
+    @GetMapping("/customer")
     @JsonView(View.CustomerView.class)
-    public Customer getCustomerById(@PathVariable String email) throws NotFoundException{
+    public Customer getCustomerById(
+            @RequestParam String email) throws NotFoundException {
+
         logger.info("Getting Customer by ID: " + email);
         Optional<Customer> customerOptional = customerRepository.findById(email);
-        if (customerOptional.isPresent()){
+
+        if (customerOptional.isPresent()) {
             Customer customer = customerOptional.get();
             return customer;
         }
@@ -46,16 +49,16 @@ public class CustomerController {
 
     @GetMapping("/authenticate")
     @JsonView(View.CustomerView.class)
-    public Customer authenticate (@RequestParam String email,
-                                  @RequestParam String password) throws NotFoundException {
+    public Customer authenticate(
+            @RequestParam String email,
+            @RequestParam String password) throws NotFoundException {
+
 
         if (isValidEmailAddress(email) && isValidPassword(password)) {
-            //System.out.println("Not valid email");
-
             Optional<Customer> customerOptional = customerRepository.findById(email);
             if (customerOptional.isPresent()) {
                 Customer customer = customerOptional.get();
-                if (customer.getCustomerPassword().equals(password)) {
+                if (customer.getCustomerPassword().equalsIgnoreCase(password)) {
                     return customer;
                 }
             }
@@ -66,31 +69,36 @@ public class CustomerController {
 
     @PostMapping("/customers/add")
     @JsonView(View.CustomerView.class)
-    public Customer addNewCustomer(@RequestParam String email,
-                                  @RequestParam String firstName,
-                                  @RequestParam String lastName,
-                                  @RequestParam String password,
-                                  @RequestParam (required=false) Date dob,
-                                  @RequestParam (defaultValue="X") char gender,
-                                  @RequestParam (required=false) String phoneNum,
-                                  @RequestParam (defaultValue="0") int loyaltyPoints) throws Exception {
+    public Customer addNewCustomer(
+            @RequestParam String email,
+            @RequestParam String firstName,
+            @RequestParam String lastName,
+            @RequestParam String password,
+            @RequestParam(required = false) Date dob,
+            @RequestParam(defaultValue = "X") char gender,
+            @RequestParam(required = false) String phoneNum,
+            @RequestParam(defaultValue = "0") int loyaltyPoints) throws Exception {
+
 
         if (!isValidEmailAddress(email)) {
             throw new Exception("Email not valid.");
         }
-        if(!isValidPassword(password)){
+        if (!isValidPassword(password)) {
             throw new Exception("Password not valid.");
         }
 
-        if(!isValidName(firstName) || !isValidName(lastName)){
+        if (!isValidName(firstName) || !isValidName(lastName)) {
             throw new Exception("First/Last name not valid.");
+        }
+
+        if (!isValidPhoneNum(phoneNum)) {
+            throw new Exception("Phone number not valid.");
         }
 
         Optional<Customer> customerOptional = customerRepository.findById(email);
         if (customerOptional.isPresent()) {
             throw new Exception("Email is in use.");
         }
-
         Customer customer = new Customer();
 
         customer.setEmail(email);
@@ -101,8 +109,47 @@ public class CustomerController {
 //        customer.setGender(gender);
         customer.setCustomerContactNumber(phoneNum);
         customer.setLoyaltyPoint(loyaltyPoints);
+
+
+        System.out.println(customer);
+
         return customerRepository.save(customer);
     }
+
+    @PostMapping("/customer/edit")
+    @JsonView(View.CustomerView.class)
+    public Customer editProfile(
+            @RequestParam String email,
+            @RequestParam String firstName,
+            @RequestParam String lastName,
+            @RequestParam(required = false) String phoneNum) throws Exception {
+
+
+        if (!isValidEmailAddress(email)) {
+            throw new Exception("Email not valid.");
+        }
+
+        Customer customer = getCustomerById(email);
+
+        if (!isValidName(firstName) || !isValidName(lastName)) {
+            throw new Exception("First/Last name not valid.");
+        }
+        if (!isValidPhoneNum(phoneNum)) {
+            throw new Exception("Phone number not valid.");
+        }
+
+
+
+        System.out.println("Before: " + customer.getFirstName());
+//        Make changes to existing record
+        customer.setFirstName(firstName);
+        customer.setLastName(lastName);
+        customer.setCustomerContactNumber(phoneNum);
+
+        System.out.println("After: " + customer.getFirstName());
+        return customerRepository.save(customer);
+    }
+
 
     @PostMapping("/customers/{customerId}/updatePoint/{points}")
     @JsonView(View.CustomerView.class)
@@ -113,10 +160,10 @@ public class CustomerController {
         return customerRepository.save(customer);
     }
 
-    private boolean isValidPassword(String password){
-        Pattern p = Pattern.compile("\\w{8,}");
+    private boolean isValidPassword(String password) {
+        Pattern p = Pattern.compile("\\w{64}");
         Matcher m = p.matcher(password);
-        if (m.matches()){
+        if (m.matches()) {
             return true;
         }
         return false;
@@ -133,10 +180,19 @@ public class CustomerController {
         return result;
     }
 
-    private boolean isValidName (String name) {
+    private boolean isValidName(String name) {
         Pattern p = Pattern.compile("\\D+");
         Matcher m = p.matcher(name);
-        if (m.matches()){
+        if (m.matches()) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isValidPhoneNum(String number) {
+        Pattern p = Pattern.compile("\\d{8}");
+        Matcher m = p.matcher(number);
+        if (m.matches()) {
             return true;
         }
         return false;
