@@ -29,10 +29,14 @@
 
     <include file="changelog/data/customisationData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/customisationOptionData_1.0.xml" relativeToChangelogFile="true"/>
-  
+
+<!--    
 	<include file="changelog/data/orderSummaryData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/orderData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/customerOrderData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/customisationSelected_1.0.xml" relativeToChangelogFile="true"/>
+	<include file="changelog/data/rewardsData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/rewardsHistoryData_1.0.xml" relativeToChangelogFile="true"/>
+-->
 
 </databaseChangeLog>

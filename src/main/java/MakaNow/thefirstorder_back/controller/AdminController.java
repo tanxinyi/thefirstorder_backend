@@ -8,6 +8,8 @@ import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -31,6 +33,31 @@ public class AdminController {
         return (List<Admin>) adminRepository.findAll();
     }
 
+    @GetMapping("/admins/{adminId}")
+    @JsonView(View.AdminView.class)
+    public Admin getAdminById(@PathVariable String adminId) throws NotFoundException {
+        logger.info("Getting admin by Id: " + adminId);
+        Optional<Admin> admin = adminRepository.findById(adminId);
+        if(admin.isPresent()){
+            return admin.get();
+        }
+        throw new NotFoundException("Admin Id " + adminId + " does not exist");
+    }
+
+    @PostMapping("/admin/updateConversionRates/{adminId}/{pointsToCash}/{cashToPoints}")
+    public ResponseEntity<?> updateConversionRates(@PathVariable String adminId, @PathVariable String pointsToCash, @PathVariable String cashToPoints) {
+
+        Optional<Admin> optionalAdmin = adminRepository.findById(adminId);
+        Admin admin = optionalAdmin.get();
+
+        admin.setPointsToMoneyConversionRate(Integer.parseInt(pointsToCash));
+        admin.setMoneyToPointsConversionRate(Integer.parseInt(cashToPoints));
+
+        adminRepository.save(admin);
+
+        return new ResponseEntity("Conversion rates updated successfully", HttpStatus.OK);
+    }
+
     @GetMapping("/admins/{adminId}/conversion_rates")
     public List<Integer> getPointsConversion(@PathVariable String adminId) throws NotFoundException {
         logger.info("Getting Conversion Rates for Admin " + adminId);
@@ -43,5 +70,6 @@ public class AdminController {
         }
         throw new NotFoundException("Admin Id " + adminId + " does not exist!");
     }
+
 }
 

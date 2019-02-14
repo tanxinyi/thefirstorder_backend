@@ -29,10 +29,10 @@ public class Admin {
 
     @JsonView(View.MainView.class)
     @Column(name="stripe_token")
-    private String stripe_token;
+    private String stripeToken;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "admin")
-    @JsonView(View.RestaurantView.class)
+    @JsonView(View.AdminView.class)
     private List<Restaurant> restaurants;
 }
 

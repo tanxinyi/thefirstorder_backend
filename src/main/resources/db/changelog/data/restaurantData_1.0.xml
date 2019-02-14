@@ -12,10 +12,13 @@
             <column name="restaurant_name" value="Ajisen Ramen"/>
             <column name="restaurant_description" value="Authentic Japanese food"/>
             <column name="restaurant_contact_number" value="12345678"/>
+			<column name="restaurant_opening_hours" value="10am - 10pm"/>
+			<column name="building" value="Bugis Junction"/>
             <column name="street" value="200 Victoria St, #01-01"/>
             <column name="postal_code" value="188021"/>
             <column name="cuisine" value="Asian"/>
             <column name="restaurant_price_range" value="Medium"/>
+			<column name="restaurant_img_path" value=""/>
         </insert>
         <insert tableName="restaurant">
             <column name="restaurant_id" value="R002"/>
@@ -23,10 +26,13 @@
             <column name="restaurant_name" value="NamNam Noodle Bar"/>
             <column name="restaurant_description" value="Authentic Vietnamese food"/>
             <column name="restaurant_contact_number" value="87654321"/>
+			<column name="restaurant_opening_hours" value="10am - 9pm"/>
+			<column name="building" value="Raffles City Shopping Centre"/>
             <column name="street" value="252 North Bridge Road, #B1-46/47"/>
             <column name="postal_code" value="201021"/>
             <column name="cuisine" value="Asian"/>
             <column name="restaurant_price_range" value="Medium"/>
+			<column name="restaurant_img_path" value=""/>
         </insert>
         <insert tableName="restaurant">
             <column name="restaurant_id" value="R003"/>
@@ -34,10 +40,13 @@
             <column name="restaurant_name" value="Nakhon Kitchen"/>
             <column name="restaurant_description" value="Authentic Thai food"/>
             <column name="restaurant_contact_number" value="62868785"/>
+			<column name="restaurant_opening_hours" value="11am - 10pm"/>
+			<column name="building" value="Residential Area"/>
             <column name="street" value="212 Hougang Street 21, #01-341"/>
             <column name="postal_code" value="727272"/>
             <column name="cuisine" value="Asian"/>
             <column name="restaurant_price_range" value="Low"/>
+			<column name="restaurant_img_path" value=""/>
         </insert>
     </changeSet>
 

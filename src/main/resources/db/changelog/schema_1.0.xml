@@ -36,7 +36,7 @@
             <column name="last_name" type="varchar(45)">
                 <constraints nullable="false" />
             </column>
-            <column name="customer_password" type="varchar(64)">
+            <column name="customer_password" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="customer_contact_number" type="varchar(45)">
@@ -64,6 +64,12 @@
             <column name="restaurant_contact_number" type="varchar(45)">
                 <constraints nullable="false"/>
             </column>
+			<column name="restaurant_opening_hours" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+			<column name="building" type="varchar(500)">
+                <constraints nullable="false"/>
+            </column>
             <column name="street" type="varchar(500)">
                 <constraints nullable="false"/>
             </column>
@@ -74,6 +80,9 @@
                 <constraints nullable="false"/>
             </column>
             <column name="restaurant_price_range" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+			<column name="restaurant_img_path" type="BLOB">
                 <constraints nullable="false"/>
             </column>
         </createTable>
