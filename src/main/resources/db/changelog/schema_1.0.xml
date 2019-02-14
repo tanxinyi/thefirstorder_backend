@@ -36,7 +36,7 @@
             <column name="last_name" type="varchar(45)">
                 <constraints nullable="false" />
             </column>
-            <column name="customer_password" type="varchar(50)">
+            <column name="customer_password" type="varchar(64)">
                 <constraints nullable="false"/>
             </column>
             <column name="customer_contact_number" type="varchar(45)">

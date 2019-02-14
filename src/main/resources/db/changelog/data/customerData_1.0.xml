@@ -10,7 +10,7 @@
             <column name="email" value="CUS001@makanow.com"/>
             <column name="first_name" value="Xinyi"/>
             <column name="last_name" value="Tan"/>
-            <column name="customer_password" value="ilovef0od"/>
+            <column name="customer_password" value="AF627E5D01004296BADD7C69D0F89ABB03259E255F832389EF6A67AA7A9F7618"/>
             <column name="customer_contact_number" value="91758191"/>
             <column name="loyalty_point" valueNumeric="1000"/>
         </insert>
@@ -18,7 +18,7 @@
             <column name="email" value="CUS002@makanow.com"/>
             <column name="first_name" value="Jessica"/>
             <column name="last_name" value="Yuen"/>
-            <column name="customer_password" value="foodloveme"/>
+            <column name="customer_password" value="317EA6F0A20C9BEAD133493E83BB68AD880870A45648EF1F99135DC4854D3A38"/>
             <column name="customer_contact_number" value="91758191"/>
             <column name="loyalty_point" valueNumeric="1000"/>
         </insert>
@@ -26,7 +26,7 @@
             <column name="email" value="CUS003@makanow.com"/>
             <column name="first_name" value="Amanda"/>
             <column name="last_name" value="Tan"/>
-            <column name="customer_password" value="Wealllovefoodluh"/>
+            <column name="customer_password" value="F9A1A2B7D28EA258D8ADEDAA5707C88306F78ABEA2506C62C6044090BD47AD1C"/>
             <column name="customer_contact_number" value="91758191"/>
             <column name="loyalty_point" valueNumeric="1000"/>
         </insert>
