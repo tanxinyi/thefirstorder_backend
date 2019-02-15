@@ -6,6 +6,7 @@ import MakaNow.thefirstorder_back.repository.RestaurantRepository;
 import ch.qos.logback.core.pattern.util.RestrictedEscapeUtil;
 import javassist.NotFoundException;
 import org.aspectj.weaver.ast.Not;
+import org.omg.CosNaming.NamingContextPackage.NotFound;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,7 +73,7 @@ public class RestaurantService {
         return ("R" + newRestaurantIdNumber);
     }
 
-    public List<Restaurant> getRestaurantsByArea(String area) throws NotFoundException {
+    public List<Restaurant> getRestaurantsByArea(String area){
         List<Restaurant> restaurants = (List<Restaurant>) restaurantRepository.findAll();
         List<Restaurant> output = new ArrayList<>();
 
@@ -99,7 +100,10 @@ public class RestaurantService {
                     && !POSTAL_EAST.contains(postal)) output.add(restaurant);
                     break;
                 default:
-                    throw new NotFoundException("Invalid area");
+                    boolean street = restaurant.getStreet().indexOf(area) != -1;
+                    boolean postalCode = restaurant.getPostalCode().indexOf(area) != -1;
+                    boolean building = restaurant.getBuilding().indexOf(area) != -1;
+                    if(street || postalCode || building) output.add(restaurant);
             }
         }
         return output;
@@ -109,7 +113,7 @@ public class RestaurantService {
         List<Restaurant> restaurants = (List<Restaurant>)restaurantRepository.findAll();
         List<Restaurant> output = new ArrayList<>();
         for(Restaurant restaurant: restaurants){
-            if(restaurant.getCuisine().equals(cuisine)){
+            if(restaurant.getCuisine().indexOf(cuisine) != -1){
                 output.add(restaurant);
             }
         }
@@ -149,5 +153,42 @@ public class RestaurantService {
         }
 
         return output;
+    }
+
+    public List<Restaurant> getRestaurantsByName(String name) throws NotFoundException {
+        List<Restaurant> restaurants = (List<Restaurant>) restaurantRepository.findAll();
+        List<Restaurant> output = new ArrayList<>();
+
+        for(Restaurant restaurant: restaurants){
+            if(restaurant.getRestaurantName().indexOf(name) != -1){
+                output.add(restaurant);
+            }
+        }
+        if(output.size() > 0) return output;
+        throw new NotFoundException("No restaurant of name " + name + " is found.");
+    }
+
+    public List<Restaurant> queryRestaurant(String query) throws NotFoundException {
+        List<Restaurant> restaurants = (List<Restaurant>) restaurantRepository.findAll();
+        List<Restaurant> output = new ArrayList<>();
+        query = query.toLowerCase();
+
+        for(Restaurant restaurant: restaurants){
+            boolean description = restaurant.getRestaurantDescription().toLowerCase().indexOf(query) != -1;
+            boolean name = restaurant.getRestaurantName().toLowerCase().indexOf(query) != -1;
+            boolean area =  restaurant.getStreet().toLowerCase().indexOf(query) != -1 || restaurant.getPostalCode().toLowerCase().indexOf(query) != -1 || restaurant.getBuilding().toLowerCase().indexOf(query) != -1;
+            boolean cuisine = restaurant.getCuisine().toLowerCase().indexOf(query) != -1;
+
+            if(description || name || area || cuisine){
+                logger.info("Restaurant: " + restaurant.getRestaurantName());
+                logger.info("description: " + description);
+                logger.info("name: " + name);
+                logger.info("area: " + area);
+                logger.info("cuisine: " + cuisine);
+                output.add(restaurant);
+            }
+        }
+        if(output.size() > 0) return output;
+        throw new NotFoundException("No restaurants match found");
     }
 }
