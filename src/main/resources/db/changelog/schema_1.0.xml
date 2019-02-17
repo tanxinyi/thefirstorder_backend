@@ -64,7 +64,7 @@
             <column name="restaurant_contact_number" type="varchar(45)">
                 <constraints nullable="false"/>
             </column>
-			<column name="restaurant_opening_hours" type="varchar(45)">
+			<column name="restaurant_opening_hours" type="varchar(500)">
                 <constraints nullable="false"/>
             </column>
 			<column name="building" type="varchar(500)">
