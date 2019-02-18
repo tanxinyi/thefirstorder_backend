@@ -1,9 +1,12 @@
 package MakaNow.thefirstorder_back.controller;
 
 import MakaNow.thefirstorder_back.model.Restaurant;
+import MakaNow.thefirstorder_back.model.SeatingTable;
 import MakaNow.thefirstorder_back.model.View;
 import MakaNow.thefirstorder_back.repository.RestaurantRepository;
+import MakaNow.thefirstorder_back.repository.SeatingTableRepository;
 import MakaNow.thefirstorder_back.service.RestaurantService;
+import MakaNow.thefirstorder_back.service.SeatingTableService;
 import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
 import lombok.Data;
@@ -26,6 +29,12 @@ public class RestaurantController {
 
     @Autowired
     private RestaurantRepository restaurantRepository;
+
+    @Autowired
+    private SeatingTableRepository seatingTableRepository;
+
+    @Autowired
+    private SeatingTableService seatingTableService;
 
     @Autowired
     private RestaurantService restaurantService;
@@ -142,6 +151,15 @@ public class RestaurantController {
         newRestaurant.setRestaurantImgPath(restaurantImgByte);
 
         restaurantRepository.save(newRestaurant);
+
+        for(int j = 0; j < 3; j++){
+            String newTableId = seatingTableService.getNewTableId();
+            SeatingTable seatingTable = new SeatingTable();
+            seatingTable.setQrCode(newTableId);
+            seatingTable.setRestaurantId(restaurantId);
+            seatingTable.setTableCapacity(4);
+            seatingTableRepository.save(seatingTable);
+        }
 
         return new ResponseEntity("Restaurant added successfully", HttpStatus.OK);
     }

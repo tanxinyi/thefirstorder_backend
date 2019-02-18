@@ -38,7 +38,7 @@ public class CustomerController {
             @RequestParam String email) throws NotFoundException {
 
         logger.info("Getting Customer by ID: " + email);
-        Optional<Customer> customerOptional = customerRepository.findById(email);
+        Optional<Customer> customerOptional = customerRepository.findById(email.toUpperCase());
 
         if (customerOptional.isPresent()) {
             Customer customer = customerOptional.get();
@@ -54,7 +54,7 @@ public class CustomerController {
             @RequestParam String password) throws NotFoundException {
 
 
-        if (isValidEmailAddress(email) && isValidPassword(password)) {
+        if (isValidEmailAddress(email.toUpperCase()) && isValidPassword(password)) {
             Optional<Customer> customerOptional = customerRepository.findById(email);
             if (customerOptional.isPresent()) {
                 Customer customer = customerOptional.get();
@@ -80,7 +80,7 @@ public class CustomerController {
             @RequestParam(defaultValue = "0") int loyaltyPoints) throws Exception {
 
 
-        if (!isValidEmailAddress(email)) {
+        if (!isValidEmailAddress(email.toUpperCase())) {
             throw new Exception("Email not valid.");
         }
         if (!isValidPassword(password)) {
@@ -101,10 +101,10 @@ public class CustomerController {
         }
         Customer customer = new Customer();
 
-        customer.setEmail(email);
+        customer.setEmail(email.toUpperCase());
         customer.setFirstName(firstName);
         customer.setLastName(lastName);
-        customer.setCustomerPassword(password);
+        customer.setCustomerPassword(password.toUpperCase());
 //        customer.setDob(dob);
 //        customer.setGender(gender);
         customer.setCustomerContactNumber(phoneNum);
@@ -125,11 +125,11 @@ public class CustomerController {
             @RequestParam(required = false) String phoneNum) throws Exception {
 
 
-        if (!isValidEmailAddress(email)) {
+        if (!isValidEmailAddress(email.toUpperCase())) {
             throw new Exception("Email not valid.");
         }
 
-        Customer customer = getCustomerById(email);
+        Customer customer = getCustomerById(email.toUpperCase());
 
         if (!isValidName(firstName) || !isValidName(lastName)) {
             throw new Exception("First/Last name not valid.");

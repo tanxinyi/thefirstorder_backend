@@ -4,6 +4,7 @@ import MakaNow.thefirstorder_back.model.SeatingTable;
 import MakaNow.thefirstorder_back.model.View;
 import MakaNow.thefirstorder_back.repository.RestaurantRepository;
 import MakaNow.thefirstorder_back.repository.SeatingTableRepository;
+import MakaNow.thefirstorder_back.service.SeatingTableService;
 import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
 import org.slf4j.Logger;
@@ -22,6 +23,9 @@ public class SeatingTableController {
 
     @Autowired
     private SeatingTableRepository seatingTableRepository;
+
+    @Autowired
+    private SeatingTableService seatingTableService;
 
     @Autowired
     private RestaurantRepository restaurantRepository;
@@ -80,5 +84,10 @@ public class SeatingTableController {
                     seatingTableRepository.delete(seatingTable);
                     return "Delete Successfully.";
                 }).orElseThrow(()-> new NotFoundException("Delete Unsuccessful"));
+    }
+
+    @GetMapping("/seatingTables/newTableId")
+    public String getNewTableId(){
+        return seatingTableService.getNewTableId();
     }
 }
