@@ -8,7 +8,7 @@
     <changeSet id="15" author="keithxinyi">
 
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F001"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC003"/>
@@ -16,7 +16,7 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F002"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC004"/>
@@ -24,14 +24,14 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F007"/>
             <column name="food_category_id" value="FC003"/>
             <column name="food_price" valueNumeric="8.0"/>
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F008"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_id" value="SC002"/>
@@ -39,7 +39,7 @@
             <column name="availability" valueBoolean="false"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F009"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_id" value="SC001"/>
@@ -47,14 +47,14 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F010"/>
             <column name="food_category_id" value="FC003"/>
             <column name="food_price" valueNumeric="9.5"/>
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F017"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC006"/>
@@ -62,7 +62,7 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F018"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC006"/>
@@ -70,7 +70,7 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F019"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_id" value="SC006"/>
@@ -78,7 +78,7 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F020"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_id" value="SC001"/>
@@ -86,21 +86,21 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F021"/>
             <column name="food_category_id" value="FC003"/>
             <column name="food_price" valueNumeric="5.5"/>
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F022"/>
             <column name="food_category_id" value="FC003"/>
             <column name="food_price" valueNumeric="3.5"/>
             <column name="availability" valueBoolean="false"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F023"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC004"/>
@@ -108,7 +108,7 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F024"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC007"/>
@@ -116,7 +116,7 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F025"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC007"/>
@@ -124,7 +124,7 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F026"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC008"/>
@@ -132,7 +132,7 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F027"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC008"/>
@@ -140,7 +140,7 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F028"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC003"/>
@@ -148,7 +148,7 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M001"/>
+            <column name="menu_id" value="M004"/>
             <column name="food_id" value="F029"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC003"/>
@@ -239,7 +239,7 @@
         </insert>
 
         <insert tableName="food_price">
-            <column name="menu_id" value="M004"/>
+            <column name="menu_id" value="M001"/>
             <column name="food_id" value="F001"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC003"/>
@@ -247,7 +247,7 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M004"/>
+            <column name="menu_id" value="M001"/>
             <column name="food_id" value="F002"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC004"/>
@@ -255,14 +255,14 @@
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M004"/>
+            <column name="menu_id" value="M001"/>
             <column name="food_id" value="F007"/>
             <column name="food_category_id" value="FC003"/>
             <column name="food_price" valueNumeric="8.0"/>
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M004"/>
+            <column name="menu_id" value="M001"/>
             <column name="food_id" value="F008"/>
             <column name="sub_category_id" value="SC002"/>
             <column name="food_category_id" value="FC002"/>
@@ -270,7 +270,7 @@
             <column name="availability" valueBoolean="false"/>
         </insert>
         <insert tableName="food_price">
-            <column name="menu_id" value="M004"/>
+            <column name="menu_id" value="M001"/>
             <column name="food_id" value="F009"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_id" value="SC001"/>
