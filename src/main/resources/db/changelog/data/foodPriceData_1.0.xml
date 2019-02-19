@@ -56,7 +56,7 @@
         <insert tableName="food_price">
             <column name="menu_id" value="M004"/>
             <column name="food_id" value="F017"/>
-            <column name="food_category_id" value="FC001"/>
+            <column name="food_category_id" value="FC002"/>
             <column name="sub_category_id" value="SC006"/>
             <column name="food_price" valueNumeric="3.0"/>
             <column name="availability" valueBoolean="true"/>
