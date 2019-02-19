@@ -14,11 +14,11 @@
             <column name="restaurant_contact_number" value="12345678"/>
 			<column name="restaurant_opening_hours" value="Weekdays: 11am - 9pm
 			Weekends: 10am - 10pm"/>
-			<column name="building" value="Bugis Junction"/>
-            <column name="street" value="200 Victoria St, #01-01"/>
-            <column name="postal_code" value="188021"/>
-            <column name="cuisine" value="Asian"/>
-            <column name="restaurant_price_range" value="Medium"/>
+			<column name="building" value="Changi City Point"/>
+            <column name="street" value="5 Changi Business Park Central 1, #01-35/36"/>
+            <column name="postal_code" value="486038"/>
+            <column name="cuisine" value="Japanese"/>
+            <column name="restaurant_price_range" value="High"/>
 			<column name="restaurant_img_path" value=""/>
         </insert>
         <insert tableName="restaurant">
@@ -32,7 +32,7 @@
 			<column name="building" value="Raffles City Shopping Centre"/>
             <column name="street" value="252 North Bridge Road, #B1-46/47"/>
             <column name="postal_code" value="201021"/>
-            <column name="cuisine" value="Asian"/>
+            <column name="cuisine" value="Thai"/>
             <column name="restaurant_price_range" value="Medium"/>
 			<column name="restaurant_img_path" value=""/>
         </insert>
@@ -47,9 +47,84 @@
 			<column name="building" value="Residential Area"/>
             <column name="street" value="212 Hougang Street 21, #01-341"/>
             <column name="postal_code" value="727272"/>
-            <column name="cuisine" value="Asian"/>
+            <column name="cuisine" value="Vietnam"/>
             <column name="restaurant_price_range" value="Low"/>
 			<column name="restaurant_img_path" value=""/>
+        </insert>
+        <insert tableName="restaurant">
+            <column name="restaurant_id" value="R004"/>
+            <column name="admin_id" value="AD001"/>
+            <column name="restaurant_name" value="The Daily Scoop"/>
+            <column name="restaurant_description" value="At The Daily Scoop, we live and breathe ice cream. Whether it’s dreaming up the next flavor, hand-churning up a batch of ice cream, or rolling out freshly baked cones."/>
+            <column name="restaurant_contact_number" value="65094875"/>
+            <column name="restaurant_opening_hours" value="Weekdays: 12pm - 9pm
+			Weekends: 10am - 10pm"/>
+            <column name="building" value="SOTA"/>
+            <column name="street" value="1 Zubir Said Dr, #01-03 School Of The Arts"/>
+            <column name="postal_code" value="227968"/>
+            <column name="cuisine" value="Dessert"/>
+            <column name="restaurant_price_range" value="Low"/>
+            <column name="restaurant_img_path" value=""/>
+        </insert>
+        <insert tableName="restaurant">
+            <column name="restaurant_id" value="R005"/>
+            <column name="admin_id" value="AD001"/>
+            <column name="restaurant_name" value="B3"/>
+            <column name="restaurant_description" value="Burger. Beer. Bistro. ESTD 2016 By SMUAA"/>
+            <column name="restaurant_contact_number" value="6587518740"/>
+            <column name="restaurant_opening_hours" value="Weekdays: 12pm - 9pm
+			Weekends: 10am - 10pm"/>
+            <column name="building" value="SMU School of Information System"/>
+            <column name="street" value="80 Stamford Road (SMU) #B1-61 Basement Concourse School of Information Systems"/>
+            <column name="postal_code" value="178902"/>
+            <column name="cuisine" value="Western"/>
+            <column name="restaurant_price_range" value="Medium"/>
+            <column name="restaurant_img_path" value=""/>
+        </insert>
+        <insert tableName="restaurant">
+            <column name="restaurant_id" value="R006"/>
+            <column name="admin_id" value="AD001"/>
+            <column name="restaurant_name" value="Din Tai Fung"/>
+            <column name="restaurant_description" value="Authentic Taiwan food"/>
+            <column name="restaurant_contact_number" value="12345678"/>
+            <column name="restaurant_opening_hours" value="Weekdays: 11am - 9pm
+			Weekends: 10am - 10pm"/>
+            <column name="building" value="Nex"/>
+            <column name="street" value="23 Serangoon Central, #B1-10"/>
+            <column name="postal_code" value="556083"/>
+            <column name="cuisine" value="Chinese"/>
+            <column name="restaurant_price_range" value="High"/>
+            <column name="restaurant_img_path" value=""/>
+        </insert>
+        <insert tableName="restaurant">
+            <column name="restaurant_id" value="R007"/>
+            <column name="admin_id" value="AD001"/>
+            <column name="restaurant_name" value="Bricklane"/>
+            <column name="restaurant_description" value="Chill out food"/>
+            <column name="restaurant_contact_number" value="12345678"/>
+            <column name="restaurant_opening_hours" value="Weekdays: 11am - 9pm
+			Weekends: 10am - 10pm"/>
+            <column name="building" value="Li Ka Shing Library"/>
+            <column name="street" value="70 Stamford Road #01-22"/>
+            <column name="postal_code" value="178901"/>
+            <column name="cuisine" value="Western"/>
+            <column name="restaurant_price_range" value="Medium"/>
+            <column name="restaurant_img_path" value=""/>
+        </insert>
+        <insert tableName="restaurant">
+            <column name="restaurant_id" value="R008"/>
+            <column name="admin_id" value="AD001"/>
+            <column name="restaurant_name" value="Yoogane"/>
+            <column name="restaurant_description" value="Cheesy Korean food"/>
+            <column name="restaurant_contact_number" value="12345678"/>
+            <column name="restaurant_opening_hours" value="Weekdays: 11am - 9pm
+			Weekends: 10am - 10pm"/>
+            <column name="building" value="WestGate"/>
+            <column name="street" value="3 Gateway Dr, #03-08 Westgate"/>
+            <column name="postal_code" value="608532"/>
+            <column name="cuisine" value="Korean"/>
+            <column name="restaurant_price_range" value="High"/>
+            <column name="restaurant_img_path" value=""/>
         </insert>
     </changeSet>
 

@@ -115,7 +115,7 @@ public class RestaurantController {
 
             restaurantRepository.save(restaurant);
         }
-        return new ResponseEntity("Food Item updated successfully", HttpStatus.OK);
+        return new ResponseEntity("Restaurant updated successfully", HttpStatus.OK);
     }
 
     @PostMapping("/restaurant/addRestaurant/{adminId}")

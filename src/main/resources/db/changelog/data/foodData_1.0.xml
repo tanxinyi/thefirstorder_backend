@@ -78,6 +78,109 @@
             <column name="food_description" value="Thai dessert"/>
             <column name="food_img_path" value=""/>
         </insert>
+		<insert tableName="food">
+            <column name="food_id" value="F013"/>
+            <column name="food_name" value="Waffle Ice Cream"/>
+            <column name="food_description" value="Ice cream and waffles, match made in heaven"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+		<insert tableName="food">
+            <column name="food_id" value="F014"/>
+            <column name="food_name" value="Cajun Chicken Pasta"/>
+            <column name="food_description" value="Tomato Cajun Herbs, spinach, cherry tomato"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+		<insert tableName="food">
+            <column name="food_id" value="F015"/>
+            <column name="food_name" value="Scallop Mentaiko Pasta"/>
+            <column name="food_description" value="Baby Spinach, shiitake"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+		<insert tableName="food">
+            <column name="food_id" value="F016"/>
+            <column name="food_name" value="Carbonara"/>
+            <column name="food_description" value="Garlic bacon, egg, cheese"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+		<insert tableName="food">
+            <column name="food_id" value="F017"/>
+            <column name="food_name" value="Espresso"/>
+            <column name="food_description" value="one shot"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+		<insert tableName="food">
+            <column name="food_id" value="F018"/>
+            <column name="food_name" value="Cappuccino"/>
+            <column name="food_description" value="one shot with foam"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+		<insert tableName="food">
+            <column name="food_id" value="F019"/>
+            <column name="food_name" value="Mocha"/>
+            <column name="food_description" value="chocolatey goodness"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F020"/>
+            <column name="food_name" value="Sakae"/>
+            <column name="food_description" value="Japanese Alcohol"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F021"/>
+            <column name="food_name" value="Cream Puff"/>
+            <column name="food_description" value="Fresh Cream"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F022"/>
+            <column name="food_name" value="Mochi"/>
+            <column name="food_description" value="Japanese Sweets"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F023"/>
+            <column name="food_name" value="Seafood Fried Rice"/>
+            <column name="food_description" value="Fresh Ocean taste"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F024"/>
+            <column name="food_name" value="Pork Gyoza"/>
+            <column name="food_description" value="Deep fried"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F025"/>
+            <column name="food_name" value="Chawanmushi"/>
+            <column name="food_description" value="Steam Egg"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F026"/>
+            <column name="food_name" value="Lobster Soup"/>
+            <column name="food_description" value="Clear and sweet soup"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F027"/>
+            <column name="food_name" value="Miso Soup"/>
+            <column name="food_description" value="All time favourite"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F028"/>
+            <column name="food_name" value="Chicken Ramen"/>
+            <column name="food_description" value="Lighter Broth"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F029"/>
+            <column name="food_name" value="Pork Ramen"/>
+            <column name="food_description" value="All time favourite"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+
     </changeSet>
 
 </databaseChangeLog>

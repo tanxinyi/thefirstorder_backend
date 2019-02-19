@@ -41,6 +41,30 @@
             <column name="restaurant_id" value="R003"/>
             <column name="rights" value="CRUD"/>
         </insert>
+        <insert tableName="manager_allocation">
+            <column name="manager_id" value="MA004"/>
+            <column name="restaurant_id" value="R004"/>
+            <column name="rights" value="CRUD"/>
+        </insert>
+        <insert tableName="manager_allocation">
+            <column name="manager_id" value="MA005"/>
+            <column name="restaurant_id" value="R005"/>
+            <column name="rights" value="CRUD"/>
+        </insert>
+        <insert tableName="manager_allocation">
+            <column name="manager_id" value="MA001"/>
+            <column name="restaurant_id" value="R006"/>
+            <column name="rights" value="CRUD"/>
+        </insert>
+		<insert tableName="manager_allocation">
+            <column name="manager_id" value="MA006"/>
+            <column name="restaurant_id" value="R007"/>
+            <column name="rights" value="CRUD"/>
+        </insert>
+        <insert tableName="manager_allocation">
+            <column name="manager_id" value="MA002"/>
+            <column name="restaurant_id" value="R008"/>
+            <column name="rights" value="CRU"/>
+        </insert>
     </changeSet>
-
 </databaseChangeLog>

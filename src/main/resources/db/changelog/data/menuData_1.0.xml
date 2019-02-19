@@ -42,6 +42,24 @@
             <column name="menu_name" value="Non-alcoholic menu"/>
             <column name="menu_creation_date" valueDate="2018-09-12"/>
         </insert>
+		<insert tableName="menu">
+            <column name="menu_id" value="M007"/>
+            <column name="restaurant_id" value="R004"/>
+            <column name="menu_name" value="Main menu"/>
+            <column name="menu_creation_date" valueDate="2018-01-19"/>
+        </insert>
+		<insert tableName="menu">
+            <column name="menu_id" value="M008"/>
+            <column name="restaurant_id" value="R004"/>
+            <column name="menu_name" value="Coffee menu"/>
+            <column name="menu_creation_date" valueDate="2018-01-23"/>
+        </insert>
+		<insert tableName="menu">
+            <column name="menu_id" value="M009"/>
+            <column name="restaurant_id" value="R004"/>
+            <column name="menu_name" value="Food menu"/>
+            <column name="menu_creation_date" valueDate="2018-01-23"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>

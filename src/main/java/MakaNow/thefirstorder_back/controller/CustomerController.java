@@ -55,7 +55,7 @@ public class CustomerController {
 
 
         if (isValidEmailAddress(email.toUpperCase()) && isValidPassword(password)) {
-            Optional<Customer> customerOptional = customerRepository.findById(email);
+            Optional<Customer> customerOptional = customerRepository.findById(email.toUpperCase());
             if (customerOptional.isPresent()) {
                 Customer customer = customerOptional.get();
                 if (customer.getCustomerPassword().equalsIgnoreCase(password)) {
@@ -122,11 +122,16 @@ public class CustomerController {
             @RequestParam String email,
             @RequestParam String firstName,
             @RequestParam String lastName,
-            @RequestParam(required = false) String phoneNum) throws Exception {
+            @RequestParam(required = false) String phoneNum,
+            @RequestParam String password) throws Exception {
 
 
         if (!isValidEmailAddress(email.toUpperCase())) {
             throw new Exception("Email not valid.");
+        }
+
+        if (!isValidPassword(password)) {
+            throw new Exception("Password not valid.");
         }
 
         Customer customer = getCustomerById(email.toUpperCase());
@@ -144,6 +149,7 @@ public class CustomerController {
 //        Make changes to existing record
         customer.setFirstName(firstName);
         customer.setLastName(lastName);
+        customer.setCustomerPassword(password.toUpperCase());
         customer.setCustomerContactNumber(phoneNum);
 
         System.out.println("After: " + customer.getFirstName());
