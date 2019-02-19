@@ -46,13 +46,13 @@
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC007"/>
             <column name="food_category_id" value="FC001"/>
-            <column name="sub_category_name" value="Soup"/>
+            <column name="sub_category_name" value="Sides"/>
             <column name="sub_category_img_path" value=""/>
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC008"/>
             <column name="food_category_id" value="FC001"/>
-            <column name="sub_category_name" value="Sides"/>
+            <column name="sub_category_name" value="Soup"/>
             <column name="sub_category_img_path" value=""/>
         </insert>
 
