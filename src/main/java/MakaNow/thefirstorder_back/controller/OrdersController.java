@@ -95,7 +95,7 @@ public class OrdersController {
         List<Orders> orders = (List) ordersRepository.findAll();
         List<Orders> output = new ArrayList<>();
         for(Orders order: orders){
-            if(order.getOrderStatus().equals("PENDING") && order.getCustomerOrders() != null) {
+            if(order.getOrderStatus().equals("PENDING") && order.getCustomerOrders().size() > 0 ) {
                 Restaurant restaurant = order.getOrderSummary().getSeatingTable().getRestaurant();
                 if(restaurant.getRestaurantId().equals(restaurantId)){
                     order.setOrderStatus("SENT");
@@ -114,7 +114,7 @@ public class OrdersController {
         List<Orders> orders = (List) ordersRepository.findAll();
         List<Orders> output = new ArrayList<>();
         for(Orders order: orders){
-            if(order.getOrderStatus().equals("SENT") && order.getCustomerOrders() != null) {
+            if(order.getOrderStatus().equals("SENT") && order.getCustomerOrders().size() > 0 ) {
                 Restaurant restaurant = order.getOrderSummary().getSeatingTable().getRestaurant();
                 if(restaurant.getRestaurantId().equals(restaurantId)){
                     output.add(order);

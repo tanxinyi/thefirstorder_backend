@@ -164,8 +164,9 @@ public class MenuController {
         for(FoodPrice foodPrice: foodPrices){
             if (foodPrice.getFoodCategory().getFoodCategoryId().equals(categoryId)){
                 exist = true;
-                if(foodPrice.getSubFoodCategory() != null){
-                    output.add(foodPrice.getSubFoodCategory());
+                SubCategory subCategory = foodPrice.getSubFoodCategory();
+                if(subCategory != null && !output.contains(subCategory)){
+                    output.add(subCategory);
                 }
             }
         }
