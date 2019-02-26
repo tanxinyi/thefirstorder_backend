@@ -10,10 +10,13 @@ import javassist.NotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -88,24 +91,24 @@ public class OrdersController {
         return ordersRepository.save(order);
     }
 
-    @GetMapping("/orders/restaurant/{restaurantId}/retrieve_new_orders/")
-    @JsonView(View.OrdersView.class)
-    public List<Orders> retrieveNewOrders(@PathVariable String restaurantId) throws NotFoundException{
-        logger.info("Retrieving unsent orders by restaurant: " + restaurantId);
-        List<Orders> orders = (List) ordersRepository.findAll();
-        List<Orders> output = new ArrayList<>();
-        for(Orders order: orders){
-            if(order.getOrderStatus().equals("PENDING") && order.getCustomerOrders().size() > 0 ) {
-                Restaurant restaurant = order.getOrderSummary().getSeatingTable().getRestaurant();
-                if(restaurant.getRestaurantId().equals(restaurantId)){
-                    order.setOrderStatus("SENT");
-                    output.add(order);
-                }
-            }
-        }
-
-        return (List) ordersRepository.saveAll((Iterable<Orders>)output);
-    }
+//    @GetMapping("/orders/restaurant/{restaurantId}/retrieve_new_orders/")
+//    @JsonView(View.OrdersView.class)
+//    public List<Orders> retrieveNewOrders(@PathVariable String restaurantId) throws NotFoundException{
+//        logger.info("Retrieving unsent orders by restaurant: " + restaurantId);
+//        List<Orders> orders = (List) ordersRepository.findAll();
+//        List<Orders> output = new ArrayList<>();
+//        for(Orders order: orders){
+//            if(order.getOrderStatus().equals("PENDING") && order.getCustomerOrders().size() > 0 ) {
+//                Restaurant restaurant = order.getOrderSummary().getSeatingTable().getRestaurant();
+//                if(restaurant.getRestaurantId().equals(restaurantId)){
+//                    order.setOrderStatus("SENT");
+//                    output.add(order);
+//                }
+//            }
+//        }
+//
+//        return (List) ordersRepository.saveAll((Iterable<Orders>)output);
+//    }
 
     @GetMapping("/orders/restaurant/{restaurantId}/retrieve_sent_orders/")
     @JsonView(View.OrdersView.class)
@@ -121,6 +124,33 @@ public class OrdersController {
                 }
             }
         }
+        Collections.reverse(output);
+        return (List) ordersRepository.saveAll((Iterable<Orders>)output);
+    }
+
+    @PostMapping("/orders/acknowledge/{restaurantId}/{orderId}/")
+    public ResponseEntity<?> acknowledgeOrder( @PathVariable("restaurantId") String restaurantId, @PathVariable("orderId") String orderId) {
+        Optional<Orders> optionalOrder = ordersRepository.findById(orderId);
+        Orders orders = optionalOrder.get();
+        orders.setOrderStatus("ACKNOWLEDGED");
+        return new ResponseEntity("Order Acknowledged", HttpStatus.OK);
+    }
+
+    @GetMapping("/orders/restaurant/{restaurantId}/retrieve_acknowledged_orders/")
+    @JsonView(View.OrdersView.class)
+    public List<Orders> retrieveAcknowledgedOrders(@PathVariable String restaurantId) throws NotFoundException{
+        logger.info("Retrieving acknowledged orders by restaurant: " + restaurantId);
+        List<Orders> orders = (List) ordersRepository.findAll();
+        List<Orders> output = new ArrayList<>();
+        for(Orders order: orders){
+            if(order.getOrderStatus().equals("ACKNOWLEDGED") && order.getOrderSummary().getPaymentStatus().equals("Pending") ) {
+                Restaurant restaurant = order.getOrderSummary().getSeatingTable().getRestaurant();
+                if(restaurant.getRestaurantId().equals(restaurantId)){
+                    output.add(order);
+                }
+            }
+        }
+        Collections.reverse(output);
         return (List) ordersRepository.saveAll((Iterable<Orders>)output);
     }
 }

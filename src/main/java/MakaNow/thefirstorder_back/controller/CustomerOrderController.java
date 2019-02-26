@@ -106,6 +106,7 @@ public class CustomerOrderController {
         Orders order = ordersController.getOrdersById(orderId);
 
         order.setSubtotal(order.getSubtotal() + price);
+        order.setOrderStatus("SENT");
         ordersRepository.save(order);
 
         FoodPrice foodPrice = foodPriceController

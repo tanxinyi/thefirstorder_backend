@@ -1,6 +1,7 @@
 package MakaNow.thefirstorder_back.controller;
 
 import MakaNow.thefirstorder_back.model.Restaurant;
+import MakaNow.thefirstorder_back.model.UpdatedRestaurant;
 import MakaNow.thefirstorder_back.model.SeatingTable;
 import MakaNow.thefirstorder_back.model.View;
 import MakaNow.thefirstorder_back.repository.RestaurantRepository;
@@ -9,7 +10,6 @@ import MakaNow.thefirstorder_back.service.RestaurantService;
 import MakaNow.thefirstorder_back.service.SeatingTableService;
 import com.fasterxml.jackson.annotation.JsonView;
 import javassist.NotFoundException;
-import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -235,39 +235,10 @@ public class RestaurantController {
         for(int i = 0; i < restaurants.size(); i++){
             Restaurant restaurant = restaurants.get(i);
             if(restaurant.getAdminId().equals(adminId)){
-                UpdatedRestaurant updatedRestaurant = new UpdatedRestaurant();
-                updatedRestaurant.setRestaurantId(restaurant.getRestaurantId());
-                updatedRestaurant.setRestaurantName(restaurant.getRestaurantName());
-                updatedRestaurant.setRestaurantDescription(restaurant.getRestaurantDescription());
-                updatedRestaurant.setContactNumber(restaurant.getRestaurantContactNumber());
-                updatedRestaurant.setBuilding(restaurant.getBuilding());
-                updatedRestaurant.setStreet(restaurant.getStreet());
-                updatedRestaurant.setPostalCode(restaurant.getPostalCode());
-                updatedRestaurant.setCuisine(restaurant.getCuisine());
-                updatedRestaurant.setOperatingHours(restaurant.getRestaurantOpeningHours());
-                updatedRestaurant.setAffordability(restaurant.getRestaurantPriceRange());
-                byte[] restaurantImgBytes = restaurant.getRestaurantImgPath();
-                String restaurantImg = new String(restaurantImgBytes);
-                updatedRestaurant.setRestaurantImg(restaurantImg);
+                UpdatedRestaurant updatedRestaurant = new UpdatedRestaurant(restaurant);
                 toReturn.add(updatedRestaurant);
             }
         }
         return new ResponseEntity(toReturn, HttpStatus.OK);
     }
-}
-
-@Data
-class UpdatedRestaurant{
-    private String restaurantId;
-    private String restaurantName;
-    private String restaurantDescription;
-    private String contactNumber;
-    private String building;
-    private String street;
-    private String postalCode;
-    private String cuisine;
-    private String operatingHours;
-    private String affordability;
-    private String restaurantImg;
-
 }

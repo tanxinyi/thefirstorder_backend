@@ -1,7 +1,6 @@
 package MakaNow.thefirstorder_back.controller;
 
-import MakaNow.thefirstorder_back.model.SeatingTable;
-import MakaNow.thefirstorder_back.model.View;
+import MakaNow.thefirstorder_back.model.*;
 import MakaNow.thefirstorder_back.repository.RestaurantRepository;
 import MakaNow.thefirstorder_back.repository.SeatingTableRepository;
 import MakaNow.thefirstorder_back.service.SeatingTableService;
@@ -42,6 +41,18 @@ public class SeatingTableController {
         Optional<SeatingTable> optionalSeatingTable = seatingTableRepository.findById(seatingTableId);
         if(optionalSeatingTable.isPresent()){
             return optionalSeatingTable.get();
+        }else{
+            throw new NotFoundException("Seating Table ID " + seatingTableId + " does not exist");
+        }
+    }
+
+    @GetMapping("/seatingTables/register/{seatingTableId}")
+    @JsonView(View.SeatingTableView.class)
+    public UpdatedSeatingTable registerSeatingTable(@PathVariable String seatingTableId ) throws NotFoundException {
+        logger.info("Getting Seating Table by QR Code");
+        Optional<SeatingTable> optionalSeatingTable = seatingTableRepository.findById(seatingTableId);
+        if(optionalSeatingTable.isPresent()){
+            return new UpdatedSeatingTable(optionalSeatingTable.get());
         }else{
             throw new NotFoundException("Seating Table ID " + seatingTableId + " does not exist");
         }
