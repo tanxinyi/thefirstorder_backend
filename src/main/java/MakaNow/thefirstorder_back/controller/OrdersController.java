@@ -124,7 +124,6 @@ public class OrdersController {
                 }
             }
         }
-        Collections.reverse(output);
         return (List) ordersRepository.saveAll((Iterable<Orders>)output);
     }
 
@@ -133,6 +132,7 @@ public class OrdersController {
         Optional<Orders> optionalOrder = ordersRepository.findById(orderId);
         Orders orders = optionalOrder.get();
         orders.setOrderStatus("ACKNOWLEDGED");
+        ordersRepository.save(orders);
         return new ResponseEntity("Order Acknowledged", HttpStatus.OK);
     }
 
