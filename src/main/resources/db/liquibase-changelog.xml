@@ -21,8 +21,8 @@
     <include file="changelog/data/activityLogData_1.0.xml" relativeToChangelogFile="true"/>
 
     <include file="changelog/data/foodData_1.0.xml" relativeToChangelogFile="true"/>
-    <include file="changelog/data/foodTagData_1.0.xml" relativeToChangelogFile="true"/>
-    <include file="changelog/data/foodTagAllocationData_1.0.xml" relativeToChangelogFile="true"/>
+    <!--<include file="changelog/data/foodTagData_1.0.xml" relativeToChangelogFile="true"/>-->
+    <!--<include file="changelog/data/foodTagAllocationData_1.0.xml" relativeToChangelogFile="true"/>-->
     <include file="changelog/data/foodCategoryData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/subCategoryData_1.0.xml" relativeToChangelogFile="true"/>
     <include file="changelog/data/foodPriceData_1.0.xml" relativeToChangelogFile="true"/>

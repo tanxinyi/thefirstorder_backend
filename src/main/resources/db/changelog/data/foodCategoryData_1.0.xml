@@ -9,17 +9,22 @@
 
        <insert tableName="food_category">
             <column name="food_category_id" value="FC001"/>
-            <column name="food_category_name" value="Mains"/>
+            <column name="food_category_name" value="Food"/>
             <column name="food_category_img_path" value=""/>
         </insert>
         <insert tableName="food_category">
             <column name="food_category_id" value="FC002"/>
-            <column name="food_category_name" value="Beverage"/>
+            <column name="food_category_name" value="Drinks"/>
             <column name="food_category_img_path" value=""/>
         </insert>
         <insert tableName="food_category">
             <column name="food_category_id" value="FC003"/>
             <column name="food_category_name" value="Desserts"/>
+            <column name="food_category_img_path" value=""/>
+        </insert>
+        <insert tableName="food_category">
+            <column name="food_category_id" value="FC004"/>
+            <column name="food_category_name" value="Snacks"/>
             <column name="food_category_img_path" value=""/>
         </insert>
 

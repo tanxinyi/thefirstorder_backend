@@ -71,9 +71,8 @@
             <column name="admin_id" value="AD001"/>
             <column name="restaurant_name" value="B3"/>
             <column name="restaurant_description" value="Burger. Beer. Bistro. ESTD 2016 By SMUAA"/>
-            <column name="restaurant_contact_number" value="6587518740"/>
-            <column name="restaurant_opening_hours" value="Weekdays: 12pm - 9pm
-			Weekends: 10am - 10pm"/>
+            <column name="restaurant_contact_number" value="64932264"/>
+            <column name="restaurant_opening_hours" value="Mon to Fri: 8:30am to 12am only"/>
             <column name="building" value="SMU School of Information System"/>
             <column name="street" value="80 Stamford Road (SMU) #B1-61 Basement Concourse School of Information Systems"/>
             <column name="postal_code" value="178902"/>
@@ -100,10 +99,13 @@
             <column name="restaurant_id" value="R007"/>
             <column name="admin_id" value="AD001"/>
             <column name="restaurant_name" value="Bricklane"/>
-            <column name="restaurant_description" value="Chill out food"/>
-            <column name="restaurant_contact_number" value="12345678"/>
-            <column name="restaurant_opening_hours" value="Weekdays: 11am - 9pm
-			Weekends: 10am - 10pm"/>
+            <column name="restaurant_description" value="Bricklane, your hidden home in the city.
+            Be sure to drop by for solid mexican food and smooth drinks "/>
+            <column name="restaurant_contact_number" value="82020404"/>
+            <column name="restaurant_opening_hours" value="Mon-Thu 11am–11pm
+            Fri 11am–12am
+            Sat 5pm–12am
+            Sun Closed"/>
             <column name="building" value="Li Ka Shing Library"/>
             <column name="street" value="70 Stamford Road #01-22"/>
             <column name="postal_code" value="178901"/>

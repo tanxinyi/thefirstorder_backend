@@ -46,7 +46,7 @@
             <column name="first_name" value="Vincent"/>
             <column name="last_name" value="Ho"/>
             <column name="manager_username" value="Vincent"/>
-            <column name="manager_password" value="vincentHo456"/>
+            <column name="manager_password" value="vincent456"/>
         </insert>
     </changeSet>
 

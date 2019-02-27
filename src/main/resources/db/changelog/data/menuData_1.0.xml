@@ -60,6 +60,18 @@
             <column name="menu_name" value="Food menu"/>
             <column name="menu_creation_date" valueDate="2018-01-23"/>
         </insert>
+        <insert tableName="menu">
+            <column name="menu_id" value="M010"/>
+            <column name="restaurant_id" value="R005"/>
+            <column name="menu_name" value="Main menu"/>
+            <column name="menu_creation_date" valueDate="2019-03-01"/>
+        </insert>
+        <insert tableName="menu">
+            <column name="menu_id" value="M011"/>
+            <column name="restaurant_id" value="R007"/>
+            <column name="menu_name" value="Main menu"/>
+            <column name="menu_creation_date" valueDate="2019-03-01"/>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>
