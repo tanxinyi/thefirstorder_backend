@@ -111,14 +111,14 @@ public class OrderSummaryController {
         String latestOrder = ordersController.getLatestOID();
         Orders order = ordersController.getOrdersById(latestOrder);
 
-        logger.info("Updating Customer Loyalty Points");
-        Customer customer = orderSummary.getCustomer();
-        int currentLoyaltyPoints = customer.getLoyaltyPoint();
-        logger.info("Old: " + currentLoyaltyPoints);
-        customer.setLoyaltyPoint(currentLoyaltyPoints + amount/100);
-        logger.info("New: " + customer.getLoyaltyPoint());
-        customerRepository.save(customer);
-        logger.info("Customer loyalty point updated");
+//        logger.info("Updating Customer Loyalty Points");
+//        Customer customer = orderSummary.getCustomer();
+////        int currentLoyaltyPoints = customer.getLoyaltyPoint();
+//        logger.info("Old: " + currentLoyaltyPoints);
+//        customer.setLoyaltyPoint(currentLoyaltyPoints + amount/100);
+//        logger.info("New: " + customer.getLoyaltyPoint());
+//        customerRepository.save(customer);
+//        logger.info("Customer loyalty point updated");
 
         if(order.getSubtotal() == 0.0) {
             logger.info("Removing blank order from summary");

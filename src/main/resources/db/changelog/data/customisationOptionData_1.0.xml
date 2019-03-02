@@ -1080,18 +1080,18 @@
             <column name="option_description" value="16 Wings"/>
             <column name="option_price" valueNumeric="6.0"/>
         </insert>
-        <insert tableName="customisation_option">
-            <column name="customisation_option_id" value="CO034"/>
-            <column name="customisation_id" value="C011"/>
-            <column name="option_description" value="Normal"/>
-            <column name="option_price" valueNumeric="0.0"/>
-        </insert>
-        <insert tableName="customisation_option">
-            <column name="customisation_option_id" value="CO035"/>
-            <column name="customisation_id" value="C011"/>
-            <column name="option_description" value="Additional scoop"/>
-            <column name="option_price" valueNumeric="2.5"/>
-        </insert>
+        <!--<insert tableName="customisation_option">-->
+            <!--<column name="customisation_option_id" value="CO034"/>-->
+            <!--<column name="customisation_id" value="C011"/>-->
+            <!--<column name="option_description" value="Normal"/>-->
+            <!--<column name="option_price" valueNumeric="0.0"/>-->
+        <!--</insert>-->
+        <!--<insert tableName="customisation_option">-->
+            <!--<column name="customisation_option_id" value="CO035"/>-->
+            <!--<column name="customisation_id" value="C011"/>-->
+            <!--<column name="option_description" value="Additional scoop"/>-->
+            <!--<column name="option_price" valueNumeric="2.5"/>-->
+        <!--</insert>-->
 
         <insert tableName="customisation_option">
             <column name="customisation_option_id" value="CO036"/>
@@ -1685,6 +1685,43 @@
             <column name="customisation_id" value="C034"/>
             <column name="option_description" value="Curry Mayo"/>
             <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO133"/>
+            <column name="customisation_id" value="C035"/>
+            <column name="option_description" value="Green Grape"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO134"/>
+            <column name="customisation_id" value="C035"/>
+            <column name="option_description" value="Grapefruit"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO135"/>
+            <column name="customisation_id" value="C036"/>
+            <column name="option_description" value="1"/>
+            <column name="option_price" valueNumeric="0.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO136"/>
+            <column name="customisation_id" value="C036"/>
+            <column name="option_description" value="Bundle of 3"/>
+            <column name="option_price" valueNumeric="23.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO137"/>
+            <column name="customisation_id" value="C037"/>
+            <column name="option_description" value="1"/>
+            <column name="option_price" valueNumeric="15.0"/>
+        </insert>
+        <insert tableName="customisation_option">
+            <column name="customisation_option_id" value="CO138"/>
+            <column name="customisation_id" value="C037"/>
+            <column name="option_description" value="Bundle of 3"/>
+            <column name="option_price" valueNumeric="27.0"/>
         </insert>
 
     </changeSet>

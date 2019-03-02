@@ -931,30 +931,30 @@
             <column name="food_price" valueNumeric="5.0"/>
             <column name="availability" valueBoolean="true"/>
         </insert>
-        <insert tableName="food_price">
-            <column name="menu_id" value="M010"/>
-            <column name="food_id" value="F012"/>
-            <column name="food_category_id" value="FC002"/>
-            <column name="sub_category_id" value="SC004"/>
-            <column name="food_price" valueNumeric="8.0"/>
-            <column name="availability" valueBoolean="true"/>
-        </insert>
-        <insert tableName="food_price">
-            <column name="menu_id" value="M010"/>
-            <column name="food_id" value="F013"/>
-            <column name="food_category_id" value="FC002"/>
-            <column name="sub_category_id" value="SC004"/>
-            <column name="food_price" valueNumeric="8.0"/>
-            <column name="availability" valueBoolean="true"/>
-        </insert>
-        <insert tableName="food_price">
-            <column name="menu_id" value="M010"/>
-            <column name="food_id" value="F014"/>
-            <column name="food_category_id" value="FC002"/>
-            <column name="sub_category_id" value="SC004"/>
-            <column name="food_price" valueNumeric="8.0"/>
-            <column name="availability" valueBoolean="true"/>
-        </insert>
+        <!--<insert tableName="food_price">-->
+            <!--<column name="menu_id" value="M010"/>-->
+            <!--<column name="food_id" value="F012"/>-->
+            <!--<column name="food_category_id" value="FC002"/>-->
+            <!--<column name="sub_category_id" value="SC004"/>-->
+            <!--<column name="food_price" valueNumeric="8.0"/>-->
+            <!--<column name="availability" valueBoolean="true"/>-->
+        <!--</insert>-->
+        <!--<insert tableName="food_price">-->
+            <!--<column name="menu_id" value="M010"/>-->
+            <!--<column name="food_id" value="F013"/>-->
+            <!--<column name="food_category_id" value="FC002"/>-->
+            <!--<column name="sub_category_id" value="SC004"/>-->
+            <!--<column name="food_price" valueNumeric="8.0"/>-->
+            <!--<column name="availability" valueBoolean="true"/>-->
+        <!--</insert>-->
+        <!--<insert tableName="food_price">-->
+            <!--<column name="menu_id" value="M010"/>-->
+            <!--<column name="food_id" value="F014"/>-->
+            <!--<column name="food_category_id" value="FC002"/>-->
+            <!--<column name="sub_category_id" value="SC004"/>-->
+            <!--<column name="food_price" valueNumeric="8.0"/>-->
+            <!--<column name="availability" valueBoolean="true"/>-->
+        <!--</insert>-->
         <insert tableName="food_price">
             <column name="menu_id" value="M010"/>
             <column name="food_id" value="F015"/>
@@ -1035,20 +1035,20 @@
             <column name="food_price" valueNumeric="13.0"/>
             <column name="availability" valueBoolean="true"/>
         </insert>
-        <insert tableName="food_price">
-            <column name="menu_id" value="M010"/>
-            <column name="food_id" value="F025"/>
-            <column name="food_category_id" value="FC004"/>
-            <column name="food_price" valueNumeric="4.0"/>
-            <column name="availability" valueBoolean="true"/>
-        </insert>
-        <insert tableName="food_price">
-            <column name="menu_id" value="M010"/>
-            <column name="food_id" value="F026"/>
-            <column name="food_category_id" value="FC004"/>
-            <column name="food_price" valueNumeric="9.0"/>
-            <column name="availability" valueBoolean="true"/>
-        </insert>
+        <!--<insert tableName="food_price">-->
+            <!--<column name="menu_id" value="M010"/>-->
+            <!--<column name="food_id" value="F025"/>-->
+            <!--<column name="food_category_id" value="FC004"/>-->
+            <!--<column name="food_price" valueNumeric="4.0"/>-->
+            <!--<column name="availability" valueBoolean="true"/>-->
+        <!--</insert>-->
+        <!--<insert tableName="food_price">-->
+            <!--<column name="menu_id" value="M010"/>-->
+            <!--<column name="food_id" value="F026"/>-->
+            <!--<column name="food_category_id" value="FC004"/>-->
+            <!--<column name="food_price" valueNumeric="9.0"/>-->
+            <!--<column name="availability" valueBoolean="true"/>-->
+        <!--</insert>-->
 
         <insert tableName="food_price">
             <column name="menu_id" value="M011"/>
@@ -1264,6 +1264,126 @@
             <column name="food_category_id" value="FC004"/>
             <column name="sub_category_id" value="SC019"/>
             <column name="food_price" valueNumeric="5.9"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F054"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_id" value="SC021"/>
+            <column name="food_price" valueNumeric="13.0"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F064"/>
+            <column name="food_category_id" value="FC004"/>
+            <column name="sub_category_id" value="SC020"/>
+            <column name="food_price" valueNumeric="6.9"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F065"/>
+            <column name="food_category_id" value="FC004"/>
+            <column name="sub_category_id" value="SC020"/>
+            <column name="food_price" valueNumeric="6.9"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F066"/>
+            <column name="food_category_id" value="FC004"/>
+            <column name="sub_category_id" value="SC020"/>
+            <column name="food_price" valueNumeric="5.9"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F067"/>
+            <column name="food_category_id" value="FC004"/>
+            <column name="sub_category_id" value="SC020"/>
+            <column name="food_price" valueNumeric="6.9"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F068"/>
+            <column name="food_category_id" value="FC004"/>
+            <column name="sub_category_id" value="SC020"/>
+            <column name="food_price" valueNumeric="6.9"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F055"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_id" value="SC021"/>
+            <column name="food_price" valueNumeric="15.0"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F056"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_id" value="SC021"/>
+            <column name="food_price" valueNumeric="28.0"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F057"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_id" value="SC021"/>
+            <column name="food_price" valueNumeric="58.0"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F058"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_id" value="SC021"/>
+            <column name="food_price" valueNumeric="15.0"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F059"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_id" value="SC022"/>
+            <column name="food_price" valueNumeric="10.0"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F060"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_id" value="SC022"/>
+            <column name="food_price" valueNumeric="10.0"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F061"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_id" value="SC023"/>
+            <column name="food_price" valueNumeric="40.0"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F062"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_id" value="SC023"/>
+            <column name="food_price" valueNumeric="45.0"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+        <insert tableName="food_price">
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F063"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_id" value="SC023"/>
+            <column name="food_price" valueNumeric="55.0"/>
             <column name="availability" valueBoolean="true"/>
         </insert>
 

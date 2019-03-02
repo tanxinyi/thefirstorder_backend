@@ -29,36 +29,36 @@
             <column name="phone_num" type="varchar(45)">
                 <constraints nullable="false"/>
             </column>
-            <column name="loyalty_points" type="int(10)">
-                <constraints nullable="false"/>
-            </column>
+            <!--<column name="loyalty_points" type="int(10)">-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
         </createTable>
 
-        <createTable tableName="loyalty_points"
-                     remarks="A table to contain all customer details">
-            <column name="customer_id" type="varchar(10)">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="redemption_id" type="varchar(10)">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="loyalty_point_spent" type="double(10)">
-                <constraints nullable="false" />
-            </column>
-            <column name="loyalty_point_earned" type="double(10)">
-                <constraints nullable="false" />
-            </column>
-            <column name="redemption_type" type="varchar(100)">
-                <constraints nullable="false" />
-            </column>
-            <column name="date_of_redemption" type="date">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
+        <!--<createTable tableName="loyalty_points"-->
+                     <!--remarks="A table to contain all customer details">-->
+            <!--<column name="customer_id" type="varchar(10)">-->
+                <!--<constraints nullable="false" primaryKey="true"/>-->
+            <!--</column>-->
+            <!--<column name="redemption_id" type="varchar(10)">-->
+                <!--<constraints nullable="false" primaryKey="true"/>-->
+            <!--</column>-->
+            <!--<column name="loyalty_point_spent" type="double(10)">-->
+                <!--<constraints nullable="false" />-->
+            <!--</column>-->
+            <!--<column name="loyalty_point_earned" type="double(10)">-->
+                <!--<constraints nullable="false" />-->
+            <!--</column>-->
+            <!--<column name="redemption_type" type="varchar(100)">-->
+                <!--<constraints nullable="false" />-->
+            <!--</column>-->
+            <!--<column name="date_of_redemption" type="date">-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
+        <!--</createTable>-->
 
-        <addForeignKeyConstraint baseTableName="loyalty_points" baseColumnNames="customer_id"
-                                 constraintName="loyalty_points_customer_id_fk"
-                                 referencedTableName="customer" referencedColumnNames="id"/>
+        <!--<addForeignKeyConstraint baseTableName="loyalty_points" baseColumnNames="customer_id"-->
+                                 <!--constraintName="loyalty_points_customer_id_fk"-->
+                                 <!--referencedTableName="customer" referencedColumnNames="id"/>-->
 
         <createTable tableName="credit_card"
                      remarks="A table to contain all credit card details">

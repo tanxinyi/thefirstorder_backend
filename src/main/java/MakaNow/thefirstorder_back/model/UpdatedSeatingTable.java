@@ -13,13 +13,13 @@ public class UpdatedSeatingTable {
     private String qrCode;
     private String restaurantId;
     private int tableCapacity;
-    private UpdatedRestaurant updatedRestaurant;
+    private UpdatedRestaurant restaurant;
 
     public UpdatedSeatingTable(SeatingTable seatingTable){
         this.qrCode = seatingTable.getQrCode();
         this.restaurantId = seatingTable.getRestaurantId();
         this.tableCapacity = seatingTable.getTableCapacity();
-        this.updatedRestaurant = new UpdatedRestaurant(seatingTable.getRestaurant());
+        this.restaurant = new UpdatedRestaurant(seatingTable.getRestaurant());
     }
 
 }

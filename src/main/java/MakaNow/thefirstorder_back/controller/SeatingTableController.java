@@ -37,7 +37,7 @@ public class SeatingTableController {
     @GetMapping("/seatingTables/{seatingTableId}")
     @JsonView(View.SeatingTableView.class)
     public SeatingTable getSeatingTableBySeatingTableId( @PathVariable String seatingTableId ) throws NotFoundException {
-        logger.info("Getting Seating Table by QR Code");
+        logger.info("Getting Seating Table by QR Code: " + seatingTableId);
         Optional<SeatingTable> optionalSeatingTable = seatingTableRepository.findById(seatingTableId);
         if(optionalSeatingTable.isPresent()){
             return optionalSeatingTable.get();
@@ -47,9 +47,9 @@ public class SeatingTableController {
     }
 
     @GetMapping("/seatingTables/register/{seatingTableId}")
-    @JsonView(View.SeatingTableView.class)
+    //@JsonView(View.SeatingTableView.class)
     public UpdatedSeatingTable registerSeatingTable(@PathVariable String seatingTableId ) throws NotFoundException {
-        logger.info("Getting Seating Table by QR Code");
+        logger.info("Register Seating Table by QR Code: " + seatingTableId);
         Optional<SeatingTable> optionalSeatingTable = seatingTableRepository.findById(seatingTableId);
         if(optionalSeatingTable.isPresent()){
             return new UpdatedSeatingTable(optionalSeatingTable.get());

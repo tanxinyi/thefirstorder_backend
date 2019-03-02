@@ -9,146 +9,175 @@
 		<insert tableName="seating_table">
 			<column name="qr_code" value="T001"/>
 			<column name="restaurant_id" value="R005"/>
+            <column name="table_number" value="20"/>
 			<column name="table_capacity" valueNumeric="2"/>
 		</insert>
 		<insert tableName="seating_table">
 			<column name="qr_code" value="T002"/>
 			<column name="restaurant_id" value="R005"/>
+            <column name="table_number" value="19"/>
 			<column name="table_capacity" valueNumeric="6"/>
 		</insert>
 		<insert tableName="seating_table">
 			<column name="qr_code" value="T003"/>
 			<column name="restaurant_id" value="R005"/>
+            <column name="table_number" value="25"/>
 			<column name="table_capacity" valueNumeric="4"/>
 		</insert>
 		<insert tableName="seating_table">
 			<column name="qr_code" value="T004"/>
-			<column name="restaurant_id" value="R007"/>
+			<column name="restaurant_id" value="R005"/>
+            <column name="table_number" value="26"/>
 			<column name="table_capacity" valueNumeric="6"/>
 		</insert>
 		<insert tableName="seating_table">
 			<column name="qr_code" value="T005"/>
-			<column name="restaurant_id" value="R007"/>
+			<column name="restaurant_id" value="R005"/>
+            <column name="table_number" value="27"/>
 			<column name="table_capacity" valueNumeric="6"/>
 		</insert>
 		<insert tableName="seating_table">
 			<column name="qr_code" value="T006"/>
 			<column name="restaurant_id" value="R007"/>
+            <column name="table_number" value=" "/>
 			<column name="table_capacity" valueNumeric="4"/>
 		</insert>
 		<insert tableName="seating_table">
 			<column name="qr_code" value="T007"/>
-			<column name="restaurant_id" value="R002"/>
+			<column name="restaurant_id" value="R007"/>
+            <column name="table_number" value=" "/>
 			<column name="table_capacity" valueNumeric="6"/>
 		</insert>
 		<insert tableName="seating_table">
 			<column name="qr_code" value="T008"/>
-			<column name="restaurant_id" value="R003"/>
+			<column name="restaurant_id" value="R007"/>
+            <column name="table_number" value=" "/>
 			<column name="table_capacity" valueNumeric="4"/>
 		</insert>
 		<insert tableName="seating_table">
 			<column name="qr_code" value="T009"/>
-			<column name="restaurant_id" value="R001"/>
+			<column name="restaurant_id" value="R007"/>
+            <column name="table_number" value=" "/>
 			<column name="table_capacity" valueNumeric="6"/>
 		</insert>
 		<insert tableName="seating_table">
 			<column name="qr_code" value="T010"/>
-			<column name="restaurant_id" value="R003"/>
-			<column name="table_capacity" valueNumeric="2"/>
+			<column name="restaurant_id" value="R007"/>
+            <column name="table_number" value=" "/>
+			<column name="table_capacity" valueNumeric="4"/>
 		</insert>
 		<insert tableName="seating_table">
 			<column name="qr_code" value="T011"/>
 			<column name="restaurant_id" value="R003"/>
+            <column name="table_number" value=" "/>
 			<column name="table_capacity" valueNumeric="4"/>
 		</insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T012"/>
             <column name="restaurant_id" value="R004"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="2"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T0013"/>
             <column name="restaurant_id" value="R004"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="2"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T014"/>
             <column name="restaurant_id" value="R004"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="4"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T015"/>
             <column name="restaurant_id" value="R004"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="6"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T016"/>
             <column name="restaurant_id" value="R006"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="2"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T017"/>
             <column name="restaurant_id" value="R001"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="4"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T018"/>
             <column name="restaurant_id" value="R004"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="6"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T0019"/>
             <column name="restaurant_id" value="R006"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="4"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T020"/>
             <column name="restaurant_id" value="R006"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="6"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T021"/>
             <column name="restaurant_id" value="R006"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="2"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T022"/>
             <column name="restaurant_id" value="R006"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="4"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T023"/>
             <column name="restaurant_id" value="R001"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="2"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T024"/>
             <column name="restaurant_id" value="R004"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="4"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T025"/>
             <column name="restaurant_id" value="R006"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="6"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T0026"/>
             <column name="restaurant_id" value="R008"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="4"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T027"/>
             <column name="restaurant_id" value="R008"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="6"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T028"/>
             <column name="restaurant_id" value="R008"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="2"/>
         </insert>
         <insert tableName="seating_table">
             <column name="qr_code" value="T029"/>
             <column name="restaurant_id" value="R008"/>
+            <column name="table_number" value=" "/>
             <column name="table_capacity" valueNumeric="4"/>
         </insert>
 	</changeSet>

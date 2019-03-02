@@ -247,24 +247,24 @@
         <column name="food_description" value="Hot Chocolate"/>
         <column name="food_img_path" value=""/>
         </insert>
-        <insert tableName="food">
-        <column name="food_id" value="F012"/>
-        <column name="food_name" value="Erdinger"/>
-        <column name="food_description" value="Erdinger"/>
-        <column name="food_img_path" value=""/>
-        </insert>
-        <insert tableName="food">
-        <column name="food_id" value="F013"/>
-        <column name="food_name" value="Kirin"/>
-        <column name="food_description" value="Kirin"/>
-        <column name="food_img_path" value=""/>
-        </insert>
-        <insert tableName="food">
-        <column name="food_id" value="F014"/>
-        <column name="food_name" value="Guinness"/>
-        <column name="food_description" value="Guinness"/>
-        <column name="food_img_path" value=""/>
-        </insert>
+        <!--<insert tableName="food">-->
+        <!--<column name="food_id" value="F012"/>-->
+        <!--<column name="food_name" value="Erdinger"/>-->
+        <!--<column name="food_description" value="Erdinger"/>-->
+        <!--<column name="food_img_path" value=""/>-->
+        <!--</insert>-->
+        <!--<insert tableName="food">-->
+        <!--<column name="food_id" value="F013"/>-->
+        <!--<column name="food_name" value="Kirin"/>-->
+        <!--<column name="food_description" value="Kirin"/>-->
+        <!--<column name="food_img_path" value=""/>-->
+        <!--</insert>-->
+        <!--<insert tableName="food">-->
+        <!--<column name="food_id" value="F014"/>-->
+        <!--<column name="food_name" value="Guinness"/>-->
+        <!--<column name="food_description" value="Guinness"/>-->
+        <!--<column name="food_img_path" value=""/>-->
+        <!--</insert>-->
         <insert tableName="food">
         <column name="food_id" value="F015"/>
         <column name="food_name" value="Build Your Own Burger"/>
@@ -325,18 +325,18 @@
         <column name="food_description" value="B3 Giant Fish 'N' Chips"/>
         <column name="food_img_path" value=""/>
         </insert>
-        <insert tableName="food">
-        <column name="food_id" value="F025"/>
-        <column name="food_name" value="Waffles"/>
-        <column name="food_description" value="Ice Cream"/>
-        <column name="food_img_path" value=""/>
-        </insert>
-        <insert tableName="food">
-        <column name="food_id" value="F026"/>
-        <column name="food_name" value="Lava Cake"/>
-        <column name="food_description" value="with Vanilla Ice Cream"/>
-        <column name="food_img_path" value=""/>
-        </insert>
+        <!--<insert tableName="food">-->
+        <!--<column name="food_id" value="F025"/>-->
+        <!--<column name="food_name" value="Waffles"/>-->
+        <!--<column name="food_description" value="Ice Cream"/>-->
+        <!--<column name="food_img_path" value=""/>-->
+        <!--</insert>-->
+        <!--<insert tableName="food">-->
+        <!--<column name="food_id" value="F026"/>-->
+        <!--<column name="food_name" value="Lava Cake"/>-->
+        <!--<column name="food_description" value="with Vanilla Ice Cream"/>-->
+        <!--<column name="food_img_path" value=""/>-->
+        <!--</insert>-->
 
 
         <insert tableName="food">
@@ -499,6 +499,96 @@
             <column name="food_id" value="F053"/>
             <column name="food_name" value="Chicken Nuggets"/>
             <column name="food_description" value="Chicken Nuggets"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F054"/>
+            <column name="food_name" value="Jinro Soju"/>
+            <column name="food_description" value="Jinro Soju"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F055"/>
+            <column name="food_name" value="Jinro Chamisul Soju"/>
+            <column name="food_description" value="Jinro Chamisul Soju"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F056"/>
+            <column name="food_name" value="Yakult Soju (Jug)"/>
+            <column name="food_description" value="Yakult Soju"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F057"/>
+            <column name="food_name" value="Yuzu Sake"/>
+            <column name="food_description" value="Yuzu Sake"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F058"/>
+            <column name="food_name" value="Nihon Sakari Nama Genshu Honjozo"/>
+            <column name="food_description" value="Nihon Sakari Nama Genshu Honjozo"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F059"/>
+            <column name="food_name" value="Zeffer Apple Cider"/>
+            <column name="food_description" value="Zeffer Apple Cider"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F060"/>
+            <column name="food_name" value="Zeffer Apple Crumble Cider"/>
+            <column name="food_description" value="Zeffer Apple Crumble Cider"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F061"/>
+            <column name="food_name" value="Gin and Juice"/>
+            <column name="food_description" value="Gin and Juice"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F062"/>
+            <column name="food_name" value="Paloma"/>
+            <column name="food_description" value="Paloma"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F063"/>
+            <column name="food_name" value="Long Island Iced Tea"/>
+            <column name="food_description" value="Long Island Iced Tea"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F064"/>
+            <column name="food_name" value="Chicken Nachos"/>
+            <column name="food_description" value="Chicken Nachos"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F065"/>
+            <column name="food_name" value="Beef Nachos"/>
+            <column name="food_description" value="Beef Nachos"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F066"/>
+            <column name="food_name" value="Nachos Delight"/>
+            <column name="food_description" value="Nachos Delight"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F067"/>
+            <column name="food_name" value="Chips, Guac and Salsa"/>
+            <column name="food_description" value="Chips, Guac and Salsa"/>
+            <column name="food_img_path" value=""/>
+        </insert>
+        <insert tableName="food">
+            <column name="food_id" value="F068"/>
+            <column name="food_name" value="Crispy Tofu Nachos"/>
+            <column name="food_description" value="Crispy Tofu Nachos"/>
             <column name="food_img_path" value=""/>
         </insert>
 

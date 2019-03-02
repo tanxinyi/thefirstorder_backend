@@ -15,6 +15,8 @@ public class UpdatedRestaurant {
     private String operatingHours;
     private String affordability;
     private String restaurantImg;
+    private boolean gst;
+    private boolean serviceCharge;
 
     public UpdatedRestaurant(String restaurantId,
                              String restaurantName,
@@ -26,7 +28,9 @@ public class UpdatedRestaurant {
                              String cuisine,
                              String operatingHours,
                              String affordability,
-                             String restaurantImg){
+                             String restaurantImg,
+                             boolean gst,
+                             boolean serviceCharge){
         this.restaurantId = restaurantId;
         this.restaurantName = restaurantName;
         this.restaurantDescription = restaurantDescription;
@@ -38,6 +42,8 @@ public class UpdatedRestaurant {
         this.operatingHours = operatingHours;
         this.affordability = affordability;
         this.restaurantImg = restaurantImg;
+        this.gst = gst;
+        this.serviceCharge = serviceCharge;
     }
 
     public UpdatedRestaurant(Restaurant restaurant){
@@ -51,6 +57,8 @@ public class UpdatedRestaurant {
                 restaurant.getCuisine(),
                 restaurant.getRestaurantOpeningHours(),
                 restaurant.getRestaurantPriceRange(),
-                new String(restaurant.getRestaurantImgPath()));
+                new String(restaurant.getRestaurantImgPath()),
+                restaurant.getGst(),
+                restaurant.getServiceCharge());
     }
 }

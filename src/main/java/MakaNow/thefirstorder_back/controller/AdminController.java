@@ -26,6 +26,12 @@ public class AdminController {
 
     Logger logger = LoggerFactory.getLogger(AdminController.class);
 
+    @GetMapping("/test")
+    public String test(){
+        logger.info("Testing");
+        return "Success!";
+    }
+
     @PostMapping("/admins")
     @JsonView(View.AdminView.class)
     public List<Admin> getAllAdmins(){

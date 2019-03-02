@@ -458,13 +458,13 @@
             <column name="food_category_id" value="FC001"/>
             <column name="customisation_name" value="Quantity"/>
         </insert>
-        <insert tableName="customisation">
-            <column name="customisation_id" value="C011"/>
-            <column name="menu_id" value="M010"/>
-            <column name="food_id" value="F025"/>
-            <column name="food_category_id" value="FC003"/>
-            <column name="customisation_name" value="Add Ice Cream"/>
-        </insert>
+        <!--<insert tableName="customisation">-->
+            <!--<column name="customisation_id" value="C011"/>-->
+            <!--<column name="menu_id" value="M010"/>-->
+            <!--<column name="food_id" value="F025"/>-->
+            <!--<column name="food_category_id" value="FC003"/>-->
+            <!--<column name="customisation_name" value="Add Ice Cream"/>-->
+        <!--</insert>-->
 
         <insert tableName="customisation">
             <column name="customisation_id" value="C012"/>
@@ -626,6 +626,27 @@
             <column name="food_id" value="F053"/>
             <column name="food_category_id" value="FC004"/>
             <column name="customisation_name" value="Sauce"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C035"/>
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F054"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Flavour"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C036"/>
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F054"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Quantity"/>
+        </insert>
+        <insert tableName="customisation">
+            <column name="customisation_id" value="C037"/>
+            <column name="menu_id" value="M011"/>
+            <column name="food_id" value="F055"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="customisation_name" value="Quantity"/>
         </insert>
 
     </changeSet>

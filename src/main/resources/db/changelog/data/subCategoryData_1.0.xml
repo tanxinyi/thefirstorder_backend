@@ -178,6 +178,24 @@
             <column name="sub_category_name" value="Nachos"/>
             <column name="sub_category_img_path" value=""/>
         </insert>
+        <insert tableName="sub_category">
+            <column name="sub_category_id" value="SC021"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_name" value="Soju/Sake"/>
+            <column name="sub_category_img_path" value=""/>
+        </insert>
+        <insert tableName="sub_category">
+            <column name="sub_category_id" value="SC022"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_name" value="Cider"/>
+            <column name="sub_category_img_path" value=""/>
+        </insert>
+        <insert tableName="sub_category">
+            <column name="sub_category_id" value="SC023"/>
+            <column name="food_category_id" value="FC002"/>
+            <column name="sub_category_name" value="Jug Cocktails"/>
+            <column name="sub_category_img_path" value=""/>
+        </insert>
 
     </changeSet>
 </databaseChangeLog>

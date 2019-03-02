@@ -42,9 +42,9 @@
             <column name="customer_contact_number" type="varchar(45)">
                 <constraints nullable="false"/>
             </column>
-            <column name="loyalty_point" type="int(10)">
+<!--             <column name="loyalty_point" type="int(10)">
                 <constraints nullable="false"/>
-            </column>
+            </column> -->
         </createTable>
 
         <createTable tableName="restaurant"
@@ -82,6 +82,12 @@
             <column name="restaurant_price_range" type="varchar(45)">
                 <constraints nullable="false"/>
             </column>
+            <column name="gst" type="tinyint(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="service_charge" type="tinyint(1)">
+                <constraints nullable="false"/>
+            </column>
 			<column name="restaurant_img_path" type="BLOB">
                 <constraints nullable="false"/>
             </column>
@@ -117,6 +123,9 @@
                 <constraints nullable="false" unique="true" primaryKey="true"/>
             </column>
             <column name="restaurant_id" type="varchar(10)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="table_number" type="varchar(10)">
                 <constraints nullable="false"/>
             </column>
             <column name="table_capacity" type="int(10)">
@@ -211,33 +220,33 @@
             </column>
         </createTable>
 
-        <createTable tableName="food_tag"
-                     remarks="A table to contain all food tags">
-            <column name="food_tag_id" type="varchar(10)">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
-            </column>
-            <column name="food_tag_description" type="varchar(500)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
+        <!--<createTable tableName="food_tag"-->
+                     <!--remarks="A table to contain all food tags">-->
+            <!--<column name="food_tag_id" type="varchar(10)">-->
+                <!--<constraints nullable="false" unique="true" primaryKey="true"/>-->
+            <!--</column>-->
+            <!--<column name="food_tag_description" type="varchar(500)">-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
+        <!--</createTable>-->
 
-        <createTable tableName="food_tag_allocation"
-                     remarks="A table to contain all food tag allocations">
-            <column name="food_tag_id" type="varchar(10)">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="food_id" type="varchar(10)">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
-        </createTable>
+        <!--<createTable tableName="food_tag_allocation"-->
+                     <!--remarks="A table to contain all food tag allocations">-->
+            <!--<column name="food_tag_id" type="varchar(10)">-->
+                <!--<constraints nullable="false" primaryKey="true"/>-->
+            <!--</column>-->
+            <!--<column name="food_id" type="varchar(10)">-->
+                <!--<constraints nullable="false" primaryKey="true"/>-->
+            <!--</column>-->
+        <!--</createTable>-->
 
-        <addForeignKeyConstraint baseTableName="food_tag_allocation" baseColumnNames="food_tag_id"
-                                 constraintName="food_tag_allocation_food_tag_id_fk"
-                                 referencedTableName="food_tag" referencedColumnNames="food_tag_id"/>
+        <!--<addForeignKeyConstraint baseTableName="food_tag_allocation" baseColumnNames="food_tag_id"-->
+                                 <!--constraintName="food_tag_allocation_food_tag_id_fk"-->
+                                 <!--referencedTableName="food_tag" referencedColumnNames="food_tag_id"/>-->
 
-        <addForeignKeyConstraint baseTableName="food_tag_allocation" baseColumnNames="food_id"
-                                 constraintName="food_tag_allocation_food_id_fk"
-                                 referencedTableName="food" referencedColumnNames="food_id"/>
+        <!--<addForeignKeyConstraint baseTableName="food_tag_allocation" baseColumnNames="food_id"-->
+                                 <!--constraintName="food_tag_allocation_food_id_fk"-->
+                                 <!--referencedTableName="food" referencedColumnNames="food_id"/>-->
 
         <createTable tableName="food_category"
                      remarks="A table to contain all food categories">
@@ -401,6 +410,9 @@
             <column name="order_summary_id" type="varchar(10)">
                 <constraints nullable="false" />
             </column>
+            <column name="qr_code" type="varchar(10)">
+                <constraints nullable="false" />
+            </column>
             <column name="subtotal" type="double">
                 <constraints nullable="false" />
             </column>
@@ -412,6 +424,10 @@
         <addForeignKeyConstraint baseTableName="orders" baseColumnNames="order_summary_id"
                                  constraintName="orders_order_summary_id_fk"
                                  referencedTableName="order_summary" referencedColumnNames="order_summary_id"/>
+
+        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="qr_code"
+                                 constraintName="orders__qr_code_fk"
+                                 referencedTableName="seating_table" referencedColumnNames="qr_code"/>
 
         <createTable tableName="customer_order"
                      remarks="A table to contain an item in cart">

@@ -14,7 +14,7 @@
 			<column name="date_of_birth" valueNumeric="2018-12-12"/>
 			<column name="total_amount" valueNumeric="10.10"/>
 			<column name="contact_number" valueNumeric="91758191"/>
-			<column name="loyalty_points" value="1000"/>
+			<!--<column name="loyalty_points" value="1000"/>-->
 		</insert>
 	</changeSet>
 </databaseChangeLog>

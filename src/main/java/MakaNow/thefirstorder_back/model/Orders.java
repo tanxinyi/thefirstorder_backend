@@ -19,6 +19,10 @@ public class Orders {
     @Column(name="order_summary_id")
     private String orderSummaryId;
 
+    @JsonIgnore
+    @Column(name="qr_code")
+    private String qrCode;
+
     @JsonView(View.MainView.class)
     private double subtotal;
 
@@ -34,12 +38,19 @@ public class Orders {
     @JsonView(View.OrdersView.class)
     private List<CustomerOrder> customerOrders;
 
+    @ManyToOne
+    @JoinColumn(name="qr_code", insertable = false, updatable = false)
+    @JsonView(View.OrdersView.class)
+    private SeatingTable seatingTable;
+
     public Orders(String orderId, OrderSummary orderSummary, double subtotal, String orderStatus){
         this.orderId = orderId;
         this.orderSummary = orderSummary;
         this.orderSummaryId = orderSummary.getOrderSummaryId();
         this.subtotal = subtotal;
         this.orderStatus = orderStatus;
+        this.qrCode = orderSummary.getQrCode();
+        this.seatingTable = orderSummary.getSeatingTable();
     }
 }
 

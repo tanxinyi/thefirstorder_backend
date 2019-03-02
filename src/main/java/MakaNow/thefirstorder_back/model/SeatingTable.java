@@ -30,5 +30,9 @@ public class SeatingTable {
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "seatingTable")
     @JsonView(View.SeatingTableView.class)
     private List<OrderSummary> orderSummaries;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "seatingTable")
+    @JsonView(View.SeatingTableView.class)
+    private List<Orders> orders;
 }
 

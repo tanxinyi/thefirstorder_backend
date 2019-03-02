@@ -76,8 +76,9 @@ public class CustomerController {
             @RequestParam String password,
             @RequestParam(required = false) Date dob,
             @RequestParam(defaultValue = "X") char gender,
-            @RequestParam(required = false) String phoneNum,
-            @RequestParam(defaultValue = "0") int loyaltyPoints) throws Exception {
+            @RequestParam(required = false) String phoneNum) throws Exception {
+//            @RequestParam(defaultValue = "0") int loyaltyPoints
+
 
 
         if (!isValidEmailAddress(email.toUpperCase())) {
@@ -108,7 +109,7 @@ public class CustomerController {
 //        customer.setDob(dob);
 //        customer.setGender(gender);
         customer.setCustomerContactNumber(phoneNum);
-        customer.setLoyaltyPoint(loyaltyPoints);
+//        customer.setLoyaltyPoint(loyaltyPoints);
 
 
         System.out.println(customer);
@@ -157,14 +158,14 @@ public class CustomerController {
     }
 
 
-    @PostMapping("/customers/{customerId}/updatePoint/{points}")
-    @JsonView(View.CustomerView.class)
-    public Customer updateLoyaltyPoint(@PathVariable String customerId,
-                                       @PathVariable int points) throws NotFoundException {
-        Customer customer = getCustomerById(customerId);
-        customer.setLoyaltyPoint(points);
-        return customerRepository.save(customer);
-    }
+//    @PostMapping("/customers/{customerId}/updatePoint/{points}")
+//    @JsonView(View.CustomerView.class)
+//    public Customer updateLoyaltyPoint(@PathVariable String customerId,
+//                                       @PathVariable int points) throws NotFoundException {
+//        Customer customer = getCustomerById(customerId);
+//        customer.setLoyaltyPoint(points);
+//        return customerRepository.save(customer);
+//    }
 
     private boolean isValidPassword(String password) {
         Pattern p = Pattern.compile("\\w{64}");

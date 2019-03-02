@@ -19,6 +19,8 @@
             <column name="postal_code" value="486038"/>
             <column name="cuisine" value="Japanese"/>
             <column name="restaurant_price_range" value="High"/>
+            <column name="gst" valueBoolean="true"/>
+            <column name="service_charge" valueBoolean="true"/>
 			<column name="restaurant_img_path" value=""/>
         </insert>
         <insert tableName="restaurant">
@@ -34,6 +36,8 @@
             <column name="postal_code" value="201021"/>
             <column name="cuisine" value="Thai"/>
             <column name="restaurant_price_range" value="Medium"/>
+            <column name="gst" valueBoolean="true"/>
+            <column name="service_charge" valueBoolean="true"/>
 			<column name="restaurant_img_path" value=""/>
         </insert>
         <insert tableName="restaurant">
@@ -49,6 +53,8 @@
             <column name="postal_code" value="727272"/>
             <column name="cuisine" value="Vietnam"/>
             <column name="restaurant_price_range" value="Low"/>
+            <column name="gst" valueBoolean="true"/>
+            <column name="service_charge" valueBoolean="true"/>
 			<column name="restaurant_img_path" value=""/>
         </insert>
         <insert tableName="restaurant">
@@ -64,6 +70,8 @@
             <column name="postal_code" value="227968"/>
             <column name="cuisine" value="Dessert"/>
             <column name="restaurant_price_range" value="Low"/>
+            <column name="gst" valueBoolean="true"/>
+            <column name="service_charge" valueBoolean="true"/>
             <column name="restaurant_img_path" value=""/>
         </insert>
         <insert tableName="restaurant">
@@ -78,6 +86,8 @@
             <column name="postal_code" value="178902"/>
             <column name="cuisine" value="Western"/>
             <column name="restaurant_price_range" value="Medium"/>
+            <column name="gst" valueBoolean="true"/>
+            <column name="service_charge" valueBoolean="false"/>
             <column name="restaurant_img_path" value=""/>
         </insert>
         <insert tableName="restaurant">
@@ -93,6 +103,8 @@
             <column name="postal_code" value="556083"/>
             <column name="cuisine" value="Chinese"/>
             <column name="restaurant_price_range" value="High"/>
+            <column name="gst" valueBoolean="true"/>
+            <column name="service_charge" valueBoolean="true"/>
             <column name="restaurant_img_path" value=""/>
         </insert>
         <insert tableName="restaurant">
@@ -111,6 +123,8 @@
             <column name="postal_code" value="178901"/>
             <column name="cuisine" value="Western"/>
             <column name="restaurant_price_range" value="Medium"/>
+            <column name="gst" valueBoolean="false"/>
+            <column name="service_charge" valueBoolean="false"/>
             <column name="restaurant_img_path" value=""/>
         </insert>
         <insert tableName="restaurant">
@@ -126,6 +140,8 @@
             <column name="postal_code" value="608532"/>
             <column name="cuisine" value="Korean"/>
             <column name="restaurant_price_range" value="High"/>
+            <column name="gst" valueBoolean="true"/>
+            <column name="service_charge" valueBoolean="true"/>
             <column name="restaurant_img_path" value=""/>
         </insert>
     </changeSet>

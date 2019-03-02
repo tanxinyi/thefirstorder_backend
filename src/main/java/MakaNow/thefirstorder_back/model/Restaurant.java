@@ -47,6 +47,14 @@ public class Restaurant {
     @JsonView(View.MainView.class)
     private String restaurantPriceRange;
 
+    @JsonView(View.MainView.class)
+    @Column(columnDefinition = "TINYINT(1)")
+    private boolean gst;
+
+    @JsonView(View.MainView.class)
+    @Column(columnDefinition = "TINYINT(1)")
+    private boolean serviceCharge;
+
     @Lob
     @JsonView(View.MainView.class)
     private byte[] restaurantImgPath;
@@ -75,4 +83,12 @@ public class Restaurant {
 //    @JsonView(View.RestaurantView.class)
 //    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "restaurant")
 //    private List<Rewards> rewardsList;
+
+    public boolean getGst(){
+        return this.gst;
+    }
+
+    public boolean getServiceCharge(){
+        return this.serviceCharge;
+    }
 }

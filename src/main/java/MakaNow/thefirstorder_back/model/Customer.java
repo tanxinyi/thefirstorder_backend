@@ -26,8 +26,8 @@ public class Customer {
     @JsonView(View.MainView.class)
     private String customerContactNumber;
 
-    @JsonView(View.MainView.class)
-    private int loyaltyPoint;
+//    @JsonView(View.MainView.class)
+//    private int loyaltyPoint;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "customer")
     @JsonView(View.CustomerView.class)
