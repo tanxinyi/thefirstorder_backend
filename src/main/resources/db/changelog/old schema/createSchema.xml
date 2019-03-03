@@ -41,9 +41,9 @@
             <column name="customer_email" type="varchar(30)">
                 <constraints nullable="false"/>
             </column>
-            <!--<column name="customer_loyalty_points" type="varchar(20)">-->
-                <!--<constraints nullable="false"/>-->
-            <!--</column>-->
+            <column name="customer_loyalty_points" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
 
         <createTable tableName="food_tags"

@@ -42,9 +42,9 @@
             <column name="customer_contact_number" type="varchar(45)">
                 <constraints nullable="false"/>
             </column>
-<!--             <column name="loyalty_point" type="int(10)">
+            <column name="loyalty_point" type="int(10)">
                 <constraints nullable="false"/>
-            </column> -->
+            </column>
         </createTable>
 
         <createTable tableName="restaurant"
