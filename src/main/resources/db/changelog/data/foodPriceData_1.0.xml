@@ -955,14 +955,14 @@
             <!--<column name="food_price" valueNumeric="8.0"/>-->
             <!--<column name="availability" valueBoolean="true"/>-->
         <!--</insert>-->
-        <insert tableName="food_price">
+<!--         <insert tableName="food_price">
             <column name="menu_id" value="M010"/>
             <column name="food_id" value="F015"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC005"/>
             <column name="food_price" valueNumeric="9.0"/>
             <column name="availability" valueBoolean="true"/>
-        </insert>
+        </insert> -->
         <insert tableName="food_price">
             <column name="menu_id" value="M010"/>
             <column name="food_id" value="F016"/>
@@ -1050,14 +1050,14 @@
             <!--<column name="availability" valueBoolean="true"/>-->
         <!--</insert>-->
 
-        <insert tableName="food_price">
+<!--         <insert tableName="food_price">
             <column name="menu_id" value="M011"/>
             <column name="food_id" value="F027"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC013"/>
             <column name="food_price" valueNumeric="7.9"/>
             <column name="availability" valueBoolean="true"/>
-        </insert>
+        </insert> -->
         <insert tableName="food_price">
             <column name="menu_id" value="M011"/>
             <column name="food_id" value="F028"/>

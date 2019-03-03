@@ -423,7 +423,7 @@
             <column name="food_category_id" value="FC002"/>
             <column name="customisation_name" value="Extras"/>
         </insert>
-        <insert tableName="customisation">
+<!--         <insert tableName="customisation">
             <column name="customisation_id" value="C006"/>
             <column name="menu_id" value="M010"/>
             <column name="food_id" value="F015"/>
@@ -443,7 +443,7 @@
             <column name="food_id" value="F015"/>
             <column name="food_category_id" value="FC001"/>
             <column name="customisation_name" value="Add ons (optional)"/>
-        </insert>
+        </insert> -->
         <insert tableName="customisation">
             <column name="customisation_id" value="C009"/>
             <column name="menu_id" value="M010"/>
@@ -466,7 +466,7 @@
             <!--<column name="customisation_name" value="Add Ice Cream"/>-->
         <!--</insert>-->
 
-        <insert tableName="customisation">
+<!--         <insert tableName="customisation">
             <column name="customisation_id" value="C012"/>
             <column name="menu_id" value="M011"/>
             <column name="food_id" value="F027"/>
@@ -493,7 +493,7 @@
             <column name="food_id" value="F027"/>
             <column name="food_category_id" value="FC001"/>
             <column name="customisation_name" value="Sauce"/>
-        </insert>
+        </insert> -->
         <insert tableName="customisation">
             <column name="customisation_id" value="C016"/>
             <column name="menu_id" value="M011"/>
