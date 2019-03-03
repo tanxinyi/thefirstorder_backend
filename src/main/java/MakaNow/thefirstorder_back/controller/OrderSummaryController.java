@@ -1,6 +1,7 @@
 package MakaNow.thefirstorder_back.controller;
 
 import MakaNow.thefirstorder_back.model.*;
+import MakaNow.thefirstorder_back.repository.AdminRepository;
 import MakaNow.thefirstorder_back.repository.CustomerRepository;
 import MakaNow.thefirstorder_back.repository.OrderSummaryRepository;
 import MakaNow.thefirstorder_back.repository.OrdersRepository;
@@ -41,6 +42,9 @@ public class OrderSummaryController {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Autowired
+    private AdminRepository adminRepository;
 
     private String getLatestOSID(){
         Iterable<OrderSummary> orderSummaries = orderSummaryRepository.findAll();
@@ -115,7 +119,8 @@ public class OrderSummaryController {
         Customer customer = orderSummary.getCustomer();
         int currentLoyaltyPoints = customer.getLoyaltyPoint();
         logger.info("Old: " + currentLoyaltyPoints);
-        customer.setLoyaltyPoint(currentLoyaltyPoints + amount/100);
+        double pointsEarned = amount * adminRepository.findById("AD001").get().getPointsToMoneyConversionRate();
+        customer.setLoyaltyPoint(currentLoyaltyPoints + (int)pointsEarned);
         logger.info("New: " + customer.getLoyaltyPoint());
         customerRepository.save(customer);
         logger.info("Customer loyalty point updated");
