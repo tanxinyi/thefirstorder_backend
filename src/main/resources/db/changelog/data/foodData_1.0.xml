@@ -283,6 +283,12 @@
         <column name="food_description" value="Classic Wagyu Burger"/>
         <column name="food_img_path" value=""/>
         </insert>
+		<insert tableName="food">
+        <column name="food_id" value="F069"/>
+        <column name="food_name" value="Sawadee Burger"/>
+        <column name="food_description" value="Sawadee Burger"/>
+        <column name="food_img_path" value=""/>
+        </insert>
         <insert tableName="food">
         <column name="food_id" value="F018"/>
         <column name="food_name" value="Nachos with Salsa"/>
@@ -303,8 +309,8 @@
         </insert>
         <insert tableName="food">
         <column name="food_id" value="F021"/>
-        <column name="food_name" value="Chicken Wings"/>
-        <column name="food_description" value="Chicken Wings"/>
+        <column name="food_name" value="Fish Bites"/>
+        <column name="food_description" value="Fish Bites"/>
         <column name="food_img_path" value=""/>
         </insert>
         <insert tableName="food">

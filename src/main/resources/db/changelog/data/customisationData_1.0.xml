@@ -451,13 +451,13 @@
             <column name="food_category_id" value="FC001"/>
             <column name="customisation_name" value="Quantity"/>
         </insert>
-        <insert tableName="customisation">
+<!--         <insert tableName="customisation">
             <column name="customisation_id" value="C010"/>
             <column name="menu_id" value="M010"/>
             <column name="food_id" value="F021"/>
             <column name="food_category_id" value="FC001"/>
             <column name="customisation_name" value="Quantity"/>
-        </insert>
+        </insert> -->
         <!--<insert tableName="customisation">-->
             <!--<column name="customisation_id" value="C011"/>-->
             <!--<column name="menu_id" value="M010"/>-->

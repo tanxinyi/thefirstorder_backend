@@ -976,6 +976,14 @@
             <column name="food_id" value="F017"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC006"/>
+            <column name="food_price" valueNumeric="18.0"/>
+            <column name="availability" valueBoolean="true"/>
+        </insert>
+		<insert tableName="food_price">
+            <column name="menu_id" value="M010"/>
+            <column name="food_id" value="F069"/>
+            <column name="food_category_id" value="FC001"/>
+            <column name="sub_category_id" value="SC006"/>
             <column name="food_price" valueNumeric="14.0"/>
             <column name="availability" valueBoolean="true"/>
         </insert>
@@ -984,7 +992,7 @@
             <column name="food_id" value="F018"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC006"/>
-            <column name="food_price" valueNumeric="18.0"/>
+            <column name="food_price" valueNumeric="10.0"/>
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
@@ -992,7 +1000,7 @@
             <column name="food_id" value="F019"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC007"/>
-            <column name="food_price" valueNumeric="10.0"/>
+            <column name="food_price" valueNumeric="9.0"/>
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">
@@ -1008,7 +1016,7 @@
             <column name="food_id" value="F021"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_id" value="SC007"/>
-            <column name="food_price" valueNumeric="10.0"/>
+            <column name="food_price" valueNumeric="9.0"/>
             <column name="availability" valueBoolean="true"/>
         </insert>
         <insert tableName="food_price">

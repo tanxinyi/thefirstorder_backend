@@ -1068,7 +1068,7 @@
             <column name="option_description" value="Cheese"/>
             <column name="option_price" valueNumeric="3.0"/>
         </insert>
-        <insert tableName="customisation_option">
+<!--         <insert tableName="customisation_option">
             <column name="customisation_option_id" value="CO032"/>
             <column name="customisation_id" value="C010"/>
             <column name="option_description" value="8 Wings"/>
@@ -1079,7 +1079,7 @@
             <column name="customisation_id" value="C010"/>
             <column name="option_description" value="16 Wings"/>
             <column name="option_price" valueNumeric="6.0"/>
-        </insert>
+        </insert> -->
         <!--<insert tableName="customisation_option">-->
             <!--<column name="customisation_option_id" value="CO034"/>-->
             <!--<column name="customisation_id" value="C011"/>-->
