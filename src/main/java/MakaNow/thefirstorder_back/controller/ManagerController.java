@@ -118,8 +118,8 @@ public class ManagerController {
         return new ResponseEntity("Manager Allocated Successfully", HttpStatus.OK);
     }
 
-    @PostMapping("/manager/createAndAllocateManager/{restaurantId}/{firstName}/{lastName}")
-    public ResponseEntity<?> createAndAllocateManager(@PathVariable("restaurantId") String restaurantId, @PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName) {
+    @PostMapping("/manager/createAndAllocateManager/{restaurantId}/{firstName}/{lastName}/{password}")
+    public ResponseEntity<?> createAndAllocateManager(@PathVariable("restaurantId") String restaurantId, @PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName, @PathVariable("password") String password) {
 
         String newManagerId = managerService.getNewManagerId();
 
@@ -128,7 +128,7 @@ public class ManagerController {
         manager.setFirstName(firstName);
         manager.setLastName(lastName);
         manager.setUsername("username");
-        manager.setPassword("password");
+        manager.setPassword(password);
 
         managerRepository.save(manager);
 

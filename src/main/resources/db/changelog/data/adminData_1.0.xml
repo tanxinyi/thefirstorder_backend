@@ -11,8 +11,7 @@
             <column name="admin_password" value="superadmin321"/>
 			<column name="convert_to_points" valueNumeric="0"/>
 			<column name="convert_from_points" valueNumeric="0"/>
-			<!-- <column name="stripe_token" value="	sk_test_MvX8jEh7TbvLfYk6VqJzVEDM"/> -->
-			<column name="stripe_token" value="	sk_live_OENJVZQgcoKGhtYBADifZ8pW"/>
+			<column name="stripe_token" value="	sk_test_MvX8jEh7TbvLfYk6VqJzVEDM"/>
         </insert>
     </changeSet>
 

@@ -7,12 +7,10 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
 @Data
 @Table(name="food_price")
-public class FoodPrice {
+public class UpdatedFoodPrice {
 
-    @EmbeddedId
     @JsonView(View.MainView.class)
     private MenuFoodCatId menuFoodCatId;
 
@@ -24,34 +22,36 @@ public class FoodPrice {
     private double foodPrice;
 
     @JsonView(View.MainView.class)
-    @Column(columnDefinition = "TINYINT(1)")
     private boolean availability;
 
-    @ManyToOne
-    @JoinColumn(name="menu_id", insertable = false, updatable = false)
     @JsonView(View.FoodPriceView.class)
     private Menu menu;
 
-    @ManyToOne
-    @JoinColumn(name="food_id", insertable = false, updatable = false)
     @JsonView(View.FoodPriceView.class)
-    private Food food;
+    private UpdatedFood food;
 
-    @ManyToOne
-    @JoinColumn(name="food_category_id", insertable = false, updatable = false)
     @JsonView(View.FoodPriceView.class)
     private FoodCategory foodCategory;
 
-    @ManyToOne
-    @JoinColumn(name="sub_category_id", insertable = false, updatable = false)
     @JsonView(View.FoodPriceView.class)
     private SubCategory subFoodCategory;
 
-    @OneToMany(fetch = FetchType.LAZY, orphanRemoval = true , cascade = {CascadeType.ALL},mappedBy = "foodPrice")
     @JsonView(View.FoodPriceView.class)
     private List<Customisation> customisations;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "foodPrice")
     @JsonView(View.FoodPriceView.class)
     private List<CustomerOrder> customerOrders;
+
+    public UpdatedFoodPrice(FoodPrice foodPrice){
+        this.menuFoodCatId = foodPrice.getMenuFoodCatId();
+        this.menu = foodPrice.getMenu();
+        this.availability = foodPrice.isAvailability();
+        this.foodPrice = foodPrice.getFoodPrice();
+        this.subCategoryId = foodPrice.getSubCategoryId();
+        this.food = new UpdatedFood(foodPrice.getFood());
+        this.foodCategory = foodPrice.getFoodCategory();
+        this.subFoodCategory = foodPrice.getSubFoodCategory();
+        this.customisations = foodPrice.getCustomisations();
+        this.customerOrders = foodPrice.getCustomerOrders();
+    }
 }

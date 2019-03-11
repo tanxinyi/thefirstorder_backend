@@ -107,15 +107,15 @@ public class MenuController {
 
     @GetMapping("/menu/{menuId}/categories")
     @JsonView(View.CategoryView.class)
-    public List<FoodCategory> getCategoriesByMenu(@PathVariable String menuId) throws NotFoundException{
+    public List<UpdatedCategory> getCategoriesByMenu(@PathVariable String menuId) throws NotFoundException{
         logger.info("Getting List of Categories by MenuID");
 
         Menu menu = getMenuById(menuId);
         List<FoodPrice> foodPrices = menu.getFoodPrices();
-        List<FoodCategory> categories = new ArrayList<>();
+        List<UpdatedCategory> categories = new ArrayList<>();
 
         for(FoodPrice foodPrice: foodPrices){
-            FoodCategory category = foodPrice.getFoodCategory();
+            UpdatedCategory category = new UpdatedCategory(foodPrice.getFoodCategory());
             if(!categories.contains(category)){
                 categories.add(category);
             }
@@ -126,22 +126,22 @@ public class MenuController {
 
     @GetMapping("/foodPrices/menu/{menuId}/category/{categoryId}")
     @JsonView(View.FoodPriceView.class)
-    public List<FoodPrice> getFoodPriceByCategory(@PathVariable String menuId, @PathVariable String categoryId) throws NotFoundException{
+    public List<UpdatedFoodPrice> getFoodPriceByCategory(@PathVariable String menuId, @PathVariable String categoryId) throws NotFoundException{
         logger.info("Getting List of FoodPrices by MenuID and Category");
 
         Menu menu = getMenuById(menuId);
         List<FoodPrice> foodPrices = menu.getFoodPrices();
-        List<FoodPrice> output = new ArrayList<>();
+        List<UpdatedFoodPrice> output = new ArrayList<>();
 
         for(FoodPrice foodPrice: foodPrices){
             if(foodPrice.getSubFoodCategory() == null){
 
                 if (foodPrice.getFoodCategory().getFoodCategoryId().equals(categoryId)){
 
-                    output.add(foodPrice);
+                    output.add(new UpdatedFoodPrice(foodPrice));
                 }
             }else if(foodPrice.getSubFoodCategory().getSubCategoryId().equals(categoryId)){
-                output.add(foodPrice);
+                output.add(new UpdatedFoodPrice(foodPrice));
             }
         }
 
@@ -153,20 +153,21 @@ public class MenuController {
 
     @GetMapping("/subCategories/menu/{menuId}/category/{categoryId}")
     @JsonView(View.SubCategoryView.class)
-    public List<SubCategory> getSubCategoriesByCategory(@PathVariable String menuId, @PathVariable String categoryId) throws NotFoundException{
+    public List<UpdatedSubCategory> getSubCategoriesByCategory(@PathVariable String menuId, @PathVariable String categoryId) throws NotFoundException{
         logger.info("Getting List of SubCategories by MenuID and Category");
 
         Menu menu = getMenuById(menuId);
         List<FoodPrice> foodPrices = menu.getFoodPrices();
-        List<SubCategory> output = new ArrayList<>();
+        List<UpdatedSubCategory> output = new ArrayList<>();
         boolean exist = false;
 
         for(FoodPrice foodPrice: foodPrices){
             if (foodPrice.getFoodCategory().getFoodCategoryId().equals(categoryId)){
                 exist = true;
                 SubCategory subCategory = foodPrice.getSubFoodCategory();
-                if(subCategory != null && !output.contains(subCategory)){
-                    output.add(subCategory);
+                UpdatedSubCategory updatedSubCategory = new UpdatedSubCategory(subCategory);
+                if(subCategory != null && !output.contains(updatedSubCategory)){
+                    output.add(updatedSubCategory);
                 }
             }
         }

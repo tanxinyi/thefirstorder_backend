@@ -14,10 +14,10 @@
             <column name="admin_password" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="convert_to_points" type="int(10)">
+            <column name="convert_to_points" type="double">
                 <constraints nullable="false"/>
             </column>
-			<column name="convert_from_points" type="int(10)">
+			<column name="convert_from_points" type="double">
                 <constraints nullable="false"/>
             </column>
 			<column name="stripe_token" type="varchar(50)">

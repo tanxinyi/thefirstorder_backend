@@ -56,8 +56,8 @@ public class AdminController {
         Optional<Admin> optionalAdmin = adminRepository.findById(adminId);
         Admin admin = optionalAdmin.get();
 
-        admin.setPointsToMoneyConversionRate(Integer.parseInt(pointsToCash));
-        admin.setMoneyToPointsConversionRate(Integer.parseInt(cashToPoints));
+        admin.setPointsToMoneyConversionRate(Double.parseDouble(pointsToCash));
+        admin.setMoneyToPointsConversionRate(Double.parseDouble(cashToPoints));
 
         adminRepository.save(admin);
 
@@ -65,11 +65,11 @@ public class AdminController {
     }
 
     @GetMapping("/admins/{adminId}/conversion_rates")
-    public List<Integer> getPointsConversion(@PathVariable String adminId) throws NotFoundException {
+    public List<Double> getPointsConversion(@PathVariable String adminId) throws NotFoundException {
         logger.info("Getting Conversion Rates for Admin " + adminId);
         Optional<Admin> admin = adminRepository.findById(adminId);
         if(admin.isPresent()){
-            List<Integer> output = new ArrayList<>();
+            List<Double> output = new ArrayList<>();
             output.add(admin.get().getPointsToMoneyConversionRate());
             output.add(admin.get().getMoneyToPointsConversionRate());
             return output;

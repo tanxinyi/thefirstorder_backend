@@ -21,11 +21,11 @@ public class Admin {
 
     @JsonView(View.MainView.class)
     @Column(name="convert_to_points")
-    private int moneyToPointsConversionRate;
+    private double moneyToPointsConversionRate;
 
     @JsonView(View.MainView.class)
     @Column(name="convert_from_points")
-    private int pointsToMoneyConversionRate;
+    private double pointsToMoneyConversionRate;
 
     @JsonView(View.MainView.class)
     @Column(name="stripe_token")
