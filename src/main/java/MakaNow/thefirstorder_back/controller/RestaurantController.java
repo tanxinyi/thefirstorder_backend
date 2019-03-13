@@ -166,16 +166,16 @@ public class RestaurantController {
 
     @GetMapping("/restaurants/getRestaurantsByArea/{area}")
     @JsonView(View.RestaurantView.class)
-    public List<Restaurant> getRestaurantsByArea(@PathVariable String area){
+    public List<UpdatedRestaurant> getRestaurantsByArea(@PathVariable String area){
         logger.info("Getting Restaurants by area: " + area);
-        return restaurantService.getRestaurantsByArea(area);
+        return restaurantService.convertRestaurants(restaurantService.getRestaurantsByArea(area));
     }
 
     @GetMapping("/restaurants/getRestaurantsByCuisine/{cuisine}")
     @JsonView(View.RestaurantView.class)
-    public List<Restaurant> getRestaurantsByCuisine(@PathVariable String cuisine) throws NotFoundException{
+    public List<UpdatedRestaurant> getRestaurantsByCuisine(@PathVariable String cuisine) throws NotFoundException{
         logger.info("Getting Restaurants by cuisine: " + cuisine);
-        return restaurantService.getRestaurantsByCuisine(cuisine);
+        return restaurantService.convertRestaurants(restaurantService.getRestaurantsByCuisine(cuisine));
     }
 
     @GetMapping("/restaurants/getAllCuisines")
@@ -198,33 +198,33 @@ public class RestaurantController {
 
     @GetMapping("/restaurants/getRestaurantsByPriceRange/{priceRange}")
     @JsonView(View.RestaurantView.class)
-    public List<Restaurant> getRestaurantsByPriceRange(@PathVariable String priceRange) throws NotFoundException{
+    public List<UpdatedRestaurant> getRestaurantsByPriceRange(@PathVariable String priceRange) throws NotFoundException{
         logger.info("Getting Restaurants by price range: " + priceRange);
-        return restaurantService.getRestaurantsByPriceRange(priceRange);
+        return restaurantService.convertRestaurants(restaurantService.getRestaurantsByPriceRange(priceRange));
     }
 
     @PostMapping("/restaurants/searchByName")
     @JsonView(View.RestaurantView.class)
-    public List<Restaurant> searchRestaurantsByName(@RequestBody String name) throws NotFoundException{
+    public List<UpdatedRestaurant> searchRestaurantsByName(@RequestBody String name) throws NotFoundException{
         logger.info("Getting Restaurants by name: " + name);
-        return restaurantService.getRestaurantsByName(name);
+        return restaurantService.convertRestaurants(restaurantService.getRestaurantsByName(name));
     }
 
     @PostMapping("/restaurants/search")
     @JsonView(View.RestaurantView.class)
-    public List<Restaurant> searchRestaurants(@RequestBody String query) throws NotFoundException{
+    public List<UpdatedRestaurant> searchRestaurants(@RequestBody String query) throws NotFoundException{
         query = query.replace("+", " ").substring(0,query.length()-1);
         logger.info("Searching Restaurants by query: " + query);
-        return restaurantService.queryRestaurant(query);
+        return restaurantService.convertRestaurants(restaurantService.queryRestaurant(query));
     }
 
     @GetMapping("/restaurants/index/{index}")
     @JsonView(View.RestaurantView.class)
-    public List<Restaurant> getTenRestaurants(@PathVariable int index){
+    public List<UpdatedRestaurant> getTenRestaurants(@PathVariable int index){
         logger.info("Getting 10 Restaurants by index: " + index);
-        List<Restaurant> restaurants = (List<Restaurant>)restaurantRepository.findAll();
+        List<Restaurant> restaurants = ((List<Restaurant>)restaurantRepository.findAll());
         if(index > restaurants.size()) return new ArrayList<>();
-        return restaurants.subList(index, Math.min(index + 10, restaurants.size()));
+        return restaurantService.convertRestaurants(restaurants.subList(index, Math.min(index + 10, restaurants.size())));
     }
 
     @GetMapping("/restaurants/getAllRestaurantsByAdminId/{adminId}")
