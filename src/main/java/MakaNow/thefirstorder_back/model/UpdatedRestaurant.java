@@ -1,64 +1,68 @@
 package MakaNow.thefirstorder_back.model;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 
 @Data
 public class UpdatedRestaurant {
+    @JsonView(View.MainView.class)
     private String restaurantId;
+
+    @JsonView(View.MainView.class)
     private String restaurantName;
+
+    @JsonView(View.MainView.class)
     private String restaurantDescription;
+
+    @JsonView(View.MainView.class)
     private String contactNumber;
+
+    @JsonView(View.MainView.class)
     private String building;
+
+    @JsonView(View.MainView.class)
     private String street;
+
+    @JsonView(View.MainView.class)
     private String postalCode;
+
+    @JsonView(View.MainView.class)
     private String cuisine;
+
+    @JsonView(View.MainView.class)
     private String operatingHours;
+
+    @JsonView(View.MainView.class)
     private String affordability;
+
+    @JsonView(View.MainView.class)
     private String restaurantImg;
+
+    @JsonView(View.MainView.class)
     private boolean gst;
+
+    @JsonView(View.MainView.class)
     private boolean serviceCharge;
 
-    public UpdatedRestaurant(String restaurantId,
-                             String restaurantName,
-                             String restaurantDescription,
-                             String contactNumber,
-                             String building,
-                             String street,
-                             String postalCode,
-                             String cuisine,
-                             String operatingHours,
-                             String affordability,
-                             String restaurantImg,
-                             boolean gst,
-                             boolean serviceCharge){
-        this.restaurantId = restaurantId;
-        this.restaurantName = restaurantName;
-        this.restaurantDescription = restaurantDescription;
-        this.contactNumber = contactNumber;
-        this.building = building;
-        this.street = street;
-        this.postalCode = postalCode;
-        this.cuisine = cuisine;
-        this.operatingHours = operatingHours;
-        this.affordability = affordability;
-        this.restaurantImg = restaurantImg;
-        this.gst = gst;
-        this.serviceCharge = serviceCharge;
-    }
-
     public UpdatedRestaurant(Restaurant restaurant){
-        this(restaurant.getRestaurantId(),
-                restaurant.getRestaurantName(),
-                restaurant.getRestaurantDescription(),
-                restaurant.getRestaurantContactNumber(),
-                restaurant.getBuilding(),
-                restaurant.getStreet(),
-                restaurant.getPostalCode(),
-                restaurant.getCuisine(),
-                restaurant.getRestaurantOpeningHours(),
-                restaurant.getRestaurantPriceRange(),
-                new String(restaurant.getRestaurantImgPath()),
-                restaurant.getGst(),
-                restaurant.getServiceCharge());
+        byte[] img = restaurant.getRestaurantImgPath();
+        String image = "";
+        if(img != null){
+            image = new String(img);
+        }
+
+        this.restaurantId = restaurant.getRestaurantId();
+        this.restaurantName = restaurant.getRestaurantName();
+        this.restaurantDescription = restaurant.getRestaurantDescription();
+        this.contactNumber = restaurant.getRestaurantContactNumber();
+        this.building = restaurant.getBuilding();
+        this.street = restaurant.getStreet();
+        this.postalCode = restaurant.getPostalCode();
+        this.cuisine = restaurant.getCuisine();
+        this.operatingHours = restaurant.getRestaurantOpeningHours();
+        this.affordability = restaurant.getRestaurantPriceRange();
+        this.restaurantImg = image;
+        this.gst = restaurant.getGst();
+        this.serviceCharge = restaurant.getServiceCharge();
     }
 }

@@ -31,7 +31,7 @@ public class Customer {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "customer")
     @JsonView(View.CustomerView.class)
-    private List<OrderSummary> orderSummaries;
+    private List<Orders> orders;
 
 //    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "customer")
 //    @JsonView(View.CustomerView.class)

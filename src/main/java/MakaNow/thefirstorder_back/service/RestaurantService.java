@@ -2,7 +2,6 @@ package MakaNow.thefirstorder_back.service;
 
 import MakaNow.thefirstorder_back.model.ManagerAllocation;
 import MakaNow.thefirstorder_back.model.Restaurant;
-import MakaNow.thefirstorder_back.model.UpdatedRestaurant;
 import MakaNow.thefirstorder_back.repository.RestaurantRepository;
 import ch.qos.logback.core.pattern.util.RestrictedEscapeUtil;
 import javassist.NotFoundException;
@@ -191,13 +190,5 @@ public class RestaurantService {
         }
         if(output.size() > 0) return output;
         throw new NotFoundException("No restaurants match found");
-    }
-
-    public List<UpdatedRestaurant> convertRestaurants(List<Restaurant> restaurants){
-        List<UpdatedRestaurant> output = new ArrayList<>();
-        for(Restaurant restaurant: restaurants){
-            output.add(new UpdatedRestaurant(restaurant));
-        }
-        return output;
     }
 }

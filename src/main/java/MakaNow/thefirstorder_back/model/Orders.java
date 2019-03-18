@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -15,24 +16,30 @@ public class Orders {
     @JsonView(View.MainView.class)
     private String orderId;
 
+    @JsonView(View.MainView.class)
+    private double totalAmount;
+
+    @JsonView(View.MainView.class)
+    private String orderStatus;
+
+    @JsonView(View.MainView.class)
+    private String paymentStatus;
+
+    @JsonView(View.MainView.class)
+    private String modeOfPayment;
+
+    @JsonView(View.MainView.class)
+    private Date orderDate;
+
     @JsonIgnore
-    @Column(name="order_summary_id")
-    private String orderSummaryId;
+    private String email;
 
     @JsonIgnore
     @Column(name="qr_code")
     private String qrCode;
 
     @JsonView(View.MainView.class)
-    private double subtotal;
-
-    @JsonView(View.MainView.class)
-    private String orderStatus;
-
-    @ManyToOne
-    @JoinColumn(name="order_summary_id", insertable = false, updatable = false)
-    @JsonView(View.OrdersView.class)
-    private OrderSummary orderSummary;
+    private String token;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "order")
     @JsonView(View.OrdersView.class)
@@ -43,14 +50,29 @@ public class Orders {
     @JsonView(View.OrdersView.class)
     private SeatingTable seatingTable;
 
-    public Orders(String orderId, OrderSummary orderSummary, double subtotal, String orderStatus){
+    @ManyToOne
+    @JoinColumn(name="email", insertable = false, updatable = false)
+    @JsonView(View.OrderSummaryView.class)
+    private Customer customer;
+
+    public Orders(String orderId,
+                  double totalAmount,
+                  String orderStatus,
+                  String paymentStatus,
+                  String modeOfPayment,
+                  Customer customer,
+                  SeatingTable seatingTable){
         this.orderId = orderId;
-        this.orderSummary = orderSummary;
-        this.orderSummaryId = orderSummary.getOrderSummaryId();
-        this.subtotal = subtotal;
+        this.totalAmount = totalAmount;
         this.orderStatus = orderStatus;
-        this.qrCode = orderSummary.getQrCode();
-        this.seatingTable = orderSummary.getSeatingTable();
+        this.customer = customer;
+        this.email = customer.getEmail();
+        this.paymentStatus = paymentStatus;
+        this.totalAmount = totalAmount;
+        this.orderDate = new Date();
+        this.modeOfPayment = modeOfPayment;
+        this.qrCode = seatingTable.getQrCode();
+        this.seatingTable = seatingTable;
     }
 }
 

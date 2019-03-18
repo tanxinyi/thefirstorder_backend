@@ -105,7 +105,7 @@ public class CustomerOrderController {
 
         Orders order = ordersController.getOrdersById(orderId);
 
-        order.setSubtotal(order.getSubtotal() + price);
+        order.setTotalAmount(order.getTotalAmount() + price);
         order.setOrderStatus("SENT");
         ordersRepository.save(order);
 

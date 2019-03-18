@@ -31,7 +31,10 @@ public class UpdatedFood {
         this.foodId = food.getFoodId();
         this.foodName = food.getFoodName();
         this.foodDescription = food.getFoodDescription();
-        this.foodImgPath = new String(food.getFoodImgPath());
+        byte[] img = food.getFoodImgPath();
+        String image = "";
+        if(img != null) image = new String(img);
+        this.foodImgPath = image;
         this.foodPrices = food.getFoodPrices();
     }
 }

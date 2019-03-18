@@ -20,16 +20,15 @@ public class SeatingTable {
     private String restaurantId;
 
     @JsonView(View.MainView.class)
+    private String tableNumber;
+
+    @JsonView(View.MainView.class)
     private int tableCapacity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id", insertable=false, updatable = false, nullable = false)
     @JsonView(View.SeatingTableView.class)
     private Restaurant restaurant;
-
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "seatingTable")
-    @JsonView(View.SeatingTableView.class)
-    private List<OrderSummary> orderSummaries;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "seatingTable")
     @JsonView(View.SeatingTableView.class)

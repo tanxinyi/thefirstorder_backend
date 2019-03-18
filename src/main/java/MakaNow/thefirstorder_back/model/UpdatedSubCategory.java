@@ -32,7 +32,10 @@ public class UpdatedSubCategory {
         this.subCategoryId = subCategory.getSubCategoryId();
         this.categoryId = subCategory.getCategoryId();
         this.subCategoryName = subCategory.getSubCategoryName();
-        this.subCategoryImage = new String(subCategory.getSubCategoryImage());
+        byte[] img = subCategory.getSubCategoryImage();
+        String image = "";
+        if(img != null) image = new String(img);
+        this.subCategoryImage = image;
         this.foodCategory = subCategory.getFoodCategory();
         List<UpdatedFoodPrice> newFoodPrices = new ArrayList<>();
         for(FoodPrice foodPrice : subCategory.getFoodPrices()){

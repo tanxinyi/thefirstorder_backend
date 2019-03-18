@@ -49,7 +49,7 @@ public class CustomerOrder {
 
     @ManyToMany (cascade = CascadeType.ALL)
     @JoinTable(
-            name="customisation_selected",
+            name="Customisation_Selected",
             inverseJoinColumns = {@JoinColumn(name="customisation_option_id")},
             joinColumns = {@JoinColumn(name="customer_order_id")}
     )

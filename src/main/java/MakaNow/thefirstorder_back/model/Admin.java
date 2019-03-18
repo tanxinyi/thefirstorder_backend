@@ -1,5 +1,6 @@
 package MakaNow.thefirstorder_back.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Data;
 
@@ -32,7 +33,8 @@ public class Admin {
     private String stripeToken;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "admin")
-    @JsonView(View.AdminView.class)
+    @JsonIgnore
+    //@JsonView(View.AdminView.class)
     private List<Restaurant> restaurants;
 }
 

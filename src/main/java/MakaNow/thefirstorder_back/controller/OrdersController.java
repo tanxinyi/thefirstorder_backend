@@ -2,6 +2,8 @@ package MakaNow.thefirstorder_back.controller;
 
 
 import MakaNow.thefirstorder_back.model.*;
+import MakaNow.thefirstorder_back.repository.AdminRepository;
+import MakaNow.thefirstorder_back.repository.CustomerRepository;
 import MakaNow.thefirstorder_back.repository.OrdersRepository;
 import MakaNow.thefirstorder_back.repository.SeatingTableRepository;
 import MakaNow.thefirstorder_back.service.OrdersService;
@@ -40,10 +42,16 @@ public class OrdersController {
     private SeatingTableController seatingTableController;
 
     @Autowired
-    private OrderSummaryController orderSummaryController;
+    private CustomerRepository customerRepository;
 
     @Autowired
     private RestaurantController restaurantController;
+
+    @Autowired
+    private CustomerController customerController;
+
+    @Autowired
+    private AdminRepository adminRepository;
 
     @GetMapping("/orders")
     @JsonView(View.OrdersView.class)
@@ -75,10 +83,13 @@ public class OrdersController {
         }
     }
 
-    @GetMapping("/orders/new/orderSummary/{orderSummaryId}")
+    @GetMapping("/orders/new/customer/{email}/seatingTable/{qrCode}")
     @JsonView(View.OrdersView.class)
-    public Orders getNewOrders(@PathVariable String orderSummaryId) throws NotFoundException{
-        logger.info("OrderSummaryId:" + orderSummaryId);
+    public Orders getNewOrders(@PathVariable String email,
+                               @PathVariable String qrCode) throws NotFoundException{
+        logger.info("Getting New Orders");
+        logger.info("Customer:" + email);
+        logger.info("SeatingTableID:" + qrCode);
         String latestOID = getLatestOID();
         String newCount = "" + (Integer.parseInt(latestOID.substring(PREFIX.length())) + 1);
         latestOID = PREFIX;
@@ -86,29 +97,41 @@ public class OrdersController {
             latestOID += "0";
         }
         latestOID += newCount;
-        OrderSummary orderSummary = orderSummaryController.getOrderSummaryById(orderSummaryId);
-        Orders order = new Orders(latestOID, orderSummary, 0.0, "PENDING");
+        Customer customer = customerController.getCustomerById(email);
+        SeatingTable seatingTable = seatingTableController.getSeatingTableBySeatingTableId(qrCode);
+        Orders order = new Orders(latestOID,
+                0.0,
+                "PENDING",
+                "PENDING",
+                "CARD",
+                customer,
+                seatingTable);
         return ordersRepository.save(order);
     }
 
-//    @GetMapping("/orders/restaurant/{restaurantId}/retrieve_new_orders/")
-//    @JsonView(View.OrdersView.class)
-//    public List<Orders> retrieveNewOrders(@PathVariable String restaurantId) throws NotFoundException{
-//        logger.info("Retrieving unsent orders by restaurant: " + restaurantId);
-//        List<Orders> orders = (List) ordersRepository.findAll();
-//        List<Orders> output = new ArrayList<>();
-//        for(Orders order: orders){
-//            if(order.getOrderStatus().equals("PENDING") && order.getCustomerOrders().size() > 0 ) {
-//                Restaurant restaurant = order.getOrderSummary().getSeatingTable().getRestaurant();
-//                if(restaurant.getRestaurantId().equals(restaurantId)){
-//                    order.setOrderStatus("SENT");
-//                    output.add(order);
-//                }
-//            }
-//        }
-//
-//        return (List) ordersRepository.saveAll((Iterable<Orders>)output);
-//    }
+    @PutMapping("/orders/{orderId}")
+    @JsonView(View.OrderSummaryView.class)
+    public Orders updateOrderPaymentStatus(@PathVariable String orderId,
+                                                        @RequestParam("status") String paymentStatus,
+                                                        @RequestParam("amount") int amount) throws NotFoundException {
+        logger.info("Update Payment Status");
+        logger.info("OrderId: " + orderId);
+        Orders order = getOrdersById(orderId);
+        order.setPaymentStatus(paymentStatus);
+        order.setTotalAmount(amount/100.0);
+
+        logger.info("Updating Customer Loyalty Points");
+        Customer customer = order.getCustomer();
+        int currentLoyaltyPoints = customer.getLoyaltyPoint();
+        logger.info("Old: " + currentLoyaltyPoints);
+        double pointsEarned = amount * adminRepository.findById("AD001").get().getMoneyToPointsConversionRate();
+        customer.setLoyaltyPoint(currentLoyaltyPoints + (int)pointsEarned);
+        logger.info("New: " + customer.getLoyaltyPoint());
+        customerRepository.save(customer);
+        logger.info("Customer loyalty point updated");
+
+        return ordersRepository.save(order);
+    }
 
     @GetMapping("/orders/restaurant/{restaurantId}/retrieve_sent_orders/")
     @JsonView(View.OrdersView.class)
@@ -118,7 +141,7 @@ public class OrdersController {
         List<Orders> output = new ArrayList<>();
         for(Orders order: orders){
             if(order.getOrderStatus().equals("SENT") && order.getCustomerOrders().size() > 0 ) {
-                Restaurant restaurant = order.getOrderSummary().getSeatingTable().getRestaurant();
+                Restaurant restaurant = order.getSeatingTable().getRestaurant();
                 if(restaurant.getRestaurantId().equals(restaurantId)){
                     output.add(order);
                 }
@@ -143,8 +166,8 @@ public class OrdersController {
         List<Orders> orders = (List) ordersRepository.findAll();
         List<Orders> output = new ArrayList<>();
         for(Orders order: orders){
-            if(order.getOrderStatus().equals("ACKNOWLEDGED") && order.getOrderSummary().getPaymentStatus().equals("Pending") ) {
-                Restaurant restaurant = order.getOrderSummary().getSeatingTable().getRestaurant();
+            if(order.getOrderStatus().equals("ACKNOWLEDGED") && order.getPaymentStatus().equals("Pending") ) {
+                Restaurant restaurant = order.getSeatingTable().getRestaurant();
                 if(restaurant.getRestaurantId().equals(restaurantId)){
                     output.add(order);
                 }
@@ -152,6 +175,17 @@ public class OrdersController {
         }
         Collections.reverse(output);
         return (List) ordersRepository.saveAll((Iterable<Orders>)output);
+    }
+
+    @PostMapping("/orders/getRestaurantName")
+    public List<String> getRestaurantName(@Valid @RequestBody List<Orders> oids) throws NotFoundException{
+        logger.info("Getting Restaurant name");
+        logger.info("List of OIDs:" + oids.toString());
+        List<String> output = new ArrayList<>();
+        for(Orders order : oids){
+            output.add(this.getOrdersById(order.getOrderId()).getSeatingTable().getRestaurant().getRestaurantName());
+        }
+        return output;
     }
 }
 

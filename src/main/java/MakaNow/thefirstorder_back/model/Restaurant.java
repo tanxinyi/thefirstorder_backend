@@ -48,11 +48,9 @@ public class Restaurant {
     private String restaurantPriceRange;
 
     @JsonView(View.MainView.class)
-    @Column(columnDefinition = "TINYINT(1)")
     private boolean gst;
 
     @JsonView(View.MainView.class)
-    @Column(columnDefinition = "TINYINT(1)")
     private boolean serviceCharge;
 
     @Lob

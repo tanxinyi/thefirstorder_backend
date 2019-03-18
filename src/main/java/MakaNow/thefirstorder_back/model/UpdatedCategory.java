@@ -29,7 +29,10 @@ public class UpdatedCategory {
     public UpdatedCategory(FoodCategory foodCategory){
         this.foodCategoryId = foodCategory.getFoodCategoryId();
         this.foodCategoryName = foodCategory.getFoodCategoryName();
-        this.foodCategoryImgPath = new String(foodCategory.getFoodCategoryImgPath());
+        byte[] img = foodCategory.getFoodCategoryImgPath();
+        String image = "";
+        if(img != null) image = new String(img);
+        this.foodCategoryImgPath = image;
         List<UpdatedFoodPrice> newFoodPrices = new ArrayList<>();
         for(FoodPrice foodPrice: foodCategory.getFoodPrices()){
             newFoodPrices.add(new UpdatedFoodPrice(foodPrice));
