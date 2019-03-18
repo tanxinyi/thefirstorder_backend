@@ -1,0 +1,26 @@
+INSERT INTO Sub_Category
+  (sub_category_id, food_category_id, sub_category_name, sub_category_img_path)
+VALUES
+  ('SC001', 'FC002', 'Coffee', NULL),
+  ('SC002', 'FC002', 'Tea', NULL),
+  ('SC003', 'FC002', 'Others', NULL),
+  ('SC004', 'FC002', 'Beers', NULL),
+  ('SC005', 'FC001', 'Build Your Own Burgers', NULL),
+  ('SC006', 'FC001', 'Specialty Burgers', NULL),
+  ('SC007', 'FC001', 'Tapas', NULL),
+  ('SC008', 'FC001', 'Pasta', NULL),
+  ('SC009', 'FC001', 'Fish/White Meat', NULL),
+  ('SC010', 'FC001', 'Salad', NULL),
+  ('SC011', 'FC001', 'B3 Poke Bowl', NULL),
+  ('SC012', 'FC001', 'Red Meat', NULL),
+  ('SC013', 'FC001', 'Create Your Meal', NULL),
+  ('SC014', 'FC001', 'Quesadillas', NULL),
+  ('SC015', 'FC001', 'Tacos', NULL),
+  ('SC016', 'FC002', 'Draught Beer', NULL),
+  ('SC017', 'FC002', 'Non-alcoholic Drinks', NULL),
+  ('SC018', 'FC002', 'Loose Cocktails', NULL),
+  ('SC019', 'FC004', 'Snack Attack', NULL),
+  ('SC020', 'FC004', 'Nachos', NULL),
+  ('SC021', 'FC002', 'Soju/Sake', NULL),
+  ('SC022', 'FC002', 'Cider', NULL),
+  ('SC023', 'FC002', 'Jug Cocktails', NULL);
