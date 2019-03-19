@@ -76,8 +76,13 @@ public class FoodController {
                     foodItemInMenu1.setFoodName(food.getFoodName());
                     foodItemInMenu.setFoodDescription(food.getFoodDescription());
                     foodItemInMenu1.setFoodDescription(food.getFoodDescription());
+                    String foodImg;
                     byte[] foodImgBytes = food.getFoodImgPath();
-                    String foodImg = new String(foodImgBytes);
+                    if(foodImgBytes == null){
+                        foodImg = null;
+                    }else{
+                        foodImg = new String(foodImgBytes);
+                    }
 //                    String foodImg = Base64.getEncoder().encodeToString(foodImgBytes);
 
                     foodItemInMenu.setFoodCategory(foodPrice.getFoodCategory().getFoodCategoryId());
@@ -143,7 +148,12 @@ public class FoodController {
                     foodItemInMenu.setFoodDescription(food.getFoodDescription());
                     foodItemInMenu1.setFoodDescription(food.getFoodDescription());
                     byte[] foodImgBytes = food.getFoodImgPath();
-                    String foodImg = new String(foodImgBytes);
+                    String foodImg;
+                    if(foodImgBytes == null){
+                        foodImg = null;
+                    }else{
+                        foodImg = new String(foodImgBytes);
+                    }
 
                     foodItemInMenu.setFoodCategory(foodPrice.getFoodCategory().getFoodCategoryId());
                     foodItemInMenu.setFoodCategoryName(foodCategoryRepository.findById(foodPrice.getFoodCategory().getFoodCategoryId()).get().getFoodCategoryName());
@@ -195,7 +205,12 @@ public class FoodController {
                         foodItemInMenu.setFoodDescription(food.getFoodDescription());
                         foodItemInMenu1.setFoodDescription(food.getFoodDescription());
                         byte[] foodImgBytes = food.getFoodImgPath();
-                        String foodImg = new String(foodImgBytes);
+                        String foodImg;
+                        if(foodImgBytes == null){
+                            foodImg = null;
+                        }else{
+                            foodImg = new String(foodImgBytes);
+                        }
 
                         foodItemInMenu.setFoodCategory(foodPrice.getFoodCategory().getFoodCategoryId());
                         foodItemInMenu.setFoodCategoryName(foodCategoryRepository.findById(foodPrice.getFoodCategory().getFoodCategoryId()).get().getFoodCategoryName());
