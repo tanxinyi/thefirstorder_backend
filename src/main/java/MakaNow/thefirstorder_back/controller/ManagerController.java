@@ -67,31 +67,6 @@ public class ManagerController {
         throw new NotFoundException("Manager ID:" + managerId + " does not exist");
     }
 
-    @PostMapping("/managers/updateManagerProfile/{managerId}")
-    @JsonView(View.ManagerView.class)
-    public Manager updateManagerProfile(@PathVariable("managerId") String managerId, @RequestBody UpdateManager updateManager){
-
-        String firstName = updateManager.getFirstName();
-        String lastName = updateManager.getLastName();
-        String newPassword = updateManager.getNewPassword();
-
-        Optional<Manager> optionalManager = managerRepository.findById(managerId);
-        if(optionalManager.isPresent()){
-            Manager manager = optionalManager.get();
-            manager.setFirstName(firstName);
-            manager.setLastName(lastName);
-            manager.setPassword(newPassword);
-            managerRepository.save(manager);
-            String message = "Profile updated successfully";
-
-//            HashMap<Manager, String> toReturn = new HashMap<>();
-//            toReturn.put(manager, message);
-
-            return manager;
-        }
-        return null;
-    }
-
     @PostMapping("/managers/{managerId}")
     public String getManagerNameByManagerId(@PathVariable("managerId") String managerId){
         Optional<Manager> optionalManager = managerRepository.findById(managerId);
@@ -173,11 +148,4 @@ class AuthenticationDetails{
 
     private String managerId;
     private String password;
-}
-
-@Data
-class UpdateManager{
-    private String firstName;
-    private String lastName;
-    private String newPassword;
 }
