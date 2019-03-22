@@ -11,49 +11,49 @@
             <!--<column name="sub_category_id" value="SC001"/>-->
             <!--<column name="food_category_id" value="FC001"/>-->
             <!--<column name="sub_category_name" value="Alcoholic"/>-->
-            <!--<column name="sub_category_img_path" value=""/>-->
+            <!--<column name="sub_category_img_path" value=null />-->
         <!--</insert>-->
         <!--<insert tableName="sub_category">-->
             <!--<column name="sub_category_id" value="SC002"/>-->
             <!--<column name="food_category_id" value="FC002"/>-->
             <!--<column name="sub_category_name" value="Non-Alcoholic"/>-->
-            <!--<column name="sub_category_img_path" value=""/>-->
+            <!--<column name="sub_category_img_path" value=null />-->
         <!--</insert>-->
         <!--<insert tableName="sub_category">-->
             <!--<column name="sub_category_id" value="SC003"/>-->
             <!--<column name="food_category_id" value="FC001"/>-->
             <!--<column name="sub_category_name" value="Ramen"/>-->
-            <!--<column name="sub_category_img_path" value=""/>-->
+            <!--<column name="sub_category_img_path" value=null />-->
         <!--</insert>-->
         <!--<insert tableName="sub_category">-->
             <!--<column name="sub_category_id" value="SC004"/>-->
             <!--<column name="food_category_id" value="FC001"/>-->
             <!--<column name="sub_category_name" value="Rice"/>-->
-            <!--<column name="sub_category_img_path" value=""/>-->
+            <!--<column name="sub_category_img_path" value=null />-->
         <!--</insert>-->
 		<!--<insert tableName="sub_category">-->
             <!--<column name="sub_category_id" value="SC005"/>-->
             <!--<column name="food_category_id" value="FC001"/>-->
             <!--<column name="sub_category_name" value="Pasta"/>-->
-            <!--<column name="sub_category_img_path" value=""/>-->
+            <!--<column name="sub_category_img_path" value=null />-->
         <!--</insert>-->
 		<!--<insert tableName="sub_category">-->
             <!--<column name="sub_category_id" value="SC006"/>-->
             <!--<column name="food_category_id" value="FC002"/>-->
             <!--<column name="sub_category_name" value="Coffee"/>-->
-            <!--<column name="sub_category_img_path" value=""/>-->
+            <!--<column name="sub_category_img_path" value=null />-->
         <!--</insert>-->
         <!--<insert tableName="sub_category">-->
             <!--<column name="sub_category_id" value="SC007"/>-->
             <!--<column name="food_category_id" value="FC001"/>-->
             <!--<column name="sub_category_name" value="Sides"/>-->
-            <!--<column name="sub_category_img_path" value=""/>-->
+            <!--<column name="sub_category_img_path" value=null />-->
         <!--</insert>-->
         <!--<insert tableName="sub_category">-->
             <!--<column name="sub_category_id" value="SC008"/>-->
             <!--<column name="food_category_id" value="FC001"/>-->
             <!--<column name="sub_category_name" value="Soup"/>-->
-            <!--<column name="sub_category_img_path" value=""/>-->
+            <!--<column name="sub_category_img_path" value=null />-->
         <!--</insert>-->
 
 
@@ -61,140 +61,140 @@
             <column name="sub_category_id" value="SC001"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_name" value="Coffee"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC002"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_name" value="Tea"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC003"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_name" value="Others"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC004"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_name" value="Beers"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC005"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="Build Your Own Burgers"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC006"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="Specialty Burgers"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC007"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="Tapas"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC008"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="Pasta"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC009"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="Fish/ White Meat"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC010"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="Salad"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC011"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="B3 Poke Bowl"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC012"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="Red Meat"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
 
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC013"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="Create Your Meal"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC014"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="Quesadillas"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC015"/>
             <column name="food_category_id" value="FC001"/>
             <column name="sub_category_name" value="Tacos"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC016"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_name" value="Draught Beer"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC017"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_name" value="Non-Alcoholic Drinks"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC018"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_name" value="Loose Cocktails"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC019"/>
             <column name="food_category_id" value="FC004"/>
             <column name="sub_category_name" value="Snack Attack"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC020"/>
             <column name="food_category_id" value="FC004"/>
             <column name="sub_category_name" value="Nachos"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC021"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_name" value="Soju/Sake"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC022"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_name" value="Cider"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
         <insert tableName="sub_category">
             <column name="sub_category_id" value="SC023"/>
             <column name="food_category_id" value="FC002"/>
             <column name="sub_category_name" value="Jug Cocktails"/>
-            <column name="sub_category_img_path" value=""/>
+            <!--<column name="sub_category_img_path" value=null />-->
         </insert>
 
     </changeSet>

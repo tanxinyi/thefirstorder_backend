@@ -8,7 +8,7 @@
     <changeSet id="1" author="xinyi">
         <createTable tableName="admin"
                      remarks="A table to contain all admin details">
-            <column name="admin_id" type="varchar(100)">
+            <column name="admin_id" type="varchar(10)">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
             </column>
             <column name="admin_password" type="varchar(50)">
@@ -89,7 +89,7 @@
                 <constraints nullable="false"/>
             </column>
 			<column name="restaurant_img_path" type="BLOB">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
         </createTable>
 		
@@ -216,7 +216,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="food_img_path" type="BLOB">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
         </createTable>
 
@@ -257,7 +257,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="food_category_img_path" type="BLOB">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
         </createTable>
 
@@ -273,7 +273,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="sub_category_img_path" type="BLOB">
-                <constraints nullable="false"/>
+                <constraints nullable="true"/>
             </column>
         </createTable>
 
@@ -369,64 +369,76 @@
                                  constraintName="customisation_option_customisation_id_fk"
                                  referencedTableName="customisation" referencedColumnNames="customisation_id"/>
 
-        <createTable tableName="order_summary"
-                     remarks="A table to contain all summary of multiple orders per table, total bill">
-            <column name="order_summary_id" type="varchar(10)">
-                <constraints nullable="false" unique="true" primaryKey="true"/>
-            </column>
-            <column name="email" type="varchar(100)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="qr_code" type="varchar(10)">
-                <constraints nullable="false" />
-            </column>
-            <column name="payment_status" type="varchar(45)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="total_amount" type="double">
-                <constraints nullable="false" />
-            </column>
-            <column name="order_summary_date" type="datetime">
-                <constraints nullable="false"/>
-            </column>
-            <column name="mode_of_payment" type="varchar(45)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
+        <!--<createTable tableName="order_summary"-->
+                     <!--remarks="A table to contain all summary of multiple orders per table, total bill">-->
+            <!--<column name="order_summary_id" type="varchar(10)">-->
+                <!--<constraints nullable="false" unique="true" primaryKey="true"/>-->
+            <!--</column>-->
+            <!--<column name="email" type="varchar(100)">-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
+            <!--<column name="qr_code" type="varchar(10)">-->
+                <!--<constraints nullable="false" />-->
+            <!--</column>-->
+            <!--<column name="payment_status" type="varchar(45)">-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
+            <!--<column name="total_amount" type="double">-->
+                <!--<constraints nullable="false" />-->
+            <!--</column>-->
+            <!--<column name="order_summary_date" type="datetime">-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
+            <!--<column name="mode_of_payment" type="varchar(45)">-->
+                <!--<constraints nullable="false"/>-->
+            <!--</column>-->
+        <!--</createTable>-->
 
-        <addForeignKeyConstraint baseTableName="order_summary" baseColumnNames="qr_code"
-                                 constraintName="order_summary_qr_code_fk"
-                                 referencedTableName="seating_table" referencedColumnNames="qr_code"/>
+        <!--<addForeignKeyConstraint baseTableName="order_summary" baseColumnNames="qr_code"-->
+                                 <!--constraintName="order_summary_qr_code_fk"-->
+                                 <!--referencedTableName="seating_table" referencedColumnNames="qr_code"/>-->
 
-        <addForeignKeyConstraint baseTableName="order_summary" baseColumnNames="email"
-                                 constraintName="order_summary_email_fk"
-                                 referencedTableName="customer" referencedColumnNames="email"/>
+        <!--<addForeignKeyConstraint baseTableName="order_summary" baseColumnNames="email"-->
+                                 <!--constraintName="order_summary_email_fk"-->
+                                 <!--referencedTableName="customer" referencedColumnNames="email"/>-->
 
         <createTable tableName="orders"
                      remarks="A table to contain all orders">
             <column name="order_id" type="varchar(10)">
                 <constraints nullable="false" unique="true" primaryKey="true"/>
             </column>
-            <column name="order_summary_id" type="varchar(10)">
-                <constraints nullable="false" />
+            <column name="email" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="token" type="varchar(100)">
+                <constraints nullable="false"/>
             </column>
             <column name="qr_code" type="varchar(10)">
                 <constraints nullable="false" />
             </column>
-            <column name="subtotal" type="double">
+            <column name="total_amount" type="double">
                 <constraints nullable="false" />
             </column>
 			<column name="order_status" type="varchar(45)">
                 <constraints nullable="false"/>
             </column>
+            <column name="payment_status" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mode_of_payment" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_date" type="datetime">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
 
-        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="order_summary_id"
-                                 constraintName="orders_order_summary_id_fk"
-                                 referencedTableName="order_summary" referencedColumnNames="order_summary_id"/>
+        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="email"
+                                constraintName="orders_email_fk"
+                                referencedTableName="customer" referencedColumnNames="email"/>
 
         <addForeignKeyConstraint baseTableName="orders" baseColumnNames="qr_code"
-                                 constraintName="orders__qr_code_fk"
+                                 constraintName="orders_qr_code_fk"
                                  referencedTableName="seating_table" referencedColumnNames="qr_code"/>
 
         <createTable tableName="customer_order"
@@ -481,8 +493,6 @@
             <column name="customer_order_id" type="varchar(10)">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-
-
         </createTable>
 
         <addForeignKeyConstraint baseTableName="customisation_selected" baseColumnNames="customisation_option_id"

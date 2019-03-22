@@ -902,7 +902,7 @@
             <column name="option_price" valueNumeric="0.0"/>
         </insert>
         <insert tableName="customisation_option">
-            <column name="customisation_option_id" value="CO05"/>
+            <column name="customisation_option_id" value="CO005"/>
             <column name="customisation_id" value="C002"/>
             <column name="option_description" value="Shot"/>
             <column name="option_price" valueNumeric="0.5"/>
@@ -921,7 +921,7 @@
             <column name="option_price" valueNumeric="0.0"/>
         </insert>
         <insert tableName="customisation_option">
-            <column name="customisation_option_id" value="CO08"/>
+            <column name="customisation_option_id" value="CO008"/>
             <column name="customisation_id" value="C003"/>
             <column name="option_description" value="Shot"/>
             <column name="option_price" valueNumeric="0.5"/>
@@ -940,7 +940,7 @@
             <column name="option_price" valueNumeric="0.0"/>
         </insert>
         <insert tableName="customisation_option">
-            <column name="customisation_option_id" value="CO11"/>
+            <column name="customisation_option_id" value="CO011"/>
             <column name="customisation_id" value="C004"/>
             <column name="option_description" value="Shot"/>
             <column name="option_price" valueNumeric="0.5"/>
@@ -959,7 +959,7 @@
             <column name="option_price" valueNumeric="0.0"/>
         </insert>
         <insert tableName="customisation_option">
-            <column name="customisation_option_id" value="CO14"/>
+            <column name="customisation_option_id" value="CO014"/>
             <column name="customisation_id" value="C005"/>
             <column name="option_description" value="Shot"/>
             <column name="option_price" valueNumeric="0.5"/>

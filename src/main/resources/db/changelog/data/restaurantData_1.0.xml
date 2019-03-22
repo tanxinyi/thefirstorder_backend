@@ -21,7 +21,7 @@
             <column name="restaurant_price_range" value="High"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="true"/>
-			<column name="restaurant_img_path" value=""/>
+			<!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
             <column name="restaurant_id" value="R002"/>
@@ -38,7 +38,7 @@
             <column name="restaurant_price_range" value="Medium"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="true"/>
-			<column name="restaurant_img_path" value=""/>
+			<!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
             <column name="restaurant_id" value="R003"/>
@@ -55,7 +55,7 @@
             <column name="restaurant_price_range" value="Low"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="true"/>
-			<column name="restaurant_img_path" value=""/>
+			<!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
             <column name="restaurant_id" value="R004"/>
@@ -72,7 +72,7 @@
             <column name="restaurant_price_range" value="Low"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="true"/>
-            <column name="restaurant_img_path" value=""/>
+            <!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
             <column name="restaurant_id" value="R005"/>
@@ -88,7 +88,7 @@
             <column name="restaurant_price_range" value="Medium"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="false"/>
-            <column name="restaurant_img_path" value=""/>
+            <!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
             <column name="restaurant_id" value="R006"/>
@@ -105,7 +105,7 @@
             <column name="restaurant_price_range" value="High"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="true"/>
-            <column name="restaurant_img_path" value=""/>
+            <!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
             <column name="restaurant_id" value="R007"/>
@@ -125,7 +125,7 @@
             <column name="restaurant_price_range" value="Medium"/>
             <column name="gst" valueBoolean="false"/>
             <column name="service_charge" valueBoolean="false"/>
-            <column name="restaurant_img_path" value=""/>
+            <!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
             <column name="restaurant_id" value="R008"/>
@@ -142,7 +142,7 @@
             <column name="restaurant_price_range" value="High"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="true"/>
-            <column name="restaurant_img_path" value=""/>
+            <!--<column name="restaurant_img_path" value=null />-->
         </insert>
     </changeSet>
 

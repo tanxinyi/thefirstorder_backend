@@ -75,8 +75,12 @@ public class FoodPriceController {
         double foodPrice = foodItem.getFoodPrice();
         boolean foodAvailability = Boolean.parseBoolean(foodItem.getFoodAvailability());
         String foodImg = foodItem.getFoodImg();
-
-        byte[] foodImgByte = foodImg.getBytes();
+        byte[] foodImgByte;
+        if(foodImg == null){
+            foodImgByte = null;
+        }else{
+            foodImgByte = foodImg.getBytes();
+        }
 
         Food newFood = new Food();
         newFood.setFoodId(foodId);
@@ -127,8 +131,12 @@ public class FoodPriceController {
         double foodPrice = foodItem.getFoodPrice();
         boolean foodAvailability = Boolean.parseBoolean(foodItem.getFoodAvailability());
         String foodImg = foodItem.getFoodImg();
-
-        byte[] foodImgByte = foodImg.getBytes();
+        byte[] foodImgByte;
+        if(foodImg == null){
+            foodImgByte = null;
+        }else{
+            foodImgByte = foodImg.getBytes();
+        }
 
         String foodCategoryId = foodItem.getFoodCategoryId();
 

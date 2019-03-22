@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <!--created tables, removed credit card table-->
+    <include file="changelog/schema_1.0.xml" relativeToChangelogFile="true"/>
+
+    <!--data files for tables created-->
+    <include file="changelog/data/adminData_1.0.xml" relativeToChangelogFile="true"/>
+	<include file="changelog/data/customerData_1.0.xml" relativeToChangelogFile="true"/>
+
+    <include file="changelog/data/restaurantData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/menuData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/seatingTableData_1.0.xml" relativeToChangelogFile="true"/>
+
+    <include file="changelog/data/managerData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/managerAllocationData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/activityLogData_1.0.xml" relativeToChangelogFile="true"/>
+
+    <include file="changelog/data/foodData_1.0.xml" relativeToChangelogFile="true"/>
+    <!--<include file="changelog/data/foodTagData_1.0.xml" relativeToChangelogFile="true"/>-->
+    <!--<include file="changelog/data/foodTagAllocationData_1.0.xml" relativeToChangelogFile="true"/>-->
+    <include file="changelog/data/foodCategoryData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/subCategoryData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/foodPriceData_1.0.xml" relativeToChangelogFile="true"/>
+
+    <include file="changelog/data/customisationData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/customisationOptionData_1.0.xml" relativeToChangelogFile="true"/>
+
+<!--    
+	<include file="changelog/data/orderSummaryData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/orderData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/customerOrderData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/customisationSelected_1.0.xml" relativeToChangelogFile="true"/>
+	<include file="changelog/data/rewardsData_1.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/data/rewardsHistoryData_1.0.xml" relativeToChangelogFile="true"/>
+-->
+
+</databaseChangeLog>

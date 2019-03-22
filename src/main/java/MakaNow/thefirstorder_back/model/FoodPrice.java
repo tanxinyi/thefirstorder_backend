@@ -24,6 +24,7 @@ public class FoodPrice {
     private double foodPrice;
 
     @JsonView(View.MainView.class)
+    @Column(columnDefinition = "TINYINT(1)")
     private boolean availability;
 
     @ManyToOne
