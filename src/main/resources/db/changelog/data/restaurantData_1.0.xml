@@ -21,6 +21,8 @@
             <column name="restaurant_price_range" value="High"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="true"/>
+			<column name="convert_to_points" valueNumeric="0"/>
+			<column name="convert_from_points" valueNumeric="0"/>
 			<!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
@@ -38,6 +40,8 @@
             <column name="restaurant_price_range" value="Medium"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="true"/>
+			<column name="convert_to_points" valueNumeric="0"/>
+			<column name="convert_from_points" valueNumeric="0"/>
 			<!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
@@ -55,6 +59,8 @@
             <column name="restaurant_price_range" value="Low"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="true"/>
+			<column name="convert_to_points" valueNumeric="0"/>
+			<column name="convert_from_points" valueNumeric="0"/>
 			<!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
@@ -72,6 +78,8 @@
             <column name="restaurant_price_range" value="Low"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="true"/>
+			<column name="convert_to_points" valueNumeric="0"/>
+			<column name="convert_from_points" valueNumeric="0"/>
             <!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
@@ -88,6 +96,8 @@
             <column name="restaurant_price_range" value="Medium"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="false"/>
+			<column name="convert_to_points" valueNumeric="10"/>
+			<column name="convert_from_points" valueNumeric="5"/>
             <!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
@@ -105,6 +115,8 @@
             <column name="restaurant_price_range" value="High"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="true"/>
+			<column name="convert_to_points" valueNumeric="0"/>
+			<column name="convert_from_points" valueNumeric="0"/>
             <!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
@@ -125,6 +137,8 @@
             <column name="restaurant_price_range" value="Medium"/>
             <column name="gst" valueBoolean="false"/>
             <column name="service_charge" valueBoolean="false"/>
+			<column name="convert_to_points" valueNumeric="0"/>
+			<column name="convert_from_points" valueNumeric="0"/>
             <!--<column name="restaurant_img_path" value=null />-->
         </insert>
         <insert tableName="restaurant">
@@ -142,6 +156,8 @@
             <column name="restaurant_price_range" value="High"/>
             <column name="gst" valueBoolean="true"/>
             <column name="service_charge" valueBoolean="true"/>
+			<column name="convert_to_points" valueNumeric="0"/>
+			<column name="convert_from_points" valueNumeric="0"/>
             <!--<column name="restaurant_img_path" value=null />-->
         </insert>
     </changeSet>

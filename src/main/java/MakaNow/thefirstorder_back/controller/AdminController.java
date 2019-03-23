@@ -50,32 +50,5 @@ public class AdminController {
         throw new NotFoundException("Admin Id " + adminId + " does not exist");
     }
 
-    @PostMapping("/admin/updateConversionRates/{adminId}/{pointsToCash}/{cashToPoints}")
-    public ResponseEntity<?> updateConversionRates(@PathVariable String adminId, @PathVariable String pointsToCash, @PathVariable String cashToPoints) {
-
-        Optional<Admin> optionalAdmin = adminRepository.findById(adminId);
-        Admin admin = optionalAdmin.get();
-
-        admin.setPointsToMoneyConversionRate(Double.parseDouble(pointsToCash));
-        admin.setMoneyToPointsConversionRate(Double.parseDouble(cashToPoints));
-
-        adminRepository.save(admin);
-
-        return new ResponseEntity("Conversion rates updated successfully", HttpStatus.OK);
-    }
-
-    @GetMapping("/admins/{adminId}/conversion_rates")
-    public List<Double> getPointsConversion(@PathVariable String adminId) throws NotFoundException {
-        logger.info("Getting Conversion Rates for Admin " + adminId);
-        Optional<Admin> admin = adminRepository.findById(adminId);
-        if(admin.isPresent()){
-            List<Double> output = new ArrayList<>();
-            output.add(admin.get().getPointsToMoneyConversionRate());
-            output.add(admin.get().getMoneyToPointsConversionRate());
-            return output;
-        }
-        throw new NotFoundException("Admin Id " + adminId + " does not exist!");
-    }
-
 }
 

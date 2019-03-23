@@ -124,7 +124,7 @@ public class OrdersController {
         Customer customer = order.getCustomer();
         int currentLoyaltyPoints = customer.getLoyaltyPoint();
         logger.info("Old: " + currentLoyaltyPoints);
-        double pointsEarned = amount * adminRepository.findById("AD001").get().getMoneyToPointsConversionRate();
+        double pointsEarned = amount * ordersRepository.findById(orderId).get().getSeatingTable().getRestaurant().getMoneyToPointsConversionRate();
         customer.setLoyaltyPoint(currentLoyaltyPoints + (int)pointsEarned);
         logger.info("New: " + customer.getLoyaltyPoint());
         customerRepository.save(customer);

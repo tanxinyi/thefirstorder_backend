@@ -260,4 +260,31 @@ public class RestaurantController {
         }
         return new ResponseEntity(toReturn, HttpStatus.OK);
     }
+
+    @PostMapping("/restaurants/updateConversionRates/{restaurantId}/{pointsToCash}/{cashToPoints}")
+    public ResponseEntity<?> updateConversionRates(@PathVariable String restaurantId, @PathVariable String pointsToCash, @PathVariable String cashToPoints) {
+
+        Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
+        Restaurant restaurant = optionalRestaurant.get();
+
+        restaurant.setPointsToMoneyConversionRate(Double.parseDouble(pointsToCash));
+        restaurant.setMoneyToPointsConversionRate(Double.parseDouble(cashToPoints));
+
+        restaurantRepository.save(restaurant);
+
+        return new ResponseEntity("Conversion rates updated successfully", HttpStatus.OK);
+    }
+
+    @GetMapping("/restaurants/{restaurantId}/conversion_rates")
+    public List<Double> getPointsConversion(@PathVariable String restaurantId) throws NotFoundException {
+        logger.info("Getting Conversion Rates for Restaurant " + restaurantId);
+        Optional<Restaurant> restaurant = restaurantRepository.findById(restaurantId);
+        if(restaurant.isPresent()){
+            List<Double> output = new ArrayList<>();
+            output.add(restaurant.get().getPointsToMoneyConversionRate());
+            output.add(restaurant.get().getMoneyToPointsConversionRate());
+            return output;
+        }
+        throw new NotFoundException("Admin Id " + restaurantId + " does not exist!");
+    }
 }

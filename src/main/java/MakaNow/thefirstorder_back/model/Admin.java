@@ -21,14 +21,6 @@ public class Admin {
     private String adminPassword;
 
     @JsonView(View.MainView.class)
-    @Column(name="convert_to_points")
-    private double moneyToPointsConversionRate;
-
-    @JsonView(View.MainView.class)
-    @Column(name="convert_from_points")
-    private double pointsToMoneyConversionRate;
-
-    @JsonView(View.MainView.class)
     @Column(name="stripe_token")
     private String stripeToken;
 
