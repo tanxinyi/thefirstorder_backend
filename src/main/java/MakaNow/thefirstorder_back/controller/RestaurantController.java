@@ -239,11 +239,12 @@ public class RestaurantController {
 
     @GetMapping("/restaurants/index/{index}")
     @JsonView(View.RestaurantView.class)
-    public List<Restaurant> getTenRestaurants(@PathVariable int index){
+    public List<UpdatedRestaurant> getTenRestaurants(@PathVariable int index){
         logger.info("Getting 10 Restaurants by index: " + index);
         List<Restaurant> restaurants = (List<Restaurant>)restaurantRepository.findAll();
+        List<UpdatedRestaurant> output = restaurantService.convertRestaurants(restaurants);
         if(index > restaurants.size()) return new ArrayList<>();
-        return restaurants.subList(index, Math.min(index + 10, restaurants.size()));
+        return output.subList(index, Math.min(index + 10, restaurants.size()));
     }
 
     @GetMapping("/restaurants/getAllRestaurantsByAdminId/{adminId}")
