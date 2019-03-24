@@ -44,6 +44,12 @@ public class UpdatedRestaurant {
     @JsonView(View.MainView.class)
     private boolean serviceCharge;
 
+    @JsonView(View.MainView.class)
+    private double moneyToPointsConversionRate;
+
+    @JsonView(View.MainView.class)
+    private double pointsToMoneyConversionRate;
+
     public UpdatedRestaurant(Restaurant restaurant){
         byte[] img = restaurant.getRestaurantImgPath();
         String image = "";
@@ -64,5 +70,7 @@ public class UpdatedRestaurant {
         this.restaurantImg = image;
         this.gst = restaurant.getGst();
         this.serviceCharge = restaurant.getServiceCharge();
+        this.moneyToPointsConversionRate = restaurant.getMoneyToPointsConversionRate();
+        this.pointsToMoneyConversionRate = restaurant.getPointsToMoneyConversionRate();
     }
 }

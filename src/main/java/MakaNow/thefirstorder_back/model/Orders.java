@@ -73,6 +73,7 @@ public class Orders {
         this.modeOfPayment = modeOfPayment;
         this.qrCode = seatingTable.getQrCode();
         this.seatingTable = seatingTable;
+        this.token="";
     }
 }
 

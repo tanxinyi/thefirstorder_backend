@@ -109,26 +109,44 @@ public class OrdersController {
         return ordersRepository.save(order);
     }
 
-    @PutMapping("/orders/{orderId}")
+    @PutMapping("/orders/{orderId}/payment/status")
     @JsonView(View.OrderSummaryView.class)
     public Orders updateOrderPaymentStatus(@PathVariable String orderId,
-                                                        @RequestParam("status") String paymentStatus,
-                                                        @RequestParam("amount") int amount) throws NotFoundException {
+                                                        @RequestParam("status") String paymentStatus
+                                           ) throws NotFoundException {
         logger.info("Update Payment Status");
         logger.info("OrderId: " + orderId);
         Orders order = getOrdersById(orderId);
         order.setPaymentStatus(paymentStatus);
-        order.setTotalAmount(amount/100.0);
 
         logger.info("Updating Customer Loyalty Points");
         Customer customer = order.getCustomer();
         int currentLoyaltyPoints = customer.getLoyaltyPoint();
         logger.info("Old: " + currentLoyaltyPoints);
-        double pointsEarned = amount * ordersRepository.findById(orderId).get().getSeatingTable().getRestaurant().getMoneyToPointsConversionRate();
+        double pointsEarned = order.getTotalAmount() * ordersRepository.findById(orderId).get().getSeatingTable().getRestaurant().getMoneyToPointsConversionRate();
         customer.setLoyaltyPoint(currentLoyaltyPoints + (int)pointsEarned);
         logger.info("New: " + customer.getLoyaltyPoint());
         customerRepository.save(customer);
         logger.info("Customer loyalty point updated");
+
+        return ordersRepository.save(order);
+    }
+
+    @PutMapping("/orders/{orderId}/payment/token")
+    @JsonView(View.OrderSummaryView.class)
+    public Orders updateTokenAndAmount(@PathVariable String orderId,
+                                           @RequestParam("amount") int amount,
+                                           @RequestParam("token") String token
+    ) throws NotFoundException {
+        logger.info("Insert Token");
+        logger.info("OrderId: " + orderId);
+        Orders order = getOrdersById(orderId);
+        logger.info("Updating Amount: " + amount/100.0);
+        order.setTotalAmount(amount/100.0);
+        logger.info("Updating Status");
+        order.setPaymentStatus("READY");
+        logger.info("Updating Token");
+        order.setToken(token);
 
         return ordersRepository.save(order);
     }
