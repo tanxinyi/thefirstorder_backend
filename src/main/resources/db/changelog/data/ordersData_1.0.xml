@@ -773,7 +773,7 @@
 			<column name="qr_code" value="T002" />
 			<column name="total_amount" value="10.70" />
 			<column name="order_status" value="SENT" />
-			<column name="payment_status" value="PAID" />
+			<column name="payment_status" value="READY" />
 			<column name="mode_of_payment" value="CARD" />
 			<column name="order_date" value="2019-04-06 13:38:12.354" />
 		</insert>
@@ -795,7 +795,7 @@
 			<column name="qr_code" value="T003" />
 			<column name="total_amount" value="17.34" />
 			<column name="order_status" value="SENT" />
-			<column name="payment_status" value="PAID" />
+			<column name="payment_status" value="READY" />
 			<column name="mode_of_payment" value="CARD" />
 			<column name="order_date" value="2019-04-06 14:09:18.940" />
 		</insert>
@@ -806,7 +806,7 @@
 			<column name="qr_code" value="T002" />
 			<column name="total_amount" value="13.48" />
 			<column name="order_status" value="SENT" />
-			<column name="payment_status" value="PAID" />
+			<column name="payment_status" value="READY" />
 			<column name="mode_of_payment" value="CARD" />
 			<column name="order_date" value="2019-04-06 14:42:56.049" />
 		</insert>
