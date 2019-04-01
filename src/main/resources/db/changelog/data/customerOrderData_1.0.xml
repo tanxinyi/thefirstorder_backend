@@ -1,0 +1,1143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="19" author="keithxinyi">
+
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU001" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F015" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O001" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="11.700000000000001" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU002" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O002" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU003" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F001" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O003" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="3.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU004" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O003" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="12.6" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU005" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F020" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O004" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU006" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F002" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O005" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="4.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU007" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F023" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O006" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="12.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU008" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F015" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O007" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU009" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F018" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O008" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="16.2" />
+			<column name="customer_order_remarks" value="More sauce" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU010" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F021" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O009" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="16.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU011" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O010" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU012" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F001" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O011" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="3.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU013" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O012" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="12.6" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU014" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F020" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O013" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU015" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F002" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O014" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="4.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU016" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F023" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O015" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="12.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU017" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F015" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O016" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU018" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F018" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O017" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="16.2" />
+			<column name="customer_order_remarks" value="More sauce" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU019" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F021" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O018" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="16.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU020" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F015" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O019" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU021" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F015" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O020" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU022" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F017" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O021" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU023" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F017" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O022" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU024" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F011" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O023" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU025" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F015" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O024" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="11.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU026" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F005" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O026" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU027" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F003" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O026" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.5" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU028" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F023" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O026" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="12.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU029" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F010" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O026" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="3.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU030" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O026" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="12.6" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU031" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F018" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O027" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="18.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU032" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F017" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O027" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="12.6" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU033" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F011" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O028" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU034" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F009" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O028" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="3.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU035" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F015" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O028" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU036" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F024" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O028" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="11.700000000000001" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU037" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F019" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O029" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="10.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU038" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F021" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O029" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="10.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU039" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F020" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O029" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU040" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F002" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O030" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="4.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU041" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F004" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O030" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU042" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F010" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O030" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="3.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU043" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F015" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O031" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU044" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O031" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU045" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F021" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O031" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="16.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU046" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F023" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O032" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="10.8" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU047" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F024" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O032" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="13.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU048" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F010" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O033" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="3.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU049" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F009" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O033" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="3.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU050" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F021" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O033" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="10.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU051" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O034" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="12.6" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU052" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O034" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="8.1" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU053" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F023" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O034" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="12.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU054" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F002" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O035" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="4.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU055" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F003" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O035" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.5" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU056" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O035" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU057" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O035" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="8.1" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU058" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O036" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="12.6" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU059" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O036" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="8.1" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU060" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F023" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O036" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="12.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU061" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F019" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O037" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="10.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU062" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F021" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O037" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="10.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU063" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F020" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O037" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU064" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F019" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O038" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="10.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU065" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F021" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O038" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="10.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU066" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F020" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O038" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU067" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F019" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O039" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="10.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU068" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F021" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O039" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="10.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU069" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F020" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O039" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU070" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F023" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O040" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU071" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F023" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O041" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU072" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F023" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O042" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU073" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F018" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O043" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="18.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU074" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F015" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O044" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU075" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F015" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O045" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU076" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F015" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O046" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU077" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F015" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O047" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU078" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F021" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O048" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="10.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU079" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O049" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU080" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O050" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU081" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O051" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU082" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O052" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU083" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O053" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU084" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O054" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU085" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O054" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU086" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O055" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU087" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O056" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU088" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O057" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU089" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O058" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU090" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O059" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU091" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F008" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O060" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="4.5" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU092" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F008" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O060" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="4.5" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU093" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F010" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O061" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="3.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU094" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F020" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O062" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="6.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU095" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F003" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O063" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU096" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F003" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O064" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU097" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F004" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O064" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU098" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F024" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O065" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="13.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU099" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O065" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU100" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F003" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O067" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU101" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F004" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O067" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU102" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F024" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O068" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="13.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU103" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O068" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU104" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F003" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O069" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU105" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F004" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O069" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU106" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F024" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O070" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="13.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU107" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O070" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU108" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F003" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O071" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU109" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F004" />
+			<column name="food_category_id" value="FC002" />
+			<column name="order_id" value="O071" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="5.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU110" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F024" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O072" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="13.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU111" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O072" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU112" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F022" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O073" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="9.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+		<insert tableName="customer_order">
+			<column name="customer_order_id" value="CU113" />
+			<column name="menu_id" value="M010" />
+			<column name="food_id" value="F016" />
+			<column name="food_category_id" value="FC001" />
+			<column name="order_id" value="O074" />
+			<column name="customer_order_quantity" value="1" />
+			<column name="customer_order_price" value="14.0" />
+			<column name="customer_order_remarks" value="" />
+		</insert>
+
+	</changeSet>
+
+</databaseChangeLog>

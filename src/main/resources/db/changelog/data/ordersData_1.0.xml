@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="18" author="keithxinyi">
+
+		<insert tableName="orders">
+			<column name="order_id" value="O001" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHVaJHd8wmWybBriSFajmuK" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="12.52" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-01 12:17:23.558" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O002" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHVdUHd8wmWybBrLCNzexAn" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="9.63" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-01 12:26:26.261" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O003" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHVf2Hd8wmWybBrFSYXDqqA" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="16.69" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-01 12:55:22.460" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O004" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="9.0" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="PENDING" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-01 13:50:43.777" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O005" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="4.0" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="PENDING" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-01 13:52:07.736" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O006" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHViiHd8wmWybBrbULFghKS" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="12.84" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-01 14:09:25.220" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O007" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHVrwHd8wmWybBrNA5Q0oup" />
+			<column name="qr_code" value="T004" />
+			<column name="total_amount" value="9.63" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-01 14:32:03.627" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O008" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHVsxHd8wmWybBrB7IJyEp7" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="17.32" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-01 14:57:17.525" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O009" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHVv3Hd8wmWybBrZ9BXiGg0" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="17.12" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-01 15:18:21.146" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O010" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHVaJHd8wmWybBriSFajmuK" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="12.52" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 11:33:18.400" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O011" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHVdUHd8wmWybBrLCNzexAn" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="9.63" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 12:02:14.941" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O012" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHVf2Hd8wmWybBrFSYXDqqA" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="16.69" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 12:04:29.185" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O013" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="9.0" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="PENDING" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 13:05:32.835" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O014" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="4.0" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="PENDING" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 13:38:12.354" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O015" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHViiHd8wmWybBrbULFghKS" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="12.84" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 13:41:34.353" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O016" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHVrwHd8wmWybBrNA5Q0oup" />
+			<column name="qr_code" value="T004" />
+			<column name="total_amount" value="9.63" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 14:09:18.940" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O017" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHVsxHd8wmWybBrB7IJyEp7" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="17.32" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 14:42:56.049" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O018" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHVv3Hd8wmWybBrZ9BXiGg0" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="17.12" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 14:46:10.904" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O019" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="9.0" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="PENDING" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 15:56:34.153" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O020" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHWfRHd8wmWybBrAcB3H49o" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="9.63" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 17:24:15.319" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O021" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHWhJHd8wmWybBryAztrEIh" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="14.98" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 18:12:25.034" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O022" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHWllHd8wmWybBrXI8lEAMD" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="14.98" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 18:20:14.912" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O023" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHWneHd8wmWybBr5BPBU8rq" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="5.35" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 18:48:46.719" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O024" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EHWpJHd8wmWybBroiZAMYsb" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="11.77" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 19:09:47.110" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O025" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="0.0" />
+			<column name="order_status" value="PENDING" />
+			<column name="payment_status" value="PENDING" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-02 19:41:19.324" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O026" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7mLHd8wmWybBr56Dz0mCV" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="37.26" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-03 11:55:19.732" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O027" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7mLHd8wmWybBr56Dz0mCV" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="32.26" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-03 12:14:25.167" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O028" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7mLHd8wmWybBr56Dz0mCV" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="33.26" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-03 12:38:48.236" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O029" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="37.26" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-03 15:01:38.533" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O030" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="18.63" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-03 15:06:34.531" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O031" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="49.68" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-03 15:14:20.301" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O032" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7scHd8wmWybBrsjBynIxg" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="49.27" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-03 15:20:55.662" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O033" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7trHd8wmWybBrRTK4olig" />
+			<column name="qr_code" value="T004" />
+			<column name="total_amount" value="33.12" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-03 15:41:58.202" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O034" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7vKHd8wmWybBrrp8kkAAu" />
+			<column name="qr_code" value="T005" />
+			<column name="total_amount" value="67.69" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-03 15:43:34.107" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O035" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7xrHd8wmWybBrGIrBCAVY" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="65.41" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-03 15:51:09.827" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O036" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7vKHd8wmWybBrrp8kkAAu" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="67.69" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-03 16:00:12.617" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O037" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="37.26" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-03 16:09:49.633" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O038" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="37.26" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 12:56:28.271" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O039" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="37.26" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 12:56:28.271" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O040" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="11.9" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 13:05:13.266" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O041" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="11.9" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 13:24:25.369" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O042" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="11.9" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 14:34:49.917" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O043" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T004" />
+			<column name="total_amount" value="17.33" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 14:40:17.715" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O044" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T004" />
+			<column name="total_amount" value="13.48" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 14:55:21.696" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O045" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="13.48" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 15:08:20.963" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O046" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T005" />
+			<column name="total_amount" value="13.48" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 15:25:38.024" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O047" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T004" />
+			<column name="total_amount" value="12.52" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 15:34:37.769" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O048" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="10.70" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 15:42:13.795" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O049" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="8.67" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 15:55:49.752" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O050" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T004" />
+			<column name="total_amount" value="8.67" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 17:10:32.528" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O051" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="8.67" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-04 17:30:56.888" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O052" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T004" />
+			<column name="total_amount" value="8.67" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 12:26:26.261" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O053" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="8.67" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 12:55:22.460" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O054" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="17.34" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 13:50:43.777" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O055" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="13.48" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 13:52:07.736" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O056" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T005" />
+			<column name="total_amount" value="13.48" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 14:09:25.220" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O057" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T005" />
+			<column name="total_amount" value="13.48" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 14:32:03.627" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O058" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="13.48" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 14:57:17.525" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O059" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="13.48" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 15:18:21.146" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O060" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="9.63" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 15:34:39.813" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O061" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T004" />
+			<column name="total_amount" value="3.21" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 16:08:24.254" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O062" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T004" />
+			<column name="total_amount" value="9.63" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 16:54:28.804" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O063" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="5.89" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 17:44:49.233" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O064" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="10.70" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 18:56:06.300" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O065" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="21.19" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-05 19:17:33.749" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O067" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="10.70" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-06 11:33:18.400" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O068" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="21.19" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-06 12:02:14.941" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O069" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T001" />
+			<column name="total_amount" value="10.70" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-06 12:04:29.185" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O070" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="21.19" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-06 13:05:32.835" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O071" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="10.70" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-06 13:38:12.354" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O072" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="21.19" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-06 13:41:34.353" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O073" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T003" />
+			<column name="total_amount" value="17.34" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-06 14:09:18.940" />
+		</insert>
+		<insert tableName="orders">
+			<column name="order_id" value="O074" />
+			<column name="email" value="CUS001@MAKANOW.COM" />
+			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="qr_code" value="T002" />
+			<column name="total_amount" value="13.48" />
+			<column name="order_status" value="SENT" />
+			<column name="payment_status" value="READY" />
+			<column name="mode_of_payment" value="CARD" />
+			<column name="order_date" value="2019-04-06 14:42:56.049" />
+		</insert>
+
+	</changeSet>
+
+</databaseChangeLog>
