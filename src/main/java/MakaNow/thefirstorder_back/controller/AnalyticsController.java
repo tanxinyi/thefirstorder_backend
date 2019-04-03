@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.time.YearMonth;
@@ -30,6 +31,8 @@ public class AnalyticsController {
 
     @Autowired
     private FoodPriceRepository foodPriceRepository;
+
+    private static DecimalFormat df2 = new DecimalFormat(".##");
 
     Logger logger = LoggerFactory.getLogger(AnalyticsController.class);
 
@@ -51,12 +54,12 @@ public class AnalyticsController {
         //Calculate monthly revenue (paid orders) of restaurant based on date
         for(int j = 0; j < ordersOfRestaurant.size(); j++){
             Orders order1 = ordersOfRestaurant.get(j);
-            if(order1.getPaymentStatus().equals("Paid")){
+            if(order1.getPaymentStatus().equals("PAID")){
                 totalRevenue += order1.getTotalAmount();
             }
         }
 
-        return totalRevenue;
+        return Double.parseDouble(df2.format(totalRevenue));
     }
 
     @GetMapping("/analytics/getMonthlyRevenue/{restaurantId}/{date}")
@@ -78,12 +81,12 @@ public class AnalyticsController {
         //Calculate monthly revenue (paid orders) of restaurant based on date
         for(int j = 0; j < ordersOfRestaurant.size(); j++){
             Orders order1 = ordersOfRestaurant.get(j);
-            if(order1.getOrderDate().toString().substring(0,7).equals(date) && order1.getPaymentStatus().equals("Paid")){
+            if(order1.getOrderDate().toString().substring(0,7).equals(date) && order1.getPaymentStatus().equals("PAID")){
                 monthlyRevenue += order1.getTotalAmount();
             }
         }
 
-        return monthlyRevenue;
+        return  Double.parseDouble(df2.format(monthlyRevenue));
     }
 
     @GetMapping("/analytics/getPercentageMonthlyRevenueCompareToPreviousMonth/{restaurantId}/{date}")
@@ -120,7 +123,7 @@ public class AnalyticsController {
         //Calculate this month monthly revenue (paid orders) of restaurant based on date
         for(int j = 0; j < ordersOfRestaurant.size(); j++){
             Orders order1 = ordersOfRestaurant.get(j);
-            if(order1.getOrderDate().toString().substring(0,7).equals(date) && order1.getPaymentStatus().equals("Paid")){
+            if(order1.getOrderDate().toString().substring(0,7).equals(date) && order1.getPaymentStatus().equals("PAID")){
                 thisMonthRevenue += order1.getTotalAmount();
             }
         }
@@ -128,14 +131,14 @@ public class AnalyticsController {
         //Calculate previous month monthly revenue (paid orders) of restaurant based on date
         for(int j = 0; j < ordersOfRestaurant.size(); j++){
             Orders order1 = ordersOfRestaurant.get(j);
-            if(order1.getOrderDate().toString().substring(0,7).equals(previousMonthYYYY_MMFormat) && order1.getPaymentStatus().equals("Paid")){
+            if(order1.getOrderDate().toString().substring(0,7).equals(previousMonthYYYY_MMFormat) && order1.getPaymentStatus().equals("PAID")){
                 previousMonthRevenue += order1.getTotalAmount();
             }
         }
         if(previousMonthRevenue == 0){
             return 0;
         }else{
-            return (thisMonthRevenue/(previousMonthRevenue/100))-100;
+            return Double.parseDouble(df2.format((thisMonthRevenue/(previousMonthRevenue/100))-100));
         }
     }
 
@@ -159,7 +162,7 @@ public class AnalyticsController {
         //Calculate monthly food items sold of restaurant based on date
         for(int j = 0; j < ordersOfRestaurant.size(); j++){
             Orders order1 = ordersOfRestaurant.get(j);
-            if(order1.getOrderDate().toString().substring(0,7).equals(date) && order1.getPaymentStatus().equals("Paid")){
+            if(order1.getOrderDate().toString().substring(0,7).equals(date) && order1.getPaymentStatus().equals("PAID")){
                 customerOrders = order1.getCustomerOrders();
                 for(int k = 0; k < customerOrders.size(); k++){
                     CustomerOrder customerOrder = customerOrders.get(k);
@@ -191,12 +194,12 @@ public class AnalyticsController {
         //Calculate daily revenue (paid orders) of restaurant based on date
         for(int j = 0; j < ordersOfRestaurant.size(); j++){
             Orders order1 = ordersOfRestaurant.get(j);
-            if(order1.getOrderDate().toString().substring(0,10).equals(dateYYYY_MM_DDFormat) && order1.getPaymentStatus().equals("Paid")){
+            if(order1.getOrderDate().toString().substring(0,10).equals(dateYYYY_MM_DDFormat) && order1.getPaymentStatus().equals("PAID")){
                 dailyRevenue += order1.getTotalAmount();
             }
         }
 
-        return dailyRevenue;
+        return Double.parseDouble(df2.format(dailyRevenue));
     }
 
     @GetMapping("/analytics/getPercentageDailyRevenueCompareToPreviousDate/{restaurantId}/{date}")
@@ -254,7 +257,7 @@ public class AnalyticsController {
         //Calculate today revenue (paid orders) of restaurant based on date
         for(int j = 0; j < ordersOfRestaurant.size(); j++){
             Orders order1 = ordersOfRestaurant.get(j);
-            if(order1.getOrderDate().toString().substring(0,10).equals(todayYYYY_MM_DDFormat) && order1.getPaymentStatus().equals("Paid")){
+            if(order1.getOrderDate().toString().substring(0,10).equals(todayYYYY_MM_DDFormat) && order1.getPaymentStatus().equals("PAID")){
                 todayRevenue += order1.getTotalAmount();
             }
         }
@@ -262,7 +265,7 @@ public class AnalyticsController {
         //Calculate previous day revenue (paid orders) of restaurant based on date
         for(int j = 0; j < ordersOfRestaurant.size(); j++){
             Orders order1 = ordersOfRestaurant.get(j);
-            if(order1.getOrderDate().toString().substring(0,10).equals(previousDate) && order1.getPaymentStatus().equals("Paid")){
+            if(order1.getOrderDate().toString().substring(0,10).equals(previousDate) && order1.getPaymentStatus().equals("PAID")){
                 previousDayRevenue += order1.getTotalAmount();
             }
         }
@@ -270,15 +273,15 @@ public class AnalyticsController {
         if(previousDayRevenue == 0){
             return 0;
         }else{
-            return (todayRevenue/(previousDayRevenue/100))-100;
+            return Double.parseDouble(df2.format((todayRevenue/(previousDayRevenue/100))-100));
         }
     }
 
     @GetMapping("/analytics/getDailyTotalOfFoodItemsSold/{restaurantId}/{date}")
     //Format of String date = YYYY-MM-DDXXXXXXXXXXXXXXXXXX
-    public double getDailyTotalOfFoodItemsSold(@PathVariable String restaurantId, @PathVariable String date) {
+    public int getDailyTotalOfFoodItemsSold(@PathVariable String restaurantId, @PathVariable String date) {
         String dateYYYY_MM_DDFormat = date.substring(0,10);
-        double totalDailyFoodItemsSold = 0;
+        int totalDailyFoodItemsSold = 0;
 
         List<Orders> ordersOfRestaurant = new ArrayList<>();
         List<Orders> orders = (List<Orders>) ordersRepository.findAll();
@@ -295,7 +298,7 @@ public class AnalyticsController {
         //Calculate daily revenue (paid orders) of restaurant based on date
         for(int j = 0; j < ordersOfRestaurant.size(); j++){
             Orders order1 = ordersOfRestaurant.get(j);
-            if(order1.getOrderDate().toString().substring(0,10).equals(dateYYYY_MM_DDFormat) && order1.getPaymentStatus().equals("Paid")){
+            if(order1.getOrderDate().toString().substring(0,10).equals(dateYYYY_MM_DDFormat) && order1.getPaymentStatus().equals("PAID")){
                 customerOrders = order1.getCustomerOrders();
                 for(int k = 0; k < customerOrders.size(); k++){
                     CustomerOrder customerOrder = customerOrders.get(k);
@@ -335,7 +338,7 @@ public class AnalyticsController {
         //Get all orders of a restaurant in specified month
         for(int i = 0; i < orders.size(); i++){
             Orders order = orders.get(i);
-            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,7).equals(date) && order.getPaymentStatus().equals("Paid")){
+            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,7).equals(date) && order.getPaymentStatus().equals("PAID")){
                 ordersOfRestaurant.add(order);
             }
         }
@@ -346,7 +349,7 @@ public class AnalyticsController {
             String orderDate = order1.getOrderDate().toString().substring(0,10);
             double dailyRevenue = toReturn.get(orderDate);
             double orderAmount = order1.getTotalAmount();
-            toReturn.put(orderDate, dailyRevenue+orderAmount);
+            toReturn.put(orderDate, Double.parseDouble(df2.format(dailyRevenue+orderAmount)));
         }
 
         return toReturn;
@@ -375,7 +378,7 @@ public class AnalyticsController {
         //Get all orders of a restaurant in specified day
         for(int i = 0; i < orders.size(); i++){
             Orders order = orders.get(i);
-            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,10).equals(date) && order.getPaymentStatus().equals("Paid")){
+            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,10).equals(date) && order.getPaymentStatus().equals("PAID")){
                 ordersOfRestaurant.add(order);
             }
         }
@@ -390,7 +393,7 @@ public class AnalyticsController {
             String hour = formatted.substring(11,13) + ":00";
             double hourlyRevenue = toReturn.get(hour);
             double orderAmount = order1.getTotalAmount();
-            toReturn.put(hour, hourlyRevenue+orderAmount);
+            toReturn.put(hour, Double.parseDouble(df2.format(hourlyRevenue+orderAmount)));
         }
 
         return toReturn;
@@ -416,7 +419,7 @@ public class AnalyticsController {
 
         for(int j = 0; j < ordersOfRestaurant.size(); j++){
             Orders order1 = ordersOfRestaurant.get(j);
-            if(order1.getOrderDate().toString().substring(0,7).equals(date) && order1.getPaymentStatus().equals("Paid")){
+            if(order1.getOrderDate().toString().substring(0,7).equals(date) && order1.getPaymentStatus().equals("PAID")){
                 customerOrders = order1.getCustomerOrders();
                 if(customerOrders != null){
                     for(int k = 0; k < customerOrders.size(); k++){
@@ -429,7 +432,7 @@ public class AnalyticsController {
             }
         }
 
-        return monthlyRevenueOfFoodItem;
+        return Double.parseDouble(df2.format(monthlyRevenueOfFoodItem));
     }
 
 
@@ -455,7 +458,7 @@ public class AnalyticsController {
 
         for(int j = 0; j < ordersOfRestaurant.size(); j++){
             Orders order1 = ordersOfRestaurant.get(j);
-            if(order1.getOrderDate().toString().substring(0,10).equals(dateYYYY_MM_DDFormat) && order1.getPaymentStatus().equals("Paid")){
+            if(order1.getOrderDate().toString().substring(0,10).equals(dateYYYY_MM_DDFormat) && order1.getPaymentStatus().equals("PAID")){
                 customerOrders = order1.getCustomerOrders();
                 if(customerOrders != null){
                     for(int k = 0; k < customerOrders.size(); k++){
@@ -468,7 +471,7 @@ public class AnalyticsController {
             }
         }
 
-        return dailyRevenueOfFoodItem;
+        return Double.parseDouble(df2.format(dailyRevenueOfFoodItem));
     }
 
     @GetMapping("/analytics/getMonthlyRevenueBreakdownByFoodItem/{restaurantId}/{date}")
@@ -492,7 +495,7 @@ public class AnalyticsController {
         //Get all orders of a restaurant in specified month
         for(int i = 0; i < orders.size(); i++){
             Orders order = orders.get(i);
-            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,7).equals(date) && order.getPaymentStatus().equals("Paid")){
+            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,7).equals(date) && order.getPaymentStatus().equals("PAID")){
                 ordersOfRestaurant.add(order);
             }
         }
@@ -505,7 +508,7 @@ public class AnalyticsController {
                 String foodName = foodRepository.findById(customerOrder.getMenuFoodCatId().getFoodId()).get().getFoodName();
                 double foodMonthlyRevenue = toReturn.get(foodName);
                 double foodOrderRevenue = customerOrder.getCustomerOrderPrice();
-                toReturn.put(foodName, foodMonthlyRevenue+foodOrderRevenue);
+                toReturn.put(foodName, Double.parseDouble(df2.format(foodMonthlyRevenue+foodOrderRevenue)));
             }
         }
 
@@ -533,7 +536,7 @@ public class AnalyticsController {
         //Get all orders of a restaurant in specified month
         for(int i = 0; i < orders.size(); i++){
             Orders order = orders.get(i);
-            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,7).equals(date) && order.getPaymentStatus().equals("Paid")){
+            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,7).equals(date) && order.getPaymentStatus().equals("PAID")){
                 ordersOfRestaurant.add(order);
             }
         }
@@ -551,7 +554,7 @@ public class AnalyticsController {
             }
         }
 
-        toReturn.replaceAll((key, oldValue) -> (oldValue/monthlyTotalRevenue)*100);
+        toReturn.replaceAll((key, oldValue) -> Double.parseDouble(df2.format((oldValue/monthlyTotalRevenue)*100)));
 
         return sortByValue(toReturn);
     }
@@ -577,7 +580,7 @@ public class AnalyticsController {
         //Get all orders of a restaurant in specified month
         for(int i = 0; i < orders.size(); i++){
             Orders order = orders.get(i);
-            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,10).equals(dateYYYY_MM_DDFormat) && order.getPaymentStatus().equals("Paid")){
+            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,10).equals(dateYYYY_MM_DDFormat) && order.getPaymentStatus().equals("PAID")){
                 ordersOfRestaurant.add(order);
             }
         }
@@ -590,7 +593,7 @@ public class AnalyticsController {
                 String foodName = foodRepository.findById(customerOrder.getMenuFoodCatId().getFoodId()).get().getFoodName();
                 double foodDailyRevenue = toReturn.get(foodName);
                 double foodOrderRevenue = customerOrder.getCustomerOrderPrice();
-                toReturn.put(foodName, foodDailyRevenue+foodOrderRevenue);
+                toReturn.put(foodName, Double.parseDouble(df2.format(foodDailyRevenue+foodOrderRevenue)));
             }
         }
 
@@ -619,7 +622,7 @@ public class AnalyticsController {
         //Get all orders of a restaurant in specified month
         for(int i = 0; i < orders.size(); i++){
             Orders order = orders.get(i);
-            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,10).equals(dateYYYY_MM_DDFormat) && order.getPaymentStatus().equals("Paid")){
+            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,10).equals(dateYYYY_MM_DDFormat) && order.getPaymentStatus().equals("PAID")){
                 ordersOfRestaurant.add(order);
             }
         }
@@ -636,7 +639,7 @@ public class AnalyticsController {
             }
         }
 
-        toReturn.replaceAll((key, oldValue) -> (oldValue/totalDailyRevenue)*100);
+        toReturn.replaceAll((key, oldValue) -> Double.parseDouble(df2.format((oldValue/totalDailyRevenue)*100)));
 
         return sortByValue(toReturn);
     }
@@ -650,7 +653,7 @@ public class AnalyticsController {
         //Get all orders of a restaurant based on specified date
         for(int i = 0; i < orders.size(); i++){
             Orders order = orders.get(i);
-            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,7).equals(date) && order.getPaymentStatus().equals("Paid")){
+            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,7).equals(date) && order.getPaymentStatus().equals("PAID")){
                 Transaction transaction = new Transaction();
                 transaction.setOrderId(order.getOrderId());
                 transaction.setSeatingTable(order.getSeatingTable().getQrCode());
@@ -674,7 +677,7 @@ public class AnalyticsController {
         //Get all orders of a restaurant based on specified date
         for(int i = 0; i < orders.size(); i++){
             Orders order = orders.get(i);
-            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,10).equals(dateYYYY_MM_DDFormat) && order.getPaymentStatus().equals("Paid")){
+            if(order.getSeatingTable().getRestaurantId().equals(restaurantId) && order.getOrderDate().toString().substring(0,10).equals(dateYYYY_MM_DDFormat) && order.getPaymentStatus().equals("PAID")){
                 Transaction transaction = new Transaction();
                 transaction.setOrderId(order.getOrderId());
                 transaction.setSeatingTable(order.getSeatingTable().getQrCode());

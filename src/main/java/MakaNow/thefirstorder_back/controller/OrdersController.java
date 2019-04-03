@@ -158,7 +158,7 @@ public class OrdersController {
         List<Orders> orders = (List) ordersRepository.findAll();
         List<Orders> output = new ArrayList<>();
         for(Orders order: orders){
-            if(order.getOrderStatus().equals("SENT") && order.getCustomerOrders().size() > 0 ) {
+            if(order.getOrderStatus().equals("SENT") && (order.getPaymentStatus().equals("READY") || order.getPaymentStatus().equals("FAILED")) && order.getCustomerOrders().size() > 0 ) {
                 Restaurant restaurant = order.getSeatingTable().getRestaurant();
                 if(restaurant.getRestaurantId().equals(restaurantId)){
                     output.add(order);
@@ -177,6 +177,34 @@ public class OrdersController {
         return new ResponseEntity("Order Acknowledged", HttpStatus.OK);
     }
 
+    @PostMapping("/orders/successfulPaymentOfOrder/{restaurantId}/{orderId}/")
+    public ResponseEntity<?> payOrder( @PathVariable("restaurantId") String restaurantId, @PathVariable("orderId") String orderId) {
+        Optional<Orders> optionalOrder = ordersRepository.findById(orderId);
+        Orders orders = optionalOrder.get();
+        orders.setOrderStatus("PAID");
+        ordersRepository.save(orders);
+        return new ResponseEntity("Order Acknowledged", HttpStatus.OK);
+    }
+
+    @PostMapping("/orders/failedPaymentOfOrder/{restaurantId}/{orderId}/")
+    public ResponseEntity<?> failedOrder( @PathVariable("restaurantId") String restaurantId, @PathVariable("orderId") String orderId) {
+        Optional<Orders> optionalOrder = ordersRepository.findById(orderId);
+        Orders orders = optionalOrder.get();
+        orders.setPaymentStatus("FAILED");
+        ordersRepository.save(orders);
+        return new ResponseEntity("Payment Failed", HttpStatus.OK);
+    }
+
+    @PostMapping("/orders/cancelOrder/{restaurantId}/{orderId}/")
+    public ResponseEntity<?> cancelOrder( @PathVariable("restaurantId") String restaurantId, @PathVariable("orderId") String orderId) {
+        Optional<Orders> optionalOrder = ordersRepository.findById(orderId);
+        Orders orders = optionalOrder.get();
+        orders.setOrderStatus("CANCELLED");
+        orders.setPaymentStatus("FAILED");
+        ordersRepository.save(orders);
+        return new ResponseEntity("Order Cancelled", HttpStatus.OK);
+    }
+
     @GetMapping("/orders/restaurant/{restaurantId}/retrieve_acknowledged_orders/")
     @JsonView(View.OrdersView.class)
     public List<Orders> retrieveAcknowledgedOrders(@PathVariable String restaurantId) throws NotFoundException{
@@ -184,7 +212,7 @@ public class OrdersController {
         List<Orders> orders = (List) ordersRepository.findAll();
         List<Orders> output = new ArrayList<>();
         for(Orders order: orders){
-            if(order.getOrderStatus().equals("ACKNOWLEDGED") && order.getPaymentStatus().equals("Pending") ) {
+            if(order.getOrderStatus().equals("ACKNOWLEDGED") && order.getPaymentStatus().equals("PAID")) {
                 Restaurant restaurant = order.getSeatingTable().getRestaurant();
                 if(restaurant.getRestaurantId().equals(restaurantId)){
                     output.add(order);
