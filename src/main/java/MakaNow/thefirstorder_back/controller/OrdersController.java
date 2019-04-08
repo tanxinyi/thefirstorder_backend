@@ -173,6 +173,7 @@ public class OrdersController {
         Optional<Orders> optionalOrder = ordersRepository.findById(orderId);
         Orders orders = optionalOrder.get();
         orders.setOrderStatus("ACKNOWLEDGED");
+        orders.setPaymentStatus("PAID");
         ordersRepository.save(orders);
         return new ResponseEntity("Order Acknowledged", HttpStatus.OK);
     }
@@ -181,7 +182,7 @@ public class OrdersController {
     public ResponseEntity<?> payOrder( @PathVariable("restaurantId") String restaurantId, @PathVariable("orderId") String orderId) {
         Optional<Orders> optionalOrder = ordersRepository.findById(orderId);
         Orders orders = optionalOrder.get();
-        orders.setOrderStatus("PAID");
+        orders.setPaymentStatus("PAID");
         ordersRepository.save(orders);
         return new ResponseEntity("Order Acknowledged", HttpStatus.OK);
     }

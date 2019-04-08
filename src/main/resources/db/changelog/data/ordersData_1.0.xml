@@ -4949,7 +4949,7 @@
 		<insert tableName="orders">
 			<column name="order_id" value="O450" />
 			<column name="email" value="CUS001@MAKANOW.COM" />
-			<column name="token" value="tok_1EK7q6Hd8wmWybBrfoBIwTwe" />
+			<column name="token" value="tok_1EMt8NHd8wmWybBry3hE0a9g" />
 			<column name="qr_code" value="T001" />
 			<column name="total_amount" value="13.48" />
 			<column name="order_status" value="SENT" />
