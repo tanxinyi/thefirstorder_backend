@@ -1,7 +1,9 @@
 package MakaNow.thefirstorder_back.service;
 
+import MakaNow.thefirstorder_back.model.Food;
 import MakaNow.thefirstorder_back.model.FoodCategory;
 import MakaNow.thefirstorder_back.model.FoodPrice;
+import MakaNow.thefirstorder_back.model.UpdatedCategory;
 import MakaNow.thefirstorder_back.repository.FoodCategoryRepository;
 import MakaNow.thefirstorder_back.repository.FoodPriceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,5 +74,13 @@ public class FoodCategoryService {
             return ("FC0" + newFoodCategoryIdNumber);
         }
         return ("FC" + newFoodCategoryIdNumber);
+    }
+
+    public List<UpdatedCategory> convertCategories(List<FoodCategory> foodCategories){
+        List<UpdatedCategory> output = new ArrayList<>();
+        for(FoodCategory foodCategory: foodCategories){
+            output.add(new UpdatedCategory(foodCategory));
+        }
+        return output;
     }
 }

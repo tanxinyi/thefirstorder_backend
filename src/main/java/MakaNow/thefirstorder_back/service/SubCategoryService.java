@@ -2,6 +2,7 @@ package MakaNow.thefirstorder_back.service;
 
 import MakaNow.thefirstorder_back.model.FoodCategory;
 import MakaNow.thefirstorder_back.model.SubCategory;
+import MakaNow.thefirstorder_back.model.UpdatedSubCategory;
 import MakaNow.thefirstorder_back.repository.SubCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,5 +42,13 @@ public class SubCategoryService {
             return ("SC0" + newSubCategoryIdNumber);
         }
         return ("SC" + newSubCategoryIdNumber);
+    }
+
+    public List<UpdatedSubCategory> convertSubCategory(List<SubCategory> subCategories){
+        List<UpdatedSubCategory> output = new ArrayList<>();
+        for(SubCategory subCategory: subCategories){
+            output.add(new UpdatedSubCategory(subCategory));
+        }
+        return output;
     }
 }

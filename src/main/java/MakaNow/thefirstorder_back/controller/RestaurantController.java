@@ -1,11 +1,10 @@
 package MakaNow.thefirstorder_back.controller;
 
-import MakaNow.thefirstorder_back.model.Restaurant;
-import MakaNow.thefirstorder_back.model.UpdatedRestaurant;
-import MakaNow.thefirstorder_back.model.SeatingTable;
-import MakaNow.thefirstorder_back.model.View;
+import MakaNow.thefirstorder_back.model.*;
+import MakaNow.thefirstorder_back.repository.ActivityLogRepository;
 import MakaNow.thefirstorder_back.repository.RestaurantRepository;
 import MakaNow.thefirstorder_back.repository.SeatingTableRepository;
+import MakaNow.thefirstorder_back.service.ActivityLogService;
 import MakaNow.thefirstorder_back.service.RestaurantService;
 import MakaNow.thefirstorder_back.service.SeatingTableService;
 import com.fasterxml.jackson.annotation.JsonView;
@@ -18,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.Timestamp;
 import java.util.*;
 
 @CrossOrigin(origins = "*")
@@ -38,6 +38,12 @@ public class RestaurantController {
 
     @Autowired
     private RestaurantService restaurantService;
+
+    @Autowired
+    private ActivityLogRepository activityLogRepository;
+
+    @Autowired
+    private ActivityLogService activityLogService;
 
     @GetMapping("/restaurants")
     @JsonView(View.RestaurantView.class)
@@ -262,8 +268,8 @@ public class RestaurantController {
         return new ResponseEntity(toReturn, HttpStatus.OK);
     }
 
-    @PostMapping("/restaurants/updateConversionRates/{restaurantId}/{pointsToCash}/{cashToPoints}")
-    public ResponseEntity<?> updateConversionRates(@PathVariable String restaurantId, @PathVariable String pointsToCash, @PathVariable String cashToPoints) {
+    @PostMapping("/restaurants/updateConversionRates/{restaurantId}/{managerId}/{pointsToCash}/{cashToPoints}")
+    public ResponseEntity<?> updateConversionRates(@PathVariable String restaurantId, @PathVariable String managerId, @PathVariable String pointsToCash, @PathVariable String cashToPoints) {
 
         Optional<Restaurant> optionalRestaurant = restaurantRepository.findById(restaurantId);
         Restaurant restaurant = optionalRestaurant.get();
@@ -272,6 +278,21 @@ public class RestaurantController {
         restaurant.setMoneyToPointsConversionRate(Double.parseDouble(cashToPoints));
 
         restaurantRepository.save(restaurant);
+
+        ActivityLog activityLog = new ActivityLog();
+
+        String newActivityLogId = activityLogService.getNewActivityLogId();
+        activityLog.setActivityLogId(newActivityLogId);
+        activityLog.setManagerId(managerId);
+        activityLog.setRestaurantId(restaurantId);
+
+        String description = "Updated conversion rates";
+        activityLog.setDescription(description);
+
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        activityLog.setChangeTimeStamp(timestamp);
+
+        activityLogRepository.save(activityLog);
 
         return new ResponseEntity("Conversion rates updated successfully", HttpStatus.OK);
     }
