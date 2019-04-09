@@ -62,7 +62,7 @@
 		</insert>
 		<insert tableName="seating_table">
 			<column name="qr_code" value="T010"/>
-			<column name="restaurant_id" value="R007"/>
+			<column name="restaurant_id" value="R005"/>
             <column name="table_number" value=" "/>
 			<column name="table_capacity" valueNumeric="4"/>
 		</insert>
