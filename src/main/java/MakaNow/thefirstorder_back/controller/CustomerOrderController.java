@@ -105,9 +105,12 @@ public class CustomerOrderController {
 
         Orders order = ordersController.getOrdersById(orderId);
 
-        order.setTotalAmount(order.getTotalAmount() + price);
-        order.setOrderStatus("SENT");
-        ordersRepository.save(order);
+//        logger.info("Original Amount: " + order.getTotalAmount());
+//        logger.info("Price: " + price);
+//        order.setTotalAmount(order.getTotalAmount() + price);
+////        order.setOrderStatus("SENT");
+//        logger.info("Order New Amount: " + order.getTotalAmount());
+//        ordersRepository.save(order);
 
         FoodPrice foodPrice = foodPriceController
                 .getFoodPriceByMenuFoodCatId(
@@ -150,6 +153,8 @@ public class CustomerOrderController {
     public List<CustomerOrder> save(@Valid @RequestBody List<CustomerOrder> customerOrders) throws NotFoundException{
         logger.info("Saving Customer Orders");
         List<CustomerOrder> output = new ArrayList<>();
+
+        logger.info("Customer Order Size: " + customerOrders.size());
         for(CustomerOrder customerOrder: customerOrders){
             output.add(save(customerOrder));
         }

@@ -145,6 +145,7 @@ public class OrdersController {
         order.setTotalAmount(amount/100.0);
         logger.info("Updating Status");
         order.setPaymentStatus("READY");
+        order.setOrderStatus("SENT");
         logger.info("Updating Token");
         order.setToken(token);
 
